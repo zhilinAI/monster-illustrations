@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>西游 · 山海　精怪图志</title>
+<meta name="description" content="《西游记》与《山海经》的精怪谱录：按作品、分类、生境三层浏览，154 幅设定图与原文摘录对照。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23C2402C'/%3E%3Crect x='4.5' y='4.5' width='23' height='23' fill='none' stroke='%23E9E3D4' stroke-width='1.6'/%3E%3Cpath d='M11 11h10v10H11z' stroke='%23E9E3D4' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0A0E0C; --ink2:#0E1512; --ink3:#131B17;
+  --hair:#242E28; --hair2:#313D36;
+  --rice:#E9E3D4; --dim:#8D998F; --dim2:#66736B;
+  --zhu:#C2402C; --cui:#4E8B75; --liu:#C09A4E; --hun:#8FA3B2;
+  --serif:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
+  --sans:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;
+  --mono:"Consolas","SFMono-Regular","Menlo",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--rice);
+  font:400 15px/1.72 var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--zhu);color:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1380px;margin:0 auto;padding:0 32px}
+@media (max-width:640px){.wrap{padding:0 18px}}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:30;background:var(--ink);
+  border-bottom:1px solid var(--hair);
+}
+.topbar .wrap{display:flex;align-items:center;gap:20px;min-height:58px}
+.brand{font-family:var(--serif);font-size:16px;letter-spacing:.18em;white-space:nowrap}
+.brand span{color:var(--zhu)}
+.crumbs{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--dim);flex:1;min-width:0;overflow:hidden;white-space:nowrap}
+.crumbs i{color:var(--dim2);font-style:normal}
+.crumbs a:hover{color:var(--rice)}
+.crumbs b{color:var(--rice);font-weight:400}
+.topmeta{font-size:11px;letter-spacing:.12em;color:var(--dim);font-family:var(--mono);white-space:nowrap}
+@media (max-width:640px){.topmeta{display:none}.brand{font-size:14px;letter-spacing:.1em}}
+
+/* ---------- 视图切换 ---------- */
+.view{display:none}
+body[data-view="works"] .view--works,
+body[data-view="cats"] .view--cats,
+body[data-view="gallery"] .view--gallery{display:block}
+.workview,.workgal{display:none}
+.workview.is-on,.workgal.is-on{display:block}
+
+.kicker{
+  display:flex;align-items:center;gap:10px;
+  font-size:11px;letter-spacing:.32em;color:var(--dim);
+}
+.kicker::before{content:"";width:26px;height:1px;background:var(--zhu)}
+
+/* ---------- 卷一 · 作品 ---------- */
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1fr;gap:44px}
+@media (min-width:1000px){.hero{grid-template-columns:1.12fr .88fr;gap:64px;align-items:center;padding:84px 0 64px}}
+.hero-copy h1{
+  margin:22px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(64px,11vw,146px);line-height:.94;letter-spacing:.06em;
+}
+.hero-copy h1 em{font-style:normal;display:block;font-size:clamp(20px,2.4vw,28px);letter-spacing:.32em;color:var(--dim);margin-top:20px}
+.hero-copy p.lede{margin:26px 0 0;max-width:34em;color:var(--dim);font-size:14px;line-height:1.9}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:34px;border-top:1px solid var(--hair)}
+.hero-stats div{padding:16px 0 0;border-right:1px solid var(--hair)}
+.hero-stats div:last-child{border-right:0}
+.hero-stats b{display:block;font-family:var(--mono);font-size:24px;font-weight:400;letter-spacing:.04em}
+.hero-stats span{display:block;font-size:11px;color:var(--dim);letter-spacing:.18em;margin-top:4px}
+@media (max-width:640px){.hero{padding:44px 0 36px}.hero-stats b{font-size:19px}.hero-stats span{letter-spacing:.1em}}
+
+.hero-plate{border:1px solid var(--hair);background:var(--ink2);padding:10px}
+.hero-plate figure{margin:0;position:relative;overflow:hidden}
+.hero-plate img{aspect-ratio:16/9;height:auto;object-fit:cover;width:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.hero-plate:hover img{transform:scale(1.02)}
+.hero-plate .cap{display:flex;justify-content:space-between;gap:12px;padding:11px 4px 2px;font-size:11.5px;color:var(--dim);letter-spacing:.06em}
+.hero-plate .cap b{color:var(--rice);font-weight:400;font-family:var(--serif);font-size:13px;letter-spacing:.1em}
+
+/* ---------- 名称检索 ---------- */
+.searchband{border-top:1px solid var(--hair);padding:40px 0 52px}
+.searchband .kicker{margin-bottom:22px}
+.searchrow{display:block;max-width:760px}
+.searchfield{position:relative}
+.searchfield input{
+  width:100%;padding:12px 0 12px 0;background:transparent;border:0;
+  border-bottom:1px solid var(--hair2);color:var(--rice);
+  font-size:18px;font-family:var(--sans);outline:none;transition:border-color .2s;
+}
+.searchfield input::placeholder{color:var(--dim2);font-size:15px}
+.searchfield input:focus{border-color:var(--zhu)}
+.results{margin-top:18px}
+.results[data-empty="1"]{display:none}
+.rgroup{font-size:11px;letter-spacing:.24em;color:var(--dim);margin:18px 0 6px}
+.rrow{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  padding:11px 0;border-top:1px solid var(--hair);
+}
+.rrow:hover{background:var(--ink3)}
+.rrow .rname{font-family:var(--serif);font-size:16px;letter-spacing:.04em}
+.rrow .rsub{font-size:11.5px;color:var(--dim);letter-spacing:.06em;margin-left:auto}
+.rrow .rgo{font-size:11px;color:var(--dim2)}
+.rrow--work .rname{font-size:18px}
+.empty{color:var(--dim);font-size:13px;padding:14px 0;border-top:1px solid var(--hair)}
+.emptykbd{color:var(--rice)}
+
+/* ---------- 作品索引 ---------- */
+.workindex{border-top:1px solid var(--hair);padding:40px 0 64px}
+.idxhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:6px}
+.idxhead h2{margin:0;font-family:var(--serif);font-size:22px;font-weight:400;letter-spacing:.16em}
+.idxhead span{font-size:11px;color:var(--dim);letter-spacing:.16em}
+.workcard{
+  display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  transition:background .25s;
+}
+@media (min-width:820px){.workcard{grid-template-columns:104px 1fr 300px 168px;align-items:center}}
+.workcard:hover{background:var(--ink3)}
+.seal{
+  display:grid;grid-template-columns:1fr 1fr;place-items:center;
+  width:74px;height:74px;margin:15px auto;
+  border:1.5px solid var(--work,var(--zhu));color:var(--work,var(--zhu));
+  font-family:var(--serif);font-size:19px;line-height:1;letter-spacing:0;
+}
+.seal i{font-style:normal;display:grid;place-items:center;width:100%;height:100%}
+@media (max-width:819px){.seal{margin:16px 0 0 18px}}
+.wbody{padding:22px 24px 24px}
+.wbody h3{margin:0;font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:.14em}
+.wbody h3 small{margin-left:10px;font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--dim)}
+.wbody p{margin:8px 0 14px;color:var(--dim);font-size:13px;line-height:1.8;max-width:40em}
+.wtags{display:flex;flex-wrap:wrap;gap:6px}
+.wtags span{font-size:11px;letter-spacing:.14em;border:1px solid var(--hair2);padding:2px 8px;color:var(--dim)}
+.whabs{padding:0 24px 24px}
+@media (min-width:820px){.whabs{padding:0 0}}
+.habrow{display:flex;align-items:center;gap:10px;padding:4px 0;font-size:11.5px;color:var(--dim)}
+.habrow em{font-style:normal;width:4.8em;letter-spacing:.06em;white-space:nowrap}
+.habrow .track{flex:1;height:2px;background:var(--hair);position:relative;min-width:30px}
+.habrow .bar{position:absolute;left:0;top:0;height:2px;background:var(--zhu);opacity:.85}
+.habrow b{font-family:var(--mono);font-weight:400;color:var(--rice);width:2em;text-align:right}
+.wcta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:24px;border-top:1px solid var(--hair);font-size:12px;letter-spacing:.16em;color:var(--dim)}
+@media (min-width:820px){.wcta{border-top:0;border-left:1px solid var(--hair);flex-direction:row;justify-content:center;align-items:center;height:100%;padding:0 28px;gap:12px;letter-spacing:.1em}}
+.wcta .arrow{font-family:var(--mono);color:var(--work,var(--zhu));font-size:18px}
+.wcta:hover{color:var(--rice);background:var(--ink3)}
+.wquick{padding:16px 24px;font-size:11.5px;color:var(--dim)}
+.wquick a{border-bottom:1px solid var(--hair2);padding-bottom:1px}
+.wquick a:hover{color:var(--rice);border-color:var(--zhu)}
+
+/* ---------- 卷二 · 分类 ---------- */
+.chead{padding:64px 0 34px;border-bottom:1px solid var(--hair)}
+.chead h1{margin:18px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.6vw,50px);letter-spacing:.16em;line-height:1.1}
+.chead h1 em{font-style:normal;font-size:13px;letter-spacing:.3em;color:var(--dim);margin-left:18px;vertical-align:middle}
+.chead p{margin:18px 0 0;color:var(--dim);font-size:13.5px;max-width:40em;line-height:1.9}
+.catlist{padding:0 0 40px}
+.catrow{
+  display:grid;grid-template-columns:64px 1fr;gap:0;
+  border-bottom:1px solid var(--hair);position:relative;
+  transition:background .25s;
+}
+@media (min-width:900px){
+  .catrow{grid-template-columns:168px 1fr 330px 132px;align-items:center;min-height:150px}
+  .catcta{border-top:0;border-left:1px solid var(--hair);height:100%;padding:0;flex-direction:row;gap:6px;letter-spacing:.12em}
+}
+.catrow:hover{background:var(--ink3)}
+.catrow:hover .catcta{color:var(--rice);border-color:var(--hair2)}
+.catglyph{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:64px;line-height:1;
+  color:var(--cat);padding:16px 0;
+  border-right:1px solid var(--hair);
+}
+@media (max-width:899px){
+  .catglyph{grid-column:1;grid-row:1 / span 2}
+  .catmain{grid-column:2;grid-row:1}
+  .cathabs{grid-column:2;grid-row:2}
+  .catcta{grid-column:1 / -1;grid-row:3}
+}
+@media (min-width:900px){.catglyph{font-size:112px;min-height:150px}}
+.catmain{padding:18px 20px 20px}
+.catmain h2{margin:0;font-family:var(--serif);font-weight:400;font-size:24px;letter-spacing:.2em}
+.catmain h2 b{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--dim);margin-left:10px;letter-spacing:.1em}
+.catmain p{margin:8px 0 0;color:var(--dim);font-size:12.5px;line-height:1.85;max-width:30em}
+.cathabs{padding:0 20px 20px}
+@media (min-width:900px){.cathabs{padding:0}}
+.habrow--cat em{width:4.4em}
+.habrow--cat .bar{background:var(--cat)}
+.catcta{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  border-top:1px solid var(--hair);padding:14px;font-size:11.5px;letter-spacing:.2em;color:var(--dim);
+}
+.catcta .arrow{font-family:var(--mono);color:var(--cat);font-size:16px}
+.note{
+  border:1px solid var(--hair);border-left:2px solid var(--zhu);
+  padding:18px 22px;margin:0 0 64px;color:var(--dim);font-size:12.5px;line-height:1.95;max-width:58em;
+}
+.note b{color:var(--rice);font-weight:400;letter-spacing:.1em}
+
+/* ---------- 卷三 · 生境 ---------- */
+.view--gallery{--cat:var(--zhu)}
+.ghead{padding:56px 0 0}
+.gtitle{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--hair);padding-bottom:22px}
+.gtitle h1{margin:14px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(28px,4.4vw,44px);letter-spacing:.14em;line-height:1.1}
+.gtitle h1 i{font-style:normal;color:var(--cat);margin-right:.2em}
+.gtitle .gmeta{font-size:11.5px;color:var(--dim);letter-spacing:.14em;font-family:var(--mono)}
+.gbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:18px 0 6px}
+.chip{
+  border:1px solid var(--hair2);padding:5px 12px;font-size:11.5px;letter-spacing:.16em;color:var(--dim);
+  transition:color .2s,border-color .2s,background .2s;
+}
+.chip:hover{color:var(--rice);border-color:var(--dim)}
+.chip[aria-pressed="true"]{color:var(--rice);border-color:var(--cat);background:var(--ink3)}
+.chip b{font-family:var(--mono);font-weight:400;margin-left:6px;color:var(--dim)}
+.gbar .backlink{margin-left:auto;font-size:11.5px;color:var(--dim);letter-spacing:.16em;border-bottom:1px solid var(--hair2);padding-bottom:1px}
+.gbar .backlink:hover{color:var(--rice);border-color:var(--zhu)}
+
+.gsec{border-top:1px solid var(--hair);padding:34px 0 46px}
+.gsechead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.gsecchar{
+  font-family:var(--serif);font-size:30px;line-height:1;color:var(--cat);
+  border:1px solid var(--cat);width:44px;height:44px;display:grid;place-items:center;
+  align-self:center;flex:none;
+}
+.gsecname{font-family:var(--serif);font-size:21px;letter-spacing:.18em}
+.gsecname small{font-family:var(--sans);font-size:11.5px;color:var(--dim);letter-spacing:.1em;margin-left:10px}
+.gseccount{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--dim);letter-spacing:.1em}
+.gsecdesc{flex-basis:100%;color:var(--dim);font-size:12px;letter-spacing:.06em;margin:-4px 0 0 58px}
+
+.grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1120px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+.plate{
+  border:1px solid var(--hair);background:var(--ink2);position:relative;
+  transition:border-color .25s,background .25s;
+  --cat:var(--zhu);
+}
+.plate:hover{border-color:var(--cat);background:var(--ink3)}
+.plate-fig{display:block;overflow:hidden;aspect-ratio:16/9;background:#0B0F0D}
+.plate-fig img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.plate:hover .plate-fig img{transform:scale(1.035)}
+.plate-fig:focus-visible{outline:2px solid var(--cat);outline-offset:-2px}
+figcaption{padding:14px 16px 15px}
+.pname{font-family:var(--serif);font-size:17.5px;letter-spacing:.05em;line-height:1.3}
+.pname .psub{font-family:var(--sans);font-size:11.5px;color:var(--dim);letter-spacing:.06em;margin-left:7px;white-space:nowrap}
+.pmeta{display:flex;align-items:center;gap:7px;margin-top:9px;font-size:11px;color:var(--dim);letter-spacing:.1em;flex-wrap:wrap}
+.tag{border:1px solid var(--hair2);padding:1px 7px}
+.tag--cat{color:var(--cat);border-color:var(--cat);opacity:.9}
+.pbasis{margin:7px 0 0;font-size:11.5px;color:var(--dim2);line-height:1.65}
+.moremark{
+  position:absolute;right:0;top:0;padding:3px 8px;font-family:var(--mono);font-size:10px;
+  color:var(--dim);background:rgba(10,14,12,.72);border-left:1px solid var(--hair);border-bottom:1px solid var(--hair);
+}
+
+/* 最后一行只剩一张时横排收尾 */
+@media (min-width:640px){
+  .plate.is-wide{grid-column:span 2;display:grid;grid-template-columns:1.06fr .94fr;align-items:stretch}
+  .plate.is-wide .plate-fig{aspect-ratio:auto;height:100%;min-height:210px}
+  .plate.is-wide figcaption{align-self:center;padding:20px 22px}
+  .plate.is-wide .pname{font-size:22px}
+}
+.gempty{color:var(--dim2);font-size:12px;letter-spacing:.1em;padding:10px 0 0}
+
+/* ---------- 灯箱 ---------- */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(6,9,8,.965);display:grid;grid-template-columns:1fr;overflow-y:auto;overscroll-behavior:contain}
+.lb[hidden]{display:none}
+@media (min-width:940px){.lb{grid-template-columns:minmax(0,1.25fr) minmax(0,.95fr);overflow:hidden;height:100%}}
+.lb-fig{background:#07090A;display:grid;place-items:center;padding:18px;min-height:32vh}
+@media (min-width:940px){.lb-fig{padding:36px;height:100%}}
+.lb-fig img{width:100%;height:auto;max-height:calc(100vh - 90px);object-fit:contain;border:1px solid #1B2420}
+.lb-body{padding:26px 22px 60px;max-width:660px}
+@media (min-width:940px){.lb-body{padding:60px 48px 60px;overflow-y:auto;height:100vh;max-width:none}}
+.lb-close{position:fixed;right:14px;top:12px;z-index:61;width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--hair2);color:var(--rice);background:rgba(10,14,12,.7);font-family:var(--mono);font-size:15px}
+.lb-close:hover{border-color:var(--zhu);color:var(--zhu)}
+.lb-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.lb-title{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.4vw,38px);letter-spacing:.08em;line-height:1.2}
+.lb-sub2{margin:10px 0 0;font-size:13px;color:var(--dim);letter-spacing:.2em}
+.lb-sub{margin:10px 0 0;font-size:12px;color:var(--dim);letter-spacing:.12em}
+.lb-sec{margin-top:30px}
+.lb-sec h3{margin:0 0 8px;font-size:10.5px;letter-spacing:.3em;color:var(--dim);font-weight:400}
+.lb-sec .v{font-size:13px;color:#CFC9BA;line-height:1.85}
+.lb-quote{
+  font-family:var(--serif);font-size:15.5px;line-height:2.1;color:#DCD5C4;
+  border-left:2px solid var(--cat);padding-left:18px;white-space:pre-wrap;
+}
+.lb-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:40px;border-top:1px solid var(--hair);padding-top:16px}
+.lb-foot button{font-size:11.5px;letter-spacing:.16em;color:var(--dim);border:1px solid var(--hair2);padding:8px 14px;min-height:40px}
+.lb-foot button:hover{color:var(--rice);border-color:var(--cat)}
+.lb-foot .idx{font-family:var(--mono);font-size:11.5px;color:var(--dim2)}
+
+/* ---------- 页脚 ---------- */
+footer{border-top:1px solid var(--hair);padding:34px 0 48px;color:var(--dim2);font-size:11.5px;line-height:2}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer a{border-bottom:1px solid var(--hair2)}
+footer a:hover{color:var(--dim)}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
+:focus-visible{outline:2px solid var(--zhu);outline-offset:2px}
+</style>
+</head>
+<body data-view="works">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#/">西游<span>·</span>山海 图志</a>
+    <nav class="crumbs" id="crumbs" aria-label="层级导航"></nav>
+    <div class="topmeta">{{TOPMETA}}</div>
+  </div>
+</header>
+
+<main>
+  <!-- ===== 视图：卷一 作品 ===== -->
+  <section class="view view--works" aria-label="作品层">
+    <div class="wrap">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="kicker">卷一　作品</p>
+          <h1>精怪图志<em>西 游 · 山 海</em></h1>
+          <p class="lede">两部经典的异兽谱录。西游取经道上的妖魔精怪，按妖、精、鬼、怪四类归纳；山海荒服之内的神民兽禽，按兽、禽、神、民四类归纳。各自再以居所安置，逐幅附原文或描述，图与文互为注脚。</p>
+          <div class="hero-stats">
+            <div><b>{{N_WORKS}}</b><span>作品</span></div>
+            <div><b>{{N_ITEMS}}</b><span>设定图</span></div>
+            <div><b>{{N_CATS}}</b><span>分类</span></div>
+            <div><b>{{N_HABS}}</b><span>生境</span></div>
+          </div>
+        </div>
+        <div class="hero-plate">
+          <figure>
+            <img src="assets/characters/02.webp" alt="孙悟空（齐天大圣）角色设定图" width="1600" height="903" fetchpriority="high">
+          </figure>
+          <div class="cap"><b>孙悟空（齐天大圣）</b><span>第 02 幅 · 第四回</span></div>
+        </div>
+      </div>
+
+      <div class="searchband">
+        <p class="kicker">名称检索</p>
+        <div class="searchrow">
+          <div>
+            <div class="searchfield">
+              <input id="q" type="search" autocomplete="off" spellcheck="false"
+                     placeholder="输入作品名，或名目：白骨精 / 九尾狐"
+                     aria-label="按名称检索作品与条目">
+            </div>
+          </div>
+          <div class="results" id="results" data-empty="1" aria-live="polite">
+            <div id="results-body"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workindex">
+        <div class="idxhead"><h2>收录作品</h2><span>{{N_WORKS}} 部</span></div>
+        {{WORKCARDS}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 视图：卷二 分类 ===== -->
+  <section class="view view--cats" aria-label="分类层">
+    <div class="wrap">
+      {{CATVIEWS}}
+    </div>
+  </section>
+
+  <!-- ===== 视图：卷三 生境 ===== -->
+  <section class="view view--gallery" aria-label="生境层">
+    <div class="wrap">
+      <div class="ghead">
+        <div class="gtitle">
+          <div>
+            <p class="kicker">卷三　生境</p>
+            <h1><i id="gcat-char">妖</i><span id="gcat-name">生境图录</span></h1>
+          </div>
+          <div class="gmeta" id="gmeta"></div>
+        </div>
+        <div class="gbar" id="gbar"></div>
+      </div>
+      {{GALLERIES}}
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>西游 · 山海　精怪图志　·　原文与描述据通行本摘录，分类与生境为编者所立　·　共 {{N_ITEMS}} 幅设定图</div>
+    <div>数据 <a href="data/characters.json">data/characters.json</a>　·　<a href="data/shanhaijing.json">data/shanhaijing.json</a>　·　生成脚本 <a href="tools/build_site.py">tools/build_site.py</a>　·　代码 MIT</div>
+  </div>
+</footer>
+
+<!-- ===== 灯箱 ===== -->
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <button class="lb-close" id="lb-close" aria-label="关闭">
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 5 19 19M19 5 5 19" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+  </button>
+  <div class="lb-fig"><img id="lb-img" alt=""></div>
+  <div class="lb-body" id="lb-body"></div>
+</div>
+
+<script>
+(function(){
+  var WORKMETA = {{WORKMETA_JS}};
+  var WORKORDER = Object.keys(WORKMETA);
+  var plates = Array.prototype.slice.call(document.querySelectorAll('.plate'));
+  var grids = Array.prototype.slice.call(document.querySelectorAll('.grid'));
+  var results = document.getElementById('results');
+  var resultsBody = document.getElementById('results-body');
+  var input = document.getElementById('q');
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lb-img');
+  var lbBody = document.getElementById('lb-body');
+  var crumbs = document.getElementById('crumbs');
+  var gbar = document.getElementById('gbar');
+  var current = {work:'xyj', cat:null, hab:null};
+  var lbList = [];
+  var lbPos = 0;
+  var lastFocus = null;
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  /* ---- 面包屑 ---- */
+  function setCrumbs(items){
+    crumbs.innerHTML = items.map(function(it, i){
+      var sep = i ? '<i>/</i>' : '';
+      return sep + (it.href ? '<a href="' + it.href + '">' + esc(it.text) + '</a>' : '<b>' + esc(it.text) + '</b>');
+    }).join('');
+  }
+
+  /* ---- 分栏收尾：最后一行只剩一张时横排 ---- */
+  function layoutGrids(){
+    grids.forEach(function(g){
+      if (!g.offsetParent) return;
+      var visible = Array.prototype.filter.call(g.children, function(c){ return c.offsetParent !== null; });
+      visible.forEach(function(c){ c.classList.remove('is-wide'); });
+      var cols = getComputedStyle(g).gridTemplateColumns.split(' ').length;
+      if (cols > 1 && visible.length > 1 && visible.length % cols === 1){
+        visible[visible.length - 1].classList.add('is-wide');
+      }
+    });
+  }
+
+  /* ---- 元数据小工具 ---- */
+  function catsOf(w){ return WORKMETA[w].cats; }
+  function habsOf(w){ return WORKMETA[w].habs; }
+  function catName(w, c){ return catsOf(w)[c] ? catsOf(w)[c].name : ''; }
+  function catColor(w, c){ return catsOf(w)[c] ? 'var(--' + catsOf(w)[c].color + ')' : 'var(--zhu)'; }
+  function habName(w, h){ return habsOf(w)[h] ? habsOf(w)[h].name : ''; }
+  function workTitle(w){ return WORKMETA[w].title; }
+
+  /* ---- 生境分布条 ---- */
+  function habBars(scope, work, cat){
+    var counts = {}, order = WORKMETA[work].habOrder;
+    order.forEach(function(k){ counts[k] = 0; });
+    var list = plates.filter(function(p){
+      return p.dataset.work === work && (!cat || cat === 'all' || p.dataset.cat === cat) &&
+             (!scope || p.dataset.hab === scope);
+    });
+    list.forEach(function(p){ counts[p.dataset.hab]++; });
+    var max = Math.max.apply(null, order.map(function(k){ return counts[k]; })) || 1;
+    return order.map(function(k){
+      var w = Math.round(counts[k] / max * 100);
+      return '<div class="habrow' + (cat ? ' habrow--cat' : '') + '"><em>' + habName(work, k) +
+        '</em><span class="track"><span class="bar" style="width:' + w + '%"></span></span>' +
+        '<b>' + counts[k] + '</b></div>';
+    }).join('');
+  }
+
+  /* ---- 视图切换 ---- */
+  function showView(v){ document.body.dataset.view = v; }
+
+  function showWorkBlock(selector, work){
+    document.querySelectorAll(selector).forEach(function(el){
+      el.classList.toggle('is-on', el.dataset.work === work);
+    });
+  }
+
+  function renderCats(work){
+    current.work = work;
+    current.cat = null;
+    current.hab = null;
+    showView('cats');
+    showWorkBlock('.workview', work);
+    setCrumbs([{text:'作品', href:'#/'}, {text:workTitle(work) + ' · 分类'}]);
+    window.scrollTo(0, 0);
+  }
+
+  function applyFilter(){
+    var work = current.work, cat = current.cat, hab = current.hab;
+    plates.forEach(function(p){
+      if (p.dataset.work !== work) return;
+      var okCat = (cat === 'all' || p.dataset.cat === cat);
+      var okHab = (!hab || p.dataset.hab === hab);
+      p.style.display = (okCat && okHab) ? '' : 'none';
+    });
+    document.querySelectorAll('.workgal.is-on .gsec').forEach(function(sec){
+      var visible = Array.prototype.filter.call(sec.querySelectorAll('.plate'), function(p){
+        return p.style.display !== 'none';
+      }).length;
+      sec.hidden = visible === 0;
+      var c = sec.querySelector('.gseccount');
+      if (c) c.textContent = visible + ' 幅';
+    });
+    layoutGrids();
+    renderChips();
+  }
+
+  function renderChips(){
+    var work = current.work, order = WORKMETA[work].habOrder;
+    var counts = {};
+    order.forEach(function(k){ counts[k] = 0; });
+    plates.forEach(function(p){
+      if (p.dataset.work !== work) return;
+      if (current.cat === 'all' || p.dataset.cat === current.cat) counts[p.dataset.hab]++;
+    });
+    var total = order.reduce(function(a, k){ return a + counts[k]; }, 0);
+    var html = '<button class="chip" data-hab="" aria-pressed="' + (current.hab ? 'false' : 'true') + '">全部<b>' + total + '</b></button>';
+    order.forEach(function(k){
+      if (!counts[k]) return;
+      html += '<button class="chip" data-hab="' + k + '" aria-pressed="' + (current.hab === k ? 'true' : 'false') + '">' +
+        habName(work, k) + '<b>' + counts[k] + '</b></button>';
+    });
+    html += '<a class="backlink" href="#/w/' + work + '">返回分类</a>';
+    gbar.innerHTML = html;
+    gbar.querySelectorAll('.chip').forEach(function(b){
+      b.addEventListener('click', function(){
+        current.hab = b.dataset.hab || null;
+        applyFilter();
+      });
+    });
+  }
+
+  function renderGallery(work, cat){
+    current.work = work;
+    current.cat = cat;
+    current.hab = null;
+    showView('gallery');
+    showWorkBlock('.workgal', work);
+    document.querySelector('.view--gallery').style.setProperty('--cat',
+      cat === 'all' ? 'var(--zhu)' : catColor(work, cat));
+    var charEl = document.getElementById('gcat-char');
+    var nameEl = document.getElementById('gcat-name');
+    if (cat === 'all'){
+      charEl.textContent = '录';
+      nameEl.textContent = '全部图录';
+    } else {
+      charEl.textContent = catName(work, cat);
+      nameEl.textContent = '生境图录';
+    }
+    var n = plates.filter(function(p){
+      return p.dataset.work === work && (cat === 'all' || p.dataset.cat === cat);
+    }).length;
+    document.getElementById('gmeta').textContent = n + ' 幅';
+    setCrumbs([
+      {text:'作品', href:'#/'},
+      {text:workTitle(work), href:'#/w/' + work},
+      {text:(cat === 'all' ? '全部图录' : catName(work, cat) + ' 类') + ' · 生境'}
+    ]);
+    applyFilter();
+    window.scrollTo(0, 0);
+  }
+
+  /* ---- 灯箱 ---- */
+  function plateData(p){
+    var d = {};
+    p.querySelectorAll('.plate-data [data-k]').forEach(function(n){ d[n.dataset.k] = n.innerHTML; });
+    return d;
+  }
+
+  function openLB(id){
+    var p = plates.filter(function(x){ return x.dataset.id === id && x.dataset.work === current.work; })[0];
+    if (!p) return;
+    lbList = plates.filter(function(x){ return x.dataset.work === current.work && x.style.display !== 'none'; });
+    lbPos = lbList.indexOf(p);
+    drawLB();
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lastFocus = document.activeElement;
+    document.getElementById('lb-close').focus();
+  }
+
+  function drawLB(){
+    var p = lbList[lbPos];
+    if (!p) return;
+    var d = plateData(p);
+    var work = p.dataset.work;
+    var cat = p.dataset.cat, hab = p.dataset.hab;
+    var nameEl = p.querySelector('.pname');
+    var subEl = nameEl.querySelector('.psub');
+    var main = nameEl.textContent.replace(subEl ? subEl.textContent : '', '').trim();
+    var sub = subEl ? subEl.textContent : '';
+    var img = p.querySelector('img');
+    lbImg.src = img.getAttribute('src');
+    lbImg.alt = img.getAttribute('alt');
+    lbBody.innerHTML =
+      '<div class="lb-tags">' +
+        '<span class="tag tag--cat" style="--cat:' + catColor(work, cat) + '">' + catName(work, cat) + '</span>' +
+        '<span class="tag">' + habName(work, hab) + '</span>' +
+        '<span class="tag">' + (d.num || '') + '</span>' +
+      '</div>' +
+      '<h2 class="lb-title" id="lb-title">' + esc(main) + '</h2>' +
+      (sub ? '<p class="lb-sub2">' + esc(sub) + '</p>' : '') +
+      '<p class="lb-sub">' + (d.chapter || '') + '</p>' +
+      '<div class="lb-sec"><h3>描写内容</h3><div class="v">' + (d.desc || '') + '</div></div>' +
+      ((d.quote && d.quote.replace(/\s/g, '')) ?
+        '<div class="lb-sec"><h3>原文</h3><div class="lb-quote">' + d.quote + '</div></div>' : '') +
+      '<div class="lb-sec"><h3>分类与生境</h3><div class="v">' + (d.basis || '') + '</div></div>' +
+      '<div class="lb-foot">' +
+        '<button id="lb-prev">上一幅</button>' +
+        '<span class="idx">' + (lbPos + 1) + ' / ' + lbList.length + '</span>' +
+        '<button id="lb-next">下一幅</button>' +
+      '</div>';
+    lbBody.querySelector('#lb-prev').addEventListener('click', function(){ step(-1); });
+    lbBody.querySelector('#lb-next').addEventListener('click', function(){ step(1); });
+    lbBody.scrollTop = 0;
+  }
+
+  function step(n){
+    lbPos = (lbPos + n + lbList.length) % lbList.length;
+    drawLB();
+  }
+
+  function closeLB(){
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    var seg = location.hash.replace(/^#/, '').split('/').filter(Boolean);
+    if (seg.length && /^\d{2}$/.test(seg[seg.length - 1])){
+      seg.pop();
+      location.hash = '#/' + seg.join('/');
+    }
+  }
+
+  document.getElementById('lb-close').addEventListener('click', closeLB);
+  lb.addEventListener('click', function(e){ if (e.target === lb) closeLB(); });
+  document.addEventListener('keydown', function(e){
+    if (lb.hidden) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+
+  /* 在“全部图录”里点开任一幅，保持在全部视图内 */
+  document.querySelectorAll('.plate-fig').forEach(function(a){
+    a.addEventListener('click', function(e){
+      if (current.cat === 'all'){
+        var plate = a.closest('.plate');
+        e.preventDefault();
+        location.hash = '#/w/' + plate.dataset.work + '/x/all/' + plate.dataset.id;
+      }
+    });
+  });
+
+  /* ---- 检索 ---- */
+  var WORKS = WORKORDER.map(function(id){
+    var n = plates.filter(function(p){ return p.dataset.work === id; }).length;
+    var m = WORKMETA[id];
+    return {
+      id: id, title: m.title, href: '#/w/' + id,
+      alias: id === 'xyj' ? '西游 西游释厄传 西游证道书' : '山海 山经 海经 山海经异兽',
+      sub: n + ' 幅 · ' + Object.keys(m.cats).length + ' 类 · ' + Object.keys(m.habs).length + ' 境'
+    };
+  });
+  function norm(s){ return String(s).replace(/\s+/g,'').toLowerCase(); }
+
+  function search(){
+    var q = norm(input.value);
+    if (!q){ results.dataset.empty = '1'; resultsBody.innerHTML = ''; return; }
+    var w = WORKS.filter(function(x){ return norm(x.title).indexOf(q) > -1 || norm(x.alias).indexOf(q) > -1; });
+    var c = plates.filter(function(p){ return norm(p.dataset.name).indexOf(q) > -1; });
+    results.dataset.empty = (w.length + c.length) ? '0' : '1';
+    var html = '';
+    if (w.length){
+      html += '<div class="rgroup">作品</div>';
+      w.forEach(function(x){
+        html += '<button class="rrow rrow--work" data-href="' + x.href + '"><span class="rname">' + esc(x.title) +
+          '</span><span class="rsub">' + esc(x.sub) + '</span><span class="rgo">进入</span></button>';
+      });
+    }
+    if (c.length){
+      html += '<div class="rgroup">条目 · ' + c.length + ' 条</div>';
+      c.slice(0, 8).forEach(function(p){
+        html += '<button class="rrow" data-href="#/w/' + p.dataset.work + '/x/' + p.dataset.cat + '/' + p.dataset.id + '">' +
+          '<span class="rname">' + esc(p.dataset.name) + '</span>' +
+          '<span class="tag">' + workTitle(p.dataset.work) + '</span>' +
+          '<span class="tag tag--cat" style="--cat:' + catColor(p.dataset.work, p.dataset.cat) + '">' + catName(p.dataset.work, p.dataset.cat) + '</span>' +
+          '<span class="tag">' + habName(p.dataset.work, p.dataset.hab) + '</span>' +
+          '<span class="rsub">' + esc(p.dataset.chapter) + '</span><span class="rgo">查看</span></button>';
+      });
+      if (c.length > 8) html += '<div class="empty">另有 ' + (c.length - 8) + ' 条，输入更精确的名称可缩小范围。</div>';
+    }
+    if (!w.length && !c.length){
+      html = '<div class="empty">没有匹配的条目。可试「<span class="emptykbd">白骨精</span>」「<span class="emptykbd">九尾狐</span>」「<span class="emptykbd">毕方</span>」，或直接回车浏览全部。</div>';
+    }
+    resultsBody.innerHTML = html;
+    resultsBody.querySelectorAll('.rrow').forEach(function(b){
+      b.addEventListener('click', function(){ location.hash = b.dataset.href; });
+    });
+  }
+
+  input.addEventListener('input', search);
+  input.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') return;
+    var first = resultsBody.querySelector('.rrow');
+    if (first) location.hash = first.dataset.href;
+    else location.hash = '#/w/' + current.work + '/x/all';
+  });
+
+  /* ---- 路由 ---- */
+  function route(){
+    var seg = location.hash.replace(/^#/, '').split('/').filter(Boolean);
+    if (seg[0] === 'x') seg = ['w', 'xyj'].concat(seg);   /* 兼容旧地址 #/x/... */
+    if (!seg.length || seg[0] !== 'w'){
+      showView('works');
+      setCrumbs([{text:'作品'}]);
+      window.scrollTo(0, 0);
+      return;
+    }
+    var work = WORKMETA[seg[1]] ? seg[1] : 'xyj';
+    if (seg[2] !== 'x'){ renderCats(work); return; }
+    var cat = (catName(work, seg[3]) || seg[3] === 'all') ? seg[3] : 'all';
+    renderGallery(work, cat);
+    if (seg[4]) openLB(seg[4]);
+  }
+
+  window.addEventListener('hashchange', function(){
+    if (!lb.hidden) { lb.hidden = true; document.body.style.overflow = ''; }
+    route();
+  });
+  window.addEventListener('resize', function(){ layoutGrids(); });
+  route();
+  layoutGrids();
+})();
+</script>
+</body>
+</html>

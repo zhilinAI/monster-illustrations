@@ -1,0 +1,5 @@
+# 构建与截图的过程产物
+_shots/
+_probe_*.html
+__pycache__/
+*.pyc

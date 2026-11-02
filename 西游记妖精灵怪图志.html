@@ -1,0 +1,3628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>西游 · 山海　精怪图志</title>
+<meta name="description" content="《西游记》与《山海经》的精怪谱录：按作品、分类、生境三层浏览，154 幅设定图与原文摘录对照。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23C2402C'/%3E%3Crect x='4.5' y='4.5' width='23' height='23' fill='none' stroke='%23E9E3D4' stroke-width='1.6'/%3E%3Cpath d='M11 11h10v10H11z' stroke='%23E9E3D4' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0A0E0C; --ink2:#0E1512; --ink3:#131B17;
+  --hair:#242E28; --hair2:#313D36;
+  --rice:#E9E3D4; --dim:#8D998F; --dim2:#66736B;
+  --zhu:#C2402C; --cui:#4E8B75; --liu:#C09A4E; --hun:#8FA3B2;
+  --serif:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
+  --sans:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;
+  --mono:"Consolas","SFMono-Regular","Menlo",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--rice);
+  font:400 15px/1.72 var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--zhu);color:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1380px;margin:0 auto;padding:0 32px}
+@media (max-width:640px){.wrap{padding:0 18px}}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:30;background:var(--ink);
+  border-bottom:1px solid var(--hair);
+}
+.topbar .wrap{display:flex;align-items:center;gap:20px;min-height:58px}
+.brand{font-family:var(--serif);font-size:16px;letter-spacing:.18em;white-space:nowrap}
+.brand span{color:var(--zhu)}
+.crumbs{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--dim);flex:1;min-width:0;overflow:hidden;white-space:nowrap}
+.crumbs i{color:var(--dim2);font-style:normal}
+.crumbs a:hover{color:var(--rice)}
+.crumbs b{color:var(--rice);font-weight:400}
+.topmeta{font-size:11px;letter-spacing:.12em;color:var(--dim);font-family:var(--mono);white-space:nowrap}
+@media (max-width:640px){.topmeta{display:none}.brand{font-size:14px;letter-spacing:.1em}}
+
+/* ---------- 视图切换 ---------- */
+.view{display:none}
+body[data-view="works"] .view--works,
+body[data-view="cats"] .view--cats,
+body[data-view="gallery"] .view--gallery{display:block}
+.workview,.workgal{display:none}
+.workview.is-on,.workgal.is-on{display:block}
+
+.kicker{
+  display:flex;align-items:center;gap:10px;
+  font-size:11px;letter-spacing:.32em;color:var(--dim);
+}
+.kicker::before{content:"";width:26px;height:1px;background:var(--zhu)}
+
+/* ---------- 卷一 · 作品 ---------- */
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1fr;gap:44px}
+@media (min-width:1000px){.hero{grid-template-columns:1.12fr .88fr;gap:64px;align-items:center;padding:84px 0 64px}}
+.hero-copy h1{
+  margin:22px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(64px,11vw,146px);line-height:.94;letter-spacing:.06em;
+}
+.hero-copy h1 em{font-style:normal;display:block;font-size:clamp(20px,2.4vw,28px);letter-spacing:.32em;color:var(--dim);margin-top:20px}
+.hero-copy p.lede{margin:26px 0 0;max-width:34em;color:var(--dim);font-size:14px;line-height:1.9}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:34px;border-top:1px solid var(--hair)}
+.hero-stats div{padding:16px 0 0;border-right:1px solid var(--hair)}
+.hero-stats div:last-child{border-right:0}
+.hero-stats b{display:block;font-family:var(--mono);font-size:24px;font-weight:400;letter-spacing:.04em}
+.hero-stats span{display:block;font-size:11px;color:var(--dim);letter-spacing:.18em;margin-top:4px}
+@media (max-width:640px){.hero{padding:44px 0 36px}.hero-stats b{font-size:19px}.hero-stats span{letter-spacing:.1em}}
+
+.hero-plate{border:1px solid var(--hair);background:var(--ink2);padding:10px}
+.hero-plate figure{margin:0;position:relative;overflow:hidden}
+.hero-plate img{aspect-ratio:16/9;height:auto;object-fit:cover;width:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.hero-plate:hover img{transform:scale(1.02)}
+.hero-plate .cap{display:flex;justify-content:space-between;gap:12px;padding:11px 4px 2px;font-size:11.5px;color:var(--dim);letter-spacing:.06em}
+.hero-plate .cap b{color:var(--rice);font-weight:400;font-family:var(--serif);font-size:13px;letter-spacing:.1em}
+
+/* ---------- 名称检索 ---------- */
+.searchband{border-top:1px solid var(--hair);padding:40px 0 52px}
+.searchband .kicker{margin-bottom:22px}
+.searchrow{display:block;max-width:760px}
+.searchfield{position:relative}
+.searchfield input{
+  width:100%;padding:12px 0 12px 0;background:transparent;border:0;
+  border-bottom:1px solid var(--hair2);color:var(--rice);
+  font-size:18px;font-family:var(--sans);outline:none;transition:border-color .2s;
+}
+.searchfield input::placeholder{color:var(--dim2);font-size:15px}
+.searchfield input:focus{border-color:var(--zhu)}
+.results{margin-top:18px}
+.results[data-empty="1"]{display:none}
+.rgroup{font-size:11px;letter-spacing:.24em;color:var(--dim);margin:18px 0 6px}
+.rrow{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  padding:11px 0;border-top:1px solid var(--hair);
+}
+.rrow:hover{background:var(--ink3)}
+.rrow .rname{font-family:var(--serif);font-size:16px;letter-spacing:.04em}
+.rrow .rsub{font-size:11.5px;color:var(--dim);letter-spacing:.06em;margin-left:auto}
+.rrow .rgo{font-size:11px;color:var(--dim2)}
+.rrow--work .rname{font-size:18px}
+.empty{color:var(--dim);font-size:13px;padding:14px 0;border-top:1px solid var(--hair)}
+.emptykbd{color:var(--rice)}
+
+/* ---------- 作品索引 ---------- */
+.workindex{border-top:1px solid var(--hair);padding:40px 0 64px}
+.idxhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:6px}
+.idxhead h2{margin:0;font-family:var(--serif);font-size:22px;font-weight:400;letter-spacing:.16em}
+.idxhead span{font-size:11px;color:var(--dim);letter-spacing:.16em}
+.workcard{
+  display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  transition:background .25s;
+}
+@media (min-width:820px){.workcard{grid-template-columns:104px 1fr 300px 168px;align-items:center}}
+.workcard:hover{background:var(--ink3)}
+.seal{
+  display:grid;grid-template-columns:1fr 1fr;place-items:center;
+  width:74px;height:74px;margin:15px auto;
+  border:1.5px solid var(--work,var(--zhu));color:var(--work,var(--zhu));
+  font-family:var(--serif);font-size:19px;line-height:1;letter-spacing:0;
+}
+.seal i{font-style:normal;display:grid;place-items:center;width:100%;height:100%}
+@media (max-width:819px){.seal{margin:16px 0 0 18px}}
+.wbody{padding:22px 24px 24px}
+.wbody h3{margin:0;font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:.14em}
+.wbody h3 small{margin-left:10px;font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--dim)}
+.wbody p{margin:8px 0 14px;color:var(--dim);font-size:13px;line-height:1.8;max-width:40em}
+.wtags{display:flex;flex-wrap:wrap;gap:6px}
+.wtags span{font-size:11px;letter-spacing:.14em;border:1px solid var(--hair2);padding:2px 8px;color:var(--dim)}
+.whabs{padding:0 24px 24px}
+@media (min-width:820px){.whabs{padding:0 0}}
+.habrow{display:flex;align-items:center;gap:10px;padding:4px 0;font-size:11.5px;color:var(--dim)}
+.habrow em{font-style:normal;width:4.8em;letter-spacing:.06em;white-space:nowrap}
+.habrow .track{flex:1;height:2px;background:var(--hair);position:relative;min-width:30px}
+.habrow .bar{position:absolute;left:0;top:0;height:2px;background:var(--zhu);opacity:.85}
+.habrow b{font-family:var(--mono);font-weight:400;color:var(--rice);width:2em;text-align:right}
+.wcta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:24px;border-top:1px solid var(--hair);font-size:12px;letter-spacing:.16em;color:var(--dim)}
+@media (min-width:820px){.wcta{border-top:0;border-left:1px solid var(--hair);flex-direction:row;justify-content:center;align-items:center;height:100%;padding:0 28px;gap:12px;letter-spacing:.1em}}
+.wcta .arrow{font-family:var(--mono);color:var(--work,var(--zhu));font-size:18px}
+.wcta:hover{color:var(--rice);background:var(--ink3)}
+.wquick{padding:16px 24px;font-size:11.5px;color:var(--dim)}
+.wquick a{border-bottom:1px solid var(--hair2);padding-bottom:1px}
+.wquick a:hover{color:var(--rice);border-color:var(--zhu)}
+
+/* ---------- 卷二 · 分类 ---------- */
+.chead{padding:64px 0 34px;border-bottom:1px solid var(--hair)}
+.chead h1{margin:18px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.6vw,50px);letter-spacing:.16em;line-height:1.1}
+.chead h1 em{font-style:normal;font-size:13px;letter-spacing:.3em;color:var(--dim);margin-left:18px;vertical-align:middle}
+.chead p{margin:18px 0 0;color:var(--dim);font-size:13.5px;max-width:40em;line-height:1.9}
+.catlist{padding:0 0 40px}
+.catrow{
+  display:grid;grid-template-columns:64px 1fr;gap:0;
+  border-bottom:1px solid var(--hair);position:relative;
+  transition:background .25s;
+}
+@media (min-width:900px){
+  .catrow{grid-template-columns:168px 1fr 330px 132px;align-items:center;min-height:150px}
+  .catcta{border-top:0;border-left:1px solid var(--hair);height:100%;padding:0;flex-direction:row;gap:6px;letter-spacing:.12em}
+}
+.catrow:hover{background:var(--ink3)}
+.catrow:hover .catcta{color:var(--rice);border-color:var(--hair2)}
+.catglyph{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:64px;line-height:1;
+  color:var(--cat);padding:16px 0;
+  border-right:1px solid var(--hair);
+}
+@media (max-width:899px){
+  .catglyph{grid-column:1;grid-row:1 / span 2}
+  .catmain{grid-column:2;grid-row:1}
+  .cathabs{grid-column:2;grid-row:2}
+  .catcta{grid-column:1 / -1;grid-row:3}
+}
+@media (min-width:900px){.catglyph{font-size:112px;min-height:150px}}
+.catmain{padding:18px 20px 20px}
+.catmain h2{margin:0;font-family:var(--serif);font-weight:400;font-size:24px;letter-spacing:.2em}
+.catmain h2 b{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--dim);margin-left:10px;letter-spacing:.1em}
+.catmain p{margin:8px 0 0;color:var(--dim);font-size:12.5px;line-height:1.85;max-width:30em}
+.cathabs{padding:0 20px 20px}
+@media (min-width:900px){.cathabs{padding:0}}
+.habrow--cat em{width:4.4em}
+.habrow--cat .bar{background:var(--cat)}
+.catcta{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  border-top:1px solid var(--hair);padding:14px;font-size:11.5px;letter-spacing:.2em;color:var(--dim);
+}
+.catcta .arrow{font-family:var(--mono);color:var(--cat);font-size:16px}
+.note{
+  border:1px solid var(--hair);border-left:2px solid var(--zhu);
+  padding:18px 22px;margin:0 0 64px;color:var(--dim);font-size:12.5px;line-height:1.95;max-width:58em;
+}
+.note b{color:var(--rice);font-weight:400;letter-spacing:.1em}
+
+/* ---------- 卷三 · 生境 ---------- */
+.view--gallery{--cat:var(--zhu)}
+.ghead{padding:56px 0 0}
+.gtitle{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--hair);padding-bottom:22px}
+.gtitle h1{margin:14px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(28px,4.4vw,44px);letter-spacing:.14em;line-height:1.1}
+.gtitle h1 i{font-style:normal;color:var(--cat);margin-right:.2em}
+.gtitle .gmeta{font-size:11.5px;color:var(--dim);letter-spacing:.14em;font-family:var(--mono)}
+.gbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:18px 0 6px}
+.chip{
+  border:1px solid var(--hair2);padding:5px 12px;font-size:11.5px;letter-spacing:.16em;color:var(--dim);
+  transition:color .2s,border-color .2s,background .2s;
+}
+.chip:hover{color:var(--rice);border-color:var(--dim)}
+.chip[aria-pressed="true"]{color:var(--rice);border-color:var(--cat);background:var(--ink3)}
+.chip b{font-family:var(--mono);font-weight:400;margin-left:6px;color:var(--dim)}
+.gbar .backlink{margin-left:auto;font-size:11.5px;color:var(--dim);letter-spacing:.16em;border-bottom:1px solid var(--hair2);padding-bottom:1px}
+.gbar .backlink:hover{color:var(--rice);border-color:var(--zhu)}
+
+.gsec{border-top:1px solid var(--hair);padding:34px 0 46px}
+.gsechead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.gsecchar{
+  font-family:var(--serif);font-size:30px;line-height:1;color:var(--cat);
+  border:1px solid var(--cat);width:44px;height:44px;display:grid;place-items:center;
+  align-self:center;flex:none;
+}
+.gsecname{font-family:var(--serif);font-size:21px;letter-spacing:.18em}
+.gsecname small{font-family:var(--sans);font-size:11.5px;color:var(--dim);letter-spacing:.1em;margin-left:10px}
+.gseccount{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--dim);letter-spacing:.1em}
+.gsecdesc{flex-basis:100%;color:var(--dim);font-size:12px;letter-spacing:.06em;margin:-4px 0 0 58px}
+
+.grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1120px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+.plate{
+  border:1px solid var(--hair);background:var(--ink2);position:relative;
+  transition:border-color .25s,background .25s;
+  --cat:var(--zhu);
+}
+.plate:hover{border-color:var(--cat);background:var(--ink3)}
+.plate-fig{display:block;overflow:hidden;aspect-ratio:16/9;background:#0B0F0D}
+.plate-fig img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.plate:hover .plate-fig img{transform:scale(1.035)}
+.plate-fig:focus-visible{outline:2px solid var(--cat);outline-offset:-2px}
+figcaption{padding:14px 16px 15px}
+.pname{font-family:var(--serif);font-size:17.5px;letter-spacing:.05em;line-height:1.3}
+.pname .psub{font-family:var(--sans);font-size:11.5px;color:var(--dim);letter-spacing:.06em;margin-left:7px;white-space:nowrap}
+.pmeta{display:flex;align-items:center;gap:7px;margin-top:9px;font-size:11px;color:var(--dim);letter-spacing:.1em;flex-wrap:wrap}
+.tag{border:1px solid var(--hair2);padding:1px 7px}
+.tag--cat{color:var(--cat);border-color:var(--cat);opacity:.9}
+.pbasis{margin:7px 0 0;font-size:11.5px;color:var(--dim2);line-height:1.65}
+.moremark{
+  position:absolute;right:0;top:0;padding:3px 8px;font-family:var(--mono);font-size:10px;
+  color:var(--dim);background:rgba(10,14,12,.72);border-left:1px solid var(--hair);border-bottom:1px solid var(--hair);
+}
+
+/* 最后一行只剩一张时横排收尾 */
+@media (min-width:640px){
+  .plate.is-wide{grid-column:span 2;display:grid;grid-template-columns:1.06fr .94fr;align-items:stretch}
+  .plate.is-wide .plate-fig{aspect-ratio:auto;height:100%;min-height:210px}
+  .plate.is-wide figcaption{align-self:center;padding:20px 22px}
+  .plate.is-wide .pname{font-size:22px}
+}
+.gempty{color:var(--dim2);font-size:12px;letter-spacing:.1em;padding:10px 0 0}
+
+/* ---------- 灯箱 ---------- */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(6,9,8,.965);display:grid;grid-template-columns:1fr;overflow-y:auto;overscroll-behavior:contain}
+.lb[hidden]{display:none}
+@media (min-width:940px){.lb{grid-template-columns:minmax(0,1.25fr) minmax(0,.95fr);overflow:hidden;height:100%}}
+.lb-fig{background:#07090A;display:grid;place-items:center;padding:18px;min-height:32vh}
+@media (min-width:940px){.lb-fig{padding:36px;height:100%}}
+.lb-fig img{width:100%;height:auto;max-height:calc(100vh - 90px);object-fit:contain;border:1px solid #1B2420}
+.lb-body{padding:26px 22px 60px;max-width:660px}
+@media (min-width:940px){.lb-body{padding:60px 48px 60px;overflow-y:auto;height:100vh;max-width:none}}
+.lb-close{position:fixed;right:14px;top:12px;z-index:61;width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--hair2);color:var(--rice);background:rgba(10,14,12,.7);font-family:var(--mono);font-size:15px}
+.lb-close:hover{border-color:var(--zhu);color:var(--zhu)}
+.lb-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.lb-title{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.4vw,38px);letter-spacing:.08em;line-height:1.2}
+.lb-sub2{margin:10px 0 0;font-size:13px;color:var(--dim);letter-spacing:.2em}
+.lb-sub{margin:10px 0 0;font-size:12px;color:var(--dim);letter-spacing:.12em}
+.lb-sec{margin-top:30px}
+.lb-sec h3{margin:0 0 8px;font-size:10.5px;letter-spacing:.3em;color:var(--dim);font-weight:400}
+.lb-sec .v{font-size:13px;color:#CFC9BA;line-height:1.85}
+.lb-quote{
+  font-family:var(--serif);font-size:15.5px;line-height:2.1;color:#DCD5C4;
+  border-left:2px solid var(--cat);padding-left:18px;white-space:pre-wrap;
+}
+.lb-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:40px;border-top:1px solid var(--hair);padding-top:16px}
+.lb-foot button{font-size:11.5px;letter-spacing:.16em;color:var(--dim);border:1px solid var(--hair2);padding:8px 14px;min-height:40px}
+.lb-foot button:hover{color:var(--rice);border-color:var(--cat)}
+.lb-foot .idx{font-family:var(--mono);font-size:11.5px;color:var(--dim2)}
+
+/* ---------- 页脚 ---------- */
+footer{border-top:1px solid var(--hair);padding:34px 0 48px;color:var(--dim2);font-size:11.5px;line-height:2}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer a{border-bottom:1px solid var(--hair2)}
+footer a:hover{color:var(--dim)}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
+:focus-visible{outline:2px solid var(--zhu);outline-offset:2px}
+</style>
+</head>
+<body data-view="works">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#/">西游<span>·</span>山海 图志</a>
+    <nav class="crumbs" id="crumbs" aria-label="层级导航"></nav>
+    <div class="topmeta">156 幅 · 2 部 · 8 类</div>
+  </div>
+</header>
+
+<main>
+  <!-- ===== 视图：卷一 作品 ===== -->
+  <section class="view view--works" aria-label="作品层">
+    <div class="wrap">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="kicker">卷一　作品</p>
+          <h1>精怪图志<em>西 游 · 山 海</em></h1>
+          <p class="lede">两部经典的异兽谱录。西游取经道上的妖魔精怪，按妖、精、鬼、怪四类归纳；山海荒服之内的神民兽禽，按兽、禽、神、民四类归纳。各自再以居所安置，逐幅附原文或描述，图与文互为注脚。</p>
+          <div class="hero-stats">
+            <div><b>2</b><span>作品</span></div>
+            <div><b>156</b><span>设定图</span></div>
+            <div><b>8</b><span>分类</span></div>
+            <div><b>8</b><span>生境</span></div>
+          </div>
+        </div>
+        <div class="hero-plate">
+          <figure>
+            <img src="assets/characters/02.webp" alt="孙悟空（齐天大圣）角色设定图" width="1600" height="903" fetchpriority="high">
+          </figure>
+          <div class="cap"><b>孙悟空（齐天大圣）</b><span>第 02 幅 · 第四回</span></div>
+        </div>
+      </div>
+
+      <div class="searchband">
+        <p class="kicker">名称检索</p>
+        <div class="searchrow">
+          <div>
+            <div class="searchfield">
+              <input id="q" type="search" autocomplete="off" spellcheck="false"
+                     placeholder="输入作品名，或名目：白骨精 / 九尾狐"
+                     aria-label="按名称检索作品与条目">
+            </div>
+          </div>
+          <div class="results" id="results" data-empty="1" aria-live="polite">
+            <div id="results-body"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workindex">
+        <div class="idxhead"><h2>收录作品</h2><span>2 部</span></div>
+        <a class="workcard" href="#/w/xyj" style="--work:var(--zhu)">
+  <span class="seal"><i>西</i><i>游</i><i>记</i><i>图</i></span>
+  <div class="wbody">
+    <h3>西游记<small>明 · 吴承恩（旧题）</small></h3>
+    <p>取经路上所遇妖魔精怪的形象谱录，按妖、精、鬼、怪分类，以海、陆、空、地（穴）安置，逐条附回目与原文。</p>
+    <div class="wtags"><span>60 幅设定</span><span>4 类</span><span>4 境</span><span>60 段原文</span></div>
+  </div>
+  <div class="whabs">
+        <div class="habrow"><em>海</em><span class="track"><span class="bar" style="width:17%"></span></span><b>6</b></div>
+        <div class="habrow"><em>陆</em><span class="track"><span class="bar" style="width:43%"></span></span><b>15</b></div>
+        <div class="habrow"><em>空</em><span class="track"><span class="bar" style="width:11%"></span></span><b>4</b></div>
+        <div class="habrow"><em>地（穴）</em><span class="track"><span class="bar" style="width:100%"></span></span><b>35</b></div>
+  </div>
+  <span class="wcta">进入分类<span class="arrow">→</span></span>
+</a>
+<div class="wquick">或 <a href="#/w/xyj/x/all">浏览全部 60 幅，按生境排列</a></div>
+<a class="workcard" href="#/w/shj" style="--work:var(--cui)">
+  <span class="seal"><i>山</i><i>海</i><i>经</i><i>图</i></span>
+  <div class="wbody">
+    <h3>山海经<small>先秦 · 佚名（旧题）</small></h3>
+    <p>山海荒服之内的异兽、异禽、神祇与异国异民，按兽、禽、神、民分类，以山、水、国、天安置，逐条附描述与判定依据。</p>
+    <div class="wtags"><span>96 幅设定</span><span>4 类</span><span>4 境</span><span>96 条描述</span></div>
+  </div>
+  <div class="whabs">
+        <div class="habrow"><em>山</em><span class="track"><span class="bar" style="width:100%"></span></span><b>58</b></div>
+        <div class="habrow"><em>水</em><span class="track"><span class="bar" style="width:14%"></span></span><b>8</b></div>
+        <div class="habrow"><em>国</em><span class="track"><span class="bar" style="width:43%"></span></span><b>25</b></div>
+        <div class="habrow"><em>天</em><span class="track"><span class="bar" style="width:9%"></span></span><b>5</b></div>
+  </div>
+  <span class="wcta">进入分类<span class="arrow">→</span></span>
+</a>
+<div class="wquick">或 <a href="#/w/shj/x/all">浏览全部 96 幅，按生境排列</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 视图：卷二 分类 ===== -->
+  <section class="view view--cats" aria-label="分类层">
+    <div class="wrap">
+      <div class="workview" data-work="xyj">
+  <div class="chead">
+    <p class="kicker">卷二　分类</p>
+    <h1>西游记<em>妖 · 精 · 鬼 · 怪</em></h1>
+    <p>四类之分，取原文对本相、称号与居所的写法：<span style="color:var(--zhu)">妖</span>、<span style="color:var(--cui)">精</span>、<span style="color:var(--hun)">鬼</span>、<span style="color:var(--liu)">怪</span>。选一类，即入生境图录。</p>
+  </div>
+  <div class="catlist">
+<a class="catrow" href="#/w/xyj/x/yao" data-cat="yao" style="--cat:var(--zhu)">
+  <span class="catglyph">妖</span>
+  <div class="catmain"><h2>妖<b>21 幅</b></h2><p>占山踞洞、统率妖众的魔头，多以人形示人。</p></div>
+  <div class="cathabs">
+      <div class="habrow habrow--cat"><em>海</em><span class="track"><span class="bar" style="width:13%"></span></span><b>2</b></div>
+      <div class="habrow habrow--cat"><em>陆</em><span class="track"><span class="bar" style="width:13%"></span></span><b>2</b></div>
+      <div class="habrow habrow--cat"><em>空</em><span class="track"><span class="bar" style="width:13%"></span></span><b>2</b></div>
+      <div class="habrow habrow--cat"><em>地（穴）</em><span class="track"><span class="bar" style="width:100%"></span></span><b>15</b></div>
+  </div>
+  <span class="catcta">入图录 <span class="arrow">→</span></span>
+</a>
+<a class="catrow" href="#/w/xyj/x/jing" data-cat="jing" style="--cat:var(--cui)">
+  <span class="catglyph">精</span>
+  <div class="catmain"><h2>精<b>35 幅</b></h2><p>兽、禽、鱼虫、草木成精，本相可指认者。</p></div>
+  <div class="cathabs">
+      <div class="habrow habrow--cat"><em>海</em><span class="track"><span class="bar" style="width:11%"></span></span><b>2</b></div>
+      <div class="habrow habrow--cat"><em>陆</em><span class="track"><span class="bar" style="width:63%"></span></span><b>12</b></div>
+      <div class="habrow habrow--cat"><em>空</em><span class="track"><span class="bar" style="width:11%"></span></span><b>2</b></div>
+      <div class="habrow habrow--cat"><em>地（穴）</em><span class="track"><span class="bar" style="width:100%"></span></span><b>19</b></div>
+  </div>
+  <span class="catcta">入图录 <span class="arrow">→</span></span>
+</a>
+<a class="catrow" href="#/w/xyj/x/gui" data-cat="gui" style="--cat:var(--hun)">
+  <span class="catglyph">鬼</span>
+  <div class="catmain"><h2>鬼<b>1 幅</b></h2><p>尸骸、骷髅、僵尸一类，原著中仅此一例可归。</p></div>
+  <div class="cathabs">
+      <div class="habrow habrow--cat"><em>海</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+      <div class="habrow habrow--cat"><em>陆</em><span class="track"><span class="bar" style="width:100%"></span></span><b>1</b></div>
+      <div class="habrow habrow--cat"><em>空</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+      <div class="habrow habrow--cat"><em>地（穴）</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+  </div>
+  <span class="catcta">入图录 <span class="arrow">→</span></span>
+</a>
+<a class="catrow" href="#/w/xyj/x/guai" data-cat="guai" style="--cat:var(--liu)">
+  <span class="catglyph">怪</span>
+  <div class="catmain"><h2>怪<b>3 幅</b></h2><p>本相难归一类、书中始终以「怪」称之者。</p></div>
+  <div class="cathabs">
+      <div class="habrow habrow--cat"><em>海</em><span class="track"><span class="bar" style="width:100%"></span></span><b>2</b></div>
+      <div class="habrow habrow--cat"><em>陆</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+      <div class="habrow habrow--cat"><em>空</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+      <div class="habrow habrow--cat"><em>地（穴）</em><span class="track"><span class="bar" style="width:50%"></span></span><b>1</b></div>
+  </div>
+  <span class="catcta">入图录 <span class="arrow">→</span></span>
+</a>
+  </div>
+  <div class="note"><b>分类口径</b>　「妖 · 精 · 鬼 · 怪」与「海 · 陆 · 空 · 地（穴）」两层分类由编者依原文所载判定，用于检索与编排，并非原著官方分类。原著中可明确归入「鬼」的形象极少，本图志仅收白骨夫人本相一例；「怪」类亦只三例。条目若与本相、居所记载有出入，以原文为准，可在 <span style="font-family:var(--mono);font-size:11.5px">tools/taxonomy.json</span> 中改写后重新生成。</div>
+</div>
+<div class="workview" data-work="shj">
+  <div class="chead">
+    <p class="kicker">卷二　分类</p>
+    <h1>山海经<em>兽 · 禽 · 神 · 民</em></h1>
+    <p>四类之分，取描述文本对本相与居处的写法：<span style="color:var(--cui)">兽</span>、<span style="color:var(--hun)">禽</span>、<span style="color:var(--liu)">神</span>、<span style="color:var(--zhu)">民</span>。选一类，即入生境图录。</p>
+  </div>
+  <div class="catlist">
+<a class="catrow" href="#/w/shj/x/shou" data-cat="shou" style="--cat:var(--cui)">
+  <span class="catglyph">兽</span>
+  <div class="catmain"><h2>兽<b>51 幅</b></h2><p>走兽、水族、虫蛇一类，本相仍落在畜兽之间。</p></div>
+  <div class="cathabs">
+      <div class="habrow habrow--cat"><em>山</em><span class="track"><span class="bar" style="width:100%"></span></span><b>42</b></div>
+      <div class="habrow habrow--cat"><em>水</em><span class="track"><span class="bar" style="width:12%"></span></span><b>5</b></div>
+      <div class="habrow habrow--cat"><em>国</em><span class="track"><span class="bar" style="width:10%"></span></span><b>4</b></div>
+      <div class="habrow habrow--cat"><em>天</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+  </div>
+  <span class="catcta">入图录 <span class="arrow">→</span></span>
+</a>
+<a class="catrow" href="#/w/shj/x/qin" data-cat="qin" style="--cat:var(--hun)">
+  <span class="catglyph">禽</span>
+  <div class="catmain"><h2>禽<b>8 幅</b></h2><p>飞禽一类，以鸟形为本相或有翼能飞者。</p></div>
+  <div class="cathabs">
+      <div class="habrow habrow--cat"><em>山</em><span class="track"><span class="bar" style="width:100%"></span></span><b>8</b></div>
+      <div class="habrow habrow--cat"><em>水</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+      <div class="habrow habrow--cat"><em>国</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+      <div class="habrow habrow--cat"><em>天</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+  </div>
+  <span class="catcta">入图录 <span class="arrow">→</span></span>
+</a>
+<a class="catrow" href="#/w/shj/x/shen" data-cat="shen" style="--cat:var(--liu)">
+  <span class="catglyph">神</span>
+  <div class="catmain"><h2>神<b>17 幅</b></h2><p>神祇与司天、司雨、司雷者，多具人面而兼兽身。</p></div>
+  <div class="cathabs">
+      <div class="habrow habrow--cat"><em>山</em><span class="track"><span class="bar" style="width:100%"></span></span><b>8</b></div>
+      <div class="habrow habrow--cat"><em>水</em><span class="track"><span class="bar" style="width:38%"></span></span><b>3</b></div>
+      <div class="habrow habrow--cat"><em>国</em><span class="track"><span class="bar" style="width:12%"></span></span><b>1</b></div>
+      <div class="habrow habrow--cat"><em>天</em><span class="track"><span class="bar" style="width:62%"></span></span><b>5</b></div>
+  </div>
+  <span class="catcta">入图录 <span class="arrow">→</span></span>
+</a>
+<a class="catrow" href="#/w/shj/x/min" data-cat="min" style="--cat:var(--zhu)">
+  <span class="catglyph">民</span>
+  <div class="catmain"><h2>民<b>20 幅</b></h2><p>异国异民，形体、居处异于常人者。</p></div>
+  <div class="cathabs">
+      <div class="habrow habrow--cat"><em>山</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+      <div class="habrow habrow--cat"><em>水</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+      <div class="habrow habrow--cat"><em>国</em><span class="track"><span class="bar" style="width:100%"></span></span><b>20</b></div>
+      <div class="habrow habrow--cat"><em>天</em><span class="track"><span class="bar" style="width:0%"></span></span><b>0</b></div>
+  </div>
+  <span class="catcta">入图录 <span class="arrow">→</span></span>
+</a>
+  </div>
+  <div class="note"><b>分类口径</b>　《山海经》原书按南、西、北、东、中诸经分卷，并无「兽 · 禽 · 神 · 民」之别；本图志为检索方便，由编者依描述文本判定归类，以山、水、国、天安置，非原著分类。所据描述文本共 96 条，均已收入，其中第 18 条（相柳）、第 25 条（雷神）两幅设定图为按同一版式补绘。条目若与原文记载有出入，以原文为准，可在 <span style="font-family:var(--mono);font-size:11.5px">tools/taxonomy_shj.json</span> 中改写后重新生成。</div>
+</div>
+    </div>
+  </section>
+
+  <!-- ===== 视图：卷三 生境 ===== -->
+  <section class="view view--gallery" aria-label="生境层">
+    <div class="wrap">
+      <div class="ghead">
+        <div class="gtitle">
+          <div>
+            <p class="kicker">卷三　生境</p>
+            <h1><i id="gcat-char">妖</i><span id="gcat-name">生境图录</span></h1>
+          </div>
+          <div class="gmeta" id="gmeta"></div>
+        </div>
+        <div class="gbar" id="gbar"></div>
+      </div>
+      <div class="workgal" data-work="xyj">
+<section class="gsec" data-hab="hai">
+  <div class="gsechead">
+    <span class="gsecchar">海</span>
+    <span class="gsecname">江河水府</span>
+    <span class="gseccount">6 幅</span>
+    <span class="gsecdesc">龙宫、潭渊与河底水宅</span>
+  </div>
+  <div class="grid">
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="hai" data-id="09" data-name="沙悟净" data-chapter="第二十二回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/09" aria-label="打开 沙悟净 的设定与原文"><img src="assets/characters/09.webp" alt="沙悟净 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">09</span>
+  <figcaption>
+    <div class="pname">沙悟净</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">海</span><span>第二十二回</span></div>
+    <p class="pbasis">流沙河妖，水底安身</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 09 幅</span>
+    <span data-k="chapter">第二十二回 八戒大战流沙河</span>
+    <span data-k="desc">兵器、形貌</span>
+    <span data-k="quote">一头红焰发蓬松，两只圆睛亮似灯。
+不黑不青蓝靛脸，如雷如鼓老龙声。
+身披一领鹅黄氅，腰束双攒露白藤。
+项下骷髅悬九个，手持宝杖甚峥嵘。</span>
+    <span data-k="basis">流沙河妖，水底安身</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="hai" data-id="25" data-name="灵感大王" data-chapter="第四十八回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/25" aria-label="打开 灵感大王 的设定与原文"><img src="assets/characters/25.webp" alt="灵感大王 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">25</span>
+  <figcaption>
+    <div class="pname">灵感大王</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">海</span><span>第四十八回</span></div>
+    <p class="pbasis">通天河水府，灵感大王</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 25 幅</span>
+    <span data-k="chapter">第四十八回 魔弄寒风飘大雪</span>
+    <span data-k="desc">装束、形貌</span>
+    <span data-k="quote">金甲金盔灿烂新，腰缠宝带绕红云。
+眼如晚出明星皎，牙似重排锯齿分。
+足下烟霞飘荡荡，身边雾霭暖薰薰。
+行时阵阵阴风冷，立处层层煞气温。
+却似卷帘扶驾将，犹如镇寺大门神。</span>
+    <span data-k="basis">通天河水府，灵感大王</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="hai" data-id="26" data-name="灵感大王（金鱼精）" data-chapter="第四十九回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/26" aria-label="打开 灵感大王（金鱼精） 的设定与原文"><img src="assets/characters/26.webp" alt="灵感大王（金鱼精） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">26</span>
+  <figcaption>
+    <div class="pname">灵感大王<span class="psub">金鱼精</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">海</span><span>第四十九回</span></div>
+    <p class="pbasis">金鱼成精，莲花池走脱</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 26 幅</span>
+    <span data-k="chapter">第四十九回 三藏有灾沉水宅</span>
+    <span data-k="desc">装束、兵器、形貌</span>
+    <span data-k="quote">头戴金盔晃且辉，身披金甲掣虹霓。
+腰围宝带团珠翠，足踏烟黄靴样奇。
+鼻准高隆如峤耸，天庭广阔若龙仪。
+眼光闪灼圆还暴，牙齿钢锋尖又齐。
+短发蓬松飘火焰，长须潇洒挺金锥。
+口咬一枝青嫩藻，手拿九瓣赤铜锤。
+一声咿哑门开处，响似三春惊蛰雷。
+这等形容人世少，敢称灵显大王威。</span>
+    <span data-k="basis">金鱼成精，莲花池走脱</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="hai" data-id="34" data-name="祭赛国二妖贼（鲇鱼怪、黑鱼精）" data-chapter="第六十二回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/34" aria-label="打开 祭赛国二妖贼（鲇鱼怪、黑鱼精） 的设定与原文"><img src="assets/characters/34.webp" alt="祭赛国二妖贼（鲇鱼怪、黑鱼精） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">34</span>
+  <figcaption>
+    <div class="pname">祭赛国二妖贼<span class="psub">鲇鱼怪、黑鱼精</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">海</span><span>第六十二回</span></div>
+    <p class="pbasis">鲇鱼、黑鱼成精，碧波潭</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 34 幅</span>
+    <span data-k="chapter">第六十二回 涤垢洗心惟扫塔</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">须臾，至白玉阶对国王道：“那妖贼已取来了。”国王下降龙床，与唐僧及文武多官，同目视之。那怪一个是暴腮乌甲，尖嘴利牙；一个是滑皮大肚，巨口长须。虽然是有足能行，大抵是变成的人像。国王问曰：“你是何方贼怪，那处妖精？几年侵吾国土，何年盗我宝贝？一夥共有多少贼徒，都唤做甚么名字？从实一一供来。”二怪朝上跪下，颈内血淋淋的，更不知疼痛。供道：“三载之外，七月初一，有个万圣龙王，帅领许多亲戚，住居在本国东南，离此处路有百十。潭号碧波，山名乱石。生女多娇，妖娆美色。招赘一个九头驸马，神通无敌。他知你塔上珍奇，与龙王合盘做贼，先下血雨一场，后把舍利偷讫。见如今照耀龙宫，纵黑夜明如白日。公主施能，寂寂密密，又偷了王母灵芝，在潭中温养宝物。我两个不是贼头，乃龙王差来小卒。今夜被擒，所供是实。”国王道：“既取了供，如何不供自家名字？”那怪道：“我唤做奔波儿灞，他唤做灞波儿奔。奔波儿灞是个鮎鱼怪，灞波儿奔是个黑鱼精。”国王教锦衣卫好生收监。传旨：“赦了金光寺众僧的枷锁。快教光禄寺排宴，就于麒麟殿上谢圣僧获贼之功，议请圣僧捕擒贼首。”</span>
+    <span data-k="basis">鲇鱼、黑鱼成精，碧波潭</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="guai" data-hab="hai" data-id="35" data-name="九头虫" data-chapter="第六十三回" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/xyj/x/guai/35" aria-label="打开 九头虫 的设定与原文"><img src="assets/characters/35.webp" alt="九头虫 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">35</span>
+  <figcaption>
+    <div class="pname">九头虫</div>
+    <div class="pmeta"><span class="tag tag--cat">怪</span><span class="tag">海</span><span>第六十三回</span></div>
+    <p class="pbasis">九头鸟形，碧波潭驸马</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 35 幅</span>
+    <span data-k="chapter">第六十三回 二僧荡怪闹龙宫</span>
+    <span data-k="desc">装束、兵器、形貌</span>
+    <span data-k="quote">戴一顶烂银盔，光欺白雪；贯一副兜鍪甲，亮敌秋霜。上罩著锦征袍，真个是彩云笼玉；腰束著犀纹带，果然像花蟒缠金。手执著月牙铲，霞飞电掣；脚穿著猪皮靴，水利波分。远看时一头一面，近睹处四面皆人：前有眼，后有眼，八方通见；左也口，右也口，九口言论。一声吆喝长空振，似鹤飞鸣贯九宸。</span>
+    <span data-k="basis">九头鸟形，碧波潭驸马</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="guai" data-hab="hai" data-id="36" data-name="九头虫（本相）" data-chapter="第六十三回" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/xyj/x/guai/36" aria-label="打开 九头虫（本相） 的设定与原文"><img src="assets/characters/36.webp" alt="九头虫（本相） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">36</span>
+  <figcaption>
+    <div class="pname">九头虫<span class="psub">本相</span></div>
+    <div class="pmeta"><span class="tag tag--cat">怪</span><span class="tag">海</span><span>第六十三回</span></div>
+    <p class="pbasis">九头攒环，本相毕露</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 36 幅</span>
+    <span data-k="chapter">第六十三回 二僧荡怪闹龙宫</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">毛羽铺锦，团身结絮。方圆有丈二规模，长短似鼋鼍样致。两只脚尖利如钩，九个头攒环一处。展开翅极善飞扬，纵大鹏无他力气；发起声远振天涯，比仙鹤还能高唳。眼多闪灼晃金光，气傲不同凡鸟类。</span>
+    <span data-k="basis">九头攒环，本相毕露</span>
+  </div>
+</figure>
+  </div>
+</section>
+<section class="gsec" data-hab="lu">
+  <div class="gsechead">
+    <span class="gsecchar">陆</span>
+    <span class="gsecname">山岭城郭</span>
+    <span class="gseccount">15 幅</span>
+    <span class="gsecdesc">山道、城郭与荒野</span>
+  </div>
+  <div class="grid">
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="05" data-name="寅将军（虎精）" data-chapter="第十三回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/05" aria-label="打开 寅将军（虎精） 的设定与原文"><img src="assets/characters/05.webp" alt="寅将军（虎精） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">05</span>
+  <figcaption>
+    <div class="pname">寅将军<span class="psub">虎精</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第十三回</span></div>
+    <p class="pbasis">虎精，双叉岭山君</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 05 幅</span>
+    <span data-k="chapter">第十三回 陷虎穴金星解厄</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">雄威身凛凛，猛气貌堂堂。电目飞光艳，雷声振四方。锯牙舒口外，凿齿露腮旁。锦绣围身体，文斑裹脊梁。钢胡稀见肉，钩爪利如霜。东海黄公惧，南山白额王。</span>
+    <span data-k="basis">虎精，双叉岭山君</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="07" data-name="虎先锋" data-chapter="第二十回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/07" aria-label="打开 虎先锋 的设定与原文"><img src="assets/characters/07.webp" alt="虎先锋 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">07</span>
+  <figcaption>
+    <div class="pname">虎先锋</div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第二十回</span></div>
+    <p class="pbasis">虎先锋，黄风岭岭口</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 07 幅</span>
+    <span data-k="chapter">第二十回 黄风岭唐僧有难</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">血津津的赤剥身躯，红媸媸的弯环腿足。
+火焰焰的两鬓蓬松，硬搠搠的双眉直竖。
+白森森的四个钢牙，光耀耀的一双金眼。
+气昂昂的努力大哮，雄纠纠的厉声高喊。</span>
+    <span data-k="basis">虎先锋，黄风岭岭口</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="10" data-name="白骨精（一变·月貌花容）" data-chapter="第二十七回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/10" aria-label="打开 白骨精（一变·月貌花容） 的设定与原文"><img src="assets/characters/10.webp" alt="白骨精（一变·月貌花容） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">10</span>
+  <figcaption>
+    <div class="pname">白骨精<span class="psub">一变·月貌花容</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第二十七回</span></div>
+    <p class="pbasis">白骨成精，白虎岭化女</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 10 幅</span>
+    <span data-k="chapter">第二十七回 尸魔三戏唐三藏</span>
+    <span data-k="desc">变化形貌、形貌</span>
+    <span data-k="quote">好妖精，停下阴风，在那山凹里摇身一变，变做个月貌花容的女儿，说不尽那眉清目秀，齿白唇红。左手提著一个青砂罐儿，右手提著一个绿磁瓶儿，从西向东，径奔唐僧：</span>
+    <span data-k="basis">白骨成精，白虎岭化女</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="11" data-name="白骨精（一变·少女）" data-chapter="第二十七回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/11" aria-label="打开 白骨精（一变·少女） 的设定与原文"><img src="assets/characters/11.webp" alt="白骨精（一变·少女） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">11</span>
+  <figcaption>
+    <div class="pname">白骨精<span class="psub">一变·少女</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第二十七回</span></div>
+    <p class="pbasis">白骨成精，化少女</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 11 幅</span>
+    <span data-k="chapter">第二十七回 尸魔三戏唐三藏</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">圣僧歇马在山岩，忽见裙钗女近前。
+翠袖轻摇笼玉笋，湘裙斜拽显金莲。
+汗流粉面花含露，尘拂蛾眉柳带烟。
+仔细定睛观看处，看看行至到身边。</span>
+    <span data-k="basis">白骨成精，化少女</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="12" data-name="白骨精（一变·少女）" data-chapter="第二十七回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/12" aria-label="打开 白骨精（一变·少女） 的设定与原文"><img src="assets/characters/12.webp" alt="白骨精（一变·少女） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">12</span>
+  <figcaption>
+    <div class="pname">白骨精<span class="psub">一变·少女</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第二十七回</span></div>
+    <p class="pbasis">白骨成精，化少女</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 12 幅</span>
+    <span data-k="chapter">第二十七回 尸魔三戏唐三藏</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">冰肌藏玉骨，衫领露酥胸。柳眉积翠黛，杏眼闪银星。月样容仪俏，天然性格清。体似燕藏柳，声如莺啭林。半放海棠笼晓日，才开芍药弄春晴。</span>
+    <span data-k="basis">白骨成精，化少女</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="13" data-name="白骨精（二变·老妇）" data-chapter="第二十七回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/13" aria-label="打开 白骨精（二变·老妇） 的设定与原文"><img src="assets/characters/13.webp" alt="白骨精（二变·老妇） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">13</span>
+  <figcaption>
+    <div class="pname">白骨精<span class="psub">二变·老妇</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第二十七回</span></div>
+    <p class="pbasis">白骨成精，化老妇</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 13 幅</span>
+    <span data-k="chapter">第二十七回 尸魔三戏唐三藏</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">假变一婆婆，两鬓如冰雪。走路慢腾腾，行步虚怯怯。弱体瘦伶仃，脸如枯菜叶。颧骨望上翘，嘴唇往下别。老年不比少年时，满脸都是荷叶摺。</span>
+    <span data-k="basis">白骨成精，化老妇</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="gui" data-hab="lu" data-id="14" data-name="白骨精（本相·骷髅）" data-chapter="第二十七回" style="--cat:var(--hun)">
+  <a class="plate-fig" href="#/w/xyj/x/gui/14" aria-label="打开 白骨精（本相·骷髅） 的设定与原文"><img src="assets/characters/14.webp" alt="白骨精（本相·骷髅） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">14</span>
+  <figcaption>
+    <div class="pname">白骨精<span class="psub">本相·骷髅</span></div>
+    <div class="pmeta"><span class="tag tag--cat">鬼</span><span class="tag">陆</span><span>第二十七回</span></div>
+    <p class="pbasis">僵尸本相，一堆粉骷髅</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 14 幅</span>
+    <span data-k="chapter">第二十七回 尸魔三戏唐三藏</span>
+    <span data-k="desc">本相／原身、形貌</span>
+    <span data-k="quote">那唐僧在马上又諕得战战兢兢，口不能言。八戒在傍边又笑道：“好行者，风发了，只行了半日路，倒打死三个人。”唐僧正要念咒，行者急到马前叫道：“师父莫念，莫念，你且来看看他的模样。”却是一堆粉骷髅在那里。唐僧大惊道：“悟空，这个人才死了，怎么就化作一堆骷髅？”行者道：“他是个潜灵作怪的僵尸，在此迷人败本，被我打杀，他就现了本相。他那脊梁上有一行字，叫做‘白骨夫人’。”唐僧闻说，倒也信了。怎禁那八戒傍边唆嘴道：“师父，他的手重棍凶，把人打死，只怕你念那话儿，故意变化这个模样，掩你的眼目哩。”唐僧果然耳软，又信了他，随复念起。行者禁不得疼痛，跪于路傍，只叫：“莫念，莫念，有话快说了罢。”唐僧道：“猴头，还有甚说话？出家人行善，如春园之草，不见其长，日有所增；行恶之人，如磨刀之石，不见其损，日有所亏。你在这荒郊野外，一连打死三人，还是无人检举，没有对头；倘到城市之中，人烟凑集之所，你拿了那哭丧棒，一时不知好歹，乱打起人来，撞出大祸，教我怎的脱身？你回去罢。”行者道：“师父错怪了我也。这厮分明是个妖魔，他实有心害你。我倒打死他，替你除了害，你却不认得，反信了那呆子谗言冷语，屡次逐我。常言道：‘事不过三。’我若不去，真是个下流无耻之徒。我去，我去。去便去了，只是你手下无人。”唐僧发怒道：“这泼猴越发无礼。看起来，只你是人，那悟能、悟净就不是人？”</span>
+    <span data-k="basis">僵尸本相，一堆粉骷髅</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="lu" data-id="17" data-name="黄袍怪（变俊男）" data-chapter="第三十回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/17" aria-label="打开 黄袍怪（变俊男） 的设定与原文"><img src="assets/characters/17.webp" alt="黄袍怪（变俊男） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">17</span>
+  <figcaption>
+    <div class="pname">黄袍怪<span class="psub">变俊男</span></div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">陆</span><span>第三十回</span></div>
+    <p class="pbasis">入宝象国化俊男</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 17 幅</span>
+    <span data-k="chapter">第三十回 邪魔侵正法</span>
+    <span data-k="desc">装束、形貌</span>
+    <span data-k="quote">形容典雅，体段峥嵘。言语多官样，行藏正妙龄。才如子建成诗易，貌似潘安掷果轻。头上戴一顶鹊尾冠，乌云敛伏；身上穿一件玉罗褶，广袖飘迎。足下乌靴花摺，腰间鸾带光明。丰神真是奇男子，耸壑轩昂美俊英。</span>
+    <span data-k="basis">入宝象国化俊男</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="22" data-name="狮猁王（青毛狮子）" data-chapter="第三十九回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/22" aria-label="打开 狮猁王（青毛狮子） 的设定与原文"><img src="assets/characters/22.webp" alt="狮猁王（青毛狮子） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">22</span>
+  <figcaption>
+    <div class="pname">狮猁王<span class="psub">青毛狮子</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第三十九回</span></div>
+    <p class="pbasis">青毛狮本相，篡乌鸡国</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 22 幅</span>
+    <span data-k="chapter">第三十九回 一粒丹砂天上得</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">眼似琉璃盏，头若炼炒缸。浑身三伏靛，四爪九秋霜。搭拉两个耳，一尾扫帚长。青毛生锐气，红眼放金光。匾牙排玉板，圆须挺硬枪。镜里观真像，原是文殊一个狮猁王。</span>
+    <span data-k="basis">青毛狮本相，篡乌鸡国</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="32" data-name="牛魔王（本相·大白牛）" data-chapter="第六十一回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/32" aria-label="打开 牛魔王（本相·大白牛） 的设定与原文"><img src="assets/characters/32.webp" alt="牛魔王（本相·大白牛） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">32</span>
+  <figcaption>
+    <div class="pname">牛魔王<span class="psub">本相·大白牛</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第六十一回</span></div>
+    <p class="pbasis">本相大白牛，半山赌斗</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 32 幅</span>
+    <span data-k="chapter">第六十一回 猪八戒助力败魔王</span>
+    <span data-k="desc">本相／原身、兵器、形貌</span>
+    <span data-k="quote">牛王嘻嘻的笑了一笑，现出原身：一只大白牛，头如峻岭，眼若闪光，两只角似两座铁塔，牙排利刃，连头至尾有千馀丈长短，自蹄至背有八百丈高下。对行者高叫道：“泼猢狲！你如今将奈我何？”行者也就现了原身，抽出金箍棒来，把腰一躬，喝声叫：“长！”长得身高万丈，头如泰山，眼如日月，口似血池，牙似门扇，手执一条铁棒，著头就打。那牛王硬著头，使角来触。这一场，真个是撼岭摇山，惊天动地。有诗为证。诗曰：</span>
+    <span data-k="basis">本相大白牛，半山赌斗</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="33" data-name="牛魔王（本相·大白牛）" data-chapter="第六十一回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/33" aria-label="打开 牛魔王（本相·大白牛） 的设定与原文"><img src="assets/characters/33.webp" alt="牛魔王（本相·大白牛） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">33</span>
+  <figcaption>
+    <div class="pname">牛魔王<span class="psub">本相·大白牛</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第六十一回</span></div>
+    <p class="pbasis">本相大白牛，再战群山</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 33 幅</span>
+    <span data-k="chapter">第六十一回 猪八戒助力败魔王</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">他两个大展神通，在半山中赌斗，惊得那过往虚空一切神众与金头揭谛、六甲六丁、一十八位护教伽蓝都来围困魔王。那魔王公然不惧，你看他东一头，西一头，直挺挺、光耀耀的两只铁角，往来抵触；南一撞，北一撞，毛森森，筋暴暴的一条硬尾，左右敲摇。孙大圣当面迎，众多神四面打。牛王急了，就地一滚，复本像，便投芭蕉洞去。行者也收了法像，与众多神随后追袭。那魔王闯入洞里，闭门不出。概众把一座翠云山围得水泄不通。</span>
+    <span data-k="basis">本相大白牛，再战群山</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="37" data-name="荆棘岭四老（十八公、孤直公、凌空子、拂云叟）" data-chapter="第六十四回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/37" aria-label="打开 荆棘岭四老（十八公、孤直公、凌空子、拂云叟） 的设定与原文"><img src="assets/characters/37.webp" alt="荆棘岭四老（十八公、孤直公、凌空子、拂云叟） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">37</span>
+  <figcaption>
+    <div class="pname">荆棘岭四老<span class="psub">十八公、孤直公、凌空子、拂云叟</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第六十四回</span></div>
+    <p class="pbasis">松柏桧竹成精，木仙庵</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 37 幅</span>
+    <span data-k="chapter">第六十四回 荆棘岭悟能努力</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">三藏正自点看，渐觉月明星朗，只听得人语相谈。都道：“十八公请得圣僧来也。”长老擡头观看，乃是三个老者：前一个霜姿丰采，第二个绿鬓婆娑，第三个虚心黛色。各各面貌、衣服俱不相同，都来与三藏作礼。长老还了礼，道：“弟子有何德行，敢劳列位仙翁下爱？”十八公笑道：“一向闻知圣僧有道，等待多时，今幸一见。如果不吝珠玉，宽坐叙怀，足见禅机真派。”三藏躬身道：“敢问仙翁尊号？”十八公道：“霜姿者号孤直公，绿鬓者号凌空子，虚心者号拂云叟，老拙号曰劲节。”三藏道：“四翁尊寿几何？”孤直公道：</span>
+    <span data-k="basis">松柏桧竹成精，木仙庵</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="38" data-name="杏仙" data-chapter="第六十四回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/38" aria-label="打开 杏仙 的设定与原文"><img src="assets/characters/38.webp" alt="杏仙 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">38</span>
+  <figcaption>
+    <div class="pname">杏仙</div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第六十四回</span></div>
+    <p class="pbasis">杏树成精，木仙庵</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 38 幅</span>
+    <span data-k="chapter">第六十四回 荆棘岭悟能努力</span>
+    <span data-k="desc">装束、形貌</span>
+    <span data-k="quote">青姿妆翡翠，丹脸赛胭脂。星眼光还彩，蛾眉秀又齐。下衬一条五色梅浅红裙子，上穿一件烟里火比甲轻衣。弓鞋弯凤嘴，绫袜锦拖泥。妖娆娇似天台女，不亚当年俏妲姬。</span>
+    <span data-k="basis">杏树成精，木仙庵</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="lu" data-id="39" data-name="黄眉大王" data-chapter="第六十五回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/39" aria-label="打开 黄眉大王 的设定与原文"><img src="assets/characters/39.webp" alt="黄眉大王 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">39</span>
+  <figcaption>
+    <div class="pname">黄眉大王</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">陆</span><span>第六十五回</span></div>
+    <p class="pbasis">小雷音假佛，黄眉大王</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 39 幅</span>
+    <span data-k="chapter">第六十五回 妖邪假设小雷音</span>
+    <span data-k="desc">装束、兵器、形貌</span>
+    <span data-k="quote">蓬著头，勒一条扁薄金箍；光著眼，簇两道黄眉的竖。悬胆鼻，孔窍开查；四方口，牙齿尖利。穿一副叩结连环铠，勒一条生丝攒穗绦。脚踏乌喇鞋一对，手执狼牙棒一根。此形似兽不如兽，相貌非人却似人。</span>
+    <span data-k="basis">小雷音假佛，黄眉大王</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="lu" data-id="55" data-name="猪悟能（八戒）" data-chapter="第八十五回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/55" aria-label="打开 猪悟能（八戒） 的设定与原文"><img src="assets/characters/55.webp" alt="猪悟能（八戒） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">55</span>
+  <figcaption>
+    <div class="pname">猪悟能<span class="psub">八戒</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">陆</span><span>第八十五回</span></div>
+    <p class="pbasis">猪相本装，隐雾山出力</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 55 幅</span>
+    <span data-k="chapter">第八十五回 心猿妒木母</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">碓嘴初长三尺零，獠牙觜出赛银钉。
+一双圆眼光如电，两耳扇风唿唿声。
+脑后鬃长排铁箭，浑身皮糙癞还青。
+手中使件蹊跷物，九齿钉钯个个惊。</span>
+    <span data-k="basis">猪相本装，隐雾山出力</span>
+  </div>
+</figure>
+  </div>
+</section>
+<section class="gsec" data-hab="kong">
+  <div class="gsechead">
+    <span class="gsecchar">空</span>
+    <span class="gsecname">云端天际</span>
+    <span class="gseccount">4 幅</span>
+    <span class="gsecdesc">天界、飞行与腾云之属</span>
+  </div>
+  <div class="grid">
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="kong" data-id="02" data-name="孙悟空（齐天大圣）" data-chapter="第四回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/02" aria-label="打开 孙悟空（齐天大圣） 的设定与原文"><img src="assets/characters/02.webp" alt="孙悟空（齐天大圣） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">02</span>
+  <figcaption>
+    <div class="pname">孙悟空<span class="psub">齐天大圣</span></div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">空</span><span>第四回</span></div>
+    <p class="pbasis">受封齐天大圣，腾云上天</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 02 幅</span>
+    <span data-k="chapter">第四回 官封弼马心何足</span>
+    <span data-k="desc">装束、兵器、形貌</span>
+    <span data-k="quote">身穿金甲亮堂堂，头戴金冠光映映。
+手举金箍棒一根，足踏云鞋皆相称。
+一双怪眼似明星，两耳过肩查又硬。
+挺挺身才变化多，声音响喨如钟磬。
+尖嘴咨牙弼马温，心高要做齐天圣。</span>
+    <span data-k="basis">受封齐天大圣，腾云上天</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="kong" data-id="47" data-name="大鹏金翅雕" data-chapter="第七十五回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/47" aria-label="打开 大鹏金翅雕 的设定与原文"><img src="assets/characters/47.webp" alt="大鹏金翅雕 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">47</span>
+  <figcaption>
+    <div class="pname">大鹏金翅雕</div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">空</span><span>第七十五回</span></div>
+    <p class="pbasis">金翅大鹏，云程九万</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 47 幅</span>
+    <span data-k="chapter">第七十五回 心猿钻透阴阳体</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">金翅鲲头，星睛豹眼。振北图南，刚强勇敢。变生翱翔，鷃笑龙惨。抟风翮百鸟藏头，舒利爪诸禽丧胆。这个是云程九万的大鹏雕。</span>
+    <span data-k="basis">金翅大鹏，云程九万</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="kong" data-id="53" data-name="孙悟空" data-chapter="第八十三回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/53" aria-label="打开 孙悟空 的设定与原文"><img src="assets/characters/53.webp" alt="孙悟空 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">53</span>
+  <figcaption>
+    <div class="pname">孙悟空</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">空</span><span>第八十三回</span></div>
+    <p class="pbasis">猴王本装，腾云上天</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 53 幅</span>
+    <span data-k="chapter">第八十三回 心猿识得丹头</span>
+    <span data-k="desc">兵器、形貌</span>
+    <span data-k="quote">古怪别腮心里强，自小为怪神力壮。
+高低面赛马鞍鞽，眼放金光如火亮。
+浑身毛硬似钢针，虎皮裙系明花响。
+上天撞散万云飞，下海混起千层浪。
+当天倚力打天王，挡退十万八千将。
+官封大圣美猴精，手中惯使金箍棒。
+今日西天任显能，复来洞内扶三藏。</span>
+    <span data-k="basis">猴王本装，腾云上天</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="kong" data-id="60" data-name="玉兔精（本相）" data-chapter="第九十五回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/60" aria-label="打开 玉兔精（本相） 的设定与原文"><img src="assets/characters/60.webp" alt="玉兔精（本相） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">60</span>
+  <figcaption>
+    <div class="pname">玉兔精<span class="psub">本相</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">空</span><span>第九十五回</span></div>
+    <p class="pbasis">玉兔本相，月宫捣药</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 60 幅</span>
+    <span data-k="chapter">第九十五回 假合真形擒玉兔</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">缺唇尖齿，长耳稀须。团身一块毛如玉，展足千山蹄若飞。直鼻垂酥，果赛霜华填粉腻；双睛红映，犹欺雪上点胭脂。伏在地，白穰穰一堆素练；伸开腰，白铎铎一架银丝。几番家吸残清露瑶天晓，捣药长生玉杵奇。</span>
+    <span data-k="basis">玉兔本相，月宫捣药</span>
+  </div>
+</figure>
+  </div>
+</section>
+<section class="gsec" data-hab="di">
+  <div class="gsechead">
+    <span class="gsecchar">地</span>
+    <span class="gsecname">洞府幽穴</span>
+    <span class="gseccount">35 幅</span>
+    <span class="gsecdesc">洞府、穴居与地宫</span>
+  </div>
+  <div class="grid">
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="01" data-name="混世魔王" data-chapter="第二回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/01" aria-label="打开 混世魔王 的设定与原文"><img src="assets/characters/01.webp" alt="混世魔王 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">01</span>
+  <figcaption>
+    <div class="pname">混世魔王</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第二回</span></div>
+    <p class="pbasis">水脏洞洞主，人形魔头</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 01 幅</span>
+    <span data-k="chapter">第二回 悟彻菩提真妙理</span>
+    <span data-k="desc">装束、兵器、形貌</span>
+    <span data-k="quote">头戴乌金盔，映日光明；身挂皂罗袍，迎风飘荡。下穿著黑铁甲，紧勒皮条；足踏著花褶靴，雄如上将。腰广十围，身高三丈。手执一口刀，锋刃多明亮。称为混世魔，磊落凶模样。</span>
+    <span data-k="basis">水脏洞洞主，人形魔头</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="03" data-name="猪悟能（猪刚鬣）" data-chapter="第八回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/03" aria-label="打开 猪悟能（猪刚鬣） 的设定与原文"><img src="assets/characters/03.webp" alt="猪悟能（猪刚鬣） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">03</span>
+  <figcaption>
+    <div class="pname">猪悟能<span class="psub">猪刚鬣</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第八回</span></div>
+    <p class="pbasis">猪相本形，占福陵山云栈洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 03 幅</span>
+    <span data-k="chapter">第八回 我佛造经传极乐</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">青不青，黑不黑，晦气色脸；长不长，短不短，赤脚筋躯。眼光闪烁，好似灶底双灯；口角丫叉，就如屠家火钵。獠牙撑剑刃，红发乱蓬松。一声叱咤如雷吼，两脚奔波似滚风。</span>
+    <span data-k="basis">猪相本形，占福陵山云栈洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="04" data-name="猪悟能（猪刚鬣）" data-chapter="第八回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/04" aria-label="打开 猪悟能（猪刚鬣） 的设定与原文"><img src="assets/characters/04.webp" alt="猪悟能（猪刚鬣） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">04</span>
+  <figcaption>
+    <div class="pname">猪悟能<span class="psub">猪刚鬣</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第八回</span></div>
+    <p class="pbasis">猪相本形，披挂出洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 04 幅</span>
+    <span data-k="chapter">第八回 我佛造经传极乐</span>
+    <span data-k="desc">装束、兵器、形貌</span>
+    <span data-k="quote">卷脏莲蓬吊搭嘴，耳如蒲扇显金睛。
+獠牙锋利如钢锉，长嘴张开似火盆。
+金盔紧系腮边带，勒甲丝绦蟒退鳞。
+手执钉钯龙探爪，腰挎弯弓月半轮。
+纠纠威风欺太岁，昂昂志气压天神。</span>
+    <span data-k="basis">猪相本形，披挂出洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="06" data-name="黑熊精（黑风山黑风王）" data-chapter="第十七回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/06" aria-label="打开 黑熊精（黑风山黑风王） 的设定与原文"><img src="assets/characters/06.webp" alt="黑熊精（黑风山黑风王） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">06</span>
+  <figcaption>
+    <div class="pname">黑熊精<span class="psub">黑风山黑风王</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第十七回</span></div>
+    <p class="pbasis">黑熊成精，黑风洞称王</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 06 幅</span>
+    <span data-k="chapter">第十七回 孙行者大闹黑风山</span>
+    <span data-k="desc">装束、兵器、形貌</span>
+    <span data-k="quote">碗子铁盔火漆光，乌金铠甲亮辉煌。
+皂罗袍罩风兜袖，黑绿丝绦穗长。
+手执黑缨枪一杆，足踏乌皮靴一双。
+眼晃金睛如掣电，正是山中黑风王。</span>
+    <span data-k="basis">黑熊成精，黑风洞称王</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="guai" data-hab="di" data-id="08" data-name="黄风怪" data-chapter="第二十一回" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/xyj/x/guai/08" aria-label="打开 黄风怪 的设定与原文"><img src="assets/characters/08.webp" alt="黄风怪 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">08</span>
+  <figcaption>
+    <div class="pname">黄风怪</div>
+    <div class="pmeta"><span class="tag tag--cat">怪</span><span class="tag">地（穴）</span><span>第二十一回</span></div>
+    <p class="pbasis">黄风洞主，书中始终称怪</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 08 幅</span>
+    <span data-k="chapter">第二十一回 护法设庄留大圣</span>
+    <span data-k="desc">装束、兵器</span>
+    <span data-k="quote">金盔晃日，金甲凝光。盔上缨飘山雉尾，罗袍罩甲淡鹅黄。勒甲绦盘龙耀彩，护心镜绕眼辉煌。鹿皮靴，槐花染色；锦围裙，柳叶绒妆。手持三股钢叉利，不亚当年显圣郎。</span>
+    <span data-k="basis">黄风洞主，书中始终称怪</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="15" data-name="黄袍怪（奎木狼）" data-chapter="第二十八回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/15" aria-label="打开 黄袍怪（奎木狼） 的设定与原文"><img src="assets/characters/15.webp" alt="黄袍怪（奎木狼） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">15</span>
+  <figcaption>
+    <div class="pname">黄袍怪<span class="psub">奎木狼</span></div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第二十八回</span></div>
+    <p class="pbasis">碗子山波月洞，妖身</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 15 幅</span>
+    <span data-k="chapter">第二十八回 花果山群妖聚义</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">青靛脸，白獠牙，一张大口呀呀。两边乱蓬蓬的鬓毛，却都是些胭脂染色；三四紫巍巍的髭髯，恍疑是那荔枝排芽。鹦嘴般的鼻儿拱拱，曙星样的眼儿巴巴。两个拳头，和尚钵盂模样；二只蓝脚，悬崖榾柮丫槎。斜披著淡黄袍帐，赛过那织锦袈裟。拿的一口刀，精光耀映；眠的一块石，细润无瑕。他也曾小妖排蚁阵，他也曾老怪坐蜂衙。你看他威风凛凛，大家吆喝，叫一声爷。他也曾月作三人壶酌酒，他也曾风生两腋盏倾茶。你看他神通浩浩，霎著下眼，游遍天涯。荒林喧鸟雀，深莽宿龙蛇。仙子种田生白玉，道人伏火养丹砂。小小洞门，虽到不得那阿鼻地狱；楞楞妖怪，却就是一个牛头夜叉。</span>
+    <span data-k="basis">碗子山波月洞，妖身</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="16" data-name="黄袍怪（奎木狼）" data-chapter="第二十八回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/16" aria-label="打开 黄袍怪（奎木狼） 的设定与原文"><img src="assets/characters/16.webp" alt="黄袍怪（奎木狼） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">16</span>
+  <figcaption>
+    <div class="pname">黄袍怪<span class="psub">奎木狼</span></div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第二十八回</span></div>
+    <p class="pbasis">波月洞主，披挂出阵</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 16 幅</span>
+    <span data-k="chapter">第二十八回 花果山群妖聚义</span>
+    <span data-k="desc">装束、形貌</span>
+    <span data-k="quote">青脸红须赤发飘，黄金铠甲亮光饶。
+裹肚衬腰𥓼石带，攀胸勒甲步云绦。
+闲立山前风吼吼，闷游海外浪滔滔。
+一双蓝靛焦筋手，执定追魂取命刀。
+要知此物名和姓，声扬二字唤黄袍。</span>
+    <span data-k="basis">波月洞主，披挂出阵</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="18" data-name="九尾狐狸（压龙洞老母）" data-chapter="第三十四回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/18" aria-label="打开 九尾狐狸（压龙洞老母） 的设定与原文"><img src="assets/characters/18.webp" alt="九尾狐狸（压龙洞老母） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">18</span>
+  <figcaption>
+    <div class="pname">九尾狐狸<span class="psub">压龙洞老母</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第三十四回</span></div>
+    <p class="pbasis">九尾狐狸，压龙洞老母</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 18 幅</span>
+    <span data-k="chapter">第三十四回 魔王巧算困心猿</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">雪鬓蓬松，星光晃亮。脸皮红润皱文多，牙齿稀疏神气壮。貌似花残霜里色，形如松老雨馀颜。头缠白练攒丝帕，耳坠黄金嵌宝环。</span>
+    <span data-k="basis">九尾狐狸，压龙洞老母</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="19" data-name="银角大王" data-chapter="第三十四回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/19" aria-label="打开 银角大王 的设定与原文"><img src="assets/characters/19.webp" alt="银角大王 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">19</span>
+  <figcaption>
+    <div class="pname">银角大王</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第三十四回</span></div>
+    <p class="pbasis">平顶山莲花洞二魔</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 19 幅</span>
+    <span data-k="chapter">第三十四回 魔王巧算困心猿</span>
+    <span data-k="desc">装束、形貌</span>
+    <span data-k="quote">头戴凤盔欺腊雪，身披战甲幌镔铁。
+腰间带是蟒龙筋，粉皮靴靿梅花摺。
+颜如灌口活真君，貌比巨灵无二别。
+七星宝剑手中擎，怒气冲霄威烈烈。</span>
+    <span data-k="basis">平顶山莲花洞二魔</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="20" data-name="金角大王" data-chapter="第三十五回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/20" aria-label="打开 金角大王 的设定与原文"><img src="assets/characters/20.webp" alt="金角大王 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">20</span>
+  <figcaption>
+    <div class="pname">金角大王</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第三十五回</span></div>
+    <p class="pbasis">平顶山莲花洞二魔</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 20 幅</span>
+    <span data-k="chapter">第三十五回 外道施威欺正性</span>
+    <span data-k="desc">装束、形貌</span>
+    <span data-k="quote">头上盔缨光焰焰，腰间带束彩霞鲜。
+身穿铠甲龙鳞砌，上罩红袍烈火然。
+圆眼睁开光掣电，钢须飘起乱飞烟。
+七星宝剑轻提手，芭蕉扇子半遮肩。
+行似流云离海岳，声如霹雳震山川。
+威风凛凛欺天将，怒帅群妖出洞前。</span>
+    <span data-k="basis">平顶山莲花洞二魔</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="21" data-name="狐阿七大王" data-chapter="第三十五回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/21" aria-label="打开 狐阿七大王 的设定与原文"><img src="assets/characters/21.webp" alt="狐阿七大王 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">21</span>
+  <figcaption>
+    <div class="pname">狐阿七大王</div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第三十五回</span></div>
+    <p class="pbasis">狐族大王，平顶山</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 21 幅</span>
+    <span data-k="chapter">第三十五回 外道施威欺正性</span>
+    <span data-k="desc">兵器、形貌</span>
+    <span data-k="quote">那怪物摆开阵势，只见当头的是阿七大王。他生的玉面长髯，钢眉刀耳；头戴金炼盔，身穿锁子甲，手执方天戟。高声骂道：“我把你个大胆的泼猴！怎敢这等欺人？偷了宝贝，伤了眷族，杀了妖兵，又敢久占洞府。赶早儿一个个引颈受死，雪我姐家之仇。”行者骂道：“你这夥作死的毛团，不识你孙外公的手段。不要走，领吾一棒。”那怪物侧身躲过，使方天戟劈面相迎。两个在山头上一来一往，战经三四回合，那怪力软。败阵回走。行者赶来，却被老魔接住。又斗了三合，只见那狐阿七复转来攻。这壁厢八戒见了，急掣九齿钯挡住。一个抵一个，战经多时，不分胜败，那老魔喝了一声，众妖兵一齐围上。</span>
+    <span data-k="basis">狐族大王，平顶山</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="23" data-name="红孩儿（变顽童）" data-chapter="第四十回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/23" aria-label="打开 红孩儿（变顽童） 的设定与原文"><img src="assets/characters/23.webp" alt="红孩儿（变顽童） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">23</span>
+  <figcaption>
+    <div class="pname">红孩儿<span class="psub">变顽童</span></div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第四十回</span></div>
+    <p class="pbasis">火云洞圣婴，化顽童</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 23 幅</span>
+    <span data-k="chapter">第四十回 婴儿戏化禅心乱</span>
+    <span data-k="desc">变化形貌、形貌</span>
+    <span data-k="quote">好妖怪，即散红光，按云头落下。去那山坡里，摇身一变，变作七岁顽童，赤条条的身上无衣，将麻绳困了手足，高吊在那松树梢头，口口声声只叫：“救人，救人！”</span>
+    <span data-k="basis">火云洞圣婴，化顽童</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="24" data-name="红孩儿" data-chapter="第四十一回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/24" aria-label="打开 红孩儿 的设定与原文"><img src="assets/characters/24.webp" alt="红孩儿 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">24</span>
+  <figcaption>
+    <div class="pname">红孩儿</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第四十一回</span></div>
+    <p class="pbasis">火云洞圣婴，本装</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 24 幅</span>
+    <span data-k="chapter">第四十一回 心猿遭火败</span>
+    <span data-k="desc">兵器、形貌</span>
+    <span data-k="quote">面如傅粉三分白，唇若涂朱一表才。
+鬓挽青云欺靛染，眉分新月似刀裁。
+战裙巧绣盘龙凤，形比哪吒更富胎。
+双手绰枪威凛冽，祥光护体出门来。
+哏声响若春雷吼，暴眼明如掣电乖。
+要识此魔真姓氏，名扬千古唤红孩。</span>
+    <span data-k="basis">火云洞圣婴，本装</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="27" data-name="独角兕大王" data-chapter="第五十回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/27" aria-label="打开 独角兕大王 的设定与原文"><img src="assets/characters/27.webp" alt="独角兕大王 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">27</span>
+  <figcaption>
+    <div class="pname">独角兕大王</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第五十回</span></div>
+    <p class="pbasis">金兜洞独角兕大王</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 27 幅</span>
+    <span data-k="chapter">第五十回 情乱性从因爱欲</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">独角参差，双眸晃亮。顶上粗皮突，耳根黑肉光。舌长时搅鼻，口阔版牙黄。毛皮青似靛，筋挛硬如钢。比犀难照水，像牯不耕荒。全无喘月犁云用，倒有欺天振地强。两只焦筋蓝靛手，雄威直挺点钢枪。细看这等凶模样，不枉名称兕大王。</span>
+    <span data-k="basis">金兜洞独角兕大王</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="28" data-name="独角兕大王（本相·青牛）" data-chapter="第五十二回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/28" aria-label="打开 独角兕大王（本相·青牛） 的设定与原文"><img src="assets/characters/28.webp" alt="独角兕大王（本相·青牛） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">28</span>
+  <figcaption>
+    <div class="pname">独角兕大王<span class="psub">本相·青牛</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第五十二回</span></div>
+    <p class="pbasis">本相青牛，老君坐骑</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 28 幅</span>
+    <span data-k="chapter">第五十二回 悟空大闹金兜洞</span>
+    <span data-k="desc">本相／原身、形貌</span>
+    <span data-k="quote">老君念个咒语，将扇子扇了一下，那怪将圈子丢来，被老君一把接住。又一扇，那怪物力软筋麻，现了本相，原来是一只青牛。老君将金钢琢吹口仙气，穿了那怪的鼻子，解下勒袍带，系于琢上，牵在手中。至今留下个拴牛鼻的拘儿，又名宾郎，职此之谓。老君辞了众神，跨上青牛背上，驾彩云，径归兜率院；缚妖怪，高升离恨天。</span>
+    <span data-k="basis">本相青牛，老君坐骑</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="29" data-name="罗刹女（铁扇公主）" data-chapter="第五十九回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/29" aria-label="打开 罗刹女（铁扇公主） 的设定与原文"><img src="assets/characters/29.webp" alt="罗刹女（铁扇公主） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">29</span>
+  <figcaption>
+    <div class="pname">罗刹女<span class="psub">铁扇公主</span></div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第五十九回</span></div>
+    <p class="pbasis">翠云山芭蕉洞罗刹女</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 29 幅</span>
+    <span data-k="chapter">第五十九回 唐三藏路阻火焰山</span>
+    <span data-k="desc">装束、兵器、形貌</span>
+    <span data-k="quote">头裹团花手帕，身穿纳锦云袍。腰间双束虎筋绦。微露绣裙偏绡。
+凤嘴弓鞋三寸，龙须膝裤金销。手提宝剑怒声高。凶比月婆容貌。</span>
+    <span data-k="basis">翠云山芭蕉洞罗刹女</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="30" data-name="玉面狐狸" data-chapter="第六十回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/30" aria-label="打开 玉面狐狸 的设定与原文"><img src="assets/characters/30.webp" alt="玉面狐狸 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">30</span>
+  <figcaption>
+    <div class="pname">玉面狐狸</div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第六十回</span></div>
+    <p class="pbasis">玉面狐狸，积雷山摩云洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 30 幅</span>
+    <span data-k="chapter">第六十回 牛魔王罢战赴华筵</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">娇娇倾国色，缓缓步移莲。貌若王嫱，颜如楚女。如花解语，似玉生香。高髻堆青碧鸦，双睛蘸绿横秋水。湘裙半露弓鞋小，翠袖微舒粉腕长。说甚么暮雨朝云，真个是朱唇皓齿。锦江滑腻蛾眉秀，赛过文君与薛涛。</span>
+    <span data-k="basis">玉面狐狸，积雷山摩云洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="31" data-name="牛魔王" data-chapter="第六十回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/31" aria-label="打开 牛魔王 的设定与原文"><img src="assets/characters/31.webp" alt="牛魔王 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">31</span>
+  <figcaption>
+    <div class="pname">牛魔王</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第六十回</span></div>
+    <p class="pbasis">积雷山大力牛魔王</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 31 幅</span>
+    <span data-k="chapter">第六十回 牛魔王罢战赴华筵</span>
+    <span data-k="desc">装束、形貌</span>
+    <span data-k="quote">头上戴一顶水磨银亮熟铁盔，身上贯一副绒穿锦绣黄金甲，足下踏一双卷尖粉底麂皮靴；腰间束一条攒丝三股狮蛮带。一双眼光如明镜，两道眉艳似红霓。口若血盆，齿排铜板。吼声响震山神怕，行动威风恶鬼慌。四海有名称混世，西方大力号魔王。</span>
+    <span data-k="basis">积雷山大力牛魔王</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="40" data-name="红鳞大蟒（本相）" data-chapter="第六十七回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/40" aria-label="打开 红鳞大蟒（本相） 的设定与原文"><img src="assets/characters/40.webp" alt="红鳞大蟒（本相） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">40</span>
+  <figcaption>
+    <div class="pname">红鳞大蟒<span class="psub">本相</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第六十七回</span></div>
+    <p class="pbasis">红鳞大蟒，七绝山稀柿衕</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 40 幅</span>
+    <span data-k="chapter">第六十七回 拯救驼罗禅性稳</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">眼射晓星，鼻喷朝雾。密密牙排钢剑，弯弯爪曲金钩。头戴一条肉角，好便似千千块玛瑙攒成；身披一派红鳞，却就如万万片胭脂砌就。盘地只疑为锦被，飞空错认作虹霓。歇卧处有腥气冲天，行动时有赤云罩体。大不大，两边人不见东西；长不长，一座山跨占南北。</span>
+    <span data-k="basis">红鳞大蟒，七绝山稀柿衕</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="41" data-name="赛太岁（金毛犼）" data-chapter="第六十九回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/41" aria-label="打开 赛太岁（金毛犼） 的设定与原文"><img src="assets/characters/41.webp" alt="赛太岁（金毛犼） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">41</span>
+  <figcaption>
+    <div class="pname">赛太岁<span class="psub">金毛犼</span></div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第六十九回</span></div>
+    <p class="pbasis">麒麟山獬豸洞赛太岁</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 41 幅</span>
+    <span data-k="chapter">第六十九回 心主夜间修药物</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">九尺长身多恶狞，一双环眼闪金灯。
+两轮查耳如撑扇，四个钢牙似插钉。
+鬓绕红毛眉竖焰，鼻垂糟准孔开明。
+髭髯几缕朱砂线，颧骨崚嶒满面青。
+两臂红筋蓝靛手，十条尖爪把枪擎。
+豹皮裙子腰间系，赤脚蓬头若鬼形。</span>
+    <span data-k="basis">麒麟山獬豸洞赛太岁</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="42" data-name="赛太岁（金毛犼）" data-chapter="第七十回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/42" aria-label="打开 赛太岁（金毛犼） 的设定与原文"><img src="assets/characters/42.webp" alt="赛太岁（金毛犼） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">42</span>
+  <figcaption>
+    <div class="pname">赛太岁<span class="psub">金毛犼</span></div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第七十回</span></div>
+    <p class="pbasis">獬豸洞主，披挂持杵</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 42 幅</span>
+    <span data-k="chapter">第七十回 妖魔宝放烟沙火</span>
+    <span data-k="desc">兵器、形貌</span>
+    <span data-k="quote">晃晃霞光生顶上，威威杀气迸胸前。
+口外獠牙排利刃，鬓边焦发放红烟。
+嘴上髭须如插箭，遍体昂毛似叠毡。
+眼突铜铃欺太岁，手持铁杵若摩天。</span>
+    <span data-k="basis">獬豸洞主，披挂持杵</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="43" data-name="蜘蛛精" data-chapter="第七十二回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/43" aria-label="打开 蜘蛛精 的设定与原文"><img src="assets/characters/43.webp" alt="蜘蛛精 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">43</span>
+  <figcaption>
+    <div class="pname">蜘蛛精</div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第七十二回</span></div>
+    <p class="pbasis">蜘蛛成精，盘丝洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 43 幅</span>
+    <span data-k="chapter">第七十二回 盘丝洞七情迷本</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">飘扬翠袖，摇拽缃裙。飘扬翠袖，低笼著玉笋纤纤；摇拽缃裙，半露出金莲窄窄。形容体势十分全，动静脚跟千样屣。拿头过论有高低，张泛送来真又楷。转身踢个出墙花，退步翻成大过海。轻接一团泥，单枪急对拐。明珠上佛头，实捏来尖。窄砖偏会拿，卧鱼将脚抷。平腰折膝蹲，扭顶翘跟屣。扳凳能喧泛，披肩甚脱洒。绞裆任往来，锁项随摇摆。踢的是黄河水倒流，金鱼滩上买。那个错认是头儿，这个转身就打拐。端然捧上臁，周正尖来捽。提跟潠草鞋，倒插回头采。退步泛肩妆，钩儿只一歹。贩篓下来长，便把夺门揣。踢到美心时，佳人齐喝采。一个个汗流粉腻透罗裳，兴懒情疏方叫海。</span>
+    <span data-k="basis">蜘蛛成精，盘丝洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="44" data-name="蜘蛛精（七女）" data-chapter="第七十二回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/44" aria-label="打开 蜘蛛精（七女） 的设定与原文"><img src="assets/characters/44.webp" alt="蜘蛛精（七女） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">44</span>
+  <figcaption>
+    <div class="pname">蜘蛛精<span class="psub">七女</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第七十二回</span></div>
+    <p class="pbasis">七女同堂，盘丝洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 44 幅</span>
+    <span data-k="chapter">第七十二回 盘丝洞七情迷本</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">比玉香尤胜，如花语更真。柳眉横远岫，檀口破樱唇。钗头翘翡翠，金莲闪绛裙。却似嫦娥临下界，仙子落凡尘。</span>
+    <span data-k="basis">七女同堂，盘丝洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="45" data-name="青毛狮子怪" data-chapter="第七十五回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/45" aria-label="打开 青毛狮子怪 的设定与原文"><img src="assets/characters/45.webp" alt="青毛狮子怪 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">45</span>
+  <figcaption>
+    <div class="pname">青毛狮子怪</div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第七十五回</span></div>
+    <p class="pbasis">青毛狮本相，狮驼岭</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 45 幅</span>
+    <span data-k="chapter">第七十五回 心猿钻透阴阳体</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">凿牙锯齿，圆头方面。声吼若雷，眼光如电。仰鼻朝天，赤眉飘焰。但行处，百兽心慌；若坐下，群魔胆战。这一个是兽中王青毛狮子怪。</span>
+    <span data-k="basis">青毛狮本相，狮驼岭</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="46" data-name="黄牙老象" data-chapter="第七十五回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/46" aria-label="打开 黄牙老象 的设定与原文"><img src="assets/characters/46.webp" alt="黄牙老象 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">46</span>
+  <figcaption>
+    <div class="pname">黄牙老象</div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第七十五回</span></div>
+    <p class="pbasis">白象本相，狮驼岭</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 46 幅</span>
+    <span data-k="chapter">第七十五回 心猿钻透阴阳体</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">凤目金睛，黄牙粗腿。长鼻银毛，看头似尾。圆额皱眉，身躯磊磊。细声如窈窕佳人，玉面似牛头恶鬼。这一个是藏齿修身多年的黄牙老象。</span>
+    <span data-k="basis">白象本相，狮驼岭</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="48" data-name="狮驼岭妖将（持钢刀者）" data-chapter="第七十五回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/48" aria-label="打开 狮驼岭妖将（持钢刀者） 的设定与原文"><img src="assets/characters/48.webp" alt="狮驼岭妖将（持钢刀者） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">48</span>
+  <figcaption>
+    <div class="pname">狮驼岭妖将<span class="psub">持钢刀者</span></div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第七十五回</span></div>
+    <p class="pbasis">狮驼岭巡山妖将</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 48 幅</span>
+    <span data-k="chapter">第七十五回 心猿钻透阴阳体</span>
+    <span data-k="desc">装束、兵器、形貌</span>
+    <span data-k="quote">铁额铜头戴宝盔，盔缨飘舞甚光辉。
+辉辉掣电双睛亮，亮亮铺霞两鬓飞。
+勾爪如银尖且利，锯牙似凿密还齐。
+身披金甲无丝缝，腰束龙绦有见机。
+手执钢刀明晃晃，英雄威武世间稀。
+一声吆喝如雷震，问道“敲门者是谁”？</span>
+    <span data-k="basis">狮驼岭巡山妖将</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="49" data-name="白面狐狸（本相）" data-chapter="第七十九回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/49" aria-label="打开 白面狐狸（本相） 的设定与原文"><img src="assets/characters/49.webp" alt="白面狐狸（本相） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">49</span>
+  <figcaption>
+    <div class="pname">白面狐狸<span class="psub">本相</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第七十九回</span></div>
+    <p class="pbasis">白面狐狸本相，清华洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 49 幅</span>
+    <span data-k="chapter">第七十九回 寻洞擒妖逢老寿</span>
+    <span data-k="desc">本相／原身、形貌</span>
+    <span data-k="quote">那八戒抖擞精神，随行者径入清华仙府，呐声喊，叫：“拿妖精，拿妖精！”那美人战战兢兢，正自难逃，又听得喊声大振，即转石屏之内，又没个后门出头。被八戒喝声：“那里走？我把你这个哄汉子的臊精，看钯。”那美人手中又无兵器，不能迎敌，将身一闪，化道寒光，往外就走。被大圣抵住寒光，乒乓一棒。那怪立不住脚，倒在尘埃，现了本相，原来是一个白面狐狸。呆子忍不住手，举钯照头一筑。可怜把那个倾城倾国千般笑，化作毛团狐狸形。行者叫道：“莫打烂他，且留他此身去见昏君。”</span>
+    <span data-k="basis">白面狐狸本相，清华洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="50" data-name="金鼻白毛老鼠精" data-chapter="第八十一回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/50" aria-label="打开 金鼻白毛老鼠精 的设定与原文"><img src="assets/characters/50.webp" alt="金鼻白毛老鼠精 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">50</span>
+  <figcaption>
+    <div class="pname">金鼻白毛老鼠精</div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第八十一回</span></div>
+    <p class="pbasis">金鼻白毛鼠精，无底洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 50 幅</span>
+    <span data-k="chapter">第八十一回 镇海寺心猿知怪</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">金作鼻，雪铺毛。地道为门屋，安身处处牢。养成三百年前气，曾向灵山走几遭。一饱香花和蜡烛，如来吩咐下天曹。托塔天王恩爱女，哪吒太子认同胞。也不是个填海鸟，也不是个戴山鳌。也不怕的雷焕剑，也不怕的吕虔刀。往往来来，一任他水流江汉阔；上上下下，那论他山耸泰恒高。你看他月貌花容娇滴滴，谁识得是个鼠老成精逞点豪。</span>
+    <span data-k="basis">金鼻白毛鼠精，无底洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="51" data-name="老鼠精（美人相）" data-chapter="第八十二回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/51" aria-label="打开 老鼠精（美人相） 的设定与原文"><img src="assets/characters/51.webp" alt="老鼠精（美人相） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">51</span>
+  <figcaption>
+    <div class="pname">老鼠精<span class="psub">美人相</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第八十二回</span></div>
+    <p class="pbasis">鼠精美人相，无底洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 51 幅</span>
+    <span data-k="chapter">第八十二回 姹女求阳</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">发盘云髻似堆鸦，身著绿绒花比甲。
+一对金莲刚半折，十指如同春笋发。
+团团粉面若银盆，朱唇一似樱桃滑。
+端端正正美人姿，月里嫦娥还喜恰。
+今朝拿住取经僧，便要欢娱同枕榻。</span>
+    <span data-k="basis">鼠精美人相，无底洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="52" data-name="老鼠精（美人相）" data-chapter="第八十二回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/52" aria-label="打开 老鼠精（美人相） 的设定与原文"><img src="assets/characters/52.webp" alt="老鼠精（美人相） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">52</span>
+  <figcaption>
+    <div class="pname">老鼠精<span class="psub">美人相</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第八十二回</span></div>
+    <p class="pbasis">鼠精美人相，无底洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 52 幅</span>
+    <span data-k="chapter">第八十二回 姹女求阳</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">真僧魔苦遇娇娃，妖怪娉婷实可夸。
+淡淡翠眉分柳叶，盈盈丹脸衬桃花。
+绣鞋微露双钩凤，云髻高盘两鬓鸦。
+含笑与师携手处，香飘兰麝满袈裟。</span>
+    <span data-k="basis">鼠精美人相，无底洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="54" data-name="南山大王（豹子精）" data-chapter="第八十五回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/54" aria-label="打开 南山大王（豹子精） 的设定与原文"><img src="assets/characters/54.webp" alt="南山大王（豹子精） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">54</span>
+  <figcaption>
+    <div class="pname">南山大王<span class="psub">豹子精</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第八十五回</span></div>
+    <p class="pbasis">豹子成精，隐雾山连环洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 54 幅</span>
+    <span data-k="chapter">第八十五回 心猿妒木母</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">炳炳文斑多采艳，昂昂雄势甚抖擞。
+獠牙出口如钢钻，利爪藏蹄似玉钩。
+金眼圆睛禽兽怕，银须倒竖鬼神愁。
+张狂哮吼施威猛，嗳雾喷风运智谋。</span>
+    <span data-k="basis">豹子成精，隐雾山连环洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="56" data-name="铁背苍狼怪（本相）" data-chapter="第八十六回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/56" aria-label="打开 铁背苍狼怪（本相） 的设定与原文"><img src="assets/characters/56.webp" alt="铁背苍狼怪（本相） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">56</span>
+  <figcaption>
+    <div class="pname">铁背苍狼怪<span class="psub">本相</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第八十六回</span></div>
+    <p class="pbasis">苍狼本相，隐雾山先锋</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 56 幅</span>
+    <span data-k="chapter">第八十六回 木母助威征怪物</span>
+    <span data-k="desc">本相／原身、变化形貌、形貌</span>
+    <span data-k="quote">孙大圣见那些小妖勇猛，连打不退，即使个分身法，把毫毛拔下一把，嚼在口中，喷出去，叫声：“变！”都变做本身模样，一个使一条金箍棒，从前边往里打进。那一二百个小妖顾前不能顾后，遮左不能遮右，一个个各自逃生，败走归洞。这行者与八戒从阵里往外杀来，可怜那些不识俊的妖精搪著钯，九孔血出；挽著棒，骨肉如泥。諕得那南山大王滚风生雾，得命逃回。那先锋不能变化，早被行者一棒打倒，现出本相，乃是个铁背苍狼怪。八戒上前扯著脚，翻过来看了道：“这厮从小儿也不知偷了人家多少猪牙子、羊羔儿吃了。”行者将身一抖，收上毫毛道：“呆子，不可迟慢，快赶老怪，讨师父的命去来。”八戒回头，就不见那些小行者，道：“哥哥的法相儿都去了。”行者道：“我已收来也。”八戒道：“妙啊，妙啊！”两个喜喜欢欢，得胜而回。</span>
+    <span data-k="basis">苍狼本相，隐雾山先锋</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="57" data-name="豹头山小妖（黄狮精部下）" data-chapter="第八十九回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/57" aria-label="打开 豹头山小妖（黄狮精部下） 的设定与原文"><img src="assets/characters/57.webp" alt="豹头山小妖（黄狮精部下） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">57</span>
+  <figcaption>
+    <div class="pname">豹头山小妖<span class="psub">黄狮精部下</span></div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第八十九回</span></div>
+    <p class="pbasis">豹头山虎口洞小妖</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 57 幅</span>
+    <span data-k="chapter">第八十九回 黄狮精虚设钉钯宴</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">圆滴溜两只眼，如灯晃亮；红剌媸一头毛，似火飘光。糟鼻子，猍口，獠牙尖利；查耳朵，砍额头，青脸泡浮。身穿一件浅黄衣，足踏一双莎蒲履。雄雄纠纠若凶神，急急忙忙如恶鬼。</span>
+    <span data-k="basis">豹头山虎口洞小妖</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="yao" data-hab="di" data-id="58" data-name="九灵元圣" data-chapter="第九十回" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/xyj/x/yao/58" aria-label="打开 九灵元圣 的设定与原文"><img src="assets/characters/58.webp" alt="九灵元圣 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">58</span>
+  <figcaption>
+    <div class="pname">九灵元圣</div>
+    <div class="pmeta"><span class="tag tag--cat">妖</span><span class="tag">地（穴）</span><span>第九十回</span></div>
+    <p class="pbasis">九灵元圣，竹节山九曲洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 58 幅</span>
+    <span data-k="chapter">第九十回 师狮授受同归一</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">你看他身无披挂，手不拈兵，大踏步走到前边，只闻得孙行者吆喝哩。他就大开了洞门，不答话，径奔行者。行者使铁棒，当头支住。沙僧抡宝杖就打。那老妖把头摇一摇，左右八个头，一齐张开口，把行者、沙僧轻轻的又衔于洞内。教：“取绳索来。”那刁钻古怪、古怪刁钻与青脸儿是昨夜逃生而回者，即拿两条绳，把他二人著实困了。老妖问道：“你这泼猴，把我那七个儿孙捉了；我今拿住你和尚四个、王子四个，也足以抵得我儿孙之命。小的们，选荆条柳棍来，且打这猴头一顿，与我黄狮孙报报冤仇。”那三个小妖各执柳棍，专打行者。行者本是熬炼过的身体，那些些柳棍儿，只好与他拂痒，他那里做声，凭他怎么捶打，略不介意。八戒、唐僧与王子见了，一个个毛骨悚然。少时，打折了柳棍。直打到天晚，也不计其数。沙僧见打得多了，甚不过意道：“我替他打百十下罢。”老妖道：“你且莫忙，明日就打到你了。一个个挨次儿打将来。”八戒著忙道：“后日就打到我老猪也。”打一会，渐渐的天昏了。老妖叫：“小的们，且住，点起灯火来，你们吃些饮食，让我到锦云窝略睡睡去。汝三人都是遭过害的，却用心看守，待明早再打。”三个小妖移过灯来，拿柳棍又打行者脑盖，就像敲梆子一般，剔剔托，托托剔，紧几下，慢几下。夜将深了，却都盹睡。</span>
+    <span data-k="basis">九灵元圣，竹节山九曲洞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="xyj" data-cat="jing" data-hab="di" data-id="59" data-name="辟寒·辟暑·辟尘（犀牛精）" data-chapter="第九十一回" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/xyj/x/jing/59" aria-label="打开 辟寒·辟暑·辟尘（犀牛精） 的设定与原文"><img src="assets/characters/59.webp" alt="辟寒·辟暑·辟尘（犀牛精） 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">59</span>
+  <figcaption>
+    <div class="pname">辟寒·辟暑·辟尘<span class="psub">犀牛精</span></div>
+    <div class="pmeta"><span class="tag tag--cat">精</span><span class="tag">地（穴）</span><span>第九十一回</span></div>
+    <p class="pbasis">犀牛成精，青龙山玄英洞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 59 幅</span>
+    <span data-k="chapter">第九十一回 金平府元夜观灯</span>
+    <span data-k="desc">形貌</span>
+    <span data-k="quote">彩面环睛，二角峥嵘。尖尖四只耳，灵窍闪光明。一体花纹如彩画，满身锦绣若蜚英。第一个，头顶狐裘花帽暖，一脸昂毛热气腾；第二个，身挂轻纱飞烈焰，四蹄花莹玉玲玲；第三个，威雄声吼如雷振，獠牙尖利赛银针。个个勇而猛，手持三样兵：一个使钺斧，一个大刀能；但看第三个，肩上横担扢挞藤。</span>
+    <span data-k="basis">犀牛成精，青龙山玄英洞</span>
+  </div>
+</figure>
+  </div>
+</section>
+</div>
+<div class="workgal" data-work="shj">
+<section class="gsec" data-hab="shan">
+  <div class="gsechead">
+    <span class="gsecchar">山</span>
+    <span class="gsecname">山经所载</span>
+    <span class="gseccount">58 幅</span>
+    <span class="gsecdesc">山丘、峡谷与崖穴</span>
+  </div>
+  <div class="grid">
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="02" data-name="天狗" data-chapter="tiān gǒu" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/02" aria-label="打开 天狗 的设定与原文"><img src="assets/shanhaijing/02.webp" alt="天狗 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">02</span>
+  <figcaption>
+    <div class="pname">天狗</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>tiān gǒu</span></div>
+    <p class="pbasis">状如狸而白首，其音如榴榴</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 02 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 02 种</span>
+    <span data-k="desc">天狗，形状像野猫，头部为白色，据《辞源》记载，天狗头上有三条较宽的白纹。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">状如狸而白首，其音如榴榴</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="03" data-name="狰" data-chapter="zhēng" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/03" aria-label="打开 狰 的设定与原文"><img src="assets/shanhaijing/03.webp" alt="狰 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">03</span>
+  <figcaption>
+    <div class="pname">狰</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>zhēng</span></div>
+    <p class="pbasis">居章莪山，五尾一角，音如击石</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 03 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 03 种</span>
+    <span data-k="desc">狰，是一种居住在章莪山的奇兽，声音如击石般铮铮，脸部中央长出一只角，而且有五条尾巴，全身赤红，身形似豹。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居章莪山，五尾一角，音如击石</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="qin" data-hab="shan" data-id="04" data-name="蛊雕" data-chapter="gǔ diāo" style="--cat:var(--hun)">
+  <a class="plate-fig" href="#/w/shj/x/qin/04" aria-label="打开 蛊雕 的设定与原文"><img src="assets/shanhaijing/04.webp" alt="蛊雕 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">04</span>
+  <figcaption>
+    <div class="pname">蛊雕</div>
+    <div class="pmeta"><span class="tag tag--cat">禽</span><span class="tag">山</span><span>gǔ diāo</span></div>
+    <p class="pbasis">状如雕而有角，音如婴儿，食人</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 04 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 04 种</span>
+    <span data-k="desc">蛊雕，又称纂雕，是一种似鸟非鸟的食人怪兽，样子像雕，头上长角，叫声像婴儿的啼哭声。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">状如雕而有角，音如婴儿，食人</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="05" data-name="肥遗" data-chapter="féi wèi" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/05" aria-label="打开 肥遗 的设定与原文"><img src="assets/shanhaijing/05.webp" alt="肥遗 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">05</span>
+  <figcaption>
+    <div class="pname">肥遗</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>féi wèi</span></div>
+    <p class="pbasis">居浑夕山，一首两身之怪蛇</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 05 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 05 种</span>
+    <span data-k="desc">肥遗，是一种居住在浑夕山山麓的怪蛇，有一个头、两个身体，在哪个国家出现，那个国家就会发生大旱灾。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居浑夕山，一首两身之怪蛇</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="06" data-name="肥虫遗" data-chapter="féi wèi" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/06" aria-label="打开 肥虫遗 的设定与原文"><img src="assets/shanhaijing/06.webp" alt="肥虫遗 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">06</span>
+  <figcaption>
+    <div class="pname">肥虫遗</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>féi wèi</span></div>
+    <p class="pbasis">在太华山，六足四翼之怪蛇</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 06 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 06 种</span>
+    <span data-k="desc">肥虫遗（虫字旁），是一种在太华山的怪蛇，长着六只脚和四只翅膀，出现就会天下大旱。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">在太华山，六足四翼之怪蛇</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shan" data-id="12" data-name="英招" data-chapter="yīng zhāo" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/12" aria-label="打开 英招 的设定与原文"><img src="assets/shanhaijing/12.webp" alt="英招 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">12</span>
+  <figcaption>
+    <div class="pname">英招</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">山</span><span>yīng zhāo</span></div>
+    <p class="pbasis">守槐江之山花园的天神，马身人面</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 12 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 12 种</span>
+    <span data-k="desc">英招，上古时期中国神话传说中的神，是看花园的天神，属华夏族和西戎部落，长着马身人面，身上有虎一样的斑纹，并长有鸟的翅膀，在四海巡行，发出的声音像是辘轳抽水的声音。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">守槐江之山花园的天神，马身人面</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shan" data-id="13" data-name="陆吾" data-chapter="lù wú" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/13" aria-label="打开 陆吾 的设定与原文"><img src="assets/shanhaijing/13.webp" alt="陆吾 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">13</span>
+  <figcaption>
+    <div class="pname">陆吾</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">山</span><span>lù wú</span></div>
+    <p class="pbasis">昆仑山神明，虎身九尾人面</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 13 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 13 种</span>
+    <span data-k="desc">陆吾，即肩吾，是中国古代神话传说中的昆仑山神明，神貌与形态像虎却有九条尾巴，长着人类的面孔和老虎的爪子，掌管着天帝的九域之部界和天帝苑圃里的时节。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">昆仑山神明，虎身九尾人面</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shan" data-id="14" data-name="泰逢" data-chapter="tài féng" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/14" aria-label="打开 泰逢 的设定与原文"><img src="assets/shanhaijing/14.webp" alt="泰逢 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">14</span>
+  <figcaption>
+    <div class="pname">泰逢</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">山</span><span>tài féng</span></div>
+    <p class="pbasis">萯山之神，状如人而虎尾</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 14 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 14 种</span>
+    <span data-k="desc">泰逢，形状与人相似，但长着一条虎尾，具有变化莫测的法力，可以动天地之气。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">萯山之神，状如人而虎尾</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shan" data-id="15" data-name="计蒙" data-chapter="jì méng" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/15" aria-label="打开 计蒙 的设定与原文"><img src="assets/shanhaijing/15.webp" alt="计蒙 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">15</span>
+  <figcaption>
+    <div class="pname">计蒙</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">山</span><span>jì méng</span></div>
+    <p class="pbasis">司雨之神，居光山，龙头人身鸟爪</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 15 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 15 种</span>
+    <span data-k="desc">计蒙，是古代中国神话中的司雨之神，亦名雨师。龙头人身、鸟爪，臂生羽毛，挥臂张口喷雾致雨。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">司雨之神，居光山，龙头人身鸟爪</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shan" data-id="17" data-name="刑天" data-chapter="xíng tiān" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/17" aria-label="打开 刑天 的设定与原文"><img src="assets/shanhaijing/17.webp" alt="刑天 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">17</span>
+  <figcaption>
+    <div class="pname">刑天</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">山</span><span>xíng tiān</span></div>
+    <p class="pbasis">以乳为目、以脐为口，操干戚而舞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 17 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 17 种</span>
+    <span data-k="desc">刑天，本作形天，又作形天、邢天。刑天和黄帝（一说天帝）争位，被斩去头，失了首级后，以自身双乳作眼、肚脐为嘴的形态存活，双手各持一柄利斧和一面盾牌作战。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">以乳为目、以脐为口，操干戚而舞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shan" data-id="19" data-name="烛阴" data-chapter="zhú yīn" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/19" aria-label="打开 烛阴 的设定与原文"><img src="assets/shanhaijing/19.webp" alt="烛阴 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">19</span>
+  <figcaption>
+    <div class="pname">烛阴</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">山</span><span>zhú yīn</span></div>
+    <p class="pbasis">章尾山之神，人面蛇身，开眼为昼</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 19 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 19 种</span>
+    <span data-k="desc">烛阴，又名烛龙、烛九阴、烛龙、火精，是章尾山之神，开眼为昼、闭眼为夜，人面蛇身，浑身红色，眼睛竖着长。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">章尾山之神，人面蛇身，开眼为昼</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shan" data-id="22" data-name="贰负之臣" data-chapter="èr fù zhī chén" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/22" aria-label="打开 贰负之臣 的设定与原文"><img src="assets/shanhaijing/22.webp" alt="贰负之臣 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">22</span>
+  <figcaption>
+    <div class="pname">贰负之臣</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">山</span><span>èr fù zhī chén</span></div>
+    <p class="pbasis">危，贰负之臣，囚于疏属山</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 22 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 22 种</span>
+    <span data-k="desc">贰负之臣，是贰负的臣子，贰负是一个神的名字，《山海经》中说的贰负之臣名叫危，危与贰负杀死了另一个叫窫窳的神。天帝震怒，因此将危囚禁于疏属山，铐住他的右脚，反绑着他的双手和头发吊在树上。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">危，贰负之臣，囚于疏属山</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shan" data-id="24" data-name="九凤" data-chapter="jiǔ fèng" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/24" aria-label="打开 九凤 的设定与原文"><img src="assets/shanhaijing/24.webp" alt="九凤 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">24</span>
+  <figcaption>
+    <div class="pname">九凤</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">山</span><span>jiǔ fèng</span></div>
+    <p class="pbasis">北极天柜山之神，九首人面鸟身</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 24 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 24 种</span>
+    <span data-k="desc">在最荒远之地有座山，名叫北极天柜，海水从它的北面注入山中，山里有一位神，他长着九个脑袋，人一样的脸，鸟一样的身子，这位神名叫九凤。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">北极天柜山之神，九首人面鸟身</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="46" data-name="狌狌" data-chapter="xīng xīng" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/46" aria-label="打开 狌狌 的设定与原文"><img src="assets/shanhaijing/46.webp" alt="狌狌 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">46</span>
+  <figcaption>
+    <div class="pname">狌狌</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>xīng xīng</span></div>
+    <p class="pbasis">山中野兽，如猴而白耳，能直立</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 46 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 46 种</span>
+    <span data-k="desc">狌狌，山中有一种野兽，长得像猴但耳朵是白色的，趴着身子走路，还能像人一样直立行走。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">山中野兽，如猴而白耳，能直立</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="47" data-name="鹿蜀" data-chapter="lù shǔ" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/47" aria-label="打开 鹿蜀 的设定与原文"><img src="assets/shanhaijing/47.webp" alt="鹿蜀 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">47</span>
+  <figcaption>
+    <div class="pname">鹿蜀</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>lù shǔ</span></div>
+    <p class="pbasis">居杻阳山，马状虎纹，一首红尾</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 47 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 47 种</span>
+    <span data-k="desc">鹿蜀，生活在杻阳山，样子像马，头部白色，身上长着老虎的斑纹，长有一条红色的尾巴，鸣叫的时候就像人们在唱民歌，佩戴它的皮毛可以使子孙繁衍。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居杻阳山，马状虎纹，一首红尾</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="48" data-name="猼訑" data-chapter="bó yí" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/48" aria-label="打开 猼訑 的设定与原文"><img src="assets/shanhaijing/48.webp" alt="猼訑 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">48</span>
+  <figcaption>
+    <div class="pname">猼訑</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>bó yí</span></div>
+    <p class="pbasis">状如羊，九尾四耳，目在背上</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 48 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 48 种</span>
+    <span data-k="desc">猼訑，一种怪兽，样子像羊，有九条尾巴和四只耳朵，眼睛长在背上。有人说取它的皮披在身上，就不知畏惧。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">状如羊，九尾四耳，目在背上</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="49" data-name="猾褢" data-chapter="huá huái" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/49" aria-label="打开 猾褢 的设定与原文"><img src="assets/shanhaijing/49.webp" alt="猾褢 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">49</span>
+  <figcaption>
+    <div class="pname">猾褢</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>huá huái</span></div>
+    <p class="pbasis">状如人而彘鬣，见则劳役</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 49 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 49 种</span>
+    <span data-k="desc">猾褢，形状像人却全身长满猪样的豪毛，冬季蛰居夏天活动，其声音如同砍木头发出的声音，哪个地方出现这种动物，那里就会有劳役之灾。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">状如人而彘鬣，见则劳役</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="50" data-name="长右" data-chapter="cháng yòu" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/50" aria-label="打开 长右 的设定与原文"><img src="assets/shanhaijing/50.webp" alt="长右 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">50</span>
+  <figcaption>
+    <div class="pname">长右</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>cháng yòu</span></div>
+    <p class="pbasis">长右之山，四耳长臂之猴，见则大水</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 50 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 50 种</span>
+    <span data-k="desc">长右，是大水的征兆，一种长着四只耳朵的长臂猴，吼叫声像人的呻吟声。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">长右之山，四耳长臂之猴，见则大水</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="51" data-name="䍺" data-chapter="huán" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/51" aria-label="打开 䍺 的设定与原文"><img src="assets/shanhaijing/51.webp" alt="䍺 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">51</span>
+  <figcaption>
+    <div class="pname">䍺</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>huán</span></div>
+    <p class="pbasis">居洵山，羊状无口</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 51 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 51 种</span>
+    <span data-k="desc">䍺，生活在洵山，形状像羊，没有嘴，不吃不喝也不会饿死。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居洵山，羊状无口</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="52" data-name="彘" data-chapter="zhì" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/52" aria-label="打开 彘 的设定与原文"><img src="assets/shanhaijing/52.webp" alt="彘 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">52</span>
+  <figcaption>
+    <div class="pname">彘</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>zhì</span></div>
+    <p class="pbasis">居浮玉山，虎状牛尾，食人</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 52 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 52 种</span>
+    <span data-k="desc">彘，生活在浮玉山，形状像老虎却长着牛的尾巴，发出的叫声如同狗叫，是能吃人的。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居浮玉山，虎状牛尾，食人</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="53" data-name="羬羊" data-chapter="qián yáng" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/53" aria-label="打开 羬羊 的设定与原文"><img src="assets/shanhaijing/53.webp" alt="羬羊 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">53</span>
+  <figcaption>
+    <div class="pname">羬羊</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>qián yáng</span></div>
+    <p class="pbasis">居钱来山，羊状马尾</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 53 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 53 种</span>
+    <span data-k="desc">羬羊，生活在钱来山，形状像普通的羊却长着马的尾巴，它的油脂可以护理治疗干裂的皮肤。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居钱来山，羊状马尾</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="54" data-name="豪彘" data-chapter="háo zhì" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/54" aria-label="打开 豪彘 的设定与原文"><img src="assets/shanhaijing/54.webp" alt="豪彘 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">54</span>
+  <figcaption>
+    <div class="pname">豪彘</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>háo zhì</span></div>
+    <p class="pbasis">居竹山，豚状白毛</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 54 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 54 种</span>
+    <span data-k="desc">豪彘，生活在竹山，形状像小猪却长着白色的毛，毛如簪子粗细而尖端呈黑色。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居竹山，豚状白毛</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="55" data-name="葱聋" data-chapter="cōng lóng" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/55" aria-label="打开 葱聋 的设定与原文"><img src="assets/shanhaijing/55.webp" alt="葱聋 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">55</span>
+  <figcaption>
+    <div class="pname">葱聋</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>cōng lóng</span></div>
+    <p class="pbasis">状如羊而赤鬣</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 55 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 55 种</span>
+    <span data-k="desc">葱聋，它的形状像羊，却长有红色的胡子。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">状如羊而赤鬣</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="56" data-name="灵羊" data-chapter="líng yáng" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/56" aria-label="打开 灵羊 的设定与原文"><img src="assets/shanhaijing/56.webp" alt="灵羊 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">56</span>
+  <figcaption>
+    <div class="pname">灵羊</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>líng yáng</span></div>
+    <p class="pbasis">角曲如轮，悬身树上，出没山崖</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 56 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 56 种</span>
+    <span data-k="desc">灵羊，角卷曲如圆，晚上休息时会找个安全的地方，把大角挂在树上，将身体悬空以躲避天敌，喜欢出没于山崖之间。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">角曲如轮，悬身树上，出没山崖</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="57" data-name="玃如" data-chapter="jué rú" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/57" aria-label="打开 玃如 的设定与原文"><img src="assets/shanhaijing/57.webp" alt="玃如 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">57</span>
+  <figcaption>
+    <div class="pname">玃如</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>jué rú</span></div>
+    <p class="pbasis">居皋涂山，鹿状白尾，马足人手四角</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 57 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 57 种</span>
+    <span data-k="desc">玃如，生活在皋涂山，形状像普通的鹿却长着白色的尾巴，有马一样的脚蹄和人一样的手，却又有四只角。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居皋涂山，鹿状白尾，马足人手四角</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="58" data-name="土蝼" data-chapter="tǔ lóu" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/58" aria-label="打开 土蝼 的设定与原文"><img src="assets/shanhaijing/58.webp" alt="土蝼 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">58</span>
+  <figcaption>
+    <div class="pname">土蝼</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>tǔ lóu</span></div>
+    <p class="pbasis">居昆仑之丘，羊状四角，食人</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 58 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 58 种</span>
+    <span data-k="desc">土蝼，生活在昆仑之丘，外貌像羊并且有四个角，能够吃人。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居昆仑之丘，羊状四角，食人</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="59" data-name="举父" data-chapter="jǔ fù" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/59" aria-label="打开 举父 的设定与原文"><img src="assets/shanhaijing/59.webp" alt="举父 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">59</span>
+  <figcaption>
+    <div class="pname">举父</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>jǔ fù</span></div>
+    <p class="pbasis">居崇吾山，如禺而文臂，善投</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 59 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 59 种</span>
+    <span data-k="desc">举父，生活在崇吾山，样子像猕猴，手臂上有花纹，尾巴和豹子的尾巴相似，善于跳跃，也说是善于投掷。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居崇吾山，如禺而文臂，善投</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="60" data-name="讙" data-chapter="huān" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/60" aria-label="打开 讙 的设定与原文"><img src="assets/shanhaijing/60.webp" alt="讙 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">60</span>
+  <figcaption>
+    <div class="pname">讙</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>huān</span></div>
+    <p class="pbasis">居翼望山，如狸，一目三尾</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 60 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 60 种</span>
+    <span data-k="desc">讙，生活在翼望山，形状如野猫，一眼三尾，它的叫声仿佛能盖过百种叫声，有人养来御凶煞邪，吃它的肉可以治疗黄疸病。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居翼望山，如狸，一目三尾</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="61" data-name="驳" data-chapter="bó" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/61" aria-label="打开 驳 的设定与原文"><img src="assets/shanhaijing/61.webp" alt="驳 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">61</span>
+  <figcaption>
+    <div class="pname">驳</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>bó</span></div>
+    <p class="pbasis">状如白马，锯牙，食虎豹</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 61 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 61 种</span>
+    <span data-k="desc">驳，形状与白马相似，长着锯齿般的牙齿，能吃虎、豹。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">状如白马，锯牙，食虎豹</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="62" data-name="蛮蛮" data-chapter="mán mán" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/62" aria-label="打开 蛮蛮 的设定与原文"><img src="assets/shanhaijing/62.webp" alt="蛮蛮 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">62</span>
+  <figcaption>
+    <div class="pname">蛮蛮</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>mán mán</span></div>
+    <p class="pbasis">鼠身蟹首，音如犬吠</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 62 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 62 种</span>
+    <span data-k="desc">蛮蛮，样子是老鼠一样的身子，蟹一样的脑袋，发出的声音如狗吠声。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">鼠身蟹首，音如犬吠</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="63" data-name="䑏疏" data-chapter="huān shū" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/63" aria-label="打开 䑏疏 的设定与原文"><img src="assets/shanhaijing/63.webp" alt="䑏疏 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">63</span>
+  <figcaption>
+    <div class="pname">䑏疏</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>huān shū</span></div>
+    <p class="pbasis">居带山，马状一角</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 63 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 63 种</span>
+    <span data-k="desc">䑏疏，生活在带山，外形像马，但是有一个角，有点类似西方的独角兽。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居带山，马状一角</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="64" data-name="鸟鼠同穴" data-chapter="niǎo shǔ tóng xué" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/64" aria-label="打开 鸟鼠同穴 的设定与原文"><img src="assets/shanhaijing/64.webp" alt="鸟鼠同穴 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">64</span>
+  <figcaption>
+    <div class="pname">鸟鼠同穴</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>niǎo shǔ tóng xué</span></div>
+    <p class="pbasis">鸟鼠同穴，穿地数尺而共处</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 64 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 64 种</span>
+    <span data-k="desc">鸟鼠同穴，鼠如平常人家的鼠，但尾巴比较短，鸟长得很像燕子，但羽毛是黄色的，它们穿地数尺深，鼠在里边，鸟在外边，和睦相处。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">鸟鼠同穴，穿地数尺而共处</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="65" data-name="山犭军" data-chapter="shān kuài" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/65" aria-label="打开 山犭军 的设定与原文"><img src="assets/shanhaijing/65.webp" alt="山犭军 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">65</span>
+  <figcaption>
+    <div class="pname">山犭军</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>shān kuài</span></div>
+    <p class="pbasis">如犬而人面，见人则笑，行如风</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 65 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 65 种</span>
+    <span data-k="desc">山犭军，体形像狗，却长着一张人脸，善于投掷，见到人就喜欢发笑，行走起来似风一样迅疾，只要它一出现，必然是大风弥天。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">如犬而人面，见人则笑，行如风</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="66" data-name="诸犍" data-chapter="zhū jiān" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/66" aria-label="打开 诸犍 的设定与原文"><img src="assets/shanhaijing/66.webp" alt="诸犍 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">66</span>
+  <figcaption>
+    <div class="pname">诸犍</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>zhū jiān</span></div>
+    <p class="pbasis">羊状四角而食人，原文所记与土蝼同</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 66 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 66 种</span>
+    <span data-k="desc">诸犍，生活在昆仑之丘，外貌像羊并且有四个角，能够吃人。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">羊状四角而食人，原文所记与土蝼同</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="67" data-name="孛马" data-chapter="bèi mǎ" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/67" aria-label="打开 孛马 的设定与原文"><img src="assets/shanhaijing/67.webp" alt="孛马 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">67</span>
+  <figcaption>
+    <div class="pname">孛马</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>bèi mǎ</span></div>
+    <p class="pbasis">马状，牛尾，一角</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 67 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 67 种</span>
+    <span data-k="desc">孛马，有牛一样的尾巴，白色身子，一只角。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">马状，牛尾，一角</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="68" data-name="诸怀" data-chapter="zhū huái" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/68" aria-label="打开 诸怀 的设定与原文"><img src="assets/shanhaijing/68.webp" alt="诸怀 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">68</span>
+  <figcaption>
+    <div class="pname">诸怀</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>zhū huái</span></div>
+    <p class="pbasis">如牛四角，人目彘耳，食人</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 68 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 68 种</span>
+    <span data-k="desc">诸怀，外形长得像牛，却有四只角，人的眼睛和猪耳，其叫声像鸣雁，会吃人。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">如牛四角，人目彘耳，食人</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="69" data-name="䮝" data-chapter="hún" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/69" aria-label="打开 䮝 的设定与原文"><img src="assets/shanhaijing/69.webp" alt="䮝 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">69</span>
+  <figcaption>
+    <div class="pname">䮝</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>hún</span></div>
+    <p class="pbasis">如羚羊，四角马尾鸡足</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 69 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 69 种</span>
+    <span data-k="desc">䮝，样子像羚羊，头上长着四个角，长着马的尾巴和鸡的爪子，发出的声音就像呼喊自己的名字。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">如羚羊，四角马尾鸡足</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="70" data-name="饕餮" data-chapter="tāo tiè" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/70" aria-label="打开 饕餮 的设定与原文"><img src="assets/shanhaijing/70.webp" alt="饕餮 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">70</span>
+  <figcaption>
+    <div class="pname">饕餮</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>tāo tiè</span></div>
+    <p class="pbasis">羊身人面，目在腋下，虎齿人爪</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 70 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 70 种</span>
+    <span data-k="desc">饕餮，形状如羊身人面，目在腋下，虎齿人爪，音如婴儿，是贪欲的象征，常用来形容贪食或贪婪的人。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">羊身人面，目在腋下，虎齿人爪</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="71" data-name="飞鼠" data-chapter="fēi shǔ" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/71" aria-label="打开 飞鼠 的设定与原文"><img src="assets/shanhaijing/71.webp" alt="飞鼠 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">71</span>
+  <figcaption>
+    <div class="pname">飞鼠</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>fēi shǔ</span></div>
+    <p class="pbasis">居天池山，兔状鼠首，以背毛飞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 71 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 71 种</span>
+    <span data-k="desc">飞鼠，生活在天池山，形状像一般的兔子却长着老鼠的头，借助它背上的毛飞行。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居天池山，兔状鼠首，以背毛飞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="72" data-name="天马" data-chapter="tiān mǎ" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/72" aria-label="打开 天马 的设定与原文"><img src="assets/shanhaijing/72.webp" alt="天马 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">72</span>
+  <figcaption>
+    <div class="pname">天马</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>tiān mǎ</span></div>
+    <p class="pbasis">居马成山，白犬黑首，见人则飞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 72 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 72 种</span>
+    <span data-k="desc">天马，生活在马成山，形状像白色的狗，长着黑色的脑袋，见到人就腾空飞起，它的叫声像是在自呼其名。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居马成山，白犬黑首，见人则飞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="73" data-name="豲" data-chapter="huán" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/73" aria-label="打开 豲 的设定与原文"><img src="assets/shanhaijing/73.webp" alt="豲 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">73</span>
+  <figcaption>
+    <div class="pname">豲</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>huán</span></div>
+    <p class="pbasis">居乾山，牛状三足</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 73 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 73 种</span>
+    <span data-k="desc">豲，生活在乾山，形状像牛，长着三只脚，它发出的叫声如同自己的名字。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居乾山，牛状三足</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="74" data-name="䍶䍶" data-chapter="dòng dòng" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/74" aria-label="打开 䍶䍶 的设定与原文"><img src="assets/shanhaijing/74.webp" alt="䍶䍶 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">74</span>
+  <figcaption>
+    <div class="pname">䍶䍶</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>dòng dòng</span></div>
+    <p class="pbasis">羊状，一角一目，目在耳后</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 74 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 74 种</span>
+    <span data-k="desc">䍶䍶，样子像羊，长着一只角和一只眼睛，眼睛还长在耳朵后面，它发出的叫声就是自己名字读音。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">羊状，一角一目，目在耳后</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="75" data-name="从从" data-chapter="cóng cóng" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/75" aria-label="打开 从从 的设定与原文"><img src="assets/shanhaijing/75.webp" alt="从从 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">75</span>
+  <figcaption>
+    <div class="pname">从从</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>cóng cóng</span></div>
+    <p class="pbasis">居枸状山，犬状六足</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 75 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 75 种</span>
+    <span data-k="desc">从从，生活在枸状山，形体像一般的狗，却长着六只脚，它发出的叫声便是自身名字的读音。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居枸状山，犬状六足</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="76" data-name="獙獙" data-chapter="bì bì" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/76" aria-label="打开 獙獙 的设定与原文"><img src="assets/shanhaijing/76.webp" alt="獙獙 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">76</span>
+  <figcaption>
+    <div class="pname">獙獙</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>bì bì</span></div>
+    <p class="pbasis">居姑逢山，狐状有翼，见则大旱</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 76 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 76 种</span>
+    <span data-k="desc">獙獙，生活在姑逢山，长得像狐狸却有翅膀，叫声像鸿雁鸣叫，它的出现能预兆天下会发生大旱灾。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居姑逢山，狐状有翼，见则大旱</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="77" data-name="朱獳" data-chapter="zhū rú" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/77" aria-label="打开 朱獳 的设定与原文"><img src="assets/shanhaijing/77.webp" alt="朱獳 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">77</span>
+  <figcaption>
+    <div class="pname">朱獳</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>zhū rú</span></div>
+    <p class="pbasis">居耿山，狐状鱼鳍</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 77 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 77 种</span>
+    <span data-k="desc">朱獳，生活在耿山，形状像狐狸却长着鱼鳍，发出的叫声便是它自身名称的读音，据说在哪个国家出现，那个国家里就会有恐怖的事发生。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居耿山，狐状鱼鳍</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="78" data-name="峳峳" data-chapter="yōu yōu" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/78" aria-label="打开 峳峳 的设定与原文"><img src="assets/shanhaijing/78.webp" alt="峳峳 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">78</span>
+  <figcaption>
+    <div class="pname">峳峳</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>yōu yōu</span></div>
+    <p class="pbasis">马状四角，羊目牛尾</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 78 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 78 种</span>
+    <span data-k="desc">峳峳，长得像马，却长着四只角、羊一样的眼睛、牛一样的尾巴，声音如同狗叫，在哪个国家出现，那个国家就会有很多狡诈之徒。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">马状四角，羊目牛尾</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="79" data-name="蠪侄" data-chapter="lóng zhí" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/79" aria-label="打开 蠪侄 的设定与原文"><img src="assets/shanhaijing/79.webp" alt="蠪侄 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">79</span>
+  <figcaption>
+    <div class="pname">蠪侄</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>lóng zhí</span></div>
+    <p class="pbasis">居凫丽山，狐状九尾九首，食人</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 79 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 79 种</span>
+    <span data-k="desc">蠪侄，生活在凫丽山，体形与狐狸相似，生有九条尾巴、九个脑袋，长着老虎一样的爪子，它的叫声像是婴儿的啼哭声，能吃人。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居凫丽山，狐状九尾九首，食人</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="80" data-name="马腹" data-chapter="mǎ fù" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/80" aria-label="打开 马腹 的设定与原文"><img src="assets/shanhaijing/80.webp" alt="马腹 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">80</span>
+  <figcaption>
+    <div class="pname">马腹</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>mǎ fù</span></div>
+    <p class="pbasis">居蔓渠山，人面虎身，音如婴儿</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 80 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 80 种</span>
+    <span data-k="desc">马腹，生活在蔓渠山，一种人面虎身的怪兽，声音像婴儿，会吃人。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居蔓渠山，人面虎身，音如婴儿</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="81" data-name="蜚" data-chapter="fěi" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/81" aria-label="打开 蜚 的设定与原文"><img src="assets/shanhaijing/81.webp" alt="蜚 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">81</span>
+  <figcaption>
+    <div class="pname">蜚</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>fěi</span></div>
+    <p class="pbasis">居太山，牛状白首一目蛇尾</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 81 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 81 种</span>
+    <span data-k="desc">蜚，居住在中原东部的太山，外形像牛，头部为白色，但是却长着蛇的尾巴，并且只有一只眼睛。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居太山，牛状白首一目蛇尾</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="83" data-name="犭颉" data-chapter="jié" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/83" aria-label="打开 犭颉 的设定与原文"><img src="assets/shanhaijing/83.webp" alt="犭颉 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">83</span>
+  <figcaption>
+    <div class="pname">犭颉</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>jié</span></div>
+    <p class="pbasis">居厘山，犬状有甲，毛如豪猪</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 83 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 83 种</span>
+    <span data-k="desc">犭颉，生活在厘山，形体像猛犬，身上有甲，长在鳞甲间的毛像野猪的豪毛。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居厘山，犬状有甲，毛如豪猪</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shan" data-id="86" data-name="旄马" data-chapter="máo mǎ" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/86" aria-label="打开 旄马 的设定与原文"><img src="assets/shanhaijing/86.webp" alt="旄马 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">86</span>
+  <figcaption>
+    <div class="pname">旄马</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">山</span><span>máo mǎ</span></div>
+    <p class="pbasis">马状，四节有毛，居高山之南</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 86 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 86 种</span>
+    <span data-k="desc">旄马，形状像普通的马但四条腿的关节上都有长毛，生活在巴蛇所在地的西北面，一座高山的南面。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">马状，四节有毛，居高山之南</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="qin" data-hab="shan" data-id="90" data-name="鴸" data-chapter="zhū" style="--cat:var(--hun)">
+  <a class="plate-fig" href="#/w/shj/x/qin/90" aria-label="打开 鴸 的设定与原文"><img src="assets/shanhaijing/90.webp" alt="鴸 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">90</span>
+  <figcaption>
+    <div class="pname">鴸</div>
+    <div class="pmeta"><span class="tag tag--cat">禽</span><span class="tag">山</span><span>zhū</span></div>
+    <p class="pbasis">怪鸟，鸮状而人手</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 90 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 90 种</span>
+    <span data-k="desc">鴸，一种不吉祥的怪鸟，形状像猫头鹰，却长着人手。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">怪鸟，鸮状而人手</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="qin" data-hab="shan" data-id="91" data-name="橐蜚" data-chapter="tuó fěi" style="--cat:var(--hun)">
+  <a class="plate-fig" href="#/w/shj/x/qin/91" aria-label="打开 橐蜚 的设定与原文"><img src="assets/shanhaijing/91.webp" alt="橐蜚 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">91</span>
+  <figcaption>
+    <div class="pname">橐蜚</div>
+    <div class="pmeta"><span class="tag tag--cat">禽</span><span class="tag">山</span><span>tuó fěi</span></div>
+    <p class="pbasis">鸮状人面，一足，冬见夏蛰</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 91 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 91 种</span>
+    <span data-k="desc">橐蜚，样子像猫头鹰，有人的面孔，一只脚，冬天出没，夏天蛰睡，把它的羽毛放在衣服中不怕打雷。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">鸮状人面，一足，冬见夏蛰</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="qin" data-hab="shan" data-id="92" data-name="凫徯" data-chapter="fú xī" style="--cat:var(--hun)">
+  <a class="plate-fig" href="#/w/shj/x/qin/92" aria-label="打开 凫徯 的设定与原文"><img src="assets/shanhaijing/92.webp" alt="凫徯 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">92</span>
+  <figcaption>
+    <div class="pname">凫徯</div>
+    <div class="pmeta"><span class="tag tag--cat">禽</span><span class="tag">山</span><span>fú xī</span></div>
+    <p class="pbasis">居鹿台山，鸡身人面，见则大兵</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 92 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 92 种</span>
+    <span data-k="desc">凫徯，生活在鹿台山，有着似公鸡的身体，面貌与人一样，眼神锐利，时时带着一副战斗的表情，叫声就是自己的名字，它一出现，就会爆发大战。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居鹿台山，鸡身人面，见则大兵</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="qin" data-hab="shan" data-id="93" data-name="毕方" data-chapter="bì fāng" style="--cat:var(--hun)">
+  <a class="plate-fig" href="#/w/shj/x/qin/93" aria-label="打开 毕方 的设定与原文"><img src="assets/shanhaijing/93.webp" alt="毕方 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">93</span>
+  <figcaption>
+    <div class="pname">毕方</div>
+    <div class="pmeta"><span class="tag tag--cat">禽</span><span class="tag">山</span><span>bì fāng</span></div>
+    <p class="pbasis">鹤状一足，青羽赤纹，见则有火灾</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 93 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 93 种</span>
+    <span data-k="desc">毕方，形状像鹤，只有一只脚，青色的羽毛之上有红色的斑纹，长着白色的嘴巴，它鸣叫起来就好像是在呼喊自己的名字，它在哪里出现，哪里就会有大片的野火。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">鹤状一足，青羽赤纹，见则有火灾</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="qin" data-hab="shan" data-id="94" data-name="鵸鵌" data-chapter="qí tú" style="--cat:var(--hun)">
+  <a class="plate-fig" href="#/w/shj/x/qin/94" aria-label="打开 鵸鵌 的设定与原文"><img src="assets/shanhaijing/94.webp" alt="鵸鵌 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">94</span>
+  <figcaption>
+    <div class="pname">鵸鵌</div>
+    <div class="pmeta"><span class="tag tag--cat">禽</span><span class="tag">山</span><span>qí tú</span></div>
+    <p class="pbasis">居翼望山，乌状三首六尾</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 94 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 94 种</span>
+    <span data-k="desc">鵸鵌，生活在翼望山，外形像乌鸦，长着三个脑袋、六条尾巴，经常发出像人笑声一般的声音，据说吃了它的肉，人就不会做恶梦，还可以辟除凶邪之气。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居翼望山，乌状三首六尾</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="qin" data-hab="shan" data-id="95" data-name="鸱" data-chapter="chī" style="--cat:var(--hun)">
+  <a class="plate-fig" href="#/w/shj/x/qin/95" aria-label="打开 鸱 的设定与原文"><img src="assets/shanhaijing/95.webp" alt="鸱 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">95</span>
+  <figcaption>
+    <div class="pname">鸱</div>
+    <div class="pmeta"><span class="tag tag--cat">禽</span><span class="tag">山</span><span>chī</span></div>
+    <p class="pbasis">居三危山，一首三身</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 95 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 95 种</span>
+    <span data-k="desc">鸱，生活在三危山，长着一个脑袋、三个身子，形状与（鸟字旁）【乐】鸟相似。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居三危山，一首三身</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="qin" data-hab="shan" data-id="96" data-name="人面鸮" data-chapter="rén miàn xiāo" style="--cat:var(--hun)">
+  <a class="plate-fig" href="#/w/shj/x/qin/96" aria-label="打开 人面鸮 的设定与原文"><img src="assets/shanhaijing/96.webp" alt="人面鸮 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">96</span>
+  <figcaption>
+    <div class="pname">人面鸮</div>
+    <div class="pmeta"><span class="tag tag--cat">禽</span><span class="tag">山</span><span>rén miàn xiāo</span></div>
+    <p class="pbasis">居崦嵫山，鸮状人面，见则大旱</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 96 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 96 种</span>
+    <span data-k="desc">人面鸮，生活在崦嵫山，头部的形状像一般的猫头鹰却长着人的面孔，长着猿一样的身子却拖着一条狗尾巴，它发出的叫声就是自己的名字，在哪个地方出现，那里就会有大旱灾。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居崦嵫山，鸮状人面，见则大旱</span>
+  </div>
+</figure>
+  </div>
+</section>
+<section class="gsec" data-hab="shui">
+  <div class="gsechead">
+    <span class="gsecchar">水</span>
+    <span class="gsecname">河泽海滨</span>
+    <span class="gseccount">8 幅</span>
+    <span class="gsecdesc">河泽、海隅与水府</span>
+  </div>
+  <div class="grid">
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shui" data-id="01" data-name="蠃鱼" data-chapter="luǒ yú" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/01" aria-label="打开 蠃鱼 的设定与原文"><img src="assets/shanhaijing/01.webp" alt="蠃鱼 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">01</span>
+  <figcaption>
+    <div class="pname">蠃鱼</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">水</span><span>luǒ yú</span></div>
+    <p class="pbasis">鱼身而鸟翼，见则其邑大水</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 01 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 01 种</span>
+    <span data-k="desc">蠃鱼，一种长着鱼身，却有鸟翅膀的异兽，能发出像鸳鸯一样的鸟叫。它出现在哪里就会带来水灾。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">鱼身而鸟翼，见则其邑大水</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shui" data-id="08" data-name="旋龟" data-chapter="xuán guī" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/08" aria-label="打开 旋龟 的设定与原文"><img src="assets/shanhaijing/08.webp" alt="旋龟 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">08</span>
+  <figcaption>
+    <div class="pname">旋龟</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">水</span><span>xuán guī</span></div>
+    <p class="pbasis">生于怪水，鸟首蛇尾</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 08 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 08 种</span>
+    <span data-k="desc">旋龟，产于怪水。其体貌与普通的乌龟类似，但颜色为红黑，长着鸟的头、毒蛇的尾巴。据说它的叫声像剖开的木头的声音，将其佩带在身上，耳不聋，还可以治疗足底的老茧。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">生于怪水，鸟首蛇尾</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shui" data-id="18" data-name="相柳" data-chapter="xiāng liǔ" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/18" aria-label="打开 相柳 的设定与原文"><img src="assets/shanhaijing/18.webp" alt="相柳 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">18</span>
+  <figcaption>
+    <div class="pname">相柳</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">水</span><span>xiāng liǔ</span></div>
+    <p class="pbasis">蛇身九头，共工之臣，凶神；所至成泽、喷水成洪</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 18 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 18 种</span>
+    <span data-k="desc">相柳，又称相柳，上古时代中国神话传说中的凶神，共工的臣属，蛇身九头，食人无数，所到之处，尽成泽国。传说它喷出来的水比洪水还厉害，又苦又辣，吃了就会送命。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">蛇身九头，共工之臣，凶神；所至成泽、喷水成洪</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shui" data-id="20" data-name="天吴" data-chapter="tiān wú" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/20" aria-label="打开 天吴 的设定与原文"><img src="assets/shanhaijing/20.webp" alt="天吴 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">20</span>
+  <figcaption>
+    <div class="pname">天吴</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">水</span><span>tiān wú</span></div>
+    <p class="pbasis">水神，人面虎身，八首八足八尾</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 20 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 20 种</span>
+    <span data-k="desc">天吴，是古代中国神话中的水神，人面虎身，这与吴人的狩猎生活密切相关。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">水神，人面虎身，八首八足八尾</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="shui" data-id="25" data-name="雷神" data-chapter="léi shén" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/25" aria-label="打开 雷神 的设定与原文"><img src="assets/shanhaijing/25.webp" alt="雷神 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">25</span>
+  <figcaption>
+    <div class="pname">雷神</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">水</span><span>léi shén</span></div>
+    <p class="pbasis">龙身人头，司雷之神，居雷泽，鼓腹作雷声</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 25 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 25 种</span>
+    <span data-k="desc">雷神，中国古代神话中司雷之神，居住在雷泽，外形为龙身人头，拍一下自己的腹部，就会发出打雷声。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">龙身人头，司雷之神，居雷泽，鼓腹作雷声</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shui" data-id="87" data-name="夔" data-chapter="kuí" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/87" aria-label="打开 夔 的设定与原文"><img src="assets/shanhaijing/87.webp" alt="夔 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">87</span>
+  <figcaption>
+    <div class="pname">夔</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">水</span><span>kuí</span></div>
+    <p class="pbasis">居流波山，牛状苍身一足，出入水则风雨</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 87 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 87 种</span>
+    <span data-k="desc">夔，生活在流波山，形状与牛相似，全身青色，头上没有角，只有一条腿，出入水中时一定会有风雨相伴，发出的光像日月一般明亮，发出的声音像是打雷声。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居流波山，牛状苍身一足，出入水则风雨</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shui" data-id="88" data-name="双双" data-chapter="shuāng shuāng" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/88" aria-label="打开 双双 的设定与原文"><img src="assets/shanhaijing/88.webp" alt="双双 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">88</span>
+  <figcaption>
+    <div class="pname">双双</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">水</span><span>shuāng shuāng</span></div>
+    <p class="pbasis">在南海之外、赤水西岸，三青兽相并</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 88 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 88 种</span>
+    <span data-k="desc">双双，生活在南海以外、赤水的西岸、流沙的东边，外形是三只青色的野兽交相合并着。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">在南海之外、赤水西岸，三青兽相并</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="shui" data-id="89" data-name="䟣踢" data-chapter="chù tī" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/89" aria-label="打开 䟣踢 的设定与原文"><img src="assets/shanhaijing/89.webp" alt="䟣踢 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">89</span>
+  <figcaption>
+    <div class="pname">䟣踢</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">水</span><span>chù tī</span></div>
+    <p class="pbasis">在南海之外、赤水西岸，左右各一首</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 89 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 89 种</span>
+    <span data-k="desc">䟣踢，生活在南海以外、赤水的西岸、流沙的东边，外形是左边右边各有一个头。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">在南海之外、赤水西岸，左右各一首</span>
+  </div>
+</figure>
+  </div>
+</section>
+<section class="gsec" data-hab="guo">
+  <div class="gsechead">
+    <span class="gsecchar">国</span>
+    <span class="gsecname">异国异民</span>
+    <span class="gseccount">25 幅</span>
+    <span class="gsecdesc">邦国、部族与聚落</span>
+  </div>
+  <div class="grid">
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="guo" data-id="07" data-name="九尾狐" data-chapter="jiǔ wěi hú" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/07" aria-label="打开 九尾狐 的设定与原文"><img src="assets/shanhaijing/07.webp" alt="九尾狐 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">07</span>
+  <figcaption>
+    <div class="pname">九尾狐</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">国</span><span>jiǔ wěi hú</span></div>
+    <p class="pbasis">居青丘国，四足九尾，音如婴儿</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 07 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 07 种</span>
+    <span data-k="desc">九尾狐，住在青丘国，有四只脚和九条尾巴，声音像婴儿，能吃人。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居青丘国，四足九尾，音如婴儿</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="guo" data-id="21" data-name="奢比" data-chapter="shē bǐ" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/21" aria-label="打开 奢比 的设定与原文"><img src="assets/shanhaijing/21.webp" alt="奢比 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">21</span>
+  <figcaption>
+    <div class="pname">奢比</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">国</span><span>shē bǐ</span></div>
+    <p class="pbasis">奢比尸之国，人面兽身，珥两青蛇</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 21 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 21 种</span>
+    <span data-k="desc">奢比，又称奢比尸，半人半兽的怪物，《山海经·大荒东经》说它是神，长着人的头颅和野兽的身体，一对大耳朵上戴着两条青蛇。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">奢比尸之国，人面兽身，珥两青蛇</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="23" data-name="雨师妾" data-chapter="yǔ shī qiè" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/23" aria-label="打开 雨师妾 的设定与原文"><img src="assets/shanhaijing/23.webp" alt="雨师妾 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">23</span>
+  <figcaption>
+    <div class="pname">雨师妾</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>yǔ shī qiè</span></div>
+    <p class="pbasis">雨师妾之国，两手各操一蛇</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 23 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 23 种</span>
+    <span data-k="desc">雨师妾，古代中国神话中的国名，位于日出之所汤谷的北面，这个国家里面的人肤色偏黑，两只手各拿着一条蛇，耳朵上也分别装饰着一条蛇，左耳的是青色的，右耳的是红色的。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">雨师妾之国，两手各操一蛇</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="26" data-name="羽民国" data-chapter="yǔ mín guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/26" aria-label="打开 羽民国 的设定与原文"><img src="assets/shanhaijing/26.webp" alt="羽民国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">26</span>
+  <figcaption>
+    <div class="pname">羽民国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>yǔ mín guó</span></div>
+    <p class="pbasis">羽民国，长头而身生羽</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 26 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 26 种</span>
+    <span data-k="desc">羽民国，位于比翼鸟栖息之地的东南面，这个国家的人都长着长长的脑袋，全身长满羽毛。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">羽民国，长头而身生羽</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="28" data-name="厌火国" data-chapter="yàn huǒ guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/28" aria-label="打开 厌火国 的设定与原文"><img src="assets/shanhaijing/28.webp" alt="厌火国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">28</span>
+  <figcaption>
+    <div class="pname">厌火国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>yàn huǒ guó</span></div>
+    <p class="pbasis">厌火国，兽身黑色，口中出火</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 28 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 28 种</span>
+    <span data-k="desc">厌火国，《山海经》中的虚构国家，国人形貌像猕猴，皮肤黑如炭，并能从口中喷出火苗，这都是因为平时他们以炭石为食物的缘故。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">厌火国，兽身黑色，口中出火</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="29" data-name="讙头国" data-chapter="huān tóu guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/29" aria-label="打开 讙头国 的设定与原文"><img src="assets/shanhaijing/29.webp" alt="讙头国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">29</span>
+  <figcaption>
+    <div class="pname">讙头国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>huān tóu guó</span></div>
+    <p class="pbasis">讙头国，人面鸟喙而有翼</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 29 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 29 种</span>
+    <span data-k="desc">讙头国，在羽民国的南面，那里的人都是人的面孔，却有两只翅膀，还长着鸟嘴，用鸟嘴捕鱼。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">讙头国，人面鸟喙而有翼</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="30" data-name="交胫国" data-chapter="jiāo jìng guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/30" aria-label="打开 交胫国 的设定与原文"><img src="assets/shanhaijing/30.webp" alt="交胫国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">30</span>
+  <figcaption>
+    <div class="pname">交胫国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>jiāo jìng guó</span></div>
+    <p class="pbasis">交胫国，两胫相交</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 30 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 30 种</span>
+    <span data-k="desc">交胫国，在贯匈国的东面，国人的两条小腿相互交叉。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">交胫国，两胫相交</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="31" data-name="长臂国" data-chapter="cháng bì guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/31" aria-label="打开 长臂国 的设定与原文"><img src="assets/shanhaijing/31.webp" alt="长臂国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">31</span>
+  <figcaption>
+    <div class="pname">长臂国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>cháng bì guó</span></div>
+    <p class="pbasis">长臂国，手长及地，捕鱼水中</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 31 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 31 种</span>
+    <span data-k="desc">长臂国，在焦侥国的东边，这里的人常在水里捕鱼，两只手各从水里抓一条鱼出来。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">长臂国，手长及地，捕鱼水中</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="32" data-name="三首国" data-chapter="sān shǒu guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/32" aria-label="打开 三首国 的设定与原文"><img src="assets/shanhaijing/32.webp" alt="三首国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">32</span>
+  <figcaption>
+    <div class="pname">三首国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>sān shǒu guó</span></div>
+    <p class="pbasis">三首国，一身三首</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 32 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 32 种</span>
+    <span data-k="desc">三首国，在寿华泽的东边，三首国的人都长着一个身体三个脑袋。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">三首国，一身三首</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="33" data-name="奇肱国" data-chapter="qí gōng guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/33" aria-label="打开 奇肱国 的设定与原文"><img src="assets/shanhaijing/33.webp" alt="奇肱国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">33</span>
+  <figcaption>
+    <div class="pname">奇肱国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>qí gōng guó</span></div>
+    <p class="pbasis">奇肱国，一臂三目，乘文马</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 33 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 33 种</span>
+    <span data-k="desc">奇肱国，在一臂国的北面，国人长着一条胳膊、三只眼睛，身兼有阴阳两性，乘坐的是带有斑纹的马。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">奇肱国，一臂三目，乘文马</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="34" data-name="三身国" data-chapter="sān shēn guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/34" aria-label="打开 三身国 的设定与原文"><img src="assets/shanhaijing/34.webp" alt="三身国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">34</span>
+  <figcaption>
+    <div class="pname">三身国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>sān shēn guó</span></div>
+    <p class="pbasis">三身国，一首三身</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 34 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 34 种</span>
+    <span data-k="desc">三身国，在夏后启所在之地的北边，该国的人都长着一个头却有三个身体。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">三身国，一首三身</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="35" data-name="无启国" data-chapter="wú qǐ guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/35" aria-label="打开 无启国 的设定与原文"><img src="assets/shanhaijing/35.webp" alt="无启国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">35</span>
+  <figcaption>
+    <div class="pname">无启国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>wú qǐ guó</span></div>
+    <p class="pbasis">无启国，不生育子孙</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 35 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 35 种</span>
+    <span data-k="desc">无启国，位于长股国的东边，其国民的奇特之处在于他们都不生育子孙后代。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">无启国，不生育子孙</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="36" data-name="长股国" data-chapter="cháng gǔ guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/36" aria-label="打开 长股国 的设定与原文"><img src="assets/shanhaijing/36.webp" alt="长股国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">36</span>
+  <figcaption>
+    <div class="pname">长股国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>cháng gǔ guó</span></div>
+    <p class="pbasis">长股国，胫长三丈，善捕鱼</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 36 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 36 种</span>
+    <span data-k="desc">长股国，位于雒棠树的北面，那里的人都赤裸上身，披散着头发。传说长股国国民善于捕鱼，他们的身体跟普通人并无二致，就是双腿奇长无比，可达三丈，行走时就像踩着高跷一般。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">长股国，胫长三丈，善捕鱼</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="37" data-name="柔利国" data-chapter="róu lì guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/37" aria-label="打开 柔利国 的设定与原文"><img src="assets/shanhaijing/37.webp" alt="柔利国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">37</span>
+  <figcaption>
+    <div class="pname">柔利国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>róu lì guó</span></div>
+    <p class="pbasis">柔利国，无骨，一手一足</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 37 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 37 种</span>
+    <span data-k="desc">柔利国，又称留利国、牛黎国，在一目国的东方。柔利国的人都没有骨头，只有一只手一只脚，膝盖弯曲脚卷曲向上，或者说脚反卷，折向上方，是聂耳国的子孙。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">柔利国，无骨，一手一足</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="38" data-name="一目国" data-chapter="yī mù guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/38" aria-label="打开 一目国 的设定与原文"><img src="assets/shanhaijing/38.webp" alt="一目国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">38</span>
+  <figcaption>
+    <div class="pname">一目国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>yī mù guó</span></div>
+    <p class="pbasis">一目国，一目正当面中</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 38 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 38 种</span>
+    <span data-k="desc">一目国在钟山山神烛阴的东边，这里的人一只眼睛长在脸的中间。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">一目国，一目正当面中</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="39" data-name="毛民国" data-chapter="máo mín guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/39" aria-label="打开 毛民国 的设定与原文"><img src="assets/shanhaijing/39.webp" alt="毛民国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">39</span>
+  <figcaption>
+    <div class="pname">毛民国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>máo mín guó</span></div>
+    <p class="pbasis">毛民国，身生毛</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 39 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 39 种</span>
+    <span data-k="desc">毛民国，在海外东北方，玄股国北边的原始部落，生活在这里的人都浑身长着长长的毛发。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">毛民国，身生毛</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="40" data-name="聂耳国" data-chapter="niè ěr guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/40" aria-label="打开 聂耳国 的设定与原文"><img src="assets/shanhaijing/40.webp" alt="聂耳国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">40</span>
+  <figcaption>
+    <div class="pname">聂耳国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>niè ěr guó</span></div>
+    <p class="pbasis">聂耳国，两手摄耳，能使两文虎</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 40 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 40 种</span>
+    <span data-k="desc">聂耳国，在无肠国的东面，那里的人能使唤两只花斑大老虎，人们用双手撑托着自己的大耳朵。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">聂耳国，两手摄耳，能使两文虎</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="41" data-name="氐人国" data-chapter="dī rén guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/41" aria-label="打开 氐人国 的设定与原文"><img src="assets/shanhaijing/41.webp" alt="氐人国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">41</span>
+  <figcaption>
+    <div class="pname">氐人国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>dī rén guó</span></div>
+    <p class="pbasis">氐人国，人面鱼身无足</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 41 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 41 种</span>
+    <span data-k="desc">氐人国，在建木的西面，国内的人长着人一样的面孔和鱼一样的身子，没有脚。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">氐人国，人面鱼身无足</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="42" data-name="枭阳国" data-chapter="xiāo yáng guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/42" aria-label="打开 枭阳国 的设定与原文"><img src="assets/shanhaijing/42.webp" alt="枭阳国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">42</span>
+  <figcaption>
+    <div class="pname">枭阳国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>xiāo yáng guó</span></div>
+    <p class="pbasis">枭阳国，人面长唇，黑身有毛，反踵</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 42 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 42 种</span>
+    <span data-k="desc">枭阳国，位于北朐国的西边，这个国家的人长着人一样的脸，嘴唇非常长，身体呈黑色，身上有毛，脚跟反长，见到别人笑也跟着笑，左手握着竹管。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">枭阳国，人面长唇，黑身有毛，反踵</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="43" data-name="一臂民" data-chapter="yī bì mín" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/43" aria-label="打开 一臂民 的设定与原文"><img src="assets/shanhaijing/43.webp" alt="一臂民 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">43</span>
+  <figcaption>
+    <div class="pname">一臂民</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>yī bì mín</span></div>
+    <p class="pbasis">一臂民，一臂一目一鼻孔</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 43 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 43 种</span>
+    <span data-k="desc">一臂民，在三身国以北的地方，有一个名叫一臂国的地方，这里的人都只有一条手臂、一条腿，在脸的正中长着一只眼睛、一条眉毛、一个鼻孔、一张嘴，需要两两并肩连在一起才能正常行走。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">一臂民，一臂一目一鼻孔</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="44" data-name="小人国" data-chapter="xiǎo rén guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/44" aria-label="打开 小人国 的设定与原文"><img src="assets/shanhaijing/44.webp" alt="小人国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">44</span>
+  <figcaption>
+    <div class="pname">小人国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>xiǎo rén guó</span></div>
+    <p class="pbasis">小人国，靖人身长九寸</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 44 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 44 种</span>
+    <span data-k="desc">小人国，国中的人被称为「靖人」，「靖」就是细小的意思，据说这些靖人身高仅有九寸。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">小人国，靖人身长九寸</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="min" data-hab="guo" data-id="45" data-name="钉灵国" data-chapter="dīng líng guó" style="--cat:var(--zhu)">
+  <a class="plate-fig" href="#/w/shj/x/min/45" aria-label="打开 钉灵国 的设定与原文"><img src="assets/shanhaijing/45.webp" alt="钉灵国 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">45</span>
+  <figcaption>
+    <div class="pname">钉灵国</div>
+    <div class="pmeta"><span class="tag tag--cat">民</span><span class="tag">国</span><span>dīng líng guó</span></div>
+    <p class="pbasis">钉灵国，膝下有毛，马蹏善走</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 45 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 45 种</span>
+    <span data-k="desc">钉灵国，这个国家的人自膝盖以下都长着毛，还长着马一样的蹄子，擅长奔跑。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">钉灵国，膝下有毛，马蹏善走</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="guo" data-id="82" data-name="并封" data-chapter="bìng fēng" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/82" aria-label="打开 并封 的设定与原文"><img src="assets/shanhaijing/82.webp" alt="并封 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">82</span>
+  <figcaption>
+    <div class="pname">并封</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">国</span><span>bìng fēng</span></div>
+    <p class="pbasis">居巫咸国之东，豕状前后有首</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 82 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 82 种</span>
+    <span data-k="desc">并封，居住在巫咸国的东面，形状与猪相似，前面和后面各有一个脑袋，周身都呈黑色。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">居巫咸国之东，豕状前后有首</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="guo" data-id="84" data-name="驺吾" data-chapter="zōu wú" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/84" aria-label="打开 驺吾 的设定与原文"><img src="assets/shanhaijing/84.webp" alt="驺吾 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">84</span>
+  <figcaption>
+    <div class="pname">驺吾</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">国</span><span>zōu wú</span></div>
+    <p class="pbasis">林氏国之兽，五采文，乘之日行千里</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 84 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 84 种</span>
+    <span data-k="desc">驺吾，生活在林氏国，大小与老虎差不多，身上有五种颜色的斑纹，尾巴比身子长，骑上它可以日行千里。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">林氏国之兽，五采文，乘之日行千里</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shou" data-hab="guo" data-id="85" data-name="乘黄" data-chapter="shèng huáng" style="--cat:var(--cui)">
+  <a class="plate-fig" href="#/w/shj/x/shou/85" aria-label="打开 乘黄 的设定与原文"><img src="assets/shanhaijing/85.webp" alt="乘黄 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">85</span>
+  <figcaption>
+    <div class="pname">乘黄</div>
+    <div class="pmeta"><span class="tag tag--cat">兽</span><span class="tag">国</span><span>shèng huáng</span></div>
+    <p class="pbasis">白民国之兽，狐状背有角，乘之寿二千岁</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 85 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 85 种</span>
+    <span data-k="desc">乘黄，生活在白民国，样子像狐狸，但背上却长有角，若是有人能骑上它，就可以活到两千岁，有的书上甚至说可以活到三千岁。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">白民国之兽，狐状背有角，乘之寿二千岁</span>
+  </div>
+</figure>
+  </div>
+</section>
+<section class="gsec" data-hab="tian">
+  <div class="gsechead">
+    <span class="gsecchar">天</span>
+    <span class="gsecname">天界神祇</span>
+    <span class="gseccount">5 幅</span>
+    <span class="gsecdesc">天界、司天与乘龙驾云者</span>
+  </div>
+  <div class="grid">
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="tian" data-id="09" data-name="青龙" data-chapter="qīng lóng" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/09" aria-label="打开 青龙 的设定与原文"><img src="assets/shanhaijing/09.webp" alt="青龙 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">09</span>
+  <figcaption>
+    <div class="pname">青龙</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">天</span><span>qīng lóng</span></div>
+    <p class="pbasis">四灵之一，主木司春</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 09 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 09 种</span>
+    <span data-k="desc">青龙，头上有角，身长八丈，具有人的语言和行为，四灵之一，主木，代表着春季。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">四灵之一，主木司春</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="tian" data-id="10" data-name="帝江" data-chapter="dì jiāng" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/10" aria-label="打开 帝江 的设定与原文"><img src="assets/shanhaijing/10.webp" alt="帝江 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">10</span>
+  <figcaption>
+    <div class="pname">帝江</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">天</span><span>dì jiāng</span></div>
+    <p class="pbasis">状如黄囊，六足四翼，无面目而能歌舞</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 10 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 10 种</span>
+    <span data-k="desc">帝江，形状像个黄布口袋，红得像一团红火，六只脚四只翅膀，耳目口鼻都没有，但却懂得歌舞。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">状如黄囊，六足四翼，无面目而能歌舞</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="tian" data-id="11" data-name="南方祝融" data-chapter="nán fāng zhù róng" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/11" aria-label="打开 南方祝融 的设定与原文"><img src="assets/shanhaijing/11.webp" alt="南方祝融 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">11</span>
+  <figcaption>
+    <div class="pname">南方祝融</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">天</span><span>nán fāng zhù róng</span></div>
+    <p class="pbasis">南方火神，兽身人面，乘两龙</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 11 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 11 种</span>
+    <span data-k="desc">南方祝融，南方的火神祝融，长着兽身人面，驾乘着两条龙。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">南方火神，兽身人面，乘两龙</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="tian" data-id="16" data-name="蓐收" data-chapter="rù shōu" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/16" aria-label="打开 蓐收 的设定与原文"><img src="assets/shanhaijing/16.webp" alt="蓐收 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">16</span>
+  <figcaption>
+    <div class="pname">蓐收</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">天</span><span>rù shōu</span></div>
+    <p class="pbasis">金神秋神，左耳有蛇，乘两龙</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 16 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 16 种</span>
+    <span data-k="desc">蓐收，又名该，中国古代神话中的金神、秋神、西方之神、天之刑神，五行神之一。少昊之子及其辅佐神，左耳上有条蛇，骑着两条龙。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">金神秋神，左耳有蛇，乘两龙</span>
+  </div>
+</figure>
+    <figure class="plate" data-work="shj" data-cat="shen" data-hab="tian" data-id="27" data-name="强良" data-chapter="qiáng liáng" style="--cat:var(--liu)">
+  <a class="plate-fig" href="#/w/shj/x/shen/27" aria-label="打开 强良 的设定与原文"><img src="assets/shanhaijing/27.webp" alt="强良 设定图" width="1600" height="903" loading="lazy" decoding="async"></a>
+  <span class="moremark">27</span>
+  <figcaption>
+    <div class="pname">强良</div>
+    <div class="pmeta"><span class="tag tag--cat">神</span><span class="tag">天</span><span>qiáng liáng</span></div>
+    <p class="pbasis">虎首人身，衔蛇操蛇</p>
+  </figcaption>
+  <div class="plate-data" hidden>
+    <span data-k="num">第 27 幅</span>
+    <span data-k="chapter">《山海经》异兽 · 第 27 种</span>
+    <span data-k="desc">强良，嘴中衔着一条蛇，手里还握着一条蛇，他长着虎首人身，有四只蹄子，肘臂很长。</span>
+    <span data-k="quote"></span>
+    <span data-k="basis">虎首人身，衔蛇操蛇</span>
+  </div>
+</figure>
+  </div>
+</section>
+</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>西游 · 山海　精怪图志　·　原文与描述据通行本摘录，分类与生境为编者所立　·　共 156 幅设定图</div>
+    <div>数据 <a href="data/characters.json">data/characters.json</a>　·　<a href="data/shanhaijing.json">data/shanhaijing.json</a>　·　生成脚本 <a href="tools/build_site.py">tools/build_site.py</a>　·　代码 MIT</div>
+  </div>
+</footer>
+
+<!-- ===== 灯箱 ===== -->
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <button class="lb-close" id="lb-close" aria-label="关闭">
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 5 19 19M19 5 5 19" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+  </button>
+  <div class="lb-fig"><img id="lb-img" alt=""></div>
+  <div class="lb-body" id="lb-body"></div>
+</div>
+
+<script>
+(function(){
+  var WORKMETA = {
+  "xyj": {
+    "title": "西游记",
+    "cats": {
+      "yao": {
+        "name": "妖",
+        "color": "zhu"
+      },
+      "jing": {
+        "name": "精",
+        "color": "cui"
+      },
+      "gui": {
+        "name": "鬼",
+        "color": "hun"
+      },
+      "guai": {
+        "name": "怪",
+        "color": "liu"
+      }
+    },
+    "habs": {
+      "hai": {
+        "name": "海",
+        "short": "江河水府"
+      },
+      "lu": {
+        "name": "陆",
+        "short": "山岭城郭"
+      },
+      "kong": {
+        "name": "空",
+        "short": "云端天际"
+      },
+      "di": {
+        "name": "地（穴）",
+        "short": "洞府幽穴"
+      }
+    },
+    "habOrder": [
+      "hai",
+      "lu",
+      "kong",
+      "di"
+    ]
+  },
+  "shj": {
+    "title": "山海经",
+    "cats": {
+      "shou": {
+        "name": "兽",
+        "color": "cui"
+      },
+      "qin": {
+        "name": "禽",
+        "color": "hun"
+      },
+      "shen": {
+        "name": "神",
+        "color": "liu"
+      },
+      "min": {
+        "name": "民",
+        "color": "zhu"
+      }
+    },
+    "habs": {
+      "shan": {
+        "name": "山",
+        "short": "山经所载"
+      },
+      "shui": {
+        "name": "水",
+        "short": "河泽海滨"
+      },
+      "guo": {
+        "name": "国",
+        "short": "异国异民"
+      },
+      "tian": {
+        "name": "天",
+        "short": "天界神祇"
+      }
+    },
+    "habOrder": [
+      "shan",
+      "shui",
+      "guo",
+      "tian"
+    ]
+  }
+};
+  var WORKORDER = Object.keys(WORKMETA);
+  var plates = Array.prototype.slice.call(document.querySelectorAll('.plate'));
+  var grids = Array.prototype.slice.call(document.querySelectorAll('.grid'));
+  var results = document.getElementById('results');
+  var resultsBody = document.getElementById('results-body');
+  var input = document.getElementById('q');
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lb-img');
+  var lbBody = document.getElementById('lb-body');
+  var crumbs = document.getElementById('crumbs');
+  var gbar = document.getElementById('gbar');
+  var current = {work:'xyj', cat:null, hab:null};
+  var lbList = [];
+  var lbPos = 0;
+  var lastFocus = null;
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  /* ---- 面包屑 ---- */
+  function setCrumbs(items){
+    crumbs.innerHTML = items.map(function(it, i){
+      var sep = i ? '<i>/</i>' : '';
+      return sep + (it.href ? '<a href="' + it.href + '">' + esc(it.text) + '</a>' : '<b>' + esc(it.text) + '</b>');
+    }).join('');
+  }
+
+  /* ---- 分栏收尾：最后一行只剩一张时横排 ---- */
+  function layoutGrids(){
+    grids.forEach(function(g){
+      if (!g.offsetParent) return;
+      var visible = Array.prototype.filter.call(g.children, function(c){ return c.offsetParent !== null; });
+      visible.forEach(function(c){ c.classList.remove('is-wide'); });
+      var cols = getComputedStyle(g).gridTemplateColumns.split(' ').length;
+      if (cols > 1 && visible.length > 1 && visible.length % cols === 1){
+        visible[visible.length - 1].classList.add('is-wide');
+      }
+    });
+  }
+
+  /* ---- 元数据小工具 ---- */
+  function catsOf(w){ return WORKMETA[w].cats; }
+  function habsOf(w){ return WORKMETA[w].habs; }
+  function catName(w, c){ return catsOf(w)[c] ? catsOf(w)[c].name : ''; }
+  function catColor(w, c){ return catsOf(w)[c] ? 'var(--' + catsOf(w)[c].color + ')' : 'var(--zhu)'; }
+  function habName(w, h){ return habsOf(w)[h] ? habsOf(w)[h].name : ''; }
+  function workTitle(w){ return WORKMETA[w].title; }
+
+  /* ---- 生境分布条 ---- */
+  function habBars(scope, work, cat){
+    var counts = {}, order = WORKMETA[work].habOrder;
+    order.forEach(function(k){ counts[k] = 0; });
+    var list = plates.filter(function(p){
+      return p.dataset.work === work && (!cat || cat === 'all' || p.dataset.cat === cat) &&
+             (!scope || p.dataset.hab === scope);
+    });
+    list.forEach(function(p){ counts[p.dataset.hab]++; });
+    var max = Math.max.apply(null, order.map(function(k){ return counts[k]; })) || 1;
+    return order.map(function(k){
+      var w = Math.round(counts[k] / max * 100);
+      return '<div class="habrow' + (cat ? ' habrow--cat' : '') + '"><em>' + habName(work, k) +
+        '</em><span class="track"><span class="bar" style="width:' + w + '%"></span></span>' +
+        '<b>' + counts[k] + '</b></div>';
+    }).join('');
+  }
+
+  /* ---- 视图切换 ---- */
+  function showView(v){ document.body.dataset.view = v; }
+
+  function showWorkBlock(selector, work){
+    document.querySelectorAll(selector).forEach(function(el){
+      el.classList.toggle('is-on', el.dataset.work === work);
+    });
+  }
+
+  function renderCats(work){
+    current.work = work;
+    current.cat = null;
+    current.hab = null;
+    showView('cats');
+    showWorkBlock('.workview', work);
+    setCrumbs([{text:'作品', href:'#/'}, {text:workTitle(work) + ' · 分类'}]);
+    window.scrollTo(0, 0);
+  }
+
+  function applyFilter(){
+    var work = current.work, cat = current.cat, hab = current.hab;
+    plates.forEach(function(p){
+      if (p.dataset.work !== work) return;
+      var okCat = (cat === 'all' || p.dataset.cat === cat);
+      var okHab = (!hab || p.dataset.hab === hab);
+      p.style.display = (okCat && okHab) ? '' : 'none';
+    });
+    document.querySelectorAll('.workgal.is-on .gsec').forEach(function(sec){
+      var visible = Array.prototype.filter.call(sec.querySelectorAll('.plate'), function(p){
+        return p.style.display !== 'none';
+      }).length;
+      sec.hidden = visible === 0;
+      var c = sec.querySelector('.gseccount');
+      if (c) c.textContent = visible + ' 幅';
+    });
+    layoutGrids();
+    renderChips();
+  }
+
+  function renderChips(){
+    var work = current.work, order = WORKMETA[work].habOrder;
+    var counts = {};
+    order.forEach(function(k){ counts[k] = 0; });
+    plates.forEach(function(p){
+      if (p.dataset.work !== work) return;
+      if (current.cat === 'all' || p.dataset.cat === current.cat) counts[p.dataset.hab]++;
+    });
+    var total = order.reduce(function(a, k){ return a + counts[k]; }, 0);
+    var html = '<button class="chip" data-hab="" aria-pressed="' + (current.hab ? 'false' : 'true') + '">全部<b>' + total + '</b></button>';
+    order.forEach(function(k){
+      if (!counts[k]) return;
+      html += '<button class="chip" data-hab="' + k + '" aria-pressed="' + (current.hab === k ? 'true' : 'false') + '">' +
+        habName(work, k) + '<b>' + counts[k] + '</b></button>';
+    });
+    html += '<a class="backlink" href="#/w/' + work + '">返回分类</a>';
+    gbar.innerHTML = html;
+    gbar.querySelectorAll('.chip').forEach(function(b){
+      b.addEventListener('click', function(){
+        current.hab = b.dataset.hab || null;
+        applyFilter();
+      });
+    });
+  }
+
+  function renderGallery(work, cat){
+    current.work = work;
+    current.cat = cat;
+    current.hab = null;
+    showView('gallery');
+    showWorkBlock('.workgal', work);
+    document.querySelector('.view--gallery').style.setProperty('--cat',
+      cat === 'all' ? 'var(--zhu)' : catColor(work, cat));
+    var charEl = document.getElementById('gcat-char');
+    var nameEl = document.getElementById('gcat-name');
+    if (cat === 'all'){
+      charEl.textContent = '录';
+      nameEl.textContent = '全部图录';
+    } else {
+      charEl.textContent = catName(work, cat);
+      nameEl.textContent = '生境图录';
+    }
+    var n = plates.filter(function(p){
+      return p.dataset.work === work && (cat === 'all' || p.dataset.cat === cat);
+    }).length;
+    document.getElementById('gmeta').textContent = n + ' 幅';
+    setCrumbs([
+      {text:'作品', href:'#/'},
+      {text:workTitle(work), href:'#/w/' + work},
+      {text:(cat === 'all' ? '全部图录' : catName(work, cat) + ' 类') + ' · 生境'}
+    ]);
+    applyFilter();
+    window.scrollTo(0, 0);
+  }
+
+  /* ---- 灯箱 ---- */
+  function plateData(p){
+    var d = {};
+    p.querySelectorAll('.plate-data [data-k]').forEach(function(n){ d[n.dataset.k] = n.innerHTML; });
+    return d;
+  }
+
+  function openLB(id){
+    var p = plates.filter(function(x){ return x.dataset.id === id && x.dataset.work === current.work; })[0];
+    if (!p) return;
+    lbList = plates.filter(function(x){ return x.dataset.work === current.work && x.style.display !== 'none'; });
+    lbPos = lbList.indexOf(p);
+    drawLB();
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lastFocus = document.activeElement;
+    document.getElementById('lb-close').focus();
+  }
+
+  function drawLB(){
+    var p = lbList[lbPos];
+    if (!p) return;
+    var d = plateData(p);
+    var work = p.dataset.work;
+    var cat = p.dataset.cat, hab = p.dataset.hab;
+    var nameEl = p.querySelector('.pname');
+    var subEl = nameEl.querySelector('.psub');
+    var main = nameEl.textContent.replace(subEl ? subEl.textContent : '', '').trim();
+    var sub = subEl ? subEl.textContent : '';
+    var img = p.querySelector('img');
+    lbImg.src = img.getAttribute('src');
+    lbImg.alt = img.getAttribute('alt');
+    lbBody.innerHTML =
+      '<div class="lb-tags">' +
+        '<span class="tag tag--cat" style="--cat:' + catColor(work, cat) + '">' + catName(work, cat) + '</span>' +
+        '<span class="tag">' + habName(work, hab) + '</span>' +
+        '<span class="tag">' + (d.num || '') + '</span>' +
+      '</div>' +
+      '<h2 class="lb-title" id="lb-title">' + esc(main) + '</h2>' +
+      (sub ? '<p class="lb-sub2">' + esc(sub) + '</p>' : '') +
+      '<p class="lb-sub">' + (d.chapter || '') + '</p>' +
+      '<div class="lb-sec"><h3>描写内容</h3><div class="v">' + (d.desc || '') + '</div></div>' +
+      ((d.quote && d.quote.replace(/\s/g, '')) ?
+        '<div class="lb-sec"><h3>原文</h3><div class="lb-quote">' + d.quote + '</div></div>' : '') +
+      '<div class="lb-sec"><h3>分类与生境</h3><div class="v">' + (d.basis || '') + '</div></div>' +
+      '<div class="lb-foot">' +
+        '<button id="lb-prev">上一幅</button>' +
+        '<span class="idx">' + (lbPos + 1) + ' / ' + lbList.length + '</span>' +
+        '<button id="lb-next">下一幅</button>' +
+      '</div>';
+    lbBody.querySelector('#lb-prev').addEventListener('click', function(){ step(-1); });
+    lbBody.querySelector('#lb-next').addEventListener('click', function(){ step(1); });
+    lbBody.scrollTop = 0;
+  }
+
+  function step(n){
+    lbPos = (lbPos + n + lbList.length) % lbList.length;
+    drawLB();
+  }
+
+  function closeLB(){
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    var seg = location.hash.replace(/^#/, '').split('/').filter(Boolean);
+    if (seg.length && /^\d{2}$/.test(seg[seg.length - 1])){
+      seg.pop();
+      location.hash = '#/' + seg.join('/');
+    }
+  }
+
+  document.getElementById('lb-close').addEventListener('click', closeLB);
+  lb.addEventListener('click', function(e){ if (e.target === lb) closeLB(); });
+  document.addEventListener('keydown', function(e){
+    if (lb.hidden) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+
+  /* 在“全部图录”里点开任一幅，保持在全部视图内 */
+  document.querySelectorAll('.plate-fig').forEach(function(a){
+    a.addEventListener('click', function(e){
+      if (current.cat === 'all'){
+        var plate = a.closest('.plate');
+        e.preventDefault();
+        location.hash = '#/w/' + plate.dataset.work + '/x/all/' + plate.dataset.id;
+      }
+    });
+  });
+
+  /* ---- 检索 ---- */
+  var WORKS = WORKORDER.map(function(id){
+    var n = plates.filter(function(p){ return p.dataset.work === id; }).length;
+    var m = WORKMETA[id];
+    return {
+      id: id, title: m.title, href: '#/w/' + id,
+      alias: id === 'xyj' ? '西游 西游释厄传 西游证道书' : '山海 山经 海经 山海经异兽',
+      sub: n + ' 幅 · ' + Object.keys(m.cats).length + ' 类 · ' + Object.keys(m.habs).length + ' 境'
+    };
+  });
+  function norm(s){ return String(s).replace(/\s+/g,'').toLowerCase(); }
+
+  function search(){
+    var q = norm(input.value);
+    if (!q){ results.dataset.empty = '1'; resultsBody.innerHTML = ''; return; }
+    var w = WORKS.filter(function(x){ return norm(x.title).indexOf(q) > -1 || norm(x.alias).indexOf(q) > -1; });
+    var c = plates.filter(function(p){ return norm(p.dataset.name).indexOf(q) > -1; });
+    results.dataset.empty = (w.length + c.length) ? '0' : '1';
+    var html = '';
+    if (w.length){
+      html += '<div class="rgroup">作品</div>';
+      w.forEach(function(x){
+        html += '<button class="rrow rrow--work" data-href="' + x.href + '"><span class="rname">' + esc(x.title) +
+          '</span><span class="rsub">' + esc(x.sub) + '</span><span class="rgo">进入</span></button>';
+      });
+    }
+    if (c.length){
+      html += '<div class="rgroup">条目 · ' + c.length + ' 条</div>';
+      c.slice(0, 8).forEach(function(p){
+        html += '<button class="rrow" data-href="#/w/' + p.dataset.work + '/x/' + p.dataset.cat + '/' + p.dataset.id + '">' +
+          '<span class="rname">' + esc(p.dataset.name) + '</span>' +
+          '<span class="tag">' + workTitle(p.dataset.work) + '</span>' +
+          '<span class="tag tag--cat" style="--cat:' + catColor(p.dataset.work, p.dataset.cat) + '">' + catName(p.dataset.work, p.dataset.cat) + '</span>' +
+          '<span class="tag">' + habName(p.dataset.work, p.dataset.hab) + '</span>' +
+          '<span class="rsub">' + esc(p.dataset.chapter) + '</span><span class="rgo">查看</span></button>';
+      });
+      if (c.length > 8) html += '<div class="empty">另有 ' + (c.length - 8) + ' 条，输入更精确的名称可缩小范围。</div>';
+    }
+    if (!w.length && !c.length){
+      html = '<div class="empty">没有匹配的条目。可试「<span class="emptykbd">白骨精</span>」「<span class="emptykbd">九尾狐</span>」「<span class="emptykbd">毕方</span>」，或直接回车浏览全部。</div>';
+    }
+    resultsBody.innerHTML = html;
+    resultsBody.querySelectorAll('.rrow').forEach(function(b){
+      b.addEventListener('click', function(){ location.hash = b.dataset.href; });
+    });
+  }
+
+  input.addEventListener('input', search);
+  input.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') return;
+    var first = resultsBody.querySelector('.rrow');
+    if (first) location.hash = first.dataset.href;
+    else location.hash = '#/w/' + current.work + '/x/all';
+  });
+
+  /* ---- 路由 ---- */
+  function route(){
+    var seg = location.hash.replace(/^#/, '').split('/').filter(Boolean);
+    if (seg[0] === 'x') seg = ['w', 'xyj'].concat(seg);   /* 兼容旧地址 #/x/... */
+    if (!seg.length || seg[0] !== 'w'){
+      showView('works');
+      setCrumbs([{text:'作品'}]);
+      window.scrollTo(0, 0);
+      return;
+    }
+    var work = WORKMETA[seg[1]] ? seg[1] : 'xyj';
+    if (seg[2] !== 'x'){ renderCats(work); return; }
+    var cat = (catName(work, seg[3]) || seg[3] === 'all') ? seg[3] : 'all';
+    renderGallery(work, cat);
+    if (seg[4]) openLB(seg[4]);
+  }
+
+  window.addEventListener('hashchange', function(){
+    if (!lb.hidden) { lb.hidden = true; document.body.style.overflow = ''; }
+    route();
+  });
+  window.addEventListener('resize', function(){ layoutGrids(); });
+  route();
+  layoutGrids();
+})();
+</script>
+</body>
+</html>

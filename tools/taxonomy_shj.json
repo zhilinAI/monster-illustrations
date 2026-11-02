@@ -1,0 +1,485 @@
+{
+  "_note": "山海经分类表：由编者依异兽描述文本判定，用于检索与编排，非原著分类。cat 兽/禽/神/民，hab 山/水/国/天。",
+  "items": {
+    "01": {
+      "cat": "shou",
+      "hab": "shui",
+      "basis": "鱼身而鸟翼，见则其邑大水"
+    },
+    "02": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "状如狸而白首，其音如榴榴"
+    },
+    "03": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居章莪山，五尾一角，音如击石"
+    },
+    "04": {
+      "cat": "qin",
+      "hab": "shan",
+      "basis": "状如雕而有角，音如婴儿，食人"
+    },
+    "05": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居浑夕山，一首两身之怪蛇"
+    },
+    "06": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "在太华山，六足四翼之怪蛇"
+    },
+    "07": {
+      "cat": "shou",
+      "hab": "guo",
+      "basis": "居青丘国，四足九尾，音如婴儿"
+    },
+    "08": {
+      "cat": "shou",
+      "hab": "shui",
+      "basis": "生于怪水，鸟首蛇尾"
+    },
+    "09": {
+      "cat": "shen",
+      "hab": "tian",
+      "basis": "四灵之一，主木司春"
+    },
+    "10": {
+      "cat": "shen",
+      "hab": "tian",
+      "basis": "状如黄囊，六足四翼，无面目而能歌舞"
+    },
+    "11": {
+      "cat": "shen",
+      "hab": "tian",
+      "basis": "南方火神，兽身人面，乘两龙"
+    },
+    "12": {
+      "cat": "shen",
+      "hab": "shan",
+      "basis": "守槐江之山花园的天神，马身人面"
+    },
+    "13": {
+      "cat": "shen",
+      "hab": "shan",
+      "basis": "昆仑山神明，虎身九尾人面"
+    },
+    "14": {
+      "cat": "shen",
+      "hab": "shan",
+      "basis": "萯山之神，状如人而虎尾"
+    },
+    "15": {
+      "cat": "shen",
+      "hab": "shan",
+      "basis": "司雨之神，居光山，龙头人身鸟爪"
+    },
+    "16": {
+      "cat": "shen",
+      "hab": "tian",
+      "basis": "金神秋神，左耳有蛇，乘两龙"
+    },
+    "17": {
+      "cat": "shen",
+      "hab": "shan",
+      "basis": "以乳为目、以脐为口，操干戚而舞"
+    },
+    "18": {
+      "cat": "shen",
+      "hab": "shui",
+      "basis": "蛇身九头，共工之臣，凶神；所至成泽、喷水成洪"
+    },
+    "19": {
+      "cat": "shen",
+      "hab": "shan",
+      "basis": "章尾山之神，人面蛇身，开眼为昼"
+    },
+    "20": {
+      "cat": "shen",
+      "hab": "shui",
+      "basis": "水神，人面虎身，八首八足八尾"
+    },
+    "21": {
+      "cat": "shen",
+      "hab": "guo",
+      "basis": "奢比尸之国，人面兽身，珥两青蛇"
+    },
+    "22": {
+      "cat": "shen",
+      "hab": "shan",
+      "basis": "危，贰负之臣，囚于疏属山"
+    },
+    "23": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "雨师妾之国，两手各操一蛇"
+    },
+    "24": {
+      "cat": "shen",
+      "hab": "shan",
+      "basis": "北极天柜山之神，九首人面鸟身"
+    },
+    "25": {
+      "cat": "shen",
+      "hab": "shui",
+      "basis": "龙身人头，司雷之神，居雷泽，鼓腹作雷声"
+    },
+    "26": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "羽民国，长头而身生羽"
+    },
+    "27": {
+      "cat": "shen",
+      "hab": "tian",
+      "basis": "虎首人身，衔蛇操蛇"
+    },
+    "28": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "厌火国，兽身黑色，口中出火"
+    },
+    "29": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "讙头国，人面鸟喙而有翼"
+    },
+    "30": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "交胫国，两胫相交"
+    },
+    "31": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "长臂国，手长及地，捕鱼水中"
+    },
+    "32": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "三首国，一身三首"
+    },
+    "33": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "奇肱国，一臂三目，乘文马"
+    },
+    "34": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "三身国，一首三身"
+    },
+    "35": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "无启国，不生育子孙"
+    },
+    "36": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "长股国，胫长三丈，善捕鱼"
+    },
+    "37": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "柔利国，无骨，一手一足"
+    },
+    "38": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "一目国，一目正当面中"
+    },
+    "39": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "毛民国，身生毛"
+    },
+    "40": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "聂耳国，两手摄耳，能使两文虎"
+    },
+    "41": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "氐人国，人面鱼身无足"
+    },
+    "42": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "枭阳国，人面长唇，黑身有毛，反踵"
+    },
+    "43": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "一臂民，一臂一目一鼻孔"
+    },
+    "44": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "小人国，靖人身长九寸"
+    },
+    "45": {
+      "cat": "min",
+      "hab": "guo",
+      "basis": "钉灵国，膝下有毛，马蹏善走"
+    },
+    "46": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "山中野兽，如猴而白耳，能直立"
+    },
+    "47": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居杻阳山，马状虎纹，一首红尾"
+    },
+    "48": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "状如羊，九尾四耳，目在背上"
+    },
+    "49": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "状如人而彘鬣，见则劳役"
+    },
+    "50": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "长右之山，四耳长臂之猴，见则大水"
+    },
+    "51": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居洵山，羊状无口"
+    },
+    "52": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居浮玉山，虎状牛尾，食人"
+    },
+    "53": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居钱来山，羊状马尾"
+    },
+    "54": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居竹山，豚状白毛"
+    },
+    "55": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "状如羊而赤鬣"
+    },
+    "56": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "角曲如轮，悬身树上，出没山崖"
+    },
+    "57": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居皋涂山，鹿状白尾，马足人手四角"
+    },
+    "58": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居昆仑之丘，羊状四角，食人"
+    },
+    "59": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居崇吾山，如禺而文臂，善投"
+    },
+    "60": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居翼望山，如狸，一目三尾"
+    },
+    "61": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "状如白马，锯牙，食虎豹"
+    },
+    "62": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "鼠身蟹首，音如犬吠"
+    },
+    "63": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居带山，马状一角"
+    },
+    "64": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "鸟鼠同穴，穿地数尺而共处"
+    },
+    "65": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "如犬而人面，见人则笑，行如风"
+    },
+    "66": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "羊状四角而食人，原文所记与土蝼同"
+    },
+    "67": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "马状，牛尾，一角"
+    },
+    "68": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "如牛四角，人目彘耳，食人"
+    },
+    "69": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "如羚羊，四角马尾鸡足"
+    },
+    "70": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "羊身人面，目在腋下，虎齿人爪"
+    },
+    "71": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居天池山，兔状鼠首，以背毛飞"
+    },
+    "72": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居马成山，白犬黑首，见人则飞"
+    },
+    "73": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居乾山，牛状三足"
+    },
+    "74": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "羊状，一角一目，目在耳后"
+    },
+    "75": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居枸状山，犬状六足"
+    },
+    "76": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居姑逢山，狐状有翼，见则大旱"
+    },
+    "77": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居耿山，狐状鱼鳍"
+    },
+    "78": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "马状四角，羊目牛尾"
+    },
+    "79": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居凫丽山，狐状九尾九首，食人"
+    },
+    "80": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居蔓渠山，人面虎身，音如婴儿"
+    },
+    "81": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居太山，牛状白首一目蛇尾"
+    },
+    "82": {
+      "cat": "shou",
+      "hab": "guo",
+      "basis": "居巫咸国之东，豕状前后有首"
+    },
+    "83": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "居厘山，犬状有甲，毛如豪猪"
+    },
+    "84": {
+      "cat": "shou",
+      "hab": "guo",
+      "basis": "林氏国之兽，五采文，乘之日行千里"
+    },
+    "85": {
+      "cat": "shou",
+      "hab": "guo",
+      "basis": "白民国之兽，狐状背有角，乘之寿二千岁"
+    },
+    "86": {
+      "cat": "shou",
+      "hab": "shan",
+      "basis": "马状，四节有毛，居高山之南"
+    },
+    "87": {
+      "cat": "shou",
+      "hab": "shui",
+      "basis": "居流波山，牛状苍身一足，出入水则风雨"
+    },
+    "88": {
+      "cat": "shou",
+      "hab": "shui",
+      "basis": "在南海之外、赤水西岸，三青兽相并"
+    },
+    "89": {
+      "cat": "shou",
+      "hab": "shui",
+      "basis": "在南海之外、赤水西岸，左右各一首"
+    },
+    "90": {
+      "cat": "qin",
+      "hab": "shan",
+      "basis": "怪鸟，鸮状而人手"
+    },
+    "91": {
+      "cat": "qin",
+      "hab": "shan",
+      "basis": "鸮状人面，一足，冬见夏蛰"
+    },
+    "92": {
+      "cat": "qin",
+      "hab": "shan",
+      "basis": "居鹿台山，鸡身人面，见则大兵"
+    },
+    "93": {
+      "cat": "qin",
+      "hab": "shan",
+      "basis": "鹤状一足，青羽赤纹，见则有火灾"
+    },
+    "94": {
+      "cat": "qin",
+      "hab": "shan",
+      "basis": "居翼望山，乌状三首六尾"
+    },
+    "95": {
+      "cat": "qin",
+      "hab": "shan",
+      "basis": "居三危山，一首三身"
+    },
+    "96": {
+      "cat": "qin",
+      "hab": "shan",
+      "basis": "居崦嵫山，鸮状人面，见则大旱"
+    }
+  }
+}
