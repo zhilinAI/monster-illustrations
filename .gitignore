@@ -16,3 +16,8 @@ liaozai/
 神异经/
 述异记/
 阅微草堂笔记/
+
+# 本地测试产物
+node_modules/
+package.json
+package-lock.json
