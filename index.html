@@ -312,6 +312,41 @@ figcaption{padding:14px 16px 15px}
 .lb-foot button:hover{color:var(--rice);border-color:var(--cat)}
 .lb-foot .idx{font-family:var(--mono);font-size:11.5px;color:var(--dim2)}
 
+/* ---------- 去做视频 ---------- */
+.vgbtn{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-size:12px;letter-spacing:.22em;color:var(--zhu);border:1px solid var(--zhu);padding:0 20px;min-height:42px;cursor:pointer;transition:background .25s,color .25s}
+.vgbtn:hover{background:var(--zhu);color:#fff}
+.vgbtn svg{flex:none}
+.vg{position:fixed;inset:0;z-index:70;background:var(--ink);overflow-y:auto;display:none}
+.vg.is-open{display:block}
+.vg-close{position:fixed;right:14px;top:12px;z-index:75;width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--hair2);color:var(--rice);background:rgba(10,14,12,.7);font-family:var(--mono);font-size:15px;cursor:pointer}
+.vg-close:hover{border-color:var(--zhu);color:var(--zhu)}
+.vg-inner{max-width:1180px;margin:0 auto;padding:56px 32px 90px;display:grid;grid-template-columns:400px 1fr;gap:52px;align-items:start}
+@media (max-width:900px){.vg-inner{grid-template-columns:1fr;gap:36px;padding:70px 20px 70px}}
+.vg h2{margin:14px 0 26px;font-family:var(--serif);font-weight:400;font-size:clamp(24px,3vw,34px);letter-spacing:.1em}
+.vg-refwrap{margin:0}
+.vg-refwrap img{width:100%;border:1px solid var(--hair);background:var(--ink2);display:block}
+.vg-refwrap figcaption{margin-top:10px;font-size:11.5px;color:var(--dim);letter-spacing:.06em}
+.vg-refwrap input{accent-color:var(--zhu);margin-right:7px;transform:translateY(1px)}
+.vg-sec{margin-top:26px}
+.vg-sec h3{margin:0 0 9px;font-size:10.5px;letter-spacing:.3em;color:var(--dim);font-weight:400;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.vg textarea,.vg select,.vg input[type="number"]{width:100%;background:var(--ink2);border:1px solid var(--hair);color:var(--rice);font:13px/1.8 var(--sans);padding:10px 12px;box-sizing:border-box}
+.vg textarea{resize:vertical}
+.vg textarea:focus,.vg select:focus,.vg input:focus{outline:none;border-color:var(--zhu)}
+.vg textarea[readonly]{color:var(--dim)}
+.vg-mini{font-size:10.5px;letter-spacing:.14em;color:var(--cui);border:1px solid var(--hair2);padding:6px 12px;cursor:pointer;white-space:nowrap}
+.vg-mini:hover{color:var(--rice);border-color:var(--cui)}
+.vg-mini:disabled{opacity:.45;cursor:default}
+.vg-params{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:26px}
+@media (max-width:640px){.vg-params{grid-template-columns:1fr}}
+.vg-params label{display:block;font-size:10.5px;letter-spacing:.24em;color:var(--dim);margin-bottom:8px}
+.vg-gen{margin-top:30px;width:100%;background:var(--zhu);color:#fff;border:0;padding:15px 0;font-size:13.5px;letter-spacing:.3em;cursor:pointer;font-family:var(--serif)}
+.vg-gen:hover{filter:brightness(1.12)}
+.vg-gen:disabled{opacity:.5;cursor:default}
+.vg-status{margin:14px 0 0;font-family:var(--mono);font-size:12px;color:var(--dim);min-height:1.6em}
+.vg video{display:none;width:100%;margin-top:22px;border:1px solid var(--hair);background:#000}
+.vg-dl{display:none;margin-top:14px;font-size:12px;letter-spacing:.18em;color:var(--cui);border:1px solid var(--hair2);padding:10px 18px}
+.vg-dl:hover{border-color:var(--cui);color:var(--rice)}
+
 /* ---------- 页脚 ---------- */
 footer{border-top:1px solid var(--hair);padding:34px 0 48px;color:var(--dim2);font-size:11.5px;line-height:2}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
@@ -14032,6 +14067,54 @@ footer a:hover{color:var(--dim)}
   <div class="lb-body" id="lb-body"></div>
 </div>
 
+<div class="vg" id="vg" role="dialog" aria-modal="true">
+  <button class="vg-close" id="vg-close" aria-label="关闭">
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 5 19 19M19 5 5 19" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+  </button>
+  <div class="vg-inner">
+    <div class="vg-left">
+      <p class="kicker">图生视频</p>
+      <h2 id="vg-title">做视频</h2>
+      <figure class="vg-refwrap">
+        <img id="vg-ref" alt="参照图">
+        <figcaption><label><input type="checkbox" id="vg-useimg" checked>自动勾选当前图片为参照图</label></figcaption>
+      </figure>
+      <div class="vg-sec">
+        <h3>原文摘抄（自动读取当前角色）</h3>
+        <textarea id="vg-quote" rows="6" readonly></textarea>
+      </div>
+    </div>
+    <div class="vg-right">
+      <div class="vg-sec" style="margin-top:0">
+        <h3>视频提示词 <button id="vg-deepen" class="vg-mini" type="button">AI 深化描写 · agnes-2.5-flash</button></h3>
+        <textarea id="vg-prompt" rows="6"></textarea>
+      </div>
+      <div class="vg-params">
+        <div><label>画面比例</label>
+          <select id="vg-ar">
+            <option value="16:9" selected>16:9 横屏</option>
+            <option value="9:16">9:16 竖屏</option>
+            <option value="1:1">1:1 方形</option>
+          </select>
+        </div>
+        <div><label>分辨率</label>
+          <select id="vg-size">
+            <option value="720P" selected>720P</option>
+            <option value="1080P">1080P</option>
+          </select>
+        </div>
+        <div><label>时长（4 ~ 12 秒）</label>
+          <input type="number" id="vg-seconds" min="4" max="12" step="1" value="10">
+        </div>
+      </div>
+      <button id="vg-gen" class="vg-gen" type="button">生 成 视 频</button>
+      <p class="vg-status" id="vg-status"></p>
+      <video id="vg-video" controls playsinline></video>
+      <a id="vg-dl" class="vg-dl" href="#" download>下载视频</a>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
   var WORKMETA = {
@@ -14880,6 +14963,7 @@ footer a:hover{color:var(--dim)}
       ((d.quote && d.quote.replace(/\s/g, '')) ?
         '<div class="lb-sec"><h3>' + (WORKMETA[work].quoteLabel || '原文') + '</h3><div class="lb-quote">' + d.quote + '</div></div>' : '') +
       '<div class="lb-sec"><h3>分类与生境</h3><div class="v">' + (d.basis || '') + '</div></div>' +
+      '<div class="lb-sec"><button class="vgbtn" id="lb-video"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>去做视频</button></div>' +
       '<div class="lb-foot">' +
         '<button id="lb-prev">上一幅</button>' +
         '<span class="idx">' + (lbPos + 1) + ' / ' + lbList.length + '</span>' +
@@ -14887,6 +14971,24 @@ footer a:hover{color:var(--dim)}
       '</div>';
     lbBody.querySelector('#lb-prev').addEventListener('click', function(){ step(-1); });
     lbBody.querySelector('#lb-next').addEventListener('click', function(){ step(1); });
+    lbBody.querySelector('#lb-video').addEventListener('click', function(){
+      var pl = lbList[lbPos];
+      if (!pl) return;
+      var dd = plateData(pl);
+      var wimg = pl.querySelector('img');
+      var wnameEl = pl.querySelector('.pname');
+      var wsubEl = wnameEl.querySelector('.psub');
+      var wname = wnameEl.textContent.replace(wsubEl ? wsubEl.textContent : '', '').trim();
+      openVideoGen({
+        name: wname,
+        work: pl.dataset.work,
+        workTitle: workTitle(pl.dataset.work),
+        chapter: dd.chapter || '',
+        quote: htmlToText(dd.quote || ''),
+        desc: htmlToText(dd.desc || ''),
+        imgUrl: new URL(wimg.getAttribute('src'), location.href).href
+      });
+    });
     lbBody.scrollTop = 0;
   }
 
@@ -15005,6 +15107,150 @@ footer a:hover{color:var(--dim)}
   window.addEventListener('resize', function(){ layoutGrids(); });
   route();
   layoutGrids();
+
+  /* ---- 去做视频 · 图生视频面板 ---- */
+  var AGNES_BASE = 'https://apihub.agnes-ai.com/v1';
+  var AGNES_KEY = 'wk-MoV26gkpYo0I2vvGA5eL2WwTcBPW2pC06P80Zj5uxuBUiS6d';
+  var VG_VIDEO_MODEL = 'agnes-video-2.5-flash';
+  var VG_TEXT_MODEL = 'agnes-2.5-flash';
+  var vgData = null, vgTimer = null;
+
+  function vgEl(id){ return document.getElementById(id); }
+  function htmlToText(h){ var t = document.createElement('div'); t.innerHTML = h; return (t.textContent || '').replace(/\s+/g, ' ').trim(); }
+  function vgStatus(t){ vgEl('vg-status').textContent = t; }
+
+  function openVideoGen(data){
+    vgData = data;
+    vgEl('vg').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    vgEl('vg-title').textContent = data.name + ' · 做视频';
+    vgEl('vg-ref').src = data.imgUrl;
+    vgEl('vg-useimg').checked = true;
+    var q = [];
+    if (data.quote) q.push(data.quote);
+    if (data.desc && data.desc !== data.quote) q.push(data.desc);
+    vgEl('vg-quote').value = q.join('\n');
+    vgEl('vg-prompt').value = '以 <Picture 1> 中的角色和美术风格为参考，' +
+      (data.desc || data.quote || data.name) + '。角色缓缓活动起来，镜头缓慢环绕，保持外观与画风一致';
+    vgStatus('');
+    var v = vgEl('vg-video'); v.removeAttribute('src'); v.style.display = 'none';
+    var dl = vgEl('vg-dl'); dl.style.display = 'none'; dl.removeAttribute('href');
+    var btn = vgEl('vg-gen'); btn.disabled = false; btn.textContent = '生 成 视 频';
+    vgEl('vg-close').focus();
+  }
+
+  function closeVideoGen(){
+    if (vgTimer){ clearInterval(vgTimer); vgTimer = null; }
+    vgEl('vg').classList.remove('is-open');
+    if (lb.hidden) document.body.style.overflow = '';
+  }
+
+  function vgDeepen(){
+    if (!vgData) return;
+    var btn = vgEl('vg-deepen');
+    btn.disabled = true;
+    var old = btn.textContent; btn.textContent = '深化中…';
+    vgStatus('正在调用 agnes-2.5-flash 深化描写…');
+    var sys = '你是古典志怪题材的视频导演。依据给出的角色描写与原文摘抄，写一段 90~150 字的视频生成提示词：描述该角色的连续动态（动作、神态）、镜头运动（推、拉、摇、移）、环境与氛围的细微变化。文风古典凝练，直接输出正文，不要任何解释、引号或换行。';
+    var usr = '角色：' + vgData.name + '（' + vgData.workTitle + '）\n描写内容：' + (vgData.desc || '无') + '\n原文摘抄：' + (vgData.quote || '无');
+    fetch(AGNES_BASE + '/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AGNES_KEY },
+      body: JSON.stringify({ model: VG_TEXT_MODEL, messages: [{ role: 'system', content: sys }, { role: 'user', content: usr }], temperature: 0.8 })
+    }).then(function(r){ return r.json(); }).then(function(j){
+      var t = j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content;
+      if (t){
+        vgEl('vg-prompt').value = '以 <Picture 1> 中的角色和美术风格为参考，' + String(t).replace(/\s+/g, ' ').trim();
+        vgStatus('提示词已深化，可直接生成或手动微调。');
+      } else {
+        vgStatus('深化失败：' + ((j.error && j.error.message) || '接口返回异常'));
+      }
+      btn.disabled = false; btn.textContent = old;
+    }).catch(function(e){
+      vgStatus('深化失败：' + e.message);
+      btn.disabled = false; btn.textContent = old;
+    });
+  }
+
+  function vgExtractUrl(j){
+    return j.video_url || j.url || j.download_url ||
+      (j.video && (j.video.url || j.video.video_url || j.video.download_url)) ||
+      (j.output && (j.output.url || j.output.video_url)) ||
+      (j.data && j.data[0] && (j.data[0].url || j.data[0].video_url)) || '';
+  }
+
+  function vgDone(u){
+    vgStatus('生成完成 ↓');
+    var btn = vgEl('vg-gen'); btn.disabled = false; btn.textContent = '重 新 生 成';
+    var v = vgEl('vg-video'); v.src = u; v.style.display = 'block';
+    var dl = vgEl('vg-dl'); dl.href = u; dl.style.display = 'inline-block';
+    if (vgTimer){ clearInterval(vgTimer); vgTimer = null; }
+  }
+
+  function vgGenerate(){
+    if (!vgData) return;
+    var prompt = vgEl('vg-prompt').value.trim();
+    if (!prompt){ vgStatus('请先填写视频提示词。'); return; }
+    var sec = parseInt(vgEl('vg-seconds').value, 10);
+    if (!(sec >= 4 && sec <= 12)){ vgStatus('时长须在 4 ~ 12 秒之间。'); return; }
+    var btn = vgEl('vg-gen');
+    btn.disabled = true; btn.textContent = '提 交 中…';
+    vgStatus('正在提交生成任务…');
+    if (vgTimer){ clearInterval(vgTimer); vgTimer = null; }
+    var v = vgEl('vg-video'); v.removeAttribute('src'); v.style.display = 'none';
+    vgEl('vg-dl').style.display = 'none';
+    var body = {
+      model: VG_VIDEO_MODEL,
+      prompt: prompt,
+      seconds: String(sec),
+      mode: 'reference',
+      size: vgEl('vg-size').value,
+      aspect_ratio: vgEl('vg-ar').value
+    };
+    if (vgEl('vg-useimg').checked) body.images = [vgData.imgUrl];
+    fetch(AGNES_BASE + '/videos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AGNES_KEY },
+      body: JSON.stringify(body)
+    }).then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); }).then(function(res){
+      if (!res.ok){
+        throw new Error((res.j.error && res.j.error.message) || ('HTTP ' + JSON.stringify(res.j).slice(0, 160)));
+      }
+      var j = res.j;
+      var u = vgExtractUrl(j);
+      if (u){ vgDone(u); return; }
+      var id = j.id || j.task_id || j.job_id;
+      if (!id){ throw new Error('接口未返回任务 id：' + JSON.stringify(j).slice(0, 160)); }
+      vgStatus('任务已提交（' + id + '），生成中，约需 1~3 分钟…');
+      var tries = 0;
+      vgTimer = setInterval(function(){
+        tries++;
+        if (tries > 120){
+          clearInterval(vgTimer); vgTimer = null;
+          vgStatus('等待超时，任务可能仍在后台进行，可稍后重新生成。');
+          btn.disabled = false; btn.textContent = '重 新 生 成';
+          return;
+        }
+        fetch(AGNES_BASE + '/videos/' + id, { headers: { 'Authorization': 'Bearer ' + AGNES_KEY } })
+          .then(function(r){ return r.json(); })
+          .then(function(s){
+            var u2 = vgExtractUrl(s);
+            if (u2){ vgDone(u2); }
+            else { vgStatus('生成中… ' + (s.status || s.state || '') + '（已等待 ' + tries * 5 + ' 秒）'); }
+          }).catch(function(){});
+      }, 5000);
+    }).catch(function(e){
+      vgStatus('提交失败：' + e.message);
+      btn.disabled = false; btn.textContent = '重 新 生 成';
+    });
+  }
+
+  vgEl('vg-close').addEventListener('click', closeVideoGen);
+  vgEl('vg-deepen').addEventListener('click', vgDeepen);
+  vgEl('vg-gen').addEventListener('click', vgGenerate);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && vgEl('vg').classList.contains('is-open')) closeVideoGen();
+  });
 })();
 </script>
 </body>
