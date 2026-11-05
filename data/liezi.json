@@ -1,0 +1,276 @@
+{
+  "project": "西游记妖精灵怪图志",
+  "work": {
+    "id": "lzl",
+    "title": "列子",
+    "author": "战国 · 列御寇（旧题，今本或魏晋人辑）"
+  },
+  "taxonomy": {
+    "categories": [
+      {
+        "id": "shen",
+        "name": "神异",
+        "count": 5
+      },
+      {
+        "id": "ju",
+        "name": "巨兽",
+        "count": 4
+      },
+      {
+        "id": "ren",
+        "name": "大小人",
+        "count": 3
+      },
+      {
+        "id": "wei",
+        "name": "微巧",
+        "count": 2
+      }
+    ],
+    "habitats": [
+      {
+        "id": "tian",
+        "name": "天",
+        "desc": "乘虚、降霄与神人所居",
+        "count": 3
+      },
+      {
+        "id": "shan",
+        "name": "山",
+        "desc": "姑射、五山与石壁崖穴",
+        "count": 4
+      },
+      {
+        "id": "shui",
+        "name": "水",
+        "desc": "归墟、江浦与巨鳌所戴",
+        "count": 3
+      },
+      {
+        "id": "ye",
+        "name": "野",
+        "desc": "龙伯、僬侥与东北极之野",
+        "count": 3
+      },
+      {
+        "id": "zhai",
+        "name": "宅",
+        "desc": "王庭、机巧与人间器用",
+        "count": 1
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "01",
+      "num": 1,
+      "name": "姑射神人",
+      "pinyin": "",
+      "category": "shen",
+      "habitat": "shan",
+      "basis": "神人：列姑射山在海河洲中",
+      "chapter": "《列子》黄帝篇（二）",
+      "chapterShort": "黄帝篇",
+      "desc": "吸风饮露、不食五谷，只以“形如处女”四字定形，是全书最轻的笔。",
+      "paragraph": null,
+      "quote": "列姑射山在海河洲中，山上有神人焉，吸风饮露，不食五谷；心如渊泉，形如处女；",
+      "image": "assets/liezi/01.webp"
+    },
+    {
+      "id": "02",
+      "num": 2,
+      "name": "石壁中人",
+      "pinyin": "",
+      "category": "shen",
+      "habitat": "shan",
+      "basis": "鬼物：有一人从石壁中出",
+      "chapter": "《列子》黄帝篇（十二）",
+      "chapterShort": "黄帝篇",
+      "desc": "从石壁中出、随烟烬上下，全程无面目，只以“鬼物”二字收束。",
+      "paragraph": null,
+      "quote": "有一人从石壁中出，随烟烬上下，众谓鬼物",
+      "image": "assets/liezi/02.webp"
+    },
+    {
+      "id": "03",
+      "num": 3,
+      "name": "上古四圣王",
+      "pinyin": "",
+      "category": "shen",
+      "habitat": "tian",
+      "basis": "神人：庖牺氏、女娲氏、神农氏、夏后氏",
+      "chapter": "《列子》黄帝篇（十八）",
+      "chapterShort": "黄帝篇",
+      "desc": "蛇身人面、牛首虎鼻，圣人偏有“非人之状”，形与德故意错开。",
+      "paragraph": null,
+      "quote": "庖牺氏、女娲氏、神农氏、夏后氏，蛇身人面，牛首虎鼻：此有非人之状，而有大圣之德",
+      "image": "assets/liezi/03.webp"
+    },
+    {
+      "id": "04",
+      "num": 4,
+      "name": "化人",
+      "pinyin": "",
+      "category": "shen",
+      "habitat": "tian",
+      "basis": "异人：入水火",
+      "chapter": "《列子》周穆王篇（一）",
+      "chapterShort": "周穆王篇",
+      "desc": "不写形体，只写“乘虚不坠，触实不硋”，以能力代替形貌。",
+      "paragraph": null,
+      "quote": "入水火，贯金石；反山川，移城邑；乘虚不坠，触实不硋。",
+      "image": "assets/liezi/04.webp"
+    },
+    {
+      "id": "05",
+      "num": 5,
+      "name": "五山禽兽",
+      "pinyin": "",
+      "category": "ju",
+      "habitat": "shan",
+      "basis": "异兽：其上台观皆金玉",
+      "chapter": "《列子》汤问篇（一）",
+      "chapterShort": "汤问篇",
+      "desc": "仙境之兽不写形状，只给“皆纯缟”三字，以颜色代形。",
+      "paragraph": null,
+      "quote": "其上台观皆金玉，其上禽兽皆纯缟",
+      "image": "assets/liezi/05.webp"
+    },
+    {
+      "id": "06",
+      "num": 6,
+      "name": "巨鳌",
+      "pinyin": "",
+      "category": "ju",
+      "habitat": "shui",
+      "basis": "巨兽：乃命禺彊使巨鳌十五举首而戴之",
+      "chapter": "《列子》汤问篇（一）",
+      "chapterShort": "汤问篇",
+      "desc": "十五只巨鳌以首戴五山，写的是“举首”这一动作的量级。",
+      "paragraph": null,
+      "quote": "乃命禺彊使巨鳌十五举首而戴之",
+      "image": "assets/liezi/06.webp"
+    },
+    {
+      "id": "07",
+      "num": 7,
+      "name": "龙伯国大人",
+      "pinyin": "",
+      "category": "ren",
+      "habitat": "ye",
+      "basis": "巨人：而龙伯之国有大人",
+      "chapter": "《列子》汤问篇（一）",
+      "chapterShort": "汤问篇",
+      "desc": "举足不盈数步而跨五山，一钓连六鳌；后文再补“其国人犹数十丈”。",
+      "paragraph": null,
+      "quote": "而龙伯之国有大人，举足不盈数步而暨五山之所，一钓而连六鳌",
+      "image": "assets/liezi/07.webp"
+    },
+    {
+      "id": "08",
+      "num": 8,
+      "name": "僬侥国人",
+      "pinyin": "",
+      "category": "ren",
+      "habitat": "ye",
+      "basis": "小人：得僬侥国",
+      "chapter": "《列子》汤问篇（一）",
+      "chapterShort": "汤问篇",
+      "desc": "一尺五寸，全书最小的人，只用一句量词。",
+      "paragraph": null,
+      "quote": "得僬侥国。人长一尺五寸",
+      "image": "assets/liezi/08.webp"
+    },
+    {
+      "id": "09",
+      "num": 9,
+      "name": "诤人",
+      "pinyin": "",
+      "category": "ren",
+      "habitat": "ye",
+      "basis": "小人：东北极有人名曰诤人",
+      "chapter": "《列子》汤问篇（一）",
+      "chapterShort": "汤问篇",
+      "desc": "九寸，比僬侥更短；名字与尺寸并置，像一条博物条目。",
+      "paragraph": null,
+      "quote": "东北极有人名曰诤人，长九寸",
+      "image": "assets/liezi/09.webp"
+    },
+    {
+      "id": "10",
+      "num": 10,
+      "name": "鲲",
+      "pinyin": "",
+      "category": "ju",
+      "habitat": "shui",
+      "basis": "巨兽：有鱼焉",
+      "chapter": "《列子》汤问篇（一）",
+      "chapterShort": "汤问篇",
+      "desc": "“其广数千里，其长称焉”，以宽与长互证，不给具体数字。",
+      "paragraph": null,
+      "quote": "有鱼焉，其广数千里，其长称焉，其名为鲲",
+      "image": "assets/liezi/10.webp"
+    },
+    {
+      "id": "11",
+      "num": 11,
+      "name": "鹏",
+      "pinyin": "",
+      "category": "ju",
+      "habitat": "tian",
+      "basis": "巨兽：有鸟焉",
+      "chapter": "《列子》汤问篇（一）",
+      "chapterShort": "汤问篇",
+      "desc": "“翼若垂天之云”，以云比翼，是全书最著名的一句拟形。",
+      "paragraph": null,
+      "quote": "有鸟焉，其名为鹏，翼若垂天之云，其体称焉",
+      "image": "assets/liezi/11.webp"
+    },
+    {
+      "id": "12",
+      "num": 12,
+      "name": "焦螟",
+      "pinyin": "",
+      "category": "wei",
+      "habitat": "shui",
+      "basis": "微虫：江浦之间生幺虫",
+      "chapter": "《列子》汤问篇（一）",
+      "chapterShort": "汤问篇",
+      "desc": "小到群飞集于蚊睫而蚊不觉，与鲲鹏并置，构成巨细两极。",
+      "paragraph": null,
+      "quote": "江浦之间生幺虫，其名曰焦螟，群飞而集于蚊睫",
+      "image": "assets/liezi/12.webp"
+    },
+    {
+      "id": "13",
+      "num": 13,
+      "name": "操蛇之神",
+      "pinyin": "",
+      "category": "shen",
+      "habitat": "shan",
+      "basis": "神：操蛇之神闻之",
+      "chapter": "《列子》汤问篇（二）",
+      "chapterShort": "汤问篇",
+      "desc": "不写神貌，只以“操蛇”一动作定身份，形在手中之蛇。",
+      "paragraph": null,
+      "quote": "操蛇之神闻之，惧其不已也，告之于帝",
+      "image": "assets/liezi/13.webp"
+    },
+    {
+      "id": "14",
+      "num": 14,
+      "name": "偃师倡者",
+      "pinyin": "",
+      "category": "wei",
+      "habitat": "zhai",
+      "basis": "傀儡：内则肝胆、心肺、脾肾、肠胃",
+      "chapter": "《列子》汤问篇（十三）",
+      "chapterShort": "汤问篇",
+      "desc": "内有机腑、外有皮毛齿发，全是假物，是“人造之形”的极端。",
+      "paragraph": null,
+      "quote": "内则肝胆、心肺、脾肾、肠胃，外则筋骨、支节、皮毛、齿发，皆假物也，而无不毕具者",
+      "image": "assets/liezi/14.webp"
+    }
+  ]
+}

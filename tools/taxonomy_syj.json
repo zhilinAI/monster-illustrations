@@ -1,0 +1,289 @@
+{
+ "items": {
+  "01": {
+   "cat": "shen",
+   "hab": "tian",
+   "basis": "神：昔盘古氏之死也"
+  },
+  "02": {
+   "cat": "shen",
+   "hab": "shan",
+   "basis": "神：南海小虞山中有鬼母"
+  },
+  "03": {
+   "cat": "shen",
+   "hab": "shan",
+   "basis": "巨人：昔禹会涂山"
+  },
+  "04": {
+   "cat": "shen",
+   "hab": "ye",
+   "basis": "神：轩辕之初立也"
+  },
+  "05": {
+   "cat": "shen",
+   "hab": "zhai",
+   "basis": "神：汉武时"
+  },
+  "06": {
+   "cat": "hua",
+   "hab": "shui",
+   "basis": "化形：尧使鲧治洪水"
+  },
+  "07": {
+   "cat": "jing",
+   "hab": "shui",
+   "basis": "精魅：南海出鲛绡纱"
+  },
+  "08": {
+   "cat": "hua",
+   "hab": "shui",
+   "basis": "化形：昔炎帝女溺死东海中"
+  },
+  "09": {
+   "cat": "hua",
+   "hab": "zhai",
+   "basis": "化形：夏桀宫中有女子化为龙"
+  },
+  "10": {
+   "cat": "hua",
+   "hab": "shui",
+   "basis": "化形：淮南有懒妇鱼"
+  },
+  "11": {
+   "cat": "hua",
+   "hab": "shui",
+   "basis": "化形：水虺五百年化为蛟"
+  },
+  "12": {
+   "cat": "hua",
+   "hab": "shan",
+   "basis": "化形：鹿千年化为苍"
+  },
+  "13": {
+   "cat": "jing",
+   "hab": "shan",
+   "basis": "精魅：梓树之精化为青羊"
+  },
+  "14": {
+   "cat": "hua",
+   "hab": "shan",
+   "basis": "化形：汉中山有虎生角"
+  },
+  "15": {
+   "cat": "guai",
+   "hab": "ye",
+   "basis": "兽怪：獍之为兽"
+  },
+  "16": {
+   "cat": "shen",
+   "hab": "ye",
+   "basis": "异人：西海外有鹄国"
+  },
+  "17": {
+   "cat": "guai",
+   "hab": "shan",
+   "basis": "禽怪：吐绶乌"
+  },
+  "18": {
+   "cat": "guai",
+   "hab": "ye",
+   "basis": "兽怪：猰㺄"
+  },
+  "19": {
+   "cat": "jing",
+   "hab": "shui",
+   "basis": "精魅：尝有船人遇一人"
+  },
+  "20": {
+   "cat": "guai",
+   "hab": "shui",
+   "basis": "兽怪：炎洲在南海中"
+  },
+  "21": {
+   "cat": "guai",
+   "hab": "shan",
+   "basis": "禽怪：兰陵山有井"
+  },
+  "22": {
+   "cat": "shen",
+   "hab": "shui",
+   "basis": "神：秦始皇作石桥于海上"
+  },
+  "23": {
+   "cat": "guai",
+   "hab": "ye",
+   "basis": "虫怪：有蚕长七寸"
+  },
+  "24": {
+   "cat": "shen",
+   "hab": "shan",
+   "basis": "神：齐桓公北征孤竹"
+  },
+  "25": {
+   "cat": "shen",
+   "hab": "tian",
+   "basis": "仙：尝东游"
+  },
+  "26": {
+   "cat": "jing",
+   "hab": "shui",
+   "basis": "精魅：晋安郡有一书生谢端"
+  },
+  "27": {
+   "cat": "jing",
+   "hab": "shan",
+   "basis": "精魅：觇见数青衣童子捣药"
+  },
+  "28": {
+   "cat": "guai",
+   "hab": "shan",
+   "basis": "兽怪：封微山中有怒毛兽"
+  },
+  "29": {
+   "cat": "hua",
+   "hab": "shui",
+   "basis": "化形：北方荒外有石湖"
+  },
+  "30": {
+   "cat": "jing",
+   "hab": "ye",
+   "basis": "精魅：大食王国在西海中"
+  },
+  "31": {
+   "cat": "guai",
+   "hab": "ye",
+   "basis": "兽怪：獬豸者"
+  },
+  "32": {
+   "cat": "jing",
+   "hab": "shan",
+   "basis": "精魅：千年木精为青牛"
+  },
+  "33": {
+   "cat": "hua",
+   "hab": "shan",
+   "basis": "化形：猿五百岁化为玃"
+  },
+  "34": {
+   "cat": "guai",
+   "hab": "zhai",
+   "basis": "禽怪：燕千年生胡髯"
+  },
+  "35": {
+   "cat": "guai",
+   "hab": "ye",
+   "basis": "兽怪：蛟羊似羊而无角"
+  },
+  "36": {
+   "cat": "guai",
+   "hab": "ye",
+   "basis": "妖征：殷纣时"
+  },
+  "37": {
+   "cat": "shen",
+   "hab": "shui",
+   "basis": "神：关中有金鱼神"
+  },
+  "38": {
+   "cat": "hua",
+   "hab": "zhai",
+   "basis": "化形：楚庄王时"
+  },
+  "39": {
+   "cat": "guai",
+   "hab": "tian",
+   "basis": "妖征：古说雍州雨鱼"
+  },
+  "40": {
+   "cat": "jing",
+   "hab": "shan",
+   "basis": "精魅：天姥山南峰"
+  },
+  "41": {
+   "cat": "jing",
+   "hab": "zhai",
+   "basis": "精魅：汉武宴于未央宫"
+  },
+  "42": {
+   "cat": "guai",
+   "hab": "ye",
+   "basis": "物怪：秦缪公时"
+  },
+  "43": {
+   "cat": "guai",
+   "hab": "shui",
+   "basis": "兽怪：东海有牛鱼"
+  },
+  "44": {
+   "cat": "guai",
+   "hab": "shan",
+   "basis": "蛇怪：蛇一首两身者"
+  },
+  "45": {
+   "cat": "guai",
+   "hab": "ye",
+   "basis": "兽怪：有兽名格"
+  },
+  "46": {
+   "cat": "jing",
+   "hab": "ye",
+   "basis": "精魅：汉有村人焦先"
+  },
+  "47": {
+   "cat": "jing",
+   "hab": "shan",
+   "basis": "精魅：贞山"
+  },
+  "48": {
+   "cat": "jing",
+   "hab": "zhai",
+   "basis": "精魅：江阴北有子英庙"
+  },
+  "49": {
+   "cat": "shen",
+   "hab": "shui",
+   "basis": "神：哀牢夷"
+  },
+  "50": {
+   "cat": "guai",
+   "hab": "shui",
+   "basis": "禽怪：涿光山下嚣水"
+  },
+  "51": {
+   "cat": "guai",
+   "hab": "shan",
+   "basis": "禽怪：庐陵有木客鸟"
+  },
+  "52": {
+   "cat": "shen",
+   "hab": "zhai",
+   "basis": "异人：昔徐君宫人生一大卵"
+  },
+  "53": {
+   "cat": "jing",
+   "hab": "shan",
+   "basis": "精魅：武都丈夫化为女子"
+  },
+  "54": {
+   "cat": "jing",
+   "hab": "ye",
+   "basis": "精魅：忽有一童子持青囊授含"
+  },
+  "55": {
+   "cat": "jing",
+   "hab": "zhai",
+   "basis": "精魅：阳羡县小吏吴龛"
+  },
+  "56": {
+   "cat": "jing",
+   "hab": "shui",
+   "basis": "精魅：南海中有鲛人室"
+  },
+  "57": {
+   "cat": "guai",
+   "hab": "shan",
+   "basis": "禽怪：中有白蝙蝠"
+  }
+ }
+}

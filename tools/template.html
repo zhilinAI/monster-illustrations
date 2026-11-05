@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>西游 · 山海　精怪图志</title>
-<meta name="description" content="《西游记》与《山海经》的精怪谱录：按作品、分类、生境三层浏览，154 幅设定图与原文摘录对照。">
+<title>西游 · 山海 · 聊斋 · 子不语 · 三教搜神 · 列子 · 述异记 · 太平广记 · 搜神记 · 阅微草堂笔记 · 封神演义　志怪图志</title>
+<meta name="description" content="《西游记》《山海经》《聊斋志异》《子不语》的志怪谱录：按作品、分类、生境三层浏览，{{N_ITEMS}} 幅设定图与原文摘录对照。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23C2402C'/%3E%3Crect x='4.5' y='4.5' width='23' height='23' fill='none' stroke='%23E9E3D4' stroke-width='1.6'/%3E%3Cpath d='M11 11h10v10H11z' stroke='%23E9E3D4' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
 <style>
 :root{
   --ink:#0A0E0C; --ink2:#0E1512; --ink3:#131B17;
   --hair:#242E28; --hair2:#313D36;
   --rice:#E9E3D4; --dim:#8D998F; --dim2:#66736B;
-  --zhu:#C2402C; --cui:#4E8B75; --liu:#C09A4E; --hun:#8FA3B2;
+  --zhu:#C2402C; --cui:#4E8B75; --liu:#C09A4E; --hun:#8FA3B2; --qing:#6E9CB4; --jin:#A6823A;
+  --cang:#3D7A78; --zhe:#9C5A3C; --zi:#7B6AA0; --fei:#B0506A; --dai:#4F5D73; --cheng:#C0682E;
   --serif:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
   --sans:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;
   --mono:"Consolas","SFMono-Regular","Menlo",monospace;
@@ -38,12 +39,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .topbar .wrap{display:flex;align-items:center;gap:20px;min-height:58px}
 .brand{font-family:var(--serif);font-size:16px;letter-spacing:.18em;white-space:nowrap}
 .brand span{color:var(--zhu)}
+.brand em{font-style:normal}
+.brand .bs{display:none}
 .crumbs{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--dim);flex:1;min-width:0;overflow:hidden;white-space:nowrap}
 .crumbs i{color:var(--dim2);font-style:normal}
 .crumbs a:hover{color:var(--rice)}
 .crumbs b{color:var(--rice);font-weight:400}
 .topmeta{font-size:11px;letter-spacing:.12em;color:var(--dim);font-family:var(--mono);white-space:nowrap}
-@media (max-width:640px){.topmeta{display:none}.brand{font-size:14px;letter-spacing:.1em}}
+@media (max-width:640px){.topmeta{display:none}.brand{font-size:14px;letter-spacing:.16em}.brand .bl{display:none}.brand .bs{display:inline}}
 
 /* ---------- 视图切换 ---------- */
 .view{display:none}
@@ -66,7 +69,9 @@ body[data-view="gallery"] .view--gallery{display:block}
   margin:22px 0 0;font-family:var(--serif);font-weight:400;
   font-size:clamp(64px,11vw,146px);line-height:.94;letter-spacing:.06em;
 }
-.hero-copy h1 em{font-style:normal;display:block;font-size:clamp(20px,2.4vw,28px);letter-spacing:.32em;color:var(--dim);margin-top:20px}
+.hero-copy h1 em{font-style:normal;display:block;font-size:clamp(16px,1.32vw,18.5px);letter-spacing:.2em;color:var(--dim);margin-top:20px;white-space:nowrap}
+.hero-copy h1 em span{display:block;line-height:2.1}
+@media (max-width:640px){.hero-copy h1 em{font-size:11px;letter-spacing:.08em;margin-top:14px;white-space:nowrap}}
 .hero-copy p.lede{margin:26px 0 0;max-width:34em;color:var(--dim);font-size:14px;line-height:1.9}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:34px;border-top:1px solid var(--hair)}
 .hero-stats div{padding:16px 0 0;border-right:1px solid var(--hair)}
@@ -77,7 +82,7 @@ body[data-view="gallery"] .view--gallery{display:block}
 
 .hero-plate{border:1px solid var(--hair);background:var(--ink2);padding:10px}
 .hero-plate figure{margin:0;position:relative;overflow:hidden}
-.hero-plate img{aspect-ratio:16/9;height:auto;object-fit:cover;width:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.hero-plate img{aspect-ratio:16/9;height:auto;object-fit:contain;width:100%;background:var(--ink2);transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 .hero-plate:hover img{transform:scale(1.02)}
 .hero-plate .cap{display:flex;justify-content:space-between;gap:12px;padding:11px 4px 2px;font-size:11.5px;color:var(--dim);letter-spacing:.06em}
 .hero-plate .cap b{color:var(--rice);font-weight:400;font-family:var(--serif);font-size:13px;letter-spacing:.1em}
@@ -231,6 +236,10 @@ body[data-view="gallery"] .view--gallery{display:block}
 .grid{display:grid;grid-template-columns:1fr;gap:18px}
 @media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1120px){.grid{grid-template-columns:repeat(3,1fr)}}
+/* 竖图作品条目偏少（14 / 57 / 74 / 83），列数加到五列，最后一行不留单卡 */
+@media (min-width:1120px){
+  .workgal[data-work="lzl"] .grid,.workgal[data-work="syj"] .grid,.workgal[data-work="tpg"] .grid,.workgal[data-work="ssj"] .grid{grid-template-columns:repeat(5,1fr);gap:14px}
+}
 
 .plate{
   border:1px solid var(--hair);background:var(--ink2);position:relative;
@@ -240,6 +249,9 @@ body[data-view="gallery"] .view--gallery{display:block}
 .plate:hover{border-color:var(--cat);background:var(--ink3)}
 .plate-fig{display:block;overflow:hidden;aspect-ratio:16/9;background:#0B0F0D}
 .plate-fig img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+/* 列子、述异记、太平广记为 3:4 竖图，搜神记为 2:3 竖图（衬边统一版式），其余五部为 16:9 四视图横版；图卡按原比例排版，避免裁头 */
+.plate[data-work="lzl"] .plate-fig,.plate[data-work="syj"] .plate-fig,.plate[data-work="tpg"] .plate-fig{aspect-ratio:3/4}
+.plate[data-work="ssj"] .plate-fig{aspect-ratio:2/3}
 .plate:hover .plate-fig img{transform:scale(1.035)}
 .plate-fig:focus-visible{outline:2px solid var(--cat);outline-offset:-2px}
 figcaption{padding:14px 16px 15px}
@@ -260,6 +272,11 @@ figcaption{padding:14px 16px 15px}
   .plate.is-wide .plate-fig{aspect-ratio:auto;height:100%;min-height:210px}
   .plate.is-wide figcaption{align-self:center;padding:20px 22px}
   .plate.is-wide .pname{font-size:22px}
+  /* 竖图作品的收尾横排：只放大图幅一栏，题名与按语另起一侧，不拉成半屏空档 */
+  .plate[data-work="lzl"].is-wide,.plate[data-work="syj"].is-wide,.plate[data-work="tpg"].is-wide{grid-template-columns:260px 1fr;align-items:center}
+  .plate[data-work="lzl"].is-wide .plate-fig,.plate[data-work="syj"].is-wide .plate-fig,.plate[data-work="tpg"].is-wide .plate-fig{aspect-ratio:3/4;height:auto;min-height:0}
+  .plate[data-work="ssj"].is-wide{grid-template-columns:260px 1fr;align-items:center}
+  .plate[data-work="ssj"].is-wide .plate-fig{aspect-ratio:2/3;height:auto;min-height:0}
 }
 .gempty{color:var(--dim2);font-size:12px;letter-spacing:.1em;padding:10px 0 0}
 
@@ -306,7 +323,7 @@ footer a:hover{color:var(--dim)}
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#/">西游<span>·</span>山海 图志</a>
+    <a class="brand" href="#/"><em class="bl">西游<span>·</span>山海<span>·</span>聊斋<span>·</span>子不语<span>·</span>三教搜神<span>·</span>列子<span>·</span>述异记<span>·</span>太平广记<span>·</span>搜神记<span>·</span>阅微草堂笔记<span>·</span>封神演义 图志</em><em class="bs">志怪图志</em></a>
     <nav class="crumbs" id="crumbs" aria-label="层级导航"></nav>
     <div class="topmeta">{{TOPMETA}}</div>
   </div>
@@ -319,8 +336,8 @@ footer a:hover{color:var(--dim)}
       <div class="hero">
         <div class="hero-copy">
           <p class="kicker">卷一　作品</p>
-          <h1>精怪图志<em>西 游 · 山 海</em></h1>
-          <p class="lede">两部经典的异兽谱录。西游取经道上的妖魔精怪，按妖、精、鬼、怪四类归纳；山海荒服之内的神民兽禽，按兽、禽、神、民四类归纳。各自再以居所安置，逐幅附原文或描述，图与文互为注脚。</p>
+          <h1>志怪图志<em><span>西 游 · 山 海 · 聊 斋 · 子 不 语 · 三 教 搜 神</span><span>列 子 · 述 异 记 · 太 平 广 记 · 搜 神 记 · 阅 微 草 堂 笔 记</span></em></h1>
+          <p class="lede">十部典籍的志怪谱录。西游取经道上的妖魔精怪，按妖、精、鬼、怪四类归纳；山海荒服之内的神民兽禽，按兽、禽、神、民四类归纳；聊斋灯窗之下的狐鬼妖神，按狐、鬼、妖、神四类归纳；子不语随笔记闻的精妖鬼怪，按鬼、兽、神、怪四类归纳；三教搜神所祀的神仙佛圣，按天界、释门、山川、人神、物怪、护法六类归纳；列子寓言中的神人巨兽，按神异、巨兽、大小人、微巧四类归纳；述异记上下二卷的精妖鬼怪，按神祇、精魅、化形、物怪四类归纳；太平广记类书所辑的精妖鬼怪，按妖、精、夜叉、狐、鬼五类归纳；搜神记所记的精妖鬼怪，按狐、鬼、兽、鳞、精魅、化形六类归纳；阅微草堂笔记所记的鬼狐物怪，按鬼、狐、物怪、精魅、龙蛇、神六类归纳；封神演义所记的精妖鬼怪，按妖、精怪、神、异人四类归纳。各自再以居所安置，逐幅附原文或描述，图与文互为注脚。</p>
           <div class="hero-stats">
             <div><b>{{N_WORKS}}</b><span>作品</span></div>
             <div><b>{{N_ITEMS}}</b><span>设定图</span></div>
@@ -330,9 +347,9 @@ footer a:hover{color:var(--dim)}
         </div>
         <div class="hero-plate">
           <figure>
-            <img src="assets/characters/02.webp" alt="孙悟空（齐天大圣）角色设定图" width="1600" height="903" fetchpriority="high">
+            <img id="heroImg" src="assets/characters/02.webp" alt="孙悟空（齐天大圣）角色设定图" width="1600" height="903" fetchpriority="high">
           </figure>
-          <div class="cap"><b>孙悟空（齐天大圣）</b><span>第 02 幅 · 第四回</span></div>
+          <div class="cap"><b id="heroName">孙悟空（齐天大圣）</b><span id="heroSub">第 02 幅 · 第四回</span></div>
         </div>
       </div>
 
@@ -342,7 +359,7 @@ footer a:hover{color:var(--dim)}
           <div>
             <div class="searchfield">
               <input id="q" type="search" autocomplete="off" spellcheck="false"
-                     placeholder="输入作品名，或名目：白骨精 / 九尾狐"
+                     placeholder="输入作品名，或名目：白骨精 / 聂小倩 / 哪吒太子 / 姑射神人 / 鲛人"
                      aria-label="按名称检索作品与条目">
             </div>
           </div>
@@ -386,8 +403,8 @@ footer a:hover{color:var(--dim)}
 
 <footer>
   <div class="wrap">
-    <div>西游 · 山海　精怪图志　·　原文与描述据通行本摘录，分类与生境为编者所立　·　共 {{N_ITEMS}} 幅设定图</div>
-    <div>数据 <a href="data/characters.json">data/characters.json</a>　·　<a href="data/shanhaijing.json">data/shanhaijing.json</a>　·　生成脚本 <a href="tools/build_site.py">tools/build_site.py</a>　·　代码 MIT</div>
+    <div>西游 · 山海 · 聊斋 · 子不语 · 三教搜神 · 列子 · 述异记 · 太平广记 · 搜神记 · 阅微草堂笔记 · 封神演义　志怪图志　·　原文与描述据通行本摘录，分类与生境为编者所立　·　共 {{N_ITEMS}} 幅设定图</div>
+    <div>数据 <a href="data/characters.json">data/characters.json</a>　·　<a href="data/shanhaijing.json">data/shanhaijing.json</a>　·　<a href="data/liaozhai.json">data/liaozhai.json</a>　·　<a href="data/zibuyu.json">data/zibuyu.json</a>　·　<a href="data/sanjiao.json">data/sanjiao.json</a>　·　<a href="data/liezi.json">data/liezi.json</a>　·　<a href="data/shuyiji.json">data/shuyiji.json</a>　·　<a href="data/tpg.json">data/tpg.json</a>　·　<a href="data/ssj.json">data/ssj.json</a>　·　<a href="data/yw.json">data/yw.json</a>　·　<a href="data/fs.json">data/fs.json</a>　·　生成脚本 <a href="tools/build_site.py">tools/build_site.py</a>　·　代码 MIT</div>
   </div>
 </footer>
 
@@ -404,6 +421,23 @@ footer a:hover{color:var(--dim)}
 (function(){
   var WORKMETA = {{WORKMETA_JS}};
   var WORKORDER = Object.keys(WORKMETA);
+  var HERO_ITEMS = {{HERO_ITEMS_JS}};
+  (function(){
+    if(!HERO_ITEMS || !HERO_ITEMS.length) return;
+    var img=document.getElementById('heroImg'),
+        nm=document.getElementById('heroName'),
+        sub=document.getElementById('heroSub');
+    if(!img) return;
+    var i = -1;
+    setInterval(function(){
+      var n = Math.floor(Math.random()*HERO_ITEMS.length);
+      if(HERO_ITEMS.length>1 && n===i){ n=(n+1)%HERO_ITEMS.length; }
+      i=n; var it=HERO_ITEMS[n];
+      img.src=it.img; img.alt=it.name+' 设定图';
+      if(nm) nm.textContent=it.name;
+      if(sub) sub.textContent=it.sub;
+    }, 3000);
+  })();
   var plates = Array.prototype.slice.call(document.querySelectorAll('.plate'));
   var grids = Array.prototype.slice.call(document.querySelectorAll('.grid'));
   var results = document.getElementById('results');
@@ -430,15 +464,16 @@ footer a:hover{color:var(--dim)}
     }).join('');
   }
 
-  /* ---- 分栏收尾：最后一行只剩一张时横排 ---- */
+  /* ---- 分栏收尾：最后一行只剩一张时横排（竖图作品用窄图幅横排，见上方 CSS） ---- */
   function layoutGrids(){
     grids.forEach(function(g){
       if (!g.offsetParent) return;
       var visible = Array.prototype.filter.call(g.children, function(c){ return c.offsetParent !== null; });
       visible.forEach(function(c){ c.classList.remove('is-wide'); });
       var cols = getComputedStyle(g).gridTemplateColumns.split(' ').length;
-      if (cols > 1 && visible.length > 1 && visible.length % cols === 1){
-        visible[visible.length - 1].classList.add('is-wide');
+      var last = visible[visible.length - 1];
+      if (cols > 1 && visible.length > 1 && visible.length % cols === 1 && last){
+        last.classList.add('is-wide');
       }
     });
   }
@@ -604,9 +639,9 @@ footer a:hover{color:var(--dim)}
       '<h2 class="lb-title" id="lb-title">' + esc(main) + '</h2>' +
       (sub ? '<p class="lb-sub2">' + esc(sub) + '</p>' : '') +
       '<p class="lb-sub">' + (d.chapter || '') + '</p>' +
-      '<div class="lb-sec"><h3>描写内容</h3><div class="v">' + (d.desc || '') + '</div></div>' +
+      ((d.desc && d.desc !== sub) ? '<div class="lb-sec"><h3>' + (WORKMETA[work].descLabel || '描写内容') + '</h3><div class="v">' + (d.desc || '') + '</div></div>' : '') +
       ((d.quote && d.quote.replace(/\s/g, '')) ?
-        '<div class="lb-sec"><h3>原文</h3><div class="lb-quote">' + d.quote + '</div></div>' : '') +
+        '<div class="lb-sec"><h3>' + (WORKMETA[work].quoteLabel || '原文') + '</h3><div class="lb-quote">' + d.quote + '</div></div>' : '') +
       '<div class="lb-sec"><h3>分类与生境</h3><div class="v">' + (d.basis || '') + '</div></div>' +
       '<div class="lb-foot">' +
         '<button id="lb-prev">上一幅</button>' +
@@ -660,7 +695,7 @@ footer a:hover{color:var(--dim)}
     var m = WORKMETA[id];
     return {
       id: id, title: m.title, href: '#/w/' + id,
-      alias: id === 'xyj' ? '西游 西游释厄传 西游证道书' : '山海 山经 海经 山海经异兽',
+      alias: m.alias,
       sub: n + ' 幅 · ' + Object.keys(m.cats).length + ' 类 · ' + Object.keys(m.habs).length + ' 境'
     };
   });

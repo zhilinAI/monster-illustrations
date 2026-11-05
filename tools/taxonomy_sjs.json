@@ -1,0 +1,755 @@
+{
+  "_note": "《三教搜神大全》150 位神仙佛圣的两层分类与生境，由编者依卷次、职司与法相判定：卷一至卷二为天界，卷三前十三位为释门、其余为山川，卷四与卷六为人神，卷五为物怪，卷七为护法。",
+  "items": {
+    "001": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "身长九尺二寸"
+    },
+    "002": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "指天地作狮子吼声：天上天下"
+    },
+    "003": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "太上老君居太清境"
+    },
+    "004": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "往昔有国名光严妙药"
+    },
+    "005": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "圣祖司命保生天尊"
+    },
+    "006": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "圣母元君"
+    },
+    "007": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "混沌化生"
+    },
+    "008": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "西华至妙之气化生金母"
+    },
+    "009": {
+      "cat": "tianjie",
+      "hab": "di",
+      "basis": "承天效法厚德光大后土皇地祇"
+    },
+    "010": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "上元一品九气天官紫微大帝"
+    },
+    "011": {
+      "cat": "tianjie",
+      "hab": "di",
+      "basis": "中元二品七气地官清虚大帝"
+    },
+    "012": {
+      "cat": "tianjie",
+      "hab": "shui",
+      "basis": "下元三品五气水官洞阴大帝"
+    },
+    "013": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "掌人世居民贵贱高下之分"
+    },
+    "014": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "南岳衡山"
+    },
+    "015": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "在华州华阴县"
+    },
+    "016": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "北岳恒山"
+    },
+    "017": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "中岳嵩山"
+    },
+    "018": {
+      "cat": "tianjie",
+      "hab": "shui",
+      "basis": "江渎"
+    },
+    "019": {
+      "cat": "tianjie",
+      "hab": "shui",
+      "basis": "河渎"
+    },
+    "020": {
+      "cat": "tianjie",
+      "hab": "shui",
+      "basis": "淮渎"
+    },
+    "021": {
+      "cat": "tianjie",
+      "hab": "shui",
+      "basis": "济渎"
+    },
+    "022": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "东方青帝"
+    },
+    "023": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "太乙之精"
+    },
+    "024": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "肩吾得之"
+    },
+    "025": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "钟山之神"
+    },
+    "026": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "状若力士"
+    },
+    "027": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "电母"
+    },
+    "028": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "身长九尺"
+    },
+    "029": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "帝君殿在九曲之处"
+    },
+    "030": {
+      "cat": "tianjie",
+      "hab": "shui",
+      "basis": "吴客三真君"
+    },
+    "031": {
+      "cat": "tianjie",
+      "hab": "shui",
+      "basis": "母梦金凤衔珠坠于怀而有娠"
+    },
+    "032": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "龙虎山炼丹"
+    },
+    "033": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "长讳盈字叔申"
+    },
+    "034": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "身长七尺"
+    },
+    "035": {
+      "cat": "tianjie",
+      "hab": "di",
+      "basis": "炳灵公"
+    },
+    "036": {
+      "cat": "tianjie",
+      "hab": "di",
+      "basis": "真君姓茅"
+    },
+    "037": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "王侍宸"
+    },
+    "038": {
+      "cat": "tianjie",
+      "hab": "di",
+      "basis": "袁千里"
+    },
+    "039": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "倒骑白驴"
+    },
+    "040": {
+      "cat": "tianjie",
+      "hab": "shan",
+      "basis": "西岳真人"
+    },
+    "041": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "太素真人"
+    },
+    "042": {
+      "cat": "tianjie",
+      "hab": "tian",
+      "basis": "萨守坚"
+    },
+    "043": {
+      "cat": "tianjie",
+      "hab": "zhai",
+      "basis": "寿春真人"
+    },
+    "044": {
+      "cat": "tianjie",
+      "hab": "zhai",
+      "basis": "负局先生"
+    },
+    "045": {
+      "cat": "tianjie",
+      "hab": "zhai",
+      "basis": "律吕神刘师"
+    },
+    "046": {
+      "cat": "shimen",
+      "hab": "tian",
+      "basis": "妙善生时"
+    },
+    "047": {
+      "cat": "shimen",
+      "hab": "tian",
+      "basis": "唐太宗起兵"
+    },
+    "048": {
+      "cat": "shimen",
+      "hab": "di",
+      "basis": "地藏菩萨"
+    },
+    "049": {
+      "cat": "shimen",
+      "hab": "zhai",
+      "basis": "金刚神手把大杵"
+    },
+    "050": {
+      "cat": "shimen",
+      "hab": "tian",
+      "basis": "各有三面"
+    },
+    "051": {
+      "cat": "shimen",
+      "hab": "di",
+      "basis": "五殿阎罗王"
+    },
+    "052": {
+      "cat": "shimen",
+      "hab": "shan",
+      "basis": "十八罗汉"
+    },
+    "053": {
+      "cat": "shimen",
+      "hab": "zhai",
+      "basis": "帝集沙门于殿庭"
+    },
+    "054": {
+      "cat": "shimen",
+      "hab": "zhai",
+      "basis": "肉身至今六百余年"
+    },
+    "055": {
+      "cat": "shimen",
+      "hab": "shan",
+      "basis": "面壁九年"
+    },
+    "056": {
+      "cat": "shimen",
+      "hab": "zhai",
+      "basis": "索浴更衣"
+    },
+    "057": {
+      "cat": "shimen",
+      "hab": "shui",
+      "basis": "泗州大圣"
+    },
+    "058": {
+      "cat": "shimen",
+      "hab": "shan",
+      "basis": "名翕"
+    },
+    "059": {
+      "cat": "shanchuan",
+      "hab": "shui",
+      "basis": "清源妙道真君"
+    },
+    "060": {
+      "cat": "shanchuan",
+      "hab": "shui",
+      "basis": "萧公"
+    },
+    "061": {
+      "cat": "shanchuan",
+      "hab": "shui",
+      "basis": "晏公"
+    },
+    "062": {
+      "cat": "shanchuan",
+      "hab": "shui",
+      "basis": "杨四将军"
+    },
+    "063": {
+      "cat": "shanchuan",
+      "hab": "shui",
+      "basis": "洞庭君"
+    },
+    "064": {
+      "cat": "shanchuan",
+      "hab": "shui",
+      "basis": "湘君"
+    },
+    "065": {
+      "cat": "shanchuan",
+      "hab": "shui",
+      "basis": "巢湖之神"
+    },
+    "066": {
+      "cat": "shanchuan",
+      "hab": "shan",
+      "basis": "太姥"
+    },
+    "067": {
+      "cat": "shanchuan",
+      "hab": "shui",
+      "basis": "宫亭湖神"
+    },
+    "068": {
+      "cat": "shanchuan",
+      "hab": "shui",
+      "basis": "海神"
+    },
+    "069": {
+      "cat": "shanchuan",
+      "hab": "shan",
+      "basis": "庐山之神"
+    },
+    "070": {
+      "cat": "shanchuan",
+      "hab": "shan",
+      "basis": "苏岭山神"
+    },
+    "071": {
+      "cat": "shanchuan",
+      "hab": "shan",
+      "basis": "新罗山神"
+    },
+    "072": {
+      "cat": "shanchuan",
+      "hab": "shan",
+      "basis": "射木山神"
+    },
+    "073": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "乘白马"
+    },
+    "074": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "英姿照人"
+    },
+    "075": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "茅"
+    },
+    "076": {
+      "cat": "renshen",
+      "hab": "shui",
+      "basis": "项羽"
+    },
+    "077": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "义勇武安王"
+    },
+    "078": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "零陵王"
+    },
+    "079": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "惠应王"
+    },
+    "080": {
+      "cat": "renshen",
+      "hab": "shui",
+      "basis": "员掘平王冢"
+    },
+    "081": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "万回"
+    },
+    "082": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "虢国公"
+    },
+    "083": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "头戴铁冠"
+    },
+    "084": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "彭元帅"
+    },
+    "085": {
+      "cat": "renshen",
+      "hab": "shui",
+      "basis": "润泽侯"
+    },
+    "086": {
+      "cat": "renshen",
+      "hab": "shui",
+      "basis": "威济侯"
+    },
+    "087": {
+      "cat": "renshen",
+      "hab": "shui",
+      "basis": "李琚"
+    },
+    "088": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "神彩秀美"
+    },
+    "089": {
+      "cat": "renshen",
+      "hab": "shan",
+      "basis": "伏波将军马援"
+    },
+    "090": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "密都统"
+    },
+    "091": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "宋刺史"
+    },
+    "092": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "甘大夫"
+    },
+    "093": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "陛大夫"
+    },
+    "094": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "杭州蒋相公"
+    },
+    "095": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "蒿里赵相公"
+    },
+    "096": {
+      "cat": "renshen",
+      "hab": "di",
+      "basis": "祖将军花卿"
+    },
+    "097": {
+      "cat": "renshen",
+      "hab": "shan",
+      "basis": "华山之神"
+    },
+    "098": {
+      "cat": "renshen",
+      "hab": "zhai",
+      "basis": "聂家香火"
+    },
+    "099": {
+      "cat": "wuguai",
+      "hab": "zhai",
+      "basis": "吕神翁"
+    },
+    "100": {
+      "cat": "wuguai",
+      "hab": "shui",
+      "basis": "在夷陵黄牛峡"
+    },
+    "101": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "姓黄行七"
+    },
+    "102": {
+      "cat": "wuguai",
+      "hab": "zhai",
+      "basis": "签神姓石名固"
+    },
+    "103": {
+      "cat": "wuguai",
+      "hab": "di",
+      "basis": "协济公"
+    },
+    "104": {
+      "cat": "wuguai",
+      "hab": "zhai",
+      "basis": "灵义侯"
+    },
+    "105": {
+      "cat": "wuguai",
+      "hab": "zhai",
+      "basis": "张昭烈"
+    },
+    "106": {
+      "cat": "wuguai",
+      "hab": "shui",
+      "basis": "张七相公"
+    },
+    "107": {
+      "cat": "wuguai",
+      "hab": "shui",
+      "basis": "耿七公"
+    },
+    "108": {
+      "cat": "wuguai",
+      "hab": "di",
+      "basis": "孙将军"
+    },
+    "109": {
+      "cat": "wuguai",
+      "hab": "di",
+      "basis": "张将军"
+    },
+    "110": {
+      "cat": "wuguai",
+      "hab": "shui",
+      "basis": "顺济王"
+    },
+    "111": {
+      "cat": "wuguai",
+      "hab": "shui",
+      "basis": "横浦龙君"
+    },
+    "112": {
+      "cat": "wuguai",
+      "hab": "shui",
+      "basis": "我龙也"
+    },
+    "113": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "仰山龙神"
+    },
+    "114": {
+      "cat": "wuguai",
+      "hab": "di",
+      "basis": "黄石公"
+    },
+    "115": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "石神"
+    },
+    "116": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "楚雄神石"
+    },
+    "117": {
+      "cat": "wuguai",
+      "hab": "shui",
+      "basis": "石龟"
+    },
+    "118": {
+      "cat": "wuguai",
+      "hab": "zhai",
+      "basis": "钟神"
+    },
+    "119": {
+      "cat": "wuguai",
+      "hab": "zhai",
+      "basis": "马神"
+    },
+    "120": {
+      "cat": "wuguai",
+      "hab": "zhai",
+      "basis": "青蛇神"
+    },
+    "121": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "金马"
+    },
+    "122": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "碧鸡"
+    },
+    "123": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "金精"
+    },
+    "124": {
+      "cat": "wuguai",
+      "hab": "di",
+      "basis": "火精"
+    },
+    "125": {
+      "cat": "wuguai",
+      "hab": "zhai",
+      "basis": "陈宝"
+    },
+    "126": {
+      "cat": "wuguai",
+      "hab": "shui",
+      "basis": "水将军"
+    },
+    "127": {
+      "cat": "wuguai",
+      "hab": "zhai",
+      "basis": "木居士"
+    },
+    "128": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "磨嵯神"
+    },
+    "129": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "黄魔神"
+    },
+    "130": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "向王"
+    },
+    "131": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "竹王"
+    },
+    "132": {
+      "cat": "wuguai",
+      "hab": "shan",
+      "basis": "盘瓠"
+    },
+    "133": {
+      "cat": "renshen",
+      "hab": "zhai",
+      "basis": "度朔山有大桃树"
+    },
+    "134": {
+      "cat": "renshen",
+      "hab": "zhai",
+      "basis": "灶神姓张名单"
+    },
+    "135": {
+      "cat": "renshen",
+      "hab": "zhai",
+      "basis": "顶破帽"
+    },
+    "136": {
+      "cat": "renshen",
+      "hab": "zhai",
+      "basis": "福神者"
+    },
+    "137": {
+      "cat": "renshen",
+      "hab": "zhai",
+      "basis": "庄子本姬姓"
+    },
+    "138": {
+      "cat": "hufa",
+      "hab": "shui",
+      "basis": "妃林姓"
+    },
+    "139": {
+      "cat": "hufa",
+      "hab": "shui",
+      "basis": "帅姓庞名乔"
+    },
+    "140": {
+      "cat": "hufa",
+      "hab": "shui",
+      "basis": "帅生锦江口"
+    },
+    "141": {
+      "cat": "hufa",
+      "hab": "tian",
+      "basis": "精于五雷掌诀"
+    },
+    "142": {
+      "cat": "hufa",
+      "hab": "tian",
+      "basis": "王讳铁"
+    },
+    "143": {
+      "cat": "hufa",
+      "hab": "di",
+      "basis": "姓田名华"
+    },
+    "144": {
+      "cat": "hufa",
+      "hab": "tian",
+      "basis": "父乃苍龙之精"
+    },
+    "145": {
+      "cat": "hufa",
+      "hab": "di",
+      "basis": "貌黑而心不黑"
+    },
+    "146": {
+      "cat": "hufa",
+      "hab": "shan",
+      "basis": "九尾狐精幻形相诱"
+    },
+    "147": {
+      "cat": "hufa",
+      "hab": "tian",
+      "basis": "受气于始元太乙之精"
+    },
+    "148": {
+      "cat": "hufa",
+      "hab": "tian",
+      "basis": "面露三眼"
+    },
+    "149": {
+      "cat": "hufa",
+      "hab": "di",
+      "basis": "青面赤发"
+    },
+    "150": {
+      "cat": "hufa",
+      "hab": "shui",
+      "basis": "析骨还父"
+    }
+  }
+}
