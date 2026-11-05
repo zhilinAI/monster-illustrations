@@ -40,6 +40,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .brand{font-family:var(--serif);font-size:16px;letter-spacing:.18em;white-space:nowrap}
 .brand span{color:var(--zhu)}
 .brand em{font-style:normal}
+.brand a{transition:color .25s}
+.brand a:hover{color:var(--zhu)}
 .brand .bs{display:none}
 .crumbs{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--dim);flex:1;min-width:0;overflow:hidden;white-space:nowrap}
 .crumbs i{color:var(--dim2);font-style:normal}
@@ -71,6 +73,9 @@ body[data-view="gallery"] .view--gallery{display:block}
 }
 .hero-copy h1 em{font-style:normal;display:block;font-size:clamp(16px,1.32vw,18.5px);letter-spacing:.2em;color:var(--dim);margin-top:20px;white-space:nowrap}
 .hero-copy h1 em span{display:block;line-height:2.1}
+.hero-copy h1 em a{color:inherit;transition:color .25s}
+.hero-copy h1 em a:hover{color:var(--zhu)}
+.hero-copy h1 em i{font-style:normal;color:var(--hair2)}
 @media (max-width:640px){.hero-copy h1 em{font-size:11px;letter-spacing:.08em;margin-top:14px;white-space:nowrap}}
 .hero-copy p.lede{margin:26px 0 0;max-width:34em;color:var(--dim);font-size:14px;line-height:1.9}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:34px;border-top:1px solid var(--hair)}
@@ -323,7 +328,7 @@ footer a:hover{color:var(--dim)}
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#/"><em class="bl">西游<span>·</span>山海<span>·</span>聊斋<span>·</span>子不语<span>·</span>三教搜神<span>·</span>列子<span>·</span>述异记<span>·</span>太平广记<span>·</span>搜神记<span>·</span>阅微草堂笔记<span>·</span>封神演义 图志</em><em class="bs">志怪图志</em></a>
+    <nav class="brand"><em class="bl"><a href="#/w/xyj">西游</a><span>·</span><a href="#/w/shj">山海</a><span>·</span><a href="#/w/lz">聊斋</a><span>·</span><a href="#/w/zby">子不语</a><span>·</span><a href="#/w/sjs">三教搜神</a><span>·</span><a href="#/w/lzl">列子</a><span>·</span><a href="#/w/syj">述异记</a><span>·</span><a href="#/w/tpg">太平广记</a><span>·</span><a href="#/w/ssj">搜神记</a><span>·</span><a href="#/w/yw">阅微草堂笔记</a><span>·</span><a href="#/w/fs">封神演义</a> <a href="#/">图志</a></em><em class="bs"><a href="#/">志怪图志</a></em></nav>
     <nav class="crumbs" id="crumbs" aria-label="层级导航"></nav>
     <div class="topmeta">746 幅 · 11 部 · 51 类</div>
   </div>
@@ -336,7 +341,7 @@ footer a:hover{color:var(--dim)}
       <div class="hero">
         <div class="hero-copy">
           <p class="kicker">卷一　作品</p>
-          <h1>志怪图志<em><span>西 游 · 山 海 · 聊 斋 · 子 不 语 · 三 教 搜 神</span><span>列 子 · 述 异 记 · 太 平 广 记 · 搜 神 记 · 阅 微 草 堂 笔 记</span></em></h1>
+          <h1>志怪图志<em><span><a href="#/w/xyj">西 游</a><i>·</i><a href="#/w/shj">山 海</a><i>·</i><a href="#/w/lz">聊 斋</a><i>·</i><a href="#/w/zby">子 不 语</a><i>·</i><a href="#/w/sjs">三 教 搜 神</a><i>·</i><a href="#/w/lzl">列 子</a></span><span><a href="#/w/syj">述 异 记</a><i>·</i><a href="#/w/tpg">太 平 广 记</a><i>·</i><a href="#/w/ssj">搜 神 记</a><i>·</i><a href="#/w/yw">阅 微 草 堂 笔 记</a><i>·</i><a href="#/w/fs">封 神 演 义</a></span></em></h1>
           <p class="lede">十部典籍的志怪谱录。西游取经道上的妖魔精怪，按妖、精、鬼、怪四类归纳；山海荒服之内的神民兽禽，按兽、禽、神、民四类归纳；聊斋灯窗之下的狐鬼妖神，按狐、鬼、妖、神四类归纳；子不语随笔记闻的精妖鬼怪，按鬼、兽、神、怪四类归纳；三教搜神所祀的神仙佛圣，按天界、释门、山川、人神、物怪、护法六类归纳；列子寓言中的神人巨兽，按神异、巨兽、大小人、微巧四类归纳；述异记上下二卷的精妖鬼怪，按神祇、精魅、化形、物怪四类归纳；太平广记类书所辑的精妖鬼怪，按妖、精、夜叉、狐、鬼五类归纳；搜神记所记的精妖鬼怪，按狐、鬼、兽、鳞、精魅、化形六类归纳；阅微草堂笔记所记的鬼狐物怪，按鬼、狐、物怪、精魅、龙蛇、神六类归纳；封神演义所记的精妖鬼怪，按妖、精怪、神、异人四类归纳。各自再以居所安置，逐幅附原文或描述，图与文互为注脚。</p>
           <div class="hero-stats">
             <div><b>11</b><span>作品</span></div>
