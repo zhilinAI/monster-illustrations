@@ -348,6 +348,9 @@ figcaption{padding:14px 16px 15px}
 .vg video{display:none;width:100%;margin-top:22px;border:1px solid var(--hair);background:#000}
 .vg-dl{display:none;margin-top:14px;font-size:12px;letter-spacing:.18em;color:var(--cui);border:1px solid var(--hair2);padding:10px 18px}
 .vg-dl:hover{border-color:var(--cui);color:var(--rice)}
+.vg-keylink{font-size:10.5px;letter-spacing:.14em;color:var(--jin);text-decoration:underline;text-underline-offset:3px}
+.vg-keylink:hover{color:var(--rice)}
+.vg-keyhint{margin:9px 0 0;font-size:11px;color:var(--dim2);line-height:1.7}
 
 /* ---------- 页脚 ---------- */
 footer{border-top:1px solid var(--hair);padding:34px 0 48px;color:var(--dim2);font-size:11.5px;line-height:2}
@@ -14089,6 +14092,11 @@ footer a:hover{color:var(--dim)}
     </div>
     <div class="vg-right">
       <div class="vg-sec" style="margin-top:0">
+        <h3>Agnes API KEY <a id="vg-keylink" class="vg-keylink" href="https://platform.agnes-ai.com/" target="_blank" rel="noopener">申请 KEY ↗</a></h3>
+        <input type="text" id="vg-key" placeholder="粘贴你自己的 API KEY（支持右键粘贴 / Ctrl+V）" autocomplete="off" spellcheck="false">
+        <p class="vg-keyhint">视频生成必须使用你自己的 KEY（本站不内置、不代付），申请地址：platform.agnes-ai.com 。KEY 只保存在你的浏览器本地。</p>
+      </div>
+      <div class="vg-sec">
         <h3>视频提示词 <button id="vg-deepen" class="vg-mini" type="button">AI 深化描写 · agnes-2.5-flash</button></h3>
         <textarea id="vg-prompt" rows="6"></textarea>
       </div>
@@ -14987,6 +14995,7 @@ footer a:hover{color:var(--dim)}
         name: wname,
         work: pl.dataset.work,
         workTitle: workTitle(pl.dataset.work),
+        cat: pl.dataset.cat,
         chapter: dd.chapter || '',
         quote: htmlToText(dd.quote || ''),
         desc: htmlToText(dd.desc || ''),
@@ -15114,7 +15123,7 @@ footer a:hover{color:var(--dim)}
 
   /* ---- 去做视频 · 图生视频面板 ---- */
   var AGNES_BASE = 'https://apihub.agnes-ai.com/v1';
-  var AGNES_KEY = 'wk-MoV26gkpYo0I2vvGA5eL2WwTcBPW2pC06P80Zj5uxuBUiS6d';
+  var AGNES_TEXT_KEY = 'sk-AbIKwcX8u1AzERk7SpxSs5KmagsljIlgkN7E94l2AJUCKANh'; /* 仅用于文本深化（全局推理），严禁用于视频生成 */
   var VG_VIDEO_MODEL = 'agnes-video-2.5-flash';
   var VG_TEXT_MODEL = 'agnes-2.5-flash';
   var vgData = null, vgTimer = null;
@@ -15130,6 +15139,7 @@ footer a:hover{color:var(--dim)}
     vgEl('vg-title').textContent = data.name + ' · ' + T('做视频','Make Video');
     vgEl('vg-ref').src = data.imgUrl;
     vgEl('vg-useimg').checked = true;
+    try { vgEl('vg-key').value = localStorage.getItem('zg-agnes-key') || ''; } catch(err){}
     var q = [];
     if (data.quote) q.push(data.quote);
     if (data.desc && data.desc !== data.quote) q.push(data.desc);
@@ -15156,23 +15166,67 @@ footer a:hover{color:var(--dim)}
     btn.disabled = true;
     var old = btn.textContent; btn.textContent = T('深化中…','Deepening…');
     vgStatus(T('正在调用 agnes-2.5-flash 深化描写…','Calling agnes-2.5-flash to deepen the description…'));
-    var sys = '你是古典志怪题材的视频导演。依据给出的角色描写与原文摘抄，写一段 90~150 字的视频生成提示词：描述该角色的连续动态（动作、神态）、镜头运动（推、拉、摇、移）、环境与氛围的细微变化。文风古典凝练，直接输出正文，不要任何解释、引号或换行。';
-    var usr = '角色：' + vgData.name + '（' + vgData.workTitle + '）\n描写内容：' + (vgData.desc || '无') + '\n原文摘抄：' + (vgData.quote || '无');
+    var sys =
+      '你是一位擅长武侠、志怪、传奇题材的中文细节描写作家。你的任务是把用户提供的简短描写或简短设定，扩写成一篇连贯的文章，作为"图生视频"的提示词使用。\n' +
+      '【核心要求】\n' +
+      '1. 不要分镜，不要小标题，不要列表，不要提纲，不要总结式评论。\n' +
+      '2. 不要复述原句，不要把原句拆成几段反复解释。\n' +
+      '3. 按"先整体、后局部；先静态、后动态；先外形、后威力；先正面描写、后旁观感受"的顺序推进。\n' +
+      '4. 像流水账一样写，但不是记账，而是"顺序细致、层层展开、不跳步"：上一句写到哪，下一句就顺着往下写，把每一个细节写透再换下一个。\n' +
+      '5. 每一段都要有具体可感的细节：形状、颜色、质地、声音、气味、温度、重量、力量、速度、动作过程、受力反应。\n' +
+      '6. 多用动词和具象比喻，少用空泛形容词。比喻要贴合对象，不要堆砌华丽辞藻。\n' +
+      '7. 写动作时要有过程：先怎么动，再怎么动，最后造成什么结果；写碰撞要有声音、火花、震动、地面反应、旁观者反应。\n' +
+      '8. 写威力时不要只说"很强"，要写它撞了什么、撞成什么样、对方什么反应、周围环境什么变化。\n' +
+      '9. 全文保持同一叙述视角和同一语言风格，不要中途变成说明文。\n' +
+      '10. 输出为纯文章，段落自然衔接，不要出现"首先、其次、最后"这类结构词。\n' +
+      '【扩写流程】\n' +
+      '第一步：定调。用一两句交代对象给人的第一印象，但不要概括全文。\n' +
+      '第二步：写整体形貌。写体型、轮廓、颜色、站姿、气势，让读者先看见"整体"。\n' +
+      '第三步：拆局部。按头、颈、身、腰、腿、爪、尾等顺序，一处一处写清楚形状、质感、颜色、动态。\n' +
+      '第四步：写静态中的动态感。写它不动时哪里在动，呼吸、眼神、尾巴、肌肉、涎水、热气等。\n' +
+      '第五步：写动作过程。写它如何起步、加速、转身、扑击、撞击、咬合、收势，动作要连贯。\n' +
+      '第六步：写力量与破坏。写它撞到什么、抓到什么、咬到什么，造成什么声音、痕迹、碎裂、烟尘、地面变化。\n' +
+      '第七步：写旁观者感受。写人看到它时的心理、身体反应、兵器反应、退避动作。\n' +
+      '第八步：收束。回到对象本身，用具体画面收尾，不要空发议论。\n' +
+      '【语言风格】\n' +
+      '- 白话为主，可带少量古典白话味道。\n' +
+      '- 句子长短交错，动作处用短句，描写处用长句。\n' +
+      '- 多用"像、如同"等具象比喻，但每段比喻不要超过两处。\n' +
+      '- 不写心理独白，不写作者评论，不写"令人惊叹""不可思议"这类空话。\n' +
+      '【禁止项】\n' +
+      '- 禁止分镜式写法。\n' +
+      '- 禁止小标题、编号、表格。\n' +
+      '- 禁止"首先、其次、然后、最后"式结构。\n' +
+      '- 禁止把原始描写反复改写。\n' +
+      '- 禁止只写外形不写动作，或只写动作不写质感。\n' +
+      '- 禁止用"非常、极其、十分"等程度副词代替具体描写。\n' +
+      '【输出语言——最重要】\n' +
+      '- 全文必须使用英文输出！除了特定的名词（角色名、地名、法宝名、招式名等专有名词，保留中文原文即可），所有描写全部使用英文。\n' +
+      '- 输出的英文将直接作为图生视频模型的提示词，请使用具体、可视化、可直接成像的英文描写。\n' +
+      '【输出】\n' +
+      '直接输出扩写后的完整文章，约 500 词。不要输出解释、提纲、写作说明。';
+    var usr =
+      '原始描写：' + (vgData.desc || '无') + '\n' +
+      '原文摘抄：' + (vgData.quote || '无') + '\n' +
+      '对象类型：' + catName(vgData.work, vgData.cat) + '（志怪角色）\n' +
+      '文体风格：志怪笔记\n' +
+      '扩写重点：外形、质感、动作过程、力量感、旁观者感受\n' +
+      '目标字数：500';
     fetch(AGNES_BASE + '/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AGNES_KEY },
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AGNES_TEXT_KEY },
       body: JSON.stringify({ model: VG_TEXT_MODEL, messages: [{ role: 'system', content: sys }, { role: 'user', content: usr }], temperature: 0.8 })
     }).then(function(r){ return r.json(); }).then(function(j){
       var t = j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content;
       if (t){
-        vgEl('vg-prompt').value = '以 <Picture 1> 中的角色和美术风格为参考，' + String(t).replace(/\s+/g, ' ').trim();
-        vgStatus(T('提示词已深化，可直接生成或手动微调。','Prompt deepened — generate now, or fine-tune it first.'));
+        vgEl('vg-prompt').value = 'Using the character and art style from <Picture 1> as reference, keep the character\'s appearance consistent. ' + String(t).replace(/\s+/g, ' ').trim();
+        vgStatus(T('提示词已深化（英文输出），可直接生成或手动微调。','Prompt deepened (in English) — generate now, or fine-tune it first.'));
       } else {
         vgStatus(T('深化失败：','Deepen failed: ') + ((j.error && j.error.message) || T('接口返回异常','unexpected response')));
       }
       btn.disabled = false; btn.textContent = old;
     }).catch(function(e){
-      vgStatus('深化失败：' + e.message);
+      vgStatus(T('深化失败：','Deepen failed: ') + e.message);
       btn.disabled = false; btn.textContent = old;
     });
   }
@@ -15194,6 +15248,13 @@ footer a:hover{color:var(--dim)}
 
   function vgGenerate(){
     if (!vgData) return;
+    var userKey = vgEl('vg-key').value.trim();
+    if (!userKey){
+      vgStatus(T('请先在上方输入你自己的 Agnes API KEY（申请：platform.agnes-ai.com）。','Please enter your own Agnes API KEY first (get one at platform.agnes-ai.com).'));
+      vgEl('vg-key').focus();
+      return;
+    }
+    try { localStorage.setItem('zg-agnes-key', userKey); } catch(err){}
     var prompt = vgEl('vg-prompt').value.trim();
     if (!prompt){ vgStatus(T('请先填写视频提示词。','Please write a video prompt first.')); return; }
     var sec = parseInt(vgEl('vg-seconds').value, 10);
@@ -15215,7 +15276,7 @@ footer a:hover{color:var(--dim)}
     if (vgEl('vg-useimg').checked) body.images = [vgData.imgUrl];
     fetch(AGNES_BASE + '/videos', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AGNES_KEY },
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + userKey },
       body: JSON.stringify(body)
     }).then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); }).then(function(res){
       if (!res.ok){
@@ -15236,7 +15297,7 @@ footer a:hover{color:var(--dim)}
           btn.disabled = false; btn.textContent = T('重 新 生 成','R E G E N E R A T E');
           return;
         }
-        fetch(AGNES_BASE + '/videos/' + id, { headers: { 'Authorization': 'Bearer ' + AGNES_KEY } })
+        fetch(AGNES_BASE + '/videos/' + id, { headers: { 'Authorization': 'Bearer ' + userKey } })
           .then(function(r){ return r.json(); })
           .then(function(s){
             var u2 = vgExtractUrl(s);
@@ -15391,6 +15452,10 @@ footer a:hover{color:var(--dim)}
     /* 视频面板静态文案 */
     swapSel('.vg .kicker', 'IMAGE-TO-VIDEO');
     swapSel('#vg-useimg-txt', 'Auto-use the current image as reference');
+    swapSel('#vg-key', 'Paste your own API KEY (right-click paste / Ctrl+V)', 'placeholder');
+    swapSel('#vg-keylink', 'Get a KEY ↗');
+    var keyhint = document.querySelector('.vg-keyhint');
+    if (keyhint) swapNode(keyhint, 'Video generation must use your own KEY (this site embeds none and pays nothing) — apply at platform.agnes-ai.com. The KEY is stored only in your browser.');
     var vgh3 = document.querySelector('.vg-left .vg-sec h3');
     if (vgh3) swapNode(vgh3, 'Excerpt (auto-loaded from the current plate)');
     var ph3 = document.getElementById('vg-deepen') ? document.getElementById('vg-deepen').parentNode : null;
