@@ -47,6 +47,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .crumbs b{color:var(--rice);font-weight:400}
 .topmeta{font-size:11px;letter-spacing:.12em;color:var(--dim);font-family:var(--mono);white-space:nowrap}
 @media (max-width:640px){.topmeta{display:none}.brand{font-size:14px;letter-spacing:.16em}.brand .bl{display:none}.brand .bs{display:inline}}
+.lang{flex:none;font-size:11px;letter-spacing:.18em;color:var(--dim);border:1px solid var(--hair2);background:none;padding:7px 13px;cursor:pointer;white-space:nowrap;font-family:var(--mono);transition:color .25s,border-color .25s}
+
 
 /* ---------- 视图切换 ---------- */
 .view{display:none}
@@ -312,6 +314,44 @@ figcaption{padding:14px 16px 15px}
 .lb-foot button:hover{color:var(--rice);border-color:var(--cat)}
 .lb-foot .idx{font-family:var(--mono);font-size:11.5px;color:var(--dim2)}
 
+/* ---------- 去做视频 ---------- */
+.vgbtn{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-size:12px;letter-spacing:.22em;color:var(--zhu);border:1px solid var(--zhu);padding:0 20px;min-height:42px;cursor:pointer;transition:background .25s,color .25s}
+.vgbtn:hover{background:var(--zhu);color:#fff}
+.vgbtn svg{flex:none}
+.vg{position:fixed;inset:0;z-index:70;background:var(--ink);overflow-y:auto;display:none}
+.vg.is-open{display:block}
+.vg-close{position:fixed;right:14px;top:12px;z-index:75;width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--hair2);color:var(--rice);background:rgba(10,14,12,.7);font-family:var(--mono);font-size:15px;cursor:pointer}
+.vg-close:hover{border-color:var(--zhu);color:var(--zhu)}
+.vg-inner{max-width:1180px;margin:0 auto;padding:56px 32px 90px;display:grid;grid-template-columns:400px 1fr;gap:52px;align-items:start}
+@media (max-width:900px){.vg-inner{grid-template-columns:1fr;gap:36px;padding:70px 20px 70px}}
+.vg h2{margin:14px 0 26px;font-family:var(--serif);font-weight:400;font-size:clamp(24px,3vw,34px);letter-spacing:.1em}
+.vg-refwrap{margin:0}
+.vg-refwrap img{width:100%;border:1px solid var(--hair);background:var(--ink2);display:block}
+.vg-refwrap figcaption{margin-top:10px;font-size:11.5px;color:var(--dim);letter-spacing:.06em}
+.vg-refwrap input{accent-color:var(--zhu);margin-right:7px;transform:translateY(1px)}
+.vg-sec{margin-top:26px}
+.vg-sec h3{margin:0 0 9px;font-size:10.5px;letter-spacing:.3em;color:var(--dim);font-weight:400;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.vg textarea,.vg select,.vg input[type="number"]{width:100%;background:var(--ink2);border:1px solid var(--hair);color:var(--rice);font:13px/1.8 var(--sans);padding:10px 12px;box-sizing:border-box}
+.vg textarea{resize:vertical}
+.vg textarea:focus,.vg select:focus,.vg input:focus{outline:none;border-color:var(--zhu)}
+.vg textarea[readonly]{color:var(--dim)}
+.vg-mini{font-size:10.5px;letter-spacing:.14em;color:var(--cui);border:1px solid var(--hair2);padding:6px 12px;cursor:pointer;white-space:nowrap}
+.vg-mini:hover{color:var(--rice);border-color:var(--cui)}
+.vg-mini:disabled{opacity:.45;cursor:default}
+.vg-params{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:26px}
+@media (max-width:640px){.vg-params{grid-template-columns:1fr}}
+.vg-params label{display:block;font-size:10.5px;letter-spacing:.24em;color:var(--dim);margin-bottom:8px}
+.vg-gen{margin-top:30px;width:100%;background:var(--zhu);color:#fff;border:0;padding:15px 0;font-size:13.5px;letter-spacing:.3em;cursor:pointer;font-family:var(--serif)}
+.vg-gen:hover{filter:brightness(1.12)}
+.vg-gen:disabled{opacity:.5;cursor:default}
+.vg-status{margin:14px 0 0;font-family:var(--mono);font-size:12px;color:var(--dim);min-height:1.6em}
+.vg video{display:none;width:100%;margin-top:22px;border:1px solid var(--hair);background:#000}
+.vg-dl{display:none;margin-top:14px;font-size:12px;letter-spacing:.18em;color:var(--cui);border:1px solid var(--hair2);padding:10px 18px}
+.vg-dl:hover{border-color:var(--cui);color:var(--rice)}
+.vg-keylink{font-size:10.5px;letter-spacing:.14em;color:var(--jin);text-decoration:underline;text-underline-offset:3px}
+.vg-keylink:hover{color:var(--rice)}
+.vg-keyhint{margin:9px 0 0;font-size:11px;color:var(--dim2);line-height:1.7}
+
 /* ---------- 页脚 ---------- */
 footer{border-top:1px solid var(--hair);padding:34px 0 48px;color:var(--dim2);font-size:11.5px;line-height:2}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
@@ -331,6 +371,7 @@ footer a:hover{color:var(--dim)}
     <a class="brand" href="#/"><em class="bl">西游<span>·</span>山海<span>·</span>聊斋<span>·</span>子不语<span>·</span>三教搜神<span>·</span>列子<span>·</span>述异记<span>·</span>太平广记<span>·</span>搜神记<span>·</span>阅微草堂笔记<span>·</span>封神演义 图志</em><em class="bs">志怪图志</em></a>
     <nav class="crumbs" id="crumbs" aria-label="层级导航"></nav>
     <div class="topmeta">{{TOPMETA}}</div>
+    <button class="lang" id="lang-toggle" type="button" aria-label="Switch language / 切换语言">EN</button>
   </div>
 </header>
 
@@ -422,6 +463,59 @@ footer a:hover{color:var(--dim)}
   <div class="lb-body" id="lb-body"></div>
 </div>
 
+<div class="vg" id="vg" role="dialog" aria-modal="true">
+  <button class="vg-close" id="vg-close" aria-label="关闭">
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 5 19 19M19 5 5 19" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+  </button>
+  <div class="vg-inner">
+    <div class="vg-left">
+      <p class="kicker">图生视频</p>
+      <h2 id="vg-title">做视频</h2>
+      <figure class="vg-refwrap">
+        <img id="vg-ref" alt="参照图">
+        <figcaption><label><input type="checkbox" id="vg-useimg" checked><span id="vg-useimg-txt">自动勾选当前图片为参照图</span></label></figcaption>
+      </figure>
+      <div class="vg-sec">
+        <h3>原文摘抄（自动读取当前角色）</h3>
+        <textarea id="vg-quote" rows="6" readonly></textarea>
+      </div>
+    </div>
+    <div class="vg-right">
+      <div class="vg-sec" style="margin-top:0">
+        <h3>Agnes API KEY <a id="vg-keylink" class="vg-keylink" href="https://platform.agnes-ai.com/" target="_blank" rel="noopener">申请 KEY ↗</a></h3>
+        <input type="text" id="vg-key" placeholder="粘贴你自己的 API KEY（支持右键粘贴 / Ctrl+V）" autocomplete="off" spellcheck="false">
+        <p class="vg-keyhint">视频生成必须使用你自己的 KEY（本站不内置、不代付），申请地址：platform.agnes-ai.com 。KEY 只保存在你的浏览器本地。</p>
+      </div>
+      <div class="vg-sec">
+        <h3>视频提示词 <button id="vg-deepen" class="vg-mini" type="button">AI 深化描写 · agnes-2.5-flash</button></h3>
+        <textarea id="vg-prompt" rows="6"></textarea>
+      </div>
+      <div class="vg-params">
+        <div><label>画面比例</label>
+          <select id="vg-ar">
+            <option value="16:9" selected>16:9 横屏</option>
+            <option value="9:16">9:16 竖屏</option>
+            <option value="1:1">1:1 方形</option>
+          </select>
+        </div>
+        <div><label>分辨率</label>
+          <select id="vg-size">
+            <option value="720P" selected>720P</option>
+            <option value="1080P">1080P</option>
+          </select>
+        </div>
+        <div><label>时长（4 ~ 12 秒）</label>
+          <input type="number" id="vg-seconds" min="4" max="12" step="1" value="10">
+        </div>
+      </div>
+      <button id="vg-gen" class="vg-gen" type="button">生 成 视 频</button>
+      <p class="vg-status" id="vg-status"></p>
+      <video id="vg-video" controls playsinline></video>
+      <a id="vg-dl" class="vg-dl" href="#" download>下载视频</a>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
   var WORKMETA = {{WORKMETA_JS}};
@@ -440,7 +534,7 @@ footer a:hover{color:var(--dim)}
       i=n; var it=HERO_ITEMS[n];
       img.src=it.img; img.alt=it.name+' 设定图';
       if(img.parentNode){ img.parentNode.classList.toggle('is-tall', it.shape==='tall'); }
-      if(nm) nm.textContent=it.name;
+      if(nm) nm.textContent=nameDisp(it.name);
       if(sub) sub.textContent=it.sub;
     }, 3000);
   })();
@@ -487,10 +581,10 @@ footer a:hover{color:var(--dim)}
   /* ---- 元数据小工具 ---- */
   function catsOf(w){ return WORKMETA[w].cats; }
   function habsOf(w){ return WORKMETA[w].habs; }
-  function catName(w, c){ return catsOf(w)[c] ? catsOf(w)[c].name : ''; }
+  function catName(w, c){ var m = catsOf(w)[c]; if (!m) return c; return LANG === 'en' ? (EN_CATS[w + '.' + c] || m.name) : m.name; }
   function catColor(w, c){ return catsOf(w)[c] ? 'var(--' + catsOf(w)[c].color + ')' : 'var(--zhu)'; }
-  function habName(w, h){ return habsOf(w)[h] ? habsOf(w)[h].name : ''; }
-  function workTitle(w){ return WORKMETA[w].title; }
+  function habName(w, h){ var m = habsOf(w)[h]; if (!m) return h; return LANG === 'en' ? (EN_HABS[h] || m.name) : m.name; }
+  function workTitle(w){ return LANG === 'en' ? (EN_WORKS[w] || WORKMETA[w].title) : WORKMETA[w].title; }
 
   /* ---- 生境分布条 ---- */
   function habBars(scope, work, cat){
@@ -525,7 +619,7 @@ footer a:hover{color:var(--dim)}
     current.hab = null;
     showView('cats');
     showWorkBlock('.workview', work);
-    setCrumbs([{text:'作品', href:'#/'}, {text:workTitle(work) + ' · 分类'}]);
+    setCrumbs([{text:T('作品','Works'), href:'#/'}, {text:workTitle(work) + ' · ' + T('分类','Categories')}]);
     window.scrollTo(0, 0);
   }
 
@@ -543,7 +637,7 @@ footer a:hover{color:var(--dim)}
       }).length;
       sec.hidden = visible === 0;
       var c = sec.querySelector('.gseccount');
-      if (c) c.textContent = visible + ' 幅';
+      if (c) c.textContent = visible + T(' 幅',' plates');
     });
     layoutGrids();
     renderChips();
@@ -558,13 +652,13 @@ footer a:hover{color:var(--dim)}
       if (current.cat === 'all' || p.dataset.cat === current.cat) counts[p.dataset.hab]++;
     });
     var total = order.reduce(function(a, k){ return a + counts[k]; }, 0);
-    var html = '<button class="chip" data-hab="" aria-pressed="' + (current.hab ? 'false' : 'true') + '">全部<b>' + total + '</b></button>';
+    var html = '<button class="chip" data-hab="" aria-pressed="' + (current.hab ? 'false' : 'true') + '">' + T('全部','All') + '<b>' + total + '</b></button>';
     order.forEach(function(k){
       if (!counts[k]) return;
       html += '<button class="chip" data-hab="' + k + '" aria-pressed="' + (current.hab === k ? 'true' : 'false') + '">' +
         habName(work, k) + '<b>' + counts[k] + '</b></button>';
     });
-    html += '<a class="backlink" href="#/w/' + work + '">返回分类</a>';
+    html += '<a class="backlink" href="#/w/' + work + '">' + T('返回分类','Back to categories') + '</a>';
     gbar.innerHTML = html;
     gbar.querySelectorAll('.chip').forEach(function(b){
       b.addEventListener('click', function(){
@@ -585,20 +679,21 @@ footer a:hover{color:var(--dim)}
     var charEl = document.getElementById('gcat-char');
     var nameEl = document.getElementById('gcat-name');
     if (cat === 'all'){
-      charEl.textContent = '录';
-      nameEl.textContent = '全部图录';
+      charEl.textContent = T('录','All');
+      nameEl.textContent = T('全部图录','All Plates');
     } else {
-      charEl.textContent = catName(work, cat);
-      nameEl.textContent = '生境图录';
+      var cn = catName(work, cat);
+      charEl.textContent = LANG === 'en' ? cn.charAt(0).toUpperCase() : cn;
+      nameEl.textContent = T('生境图录','Habitat Gallery');
     }
     var n = plates.filter(function(p){
       return p.dataset.work === work && (cat === 'all' || p.dataset.cat === cat);
     }).length;
-    document.getElementById('gmeta').textContent = n + ' 幅';
+    document.getElementById('gmeta').textContent = n + T(' 幅',' plates');
     setCrumbs([
-      {text:'作品', href:'#/'},
+      {text:T('作品','Works'), href:'#/'},
       {text:workTitle(work), href:'#/w/' + work},
-      {text:(cat === 'all' ? '全部图录' : catName(work, cat) + ' 类') + ' · 生境'}
+      {text:(cat === 'all' ? T('全部图录','All Plates') : catName(work, cat) + T(' 类','')) + ' · ' + T('生境','Habitats')}
     ]);
     applyFilter();
     window.scrollTo(0, 0);
@@ -645,17 +740,37 @@ footer a:hover{color:var(--dim)}
       '<h2 class="lb-title" id="lb-title">' + esc(main) + '</h2>' +
       (sub ? '<p class="lb-sub2">' + esc(sub) + '</p>' : '') +
       '<p class="lb-sub">' + (d.chapter || '') + '</p>' +
-      ((d.desc && d.desc !== sub) ? '<div class="lb-sec"><h3>' + (WORKMETA[work].descLabel || '描写内容') + '</h3><div class="v">' + (d.desc || '') + '</div></div>' : '') +
+      ((d.desc && d.desc !== sub) ? '<div class="lb-sec"><h3>' + (LANG === 'en' ? 'Description' : (WORKMETA[work].descLabel || '描写内容')) + '</h3><div class="v">' + (d.desc || '') + '</div></div>' : '') +
       ((d.quote && d.quote.replace(/\s/g, '')) ?
-        '<div class="lb-sec"><h3>' + (WORKMETA[work].quoteLabel || '原文') + '</h3><div class="lb-quote">' + d.quote + '</div></div>' : '') +
-      '<div class="lb-sec"><h3>分类与生境</h3><div class="v">' + (d.basis || '') + '</div></div>' +
+        '<div class="lb-sec"><h3>' + (LANG === 'en' ? 'Excerpt' : (WORKMETA[work].quoteLabel || '原文')) + '</h3><div class="lb-quote">' + d.quote + '</div></div>' : '') +
+      '<div class="lb-sec"><h3>' + T('分类与生境','Category & Habitat') + '</h3><div class="v">' + (d.basis || '') + '</div></div>' +
+      '<div class="lb-sec"><button class="vgbtn" id="lb-video"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>' + T('去做视频','MAKE VIDEO') + '</button></div>' +
       '<div class="lb-foot">' +
-        '<button id="lb-prev">上一幅</button>' +
+        '<button id="lb-prev">' + T('上一幅','‹ PREV') + '</button>' +
         '<span class="idx">' + (lbPos + 1) + ' / ' + lbList.length + '</span>' +
-        '<button id="lb-next">下一幅</button>' +
+        '<button id="lb-next">' + T('下一幅','NEXT ›') + '</button>' +
       '</div>';
     lbBody.querySelector('#lb-prev').addEventListener('click', function(){ step(-1); });
     lbBody.querySelector('#lb-next').addEventListener('click', function(){ step(1); });
+    lbBody.querySelector('#lb-video').addEventListener('click', function(){
+      var pl = lbList[lbPos];
+      if (!pl) return;
+      var dd = plateData(pl);
+      var wimg = pl.querySelector('img');
+      var wnameEl = pl.querySelector('.pname');
+      var wsubEl = wnameEl.querySelector('.psub');
+      var wname = wnameEl.textContent.replace(wsubEl ? wsubEl.textContent : '', '').trim();
+      openVideoGen({
+        name: wname,
+        work: pl.dataset.work,
+        workTitle: workTitle(pl.dataset.work),
+        cat: pl.dataset.cat,
+        chapter: dd.chapter || '',
+        quote: htmlToText(dd.quote || ''),
+        desc: htmlToText(dd.desc || ''),
+        imgUrl: new URL(wimg.getAttribute('src'), location.href).href
+      });
+    });
     lbBody.scrollTop = 0;
   }
 
@@ -702,7 +817,7 @@ footer a:hover{color:var(--dim)}
     return {
       id: id, title: m.title, href: '#/w/' + id,
       alias: m.alias,
-      sub: n + ' 幅 · ' + Object.keys(m.cats).length + ' 类 · ' + Object.keys(m.habs).length + ' 境'
+      sub: n + T(' 幅 · ',' plates · ') + Object.keys(m.cats).length + T(' 类 · ',' cats · ') + Object.keys(m.habs).length + T(' 境',' habitats')
     };
   });
   function norm(s){ return String(s).replace(/\s+/g,'').toLowerCase(); }
@@ -711,30 +826,30 @@ footer a:hover{color:var(--dim)}
     var q = norm(input.value);
     if (!q){ results.dataset.empty = '1'; resultsBody.innerHTML = ''; return; }
     var w = WORKS.filter(function(x){ return norm(x.title).indexOf(q) > -1 || norm(x.alias).indexOf(q) > -1; });
-    var c = plates.filter(function(p){ return norm(p.dataset.name).indexOf(q) > -1; });
+    var c = plates.filter(function(p){ return norm(p.dataset.name).indexOf(q) > -1 || norm(nameDisp(p.dataset.name)).indexOf(q) > -1; });
     results.dataset.empty = (w.length + c.length) ? '0' : '1';
     var html = '';
     if (w.length){
-      html += '<div class="rgroup">作品</div>';
+      html += '<div class="rgroup">' + T('作品','Works') + '</div>';
       w.forEach(function(x){
         html += '<button class="rrow rrow--work" data-href="' + x.href + '"><span class="rname">' + esc(x.title) +
-          '</span><span class="rsub">' + esc(x.sub) + '</span><span class="rgo">进入</span></button>';
+          '</span><span class="rsub">' + esc(x.sub) + '</span><span class="rgo">' + T('进入','Open') + '</span></button>';
       });
     }
     if (c.length){
-      html += '<div class="rgroup">条目 · ' + c.length + ' 条</div>';
+      html += '<div class="rgroup">' + T('条目 · ','Entries · ') + c.length + T(' 条','') + '</div>';
       c.slice(0, 8).forEach(function(p){
         html += '<button class="rrow" data-href="#/w/' + p.dataset.work + '/x/' + p.dataset.cat + '/' + p.dataset.id + '">' +
-          '<span class="rname">' + esc(p.dataset.name) + '</span>' +
+          '<span class="rname">' + esc(nameDisp(p.dataset.name)) + '</span>' +
           '<span class="tag">' + workTitle(p.dataset.work) + '</span>' +
           '<span class="tag tag--cat" style="--cat:' + catColor(p.dataset.work, p.dataset.cat) + '">' + catName(p.dataset.work, p.dataset.cat) + '</span>' +
           '<span class="tag">' + habName(p.dataset.work, p.dataset.hab) + '</span>' +
-          '<span class="rsub">' + esc(p.dataset.chapter) + '</span><span class="rgo">查看</span></button>';
+          '<span class="rsub">' + esc(p.dataset.chapter) + '</span><span class="rgo">' + T('查看','View') + '</span></button>';
       });
-      if (c.length > 8) html += '<div class="empty">另有 ' + (c.length - 8) + ' 条，输入更精确的名称可缩小范围。</div>';
+      if (c.length > 8) html += '<div class="empty">' + T('另有 ' + (c.length - 8) + ' 条，输入更精确的名称可缩小范围。', 'And ' + (c.length - 8) + ' more — type a more specific name to narrow down.') + '</div>';
     }
     if (!w.length && !c.length){
-      html = '<div class="empty">没有匹配的条目。可试「<span class="emptykbd">白骨精</span>」「<span class="emptykbd">九尾狐</span>」「<span class="emptykbd">毕方</span>」，或直接回车浏览全部。</div>';
+      html = '<div class="empty">' + T('没有匹配的条目。可试「', 'No matches. Try ') + '<span class="emptykbd">白骨精</span>' + T('」「', '」, ') + '<span class="emptykbd">九尾狐</span>' + T('」「', '」, ') + '<span class="emptykbd">毕方</span>' + T('」，或直接回车浏览全部。', '」 — or press Enter to browse all.') + '</div>';
     }
     resultsBody.innerHTML = html;
     resultsBody.querySelectorAll('.rrow').forEach(function(b){
@@ -774,6 +889,401 @@ footer a:hover{color:var(--dim)}
   window.addEventListener('resize', function(){ layoutGrids(); });
   route();
   layoutGrids();
+
+  /* ---- 去做视频 · 图生视频面板 ---- */
+  var AGNES_BASE = 'https://apihub.agnes-ai.com/v1';
+  var AGNES_TEXT_KEY = 'sk-AbIKwcX8u1AzERk7SpxSs5KmagsljIlgkN7E94l2AJUCKANh'; /* 仅用于文本深化（全局推理），严禁用于视频生成 */
+  var VG_VIDEO_MODEL = 'agnes-video-2.5-flash';
+  var VG_TEXT_MODEL = 'agnes-2.5-flash';
+  var vgData = null, vgTimer = null;
+
+  function vgEl(id){ return document.getElementById(id); }
+  function htmlToText(h){ var t = document.createElement('div'); t.innerHTML = h; return (t.textContent || '').replace(/\s+/g, ' ').trim(); }
+  function vgStatus(t){ vgEl('vg-status').textContent = t; }
+
+  function openVideoGen(data){
+    vgData = data;
+    vgEl('vg').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    vgEl('vg-title').textContent = data.name + ' · ' + T('做视频','Make Video');
+    vgEl('vg-ref').src = data.imgUrl;
+    vgEl('vg-useimg').checked = true;
+    try { vgEl('vg-key').value = localStorage.getItem('zg-agnes-key') || ''; } catch(err){}
+    var q = [];
+    if (data.quote) q.push(data.quote);
+    if (data.desc && data.desc !== data.quote) q.push(data.desc);
+    vgEl('vg-quote').value = q.join('\n');
+    vgEl('vg-prompt').value = '以 <Picture 1> 中的角色和美术风格为参考，' +
+      (data.desc || data.quote || data.name) + T('。角色缓缓活动起来，镜头缓慢环绕，保持外观与画风一致',
+        '. The character comes to life with subtle motion; the camera orbits slowly, keeping the appearance and art style consistent.');
+    vgStatus('');
+    var v = vgEl('vg-video'); v.removeAttribute('src'); v.style.display = 'none';
+    var dl = vgEl('vg-dl'); dl.style.display = 'none'; dl.removeAttribute('href');
+    var btn = vgEl('vg-gen'); btn.disabled = false; btn.textContent = T('生 成 视 频','G E N E R A T E');
+    vgEl('vg-close').focus();
+  }
+
+  function closeVideoGen(){
+    if (vgTimer){ clearInterval(vgTimer); vgTimer = null; }
+    vgEl('vg').classList.remove('is-open');
+    if (lb.hidden) document.body.style.overflow = '';
+  }
+
+  function vgDeepen(){
+    if (!vgData) return;
+    var btn = vgEl('vg-deepen');
+    btn.disabled = true;
+    var old = btn.textContent; btn.textContent = T('深化中…','Deepening…');
+    vgStatus(T('正在调用 agnes-2.5-flash 深化描写…','Calling agnes-2.5-flash to deepen the description…'));
+    var sys =
+      '你是一位擅长武侠、志怪、传奇题材的中文细节描写作家。你的任务是把用户提供的简短描写或简短设定，扩写成一篇连贯的文章，作为"图生视频"的提示词使用。\n' +
+      '【核心要求】\n' +
+      '1. 不要分镜，不要小标题，不要列表，不要提纲，不要总结式评论。\n' +
+      '2. 不要复述原句，不要把原句拆成几段反复解释。\n' +
+      '3. 按"先整体、后局部；先静态、后动态；先外形、后威力；先正面描写、后旁观感受"的顺序推进。\n' +
+      '4. 像流水账一样写，但不是记账，而是"顺序细致、层层展开、不跳步"：上一句写到哪，下一句就顺着往下写，把每一个细节写透再换下一个。\n' +
+      '5. 每一段都要有具体可感的细节：形状、颜色、质地、声音、气味、温度、重量、力量、速度、动作过程、受力反应。\n' +
+      '6. 多用动词和具象比喻，少用空泛形容词。比喻要贴合对象，不要堆砌华丽辞藻。\n' +
+      '7. 写动作时要有过程：先怎么动，再怎么动，最后造成什么结果；写碰撞要有声音、火花、震动、地面反应、旁观者反应。\n' +
+      '8. 写威力时不要只说"很强"，要写它撞了什么、撞成什么样、对方什么反应、周围环境什么变化。\n' +
+      '9. 全文保持同一叙述视角和同一语言风格，不要中途变成说明文。\n' +
+      '10. 输出为纯文章，段落自然衔接，不要出现"首先、其次、最后"这类结构词。\n' +
+      '【扩写流程】\n' +
+      '第一步：定调。用一两句交代对象给人的第一印象，但不要概括全文。\n' +
+      '第二步：写整体形貌。写体型、轮廓、颜色、站姿、气势，让读者先看见"整体"。\n' +
+      '第三步：拆局部。按头、颈、身、腰、腿、爪、尾等顺序，一处一处写清楚形状、质感、颜色、动态。\n' +
+      '第四步：写静态中的动态感。写它不动时哪里在动，呼吸、眼神、尾巴、肌肉、涎水、热气等。\n' +
+      '第五步：写动作过程。写它如何起步、加速、转身、扑击、撞击、咬合、收势，动作要连贯。\n' +
+      '第六步：写力量与破坏。写它撞到什么、抓到什么、咬到什么，造成什么声音、痕迹、碎裂、烟尘、地面变化。\n' +
+      '第七步：写旁观者感受。写人看到它时的心理、身体反应、兵器反应、退避动作。\n' +
+      '第八步：收束。回到对象本身，用具体画面收尾，不要空发议论。\n' +
+      '【语言风格】\n' +
+      '- 白话为主，可带少量古典白话味道。\n' +
+      '- 句子长短交错，动作处用短句，描写处用长句。\n' +
+      '- 多用"像、如同"等具象比喻，但每段比喻不要超过两处。\n' +
+      '- 不写心理独白，不写作者评论，不写"令人惊叹""不可思议"这类空话。\n' +
+      '【禁止项】\n' +
+      '- 禁止分镜式写法。\n' +
+      '- 禁止小标题、编号、表格。\n' +
+      '- 禁止"首先、其次、然后、最后"式结构。\n' +
+      '- 禁止把原始描写反复改写。\n' +
+      '- 禁止只写外形不写动作，或只写动作不写质感。\n' +
+      '- 禁止用"非常、极其、十分"等程度副词代替具体描写。\n' +
+      '【输出语言——最重要】\n' +
+      '- 全文必须使用英文输出！除了特定的名词（角色名、地名、法宝名、招式名等专有名词，保留中文原文即可），所有描写全部使用英文。\n' +
+      '- 输出的英文将直接作为图生视频模型的提示词，请使用具体、可视化、可直接成像的英文描写。\n' +
+      '【输出】\n' +
+      '直接输出扩写后的完整文章，约 500 词。不要输出解释、提纲、写作说明。';
+    var usr =
+      '原始描写：' + (vgData.desc || '无') + '\n' +
+      '原文摘抄：' + (vgData.quote || '无') + '\n' +
+      '对象类型：' + catName(vgData.work, vgData.cat) + '（志怪角色）\n' +
+      '文体风格：志怪笔记\n' +
+      '扩写重点：外形、质感、动作过程、力量感、旁观者感受\n' +
+      '目标字数：500';
+    fetch(AGNES_BASE + '/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AGNES_TEXT_KEY },
+      body: JSON.stringify({ model: VG_TEXT_MODEL, messages: [{ role: 'system', content: sys }, { role: 'user', content: usr }], temperature: 0.8 })
+    }).then(function(r){ return r.json(); }).then(function(j){
+      var t = j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content;
+      if (t){
+        vgEl('vg-prompt').value = 'Using the character and art style from <Picture 1> as reference, keep the character\'s appearance consistent. ' + String(t).replace(/\s+/g, ' ').trim();
+        vgStatus(T('提示词已深化（英文输出），可直接生成或手动微调。','Prompt deepened (in English) — generate now, or fine-tune it first.'));
+      } else {
+        vgStatus(T('深化失败：','Deepen failed: ') + ((j.error && j.error.message) || T('接口返回异常','unexpected response')));
+      }
+      btn.disabled = false; btn.textContent = old;
+    }).catch(function(e){
+      vgStatus(T('深化失败：','Deepen failed: ') + e.message);
+      btn.disabled = false; btn.textContent = old;
+    });
+  }
+
+  function vgExtractUrl(j){
+    return j.video_url || j.url || j.download_url ||
+      (j.video && (j.video.url || j.video.video_url || j.video.download_url)) ||
+      (j.output && (j.output.url || j.output.video_url)) ||
+      (j.data && j.data[0] && (j.data[0].url || j.data[0].video_url)) || '';
+  }
+
+  function vgDone(u){
+    vgStatus(T('生成完成 ↓','Done ↓'));
+    var btn = vgEl('vg-gen'); btn.disabled = false; btn.textContent = T('重 新 生 成','R E G E N E R A T E');
+    var v = vgEl('vg-video'); v.src = u; v.style.display = 'block';
+    var dl = vgEl('vg-dl'); dl.href = u; dl.style.display = 'inline-block';
+    if (vgTimer){ clearInterval(vgTimer); vgTimer = null; }
+  }
+
+  function vgGenerate(){
+    if (!vgData) return;
+    var userKey = vgEl('vg-key').value.trim();
+    if (!userKey){
+      vgStatus(T('请先在上方输入你自己的 Agnes API KEY（申请：platform.agnes-ai.com）。','Please enter your own Agnes API KEY first (get one at platform.agnes-ai.com).'));
+      vgEl('vg-key').focus();
+      return;
+    }
+    try { localStorage.setItem('zg-agnes-key', userKey); } catch(err){}
+    var prompt = vgEl('vg-prompt').value.trim();
+    if (!prompt){ vgStatus(T('请先填写视频提示词。','Please write a video prompt first.')); return; }
+    var sec = parseInt(vgEl('vg-seconds').value, 10);
+    if (!(sec >= 4 && sec <= 12)){ vgStatus(T('时长须在 4 ~ 12 秒之间。','Duration must be 4 – 12 seconds.')); return; }
+    var btn = vgEl('vg-gen');
+    btn.disabled = true; btn.textContent = T('提 交 中…','S U B M I T T I N G…');
+    vgStatus(T('正在提交生成任务…','Submitting the generation task…'));
+    if (vgTimer){ clearInterval(vgTimer); vgTimer = null; }
+    var v = vgEl('vg-video'); v.removeAttribute('src'); v.style.display = 'none';
+    vgEl('vg-dl').style.display = 'none';
+    var body = {
+      model: VG_VIDEO_MODEL,
+      prompt: prompt,
+      seconds: String(sec),
+      mode: 'reference',
+      size: vgEl('vg-size').value,
+      aspect_ratio: vgEl('vg-ar').value
+    };
+    if (vgEl('vg-useimg').checked) body.images = [vgData.imgUrl];
+    fetch(AGNES_BASE + '/videos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + userKey },
+      body: JSON.stringify(body)
+    }).then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); }).then(function(res){
+      if (!res.ok){
+        throw new Error((res.j.error && res.j.error.message) || ('HTTP ' + JSON.stringify(res.j).slice(0, 160)));
+      }
+      var j = res.j;
+      var u = vgExtractUrl(j);
+      if (u){ vgDone(u); return; }
+      var id = j.id || j.task_id || j.job_id;
+      if (!id){ throw new Error('接口未返回任务 id：' + JSON.stringify(j).slice(0, 160)); }
+      vgStatus(T('任务已提交（','Task submitted (') + id + T('），生成中，约需 1~3 分钟…','), generating, takes about 1–3 minutes…'));
+      var tries = 0;
+      vgTimer = setInterval(function(){
+        tries++;
+        if (tries > 120){
+          clearInterval(vgTimer); vgTimer = null;
+          vgStatus(T('等待超时，任务可能仍在后台进行，可稍后重新生成。','Timed out waiting — the task may still be running in the background; try again later.'));
+          btn.disabled = false; btn.textContent = T('重 新 生 成','R E G E N E R A T E');
+          return;
+        }
+        fetch(AGNES_BASE + '/videos/' + id, { headers: { 'Authorization': 'Bearer ' + userKey } })
+          .then(function(r){ return r.json(); })
+          .then(function(s){
+            var u2 = vgExtractUrl(s);
+            if (u2){ vgDone(u2); }
+            else { vgStatus(T('生成中… ','Generating… ') + (s.status || s.state || '') + T('（已等待 ',' (waited ') + tries * 5 + T(' 秒）','s)')); }
+          }).catch(function(){});
+      }, 5000);
+    }).catch(function(e){
+      vgStatus(T('提交失败：','Submit failed: ') + e.message);
+      btn.disabled = false; btn.textContent = T('重 新 生 成','R E G E N E R A T E');
+    });
+  }
+
+  vgEl('vg-close').addEventListener('click', closeVideoGen);
+  vgEl('vg-deepen').addEventListener('click', vgDeepen);
+  vgEl('vg-gen').addEventListener('click', vgGenerate);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && vgEl('vg').classList.contains('is-open')) closeVideoGen();
+  });
+
+  /* ---- 中英双语切换 ---- */
+  var LANG = 'zh';
+  try { LANG = localStorage.getItem('zg-lang') || 'zh'; } catch(err){}
+  function T(zh, en){ return LANG === 'en' ? en : zh; }
+  function nameDisp(n){ return LANG === 'en' ? (EN_NAMES[n] || n) : n; }
+
+  var EN_WORKS = { xyj:'Journey to the West', shj:'Mountains & Seas', lz:'Liaozhai Tales', zby:'Zi Bu Yu', sjs:'San Jiao Sou Shen', lzl:'Liezi', syj:'Shu Yi Ji', tpg:'Tai Ping Guang Ji', ssj:'Sou Shen Ji', yw:'Yue Wei Bi Ji', fs:'Feng Shen Yan Yi' };
+  var EN_BRAND = { xyj:'Xiyou', shj:'Shanhai', lz:'Liaozhai', zby:'Zibuyu', sjs:'Sanjiao', lzl:'Liezi', syj:'Shuyi', tpg:'Taiping', ssj:'Soushen', yw:'Yuewei', fs:'Fengshen' };
+  var EN_HERO = { xyj:'Journey West', shj:'Mountains & Seas', lz:'Liaozhai', zby:'Zi Bu Yu', sjs:'San Jiao', lzl:'Liezi', syj:'Shu Yi Ji', tpg:'Tai Ping', ssj:'Sou Shen', yw:'Yue Wei', fs:'Feng Shen' };
+  var EN_WSUB = { xyj:'Demons · Spirits · Ghosts · Monsters', shj:'Beasts · Birds · Gods · Peoples', lz:'Foxes · Ghosts · Spirits · Deities', zby:'Ghosts · Beasts · Deities · Monsters', sjs:'Celestial · Buddhist · Nature · Human · Objects · Guardians', lzl:'Marvels · Beasts · Sizes · Miniatures', syj:'Deities · Sprites · Shapeshifters · Objects', tpg:'Demons · Spirits · Yakshas · Foxes · Ghosts', ssj:'Foxes · Ghosts · Beasts · Scaled · Sprites · Shapeshifters', yw:'Ghosts · Foxes · Objects · Sprites · Dragons · Deities', fs:'Demons · Spirits · Deities · Enigmas' };
+  var EN_AUTHORS = { xyj:"Ming · attr. Wu Cheng'en", shj:'Pre-Qin · anonymous (attributed)', lz:'Qing · Pu Songling', zby:'Qing · Yuan Mei', sjs:'Yuan · anonymous (attributed)', lzl:'Warring States · attr. Lie Yukou', syj:'Southern Liang · attr. Ren Fang', tpg:'Song · Li Fang et al.', ssj:'Eastern Jin · Gan Bao', yw:'Qing · Ji Yun', fs:'Ming · Xu Zhonglin' };
+  var EN_CATS = {
+    'xyj.yao':'Demons','xyj.jing':'Spirits','xyj.gui':'Ghosts','xyj.guai':'Monsters',
+    'shj.shou':'Beasts','shj.qin':'Birds','shj.shen':'Gods','shj.min':'Peoples',
+    'lz.hu':'Foxes','lz.gui':'Ghosts','lz.yao':'Spirits','lz.shen':'Deities',
+    'zby.gui':'Ghosts','zby.shou':'Beasts','zby.shen':'Deities','zby.guai':'Monsters',
+    'sjs.tianjie':'Celestial','sjs.shimen':'Buddhist','sjs.shanchuan':'Nature','sjs.renshen':'Human Deities','sjs.wuguai':'Object Spirits','sjs.hufa':'Guardians',
+    'lzl.shen':'Marvels','lzl.ju':'Giant Beasts','lzl.ren':'Giants & Dwarfs','lzl.wei':'Miniatures',
+    'syj.shen':'Deities','syj.jing':'Sprites','syj.hua':'Shapeshifters','syj.guai':'Enchanted Objects',
+    'tpg.yao':'Demons','tpg.jing':'Spirits','tpg.cha':'Yakshas','tpg.hu':'Foxes','tpg.gui':'Ghosts',
+    'ssj.hu':'Foxes','ssj.gui':'Ghosts','ssj.shou':'Beasts','ssj.lin':'Scaled','ssj.jing':'Sprites','ssj.hua':'Shapeshifters',
+    'yw.gui':'Ghosts','yw.hu':'Foxes','yw.wu':'Objects','yw.jing':'Sprites','yw.long':'Dragons & Serpents','yw.shen':'Deities',
+    'fs.yao':'Demons','fs.jing':'Spirits','fs.shen':'Deities','fs.yi':'Enigmas'
+  };
+  var EN_HABS = { hai:'Sea', lu:'Land', kong:'Sky', di:'Earth', shan:'Mountain', shui:'Water', guo:'Realms', tian:'Heaven', zhai:'Dwelling', ye:'Wild', ming:'Nether', xue:'Burrow', shu:'Tree' };
+  var EN_NAMES = {"䑏疏": "䑏 Shu", "䝙人化虎": "䝙 Ren Hua Hu", "䟣踢": "䟣 Ti", "一变·少女": "Yi Bian · Shao Nv", "一变·月貌花容": "Yi Bian · Yue Mao Hua Rong", "一目国": "Yi Mu Guo", "一缕白气冲空": "Yi Lv Bai Qi Chong Kong", "一臂民": "Yi Bi Min", "一鞭之威": "Yi Bian Zhi Wei", "七女": "Qi Nv", "七狮精": "Qi Shi Jing", "万回": "Wan Hui", "万圣龙王": "Wan Sheng Long Wang", "三位小王子": "San Wei Xiao Wang Zi", "三大士化身": "San Da Shi Hua Shen", "三头丈夫": "San Tou Zhang Fu", "三妖": "San Yao", "三寸小人、四寸小棺": "San Cun Xiao Ren , Si Cun Xiao Guan", "三生": "San Sheng", "三生（睁眼已在槽下）": "San Sheng (Zheng Yan Yi Zai Cao Xia)", "三疫鬼": "San Yi Gui", "三老人": "San Lao Ren", "三茅真君": "San Mao Zhen Jun", "三身国": "San Shen Guo", "三首国": "San Shou Guo", "上元一品天官": "Shang Yuan Yi Pin Tian Guan", "上古四圣王": "Shang Gu Si Sheng Wang", "下元三品水官": "Xia Yuan San Pin Shui Guan", "丑妇与电目血口": "Chou Fu Yu Dian Mu Xue Kou", "丘弘济真人": "Qiu Hong Ji Zhen Ren", "东华帝君": "Dong Hua Di Jun", "东岳天齐大帝": "Dong Yue Tian Qi Da Di", "东海龙王": "Dong Hai Long Wang", "两神": "Liang Shen", "中元二品地官": "Zhong Yuan Er Pin Di Guan", "中岳中天王": "Zhong Yue Zhong Tian Wang", "中怪": "Zhong Guai", "中怪（高丈余、鸣如雷）": "Zhong Guai (Gao Zhang Yu , Ming Ru Lei)", "举父": "Ju Fu", "义勇武安王": "Yi Yong Wu An Wang", "义勇武安王（关羽）": "Yi Yong Wu An Wang (Guan Yu)", "乌巢禅师": "Wu Chao Chan Shi", "乌蛇": "Wu She", "乌鸡国王": "Wu Ji Guo Wang", "乘黄": "Cheng Huang", "九凤": "Jiu Feng", "九头犬": "Jiu Tou Quan", "九头虫": "Jiu Tou Chong", "九头虫（本相）": "Jiu Tou Chong (Ben Xiang)", "九尾狐": "Jiu Wei Hu", "九尾狐狸": "Jiu Wei Hu Li", "九尾狐狸（压龙洞老母）": "Jiu Wei Hu Li (Ya Long Dong Lao Mu)", "九曜星": "Jiu Yao Xing", "九灵元圣": "Jiu Ling Yuan Sheng", "二十八宿赞": "Er Shi Ba Xiu Zan", "二变·老妇": "Er Bian · Lao Fu", "二寸足迹": "Er Cun Zu Ji", "二怪": "Er Guai", "二狐现形": "Er Hu Xian Xing", "二郎神": "Er Lang Shen", "二郎神（清源妙道真君）": "Er Lang Shen (Qing Yuan Miao Dao Zhen Jun)", "五圣至圣炳灵王": "Wu Sheng Zhi Sheng Bing Ling Wang", "五妖": "Wu Yao", "五山禽兽": "Wu Shan Qin Shou", "五岳神": "Wu Yue Shen", "五方之神": "Wu Fang Zhi Shen", "五色石女": "Wu Se Shi Nv", "井木犴": "Jing Mu An", "亡魂": "Wang Hun", "亢金龙": "Kang Jin Long", "交胫国": "Jiao Jing Guo", "人形多一尾": "Ren Xing Duo Yi Wei", "人形藏尾": "Ren Xing Cang Wei", "人熊": "Ren Xiong", "人皮脱、身化烟": "Ren Pi Tuo , Shen Hua Yan", "人面豆": "Ren Mian Dou", "人面鸮": "Ren Mian Xiao", "从从": "Cong Cong", "以山为鱼": "Yi Shan Wei Yu", "以身量门、以爪留痕": "Yi Shen Liang Men , Yi Zhao Liu Hen", "仰山龙神": "Yang Shan Long Shen", "任氏狐": "Ren Shi Hu", "仿佛艳绝": "Fang Fu Yan Jue", "伍子胥": "Wu Zi Xu", "伏波将军": "Fu Bo Jiang Jun", "伏波将军（马援）": "Fu Bo Jiang Jun (Ma Yuan)", "众狐": "Zhong Hu", "伶俐虫": "Ling Li Chong", "似人似兽数物": "Shi Ren Shi Shou Shu Wu", "似欲随风、手腻如脂": "Shi Yu Sui Feng , Shou Ni Ru Zhi", "佑圣真君": "You Sheng Zhen Jun", "余元": "Yu Yuan", "余化": "Yu Hua", "倒折之鬼": "Dao Zhe Zhi Gui", "偃师倡者": "Yan Shi Chang Zhe", "偶人": "Ou Ren", "傅大士": "Fu Da Shi", "僬侥国人": "Jiao Yao Guo Ren", "僵尸": "Jiang Shi", "僵尸白毛": "Jiang Shi Bai Mao", "僵立道左者": "Jiang Li Dao Zuo Zhe", "儒氏源流·孔子": "Ru Shi Yuan Liu · Kong Zi", "党元帅": "Dang Yuan Shuai", "八大金刚": "Ba Da Jin Gang", "八戒": "Ba Jie", "关羽": "Guan Yu", "冕旒神": "Mian Liu Shen", "冢中美人": "Zhong Zhong Mei Ren", "冥车与望乡台": "Ming Che Yu Wang Xiang Tai", "冶鸟": "Ye Niao", "冷喙寒气": "Leng Hui Han Qi", "凌空子": "Ling Kong Zi", "凌虚子": "Ling Xu Zi", "凫徯": "Fu Xi", "刀劳鬼": "Dao Lao Gui", "刑天": "Xing Tian", "刘伯钦": "Liu Bo Qin", "刘全": "Liu Quan", "刘天君": "Liu Tian Jun", "刘洪": "Liu Hong", "初成僵尸": "Chu Cheng Jiang Shi", "利喙长爪": "Li Hui Zhang Zhao", "刺史": "Ci Shi", "副应元帅": "Fu Ying Yuan Shuai", "劲节十八公": "Jin Jie Shi Ba Gong", "勾魂卒": "Gou Hun Zu", "化人": "Hua Ren", "化蛾宫人": "Hua E Gong Ren", "化鳖母": "Hua Bie Mu", "北岳安天王": "Bei Yue An Tian Wang", "北海龙王": "Bei Hai Long Wang", "匾上人面": "Bian Shang Ren Mian", "十八公、孤直公、凌空子、拂云叟": "Shi Ba Gong , Gu Zhi Gong , Ling Kong Zi , Fu Yun Sou", "十八罗汉": "Shi Ba Luo Han", "十围巨怪": "Shi Wei Ju Guai", "十地阎君": "Shi Di Yan Jun", "十大明王": "Shi Da Ming Wang", "千里眼": "Qian Li Yan", "半身鬼": "Ban Shen Gui", "半面之怪": "Ban Mian Zhi Guai", "华亭大蛇": "Hua Ting Da She", "华光": "Hua Guang", "华山之神": "Hua Shan Zhi Shen", "协济公": "Xie Ji Gong", "南华庄生": "Nan Hua Zhuang Sheng", "南华庄生（庄子）": "Nan Hua Zhuang Sheng (Zhuang Zi)", "南山大王": "Nan Shan Da Wang", "南山大王（豹子精）": "Nan Shan Da Wang (Bao Zi Jing)", "南岳司天昭圣帝": "Nan Yue Si Tian Zhao Sheng Di", "南方祝融": "Nan Fang Zhu Rong", "卢六祖": "Lu Liu Zu", "卢六祖（慧能）": "Lu Liu Zu (Hui Neng)", "厅上二蛇": "Ting Shang Er She", "压龙洞老母": "Ya Long Dong Lao Mu", "厌火国": "Yan Huo Guo", "原形": "Yuan Xing", "双双": "Shuang Shuang", "双角狱卒": "Shuang Jiao Yu Zu", "双鹤精": "Shuang He Jing", "变俊男": "Bian Jun Nan", "变顽童": "Bian Wan Tong", "叶生": "Ye Sheng", "叶生（魂见己棺）": "Ye Sheng (Hun Jian Ji Guan)", "司命灶神": "Si Ming Zao Shen", "后土皇地祇": "Hou Tu Huang Di Qi", "吐绶乌": "Tu Shou Wu", "向王": "Xiang Wang", "吕岳": "Lv Yue", "吕神翁": "Lv Shen Weng", "吴令": "Wu Ling", "吴令（机关如生）": "Wu Ling (Ji Guan Ru Sheng)", "吴客三真君": "Wu Ke San Zhen Jun", "周信": "Zhou Xin", "咬鬼": "Yao Gui", "咬鬼（冷喙寒气）": "Yao Gui (Leng Hui Han Qi)", "哀牢龙": "Ai Lao Long", "哪吒·八臂三头": "Ne Zha · Ba Bi San Tou", "哪吒·法身来历": "Ne Zha · Fa Shen Lai Li", "哪吒·蓝脸獠牙": "Ne Zha · Lan Lian Liao Ya", "哪吒太子": "Ne Zha Tai Zi", "哮天犬": "Xiao Tian Quan", "唐太宗": "Tang Tai Zong", "啖鹿夜叉": "Dan Lu Ye Cha", "善终亦归狐形": "Shan Zhong Yi Gui Hu Xing", "喷水": "Pen Shui", "喷水（白发如帚、鹤步喷水）": "Pen Shui (Bai Fa Ru Zhou , He Bu Pen Shui)", "喷火夜叉": "Pen Huo Ye Cha", "四大天师": "Si Da Tian Shi", "四大天王": "Si Da Tian Wang", "四海龙王": "Si Hai Long Wang", "四物": "Si Wu", "四老猴": "Si Lao Hou", "四足牛怪": "Si Zu Niu Guai", "土山怪": "Tu Shan Guai", "土窟异兽": "Tu Ku Yi Shou", "土蝼": "Tu Lou", "土行孙": "Tu Xing Sun", "圣母尊号": "Sheng Mu Zun Hao", "圣祖尊号": "Sheng Zu Zun Hao", "地下伍伯": "Di Xia Wu Bo", "地中人首": "Di Zhong Ren Shou", "地中犀犬": "Di Zhong Xi Quan", "地藏王菩萨": "Di Zang Wang Pu Sa", "堕龙的狼狈": "Duo Long De Lang Bei", "墓上巨人": "Mu Shang Ju Ren", "增福相公": "Zeng Fu Xiang Gong", "增福相公（福神）": "Zeng Fu Xiang Gong (Fu Shen)", "墟墓老翁与捧书狐": "Xu Mu Lao Weng Yu Peng Shu Hu", "壁面怪": "Bi Mian Guai", "夔": "Kui", "夜叉的目与舌": "Ye Cha De Mu Yu She", "夜叉骷髅": "Ye Cha Ku Lou", "大力鬼王": "Da Li Gui Wang", "大小绿人": "Da Xiao Lv Ren", "大毛人": "Da Mao Ren", "大老狸": "Da Lao Li", "大苍獭": "Da Cang Ta", "大鳀鱼": "Da Ti Yu", "大鹏金翅雕": "Da Peng Jin Chi Diao", "天吴": "Tian Wu", "天妃娘娘": "Tian Fei Niang Niang", "天妃娘娘（妈祖）": "Tian Fei Niang Niang (Ma Zu)", "天狗": "Tian Gou", "天竺国王": "Tian Zhu Guo Wang", "天马": "Tian Ma", "太上老君": "Tai Shang Lao Jun", "太乙之精": "Tai Yi Zhi Jing", "太姥": "Tai Lao", "太子": "Tai Zi", "太岁": "Tai Sui", "太师": "Tai Shi", "太白金星": "Tai Bai Jin Xing", "太素真人": "Tai Su Zhen Ren", "太阴星君": "Tai Yin Xing Jun", "奇形鬼": "Qi Xing Gui", "奇肱国": "Qi Gong Guo", "奎木狼": "Kui Mu Lang", "奢比": "She Bi", "女儿国国王": "Nv Er Guo Guo Wang", "女鬼": "Nv Gui", "如意真仙": "Ru Yi Zhen Xian", "如来佛祖": "Ru Lai Fo Zu", "如王者都": "Ru Wang Zhe Dou", "如蚓、如指、如带": "Ru Yin , Ru Zhi , Ru Dai", "妈祖": "Ma Zu", "妖术": "Yao Shu", "妖术（纸人土偶木偶）": "Yao Shu (Zhi Ren Tu Ou Mu Ou)", "妖术（面黑如煤、手弓腰矢）": "Yao Shu (Mian Hei Ru Mei , Shou Gong Yao Shi)", "妖波流慧": "Yao Bo Liu Hui", "妲己": "Da Ji", "姑射神人": "Gu Ye Shen Ren", "威惠显圣王": "Wei Hui Xian Sheng Wang", "威惠显圣王（伍子胥）": "Wei Hui Xian Sheng Wang (Wu Zi Xu)", "威济侯": "Wei Ji Hou", "娇娜": "Jiao Na", "娇娜（利喙长爪）": "Jiao Na (Li Hui Zhang Zhao)", "娇娜（妖波流慧）": "Jiao Na (Yao Bo Liu Hui)", "婴宁": "Ying Ning", "婴宁（狐生人女）": "Ying Ning (Hu Sheng Ren Nv)", "婴宁（花架巨蝎）": "Ying Ning (Hua Jia Ju Xie)", "孔宣": "Kong Xuan", "孙将军": "Sun Jiang Jun", "孙悟空": "Sun Wu Kong", "孙悟空（齐天大圣）": "Sun Wu Kong (Qi Tian Da Sheng)", "孚祐温元帅": "Fu You Wen Yuan Shuai", "孛马": "Bei Ma", "孤直公": "Gu Zhi Gong", "宅妖": "Zhai Yao", "宅妖（三寸小人、四寸小棺）": "Zhai Yao (San Cun Xiao Ren , Si Cun Xiao Guan)", "宅妖（肉色春凳自行）": "Zhai Yao (Rou Se Chun Deng Zi Xing)", "宋刺史": "Song Ci Shi", "宗定伯": "Zong Ding Bo", "宝志禅师": "Bao Zhi Chan Shi", "宝象国国王": "Bao Xiang Guo Guo Wang", "宫亭湖神": "Gong Ting Hu Shen", "宫装艳绝、门外湮然": "Gong Zhuang Yan Jue , Men Wai Yan Ran", "寅将军": "Yin Jiang Jun", "寅将军（虎精）": "Yin Jiang Jun (Hu Jing)", "密都统": "Mi Du Tong", "寇员外": "Kou Yuan Wai", "寇梁": "Kou Liang", "寸许铁骑": "Cun Xu Tie Qi", "寿星": "Shou Xing", "寿春真人": "Shou Chun Zhen Ren", "封使君": "Feng Shi Jun", "射木山神": "She Mu Shan Shen", "尉迟恭": "Yu Chi Gong", "小人国": "Xiao Ren Guo", "小官人": "Xiao Guan Ren", "小官人（蛙马指人）": "Xiao Guan Ren (Wa Ma Zhi Ren)", "小钻风": "Xiao Zuan Feng", "尸变": "Shi Bian", "尸变（淡金面、四指如钩）": "Shi Bian (Dan Jin Mian , Si Zhi Ru Gou)", "尺人": "Chi Ren", "屋上巨人": "Wu Shang Ju Ren", "山灵巨人": "Shan Ling Ju Ren", "山犭军": "Shan Quan Jun", "山神俞儿": "Shan Shen Yu Er", "山精": "Shan Jing", "山都": "Shan Dou", "山魈": "Shan Xiao", "山魈（以身量门、以爪留痕）": "Shan Xiao (Yi Shen Liang Men , Yi Zhao Liu Hen)", "峳峳": "You You", "崔判官": "Cui Pan Guan", "崔府君": "Cui Fu Jun", "巢湖神": "Chao Hu Shen", "巧娘": "Qiao Niang", "巧娘（才色与命数）": "Qiao Niang (Cai Se Yu Ming Shu)", "巨如牛之二物": "Ju Ru Niu Zhi Er Wu", "巨如车轮白蝠": "Ju Ru Che Lun Bai Fu", "巨手": "Ju Shou", "巨灵神": "Ju Ling Shen", "巨狐伏坛、余族化白块": "Ju Hu Fu Tan , Yu Zu Hua Bai Kuai", "巨筒大蛇": "Ju Tong Da She", "巨蛇": "Ju She", "巨足之鬼": "Ju Zu Zhi Gui", "巨身僧": "Ju Shen Seng", "巨鳌": "Ju Ao", "帝江": "Di Jiang", "常州武烈帝": "Chang Zhou Wu Lie Di", "常州武烈帝（陈果仁）": "Chang Zhou Wu Lie Di (Chen Guo Ren)", "常昊": "Chang Hao", "并封": "Bing Feng", "幼狐乞援、黑狐血殷": "You Hu Qi Yuan , Hei Hu Xue Yin", "广智": "Guang Zhi", "广目天王": "Guang Mu Tian Wang", "广谋": "Guang Mou", "庄子": "Zhuang Zi", "庆忌": "Qing Ji", "庐山神": "Lu Shan Shen", "庙神龟鼍": "Miao Shen Gui Tuo", "庙鬼": "Miao Gui", "庙鬼（丑妇与电目血口）": "Miao Gui (Chou Fu Yu Dian Mu Xue Kou)", "度朔君": "Du Shuo Jun", "异形烟魈": "Yi Xing Yan Xiao", "异类羞与驴为伍": "Yi Lei Xiu Yu Lv Wei Wu", "张七相公": "Zhang Qi Xiang Gong", "张天师": "Zhang Tian Shi", "张天师（张道陵）": "Zhang Tian Shi (Zhang Dao Ling)", "张将军": "Zhang Jiang Jun", "张昭烈": "Zhang Zhao Lie", "张果老": "Zhang Guo Lao", "张稍": "Zhang Shao", "张老相公": "Zhang Lao Xiang Gong", "张老相公（鼋怪吞舟）": "Zhang Lao Xiang Gong (Yuan Guai Tun Zhou)", "张诚": "Zhang Cheng", "张诚（毫光与甘露）": "Zhang Cheng (Hao Guang Yu Gan Lu)", "张路斯": "Zhang Lu Si", "张道陵": "Zhang Dao Ling", "强良": "Qiang Liang", "彘": "Zhi", "形似龙而短": "Xing Si Long Er Duan", "形变鬼": "Xing Bian Gui", "彭侯": "Peng Hou", "彭元帅": "Peng Yuan Shuai", "影中奇鬼": "Ying Zhong Qi Gui", "律吕神刘师": "Lv Lv Shen Liu Shi", "徐君卵": "Xu Jun Luan", "徐茂公": "Xu Mao Gong", "怒毛兽": "Nu Mao Shou", "恶鬼": "E Gui", "惠应王": "Hui Ying Wang", "惨绿衫女鬼": "Can Lv Shan Nv Gui", "慈航法身": "Ci Hang Fa Shen", "慧能": "Hui Neng", "懒妇鱼": "Lan Fu Yu", "戴礼": "Dai Li", "戴角小蛇": "Dai Jiao Xiao She", "才色与命数": "Cai Se Yu Ming Shu", "扬州五司徒": "Yang Zhou Wu Si Tu", "护国天王": "Hu Guo Tian Wang", "披兽皮": "Pi Shou Pi", "披发女鬼": "Pi Fa Nv Gui", "披发瞪目之鬼": "Pi Fa Deng Mu Zhi Gui", "拂云叟": "Fu Yun Sou", "持钢刀者": "Chi Gang Dao Zhe", "捉狐": "Zhuo Hu", "捉狐（腹可缩可鼓）": "Zhuo Hu (Fu Ke Suo Ke Gu)", "捧茶鬼女": "Peng Cha Gui Nv", "揭谛": "Jie Di", "携囊二老翁": "Xie Nang Er Lao Weng", "摩昂太子": "Mo Ang Tai Zi", "操蛇之神": "Cao She Zhi Shen", "散发吐舌之鬼": "San Fa Tu She Zhi Gui", "文昌": "Wen Chang", "文殊法身": "Wen Shu Fa Shen", "文殊菩萨": "Wen Shu Pu Sa", "文颖": "Wen Ying", "斑狐": "Ban Hu", "斑蛇": "Ban She", "斑衣鳜婆": "Ban Yi Gui Po", "斗木獬": "Dou Mu Xie", "断首尸语、野狗吸脑": "Duan Shou Shi Yu , Ye Gou Xi Nao", "新罗山神": "Xin Luo Shan Shen", "新郎": "Xin Lang", "新郎（院宇无存，但见高冢）": "Xin Lang (Yuan Yu Wu Cun ， Dan Jian Gao Zhong)", "旄马": "Mao Ma", "旋龟": "Xuan Gui", "无启国": "Wu Qi Guo", "无头鬼": "Wu Tou Gui", "无尾白狐": "Wu Wei Bai Hu", "旱魃二型": "Han Ba Er Xing", "明月": "Ming Yue", "春娇": "Chun Jiao", "昭灵侯": "Zhao Ling Hou", "昭灵侯（张路斯）": "Zhao Ling Hou (Zhang Lu Si)", "昴日星官": "Mao Ri Xing Guan", "晏公": "Yan Gong", "普庵禅师": "Pu An Chan Shi", "普贤法身": "Pu Xian Fa Shen", "普贤菩萨": "Pu Xian Pu Sa", "晴昼之龙": "Qing Zhou Zhi Long", "月下鼍": "Yue Xia Tuo", "木偶人": "Mu Ou Ren", "木叉": "Mu Cha", "木客鸟": "Mu Ke Niao", "木居士": "Mu Ju Shi", "木盟器": "Mu Meng Qi", "木雕之狞与活判之威": "Mu Diao Zhi Ning Yu Huo Pan Zhi Wei", "木鹤": "Mu He", "本相": "Ben Xiang", "本相·大白牛": "Ben Xiang · Da Bai Niu", "本相·青牛": "Ben Xiang · Qing Niu", "本相·骷髅": "Ben Xiang · Ku Lou", "朱子真": "Zhu Zi Zhen", "朱獳": "Zhu Nou", "机关如生": "Ji Guan Ru Sheng", "李元帅": "Li Yuan Shuai", "李天王": "Li Tian Wang", "李奇": "Li Qi", "李定": "Li Ding", "李彪": "Li Biao", "李琚": "Li Ju", "杏仙": "Xing Xian", "杨四将军": "Yang Si Jiang Jun", "杨度": "Yang Du", "杨戬化蜈蚣": "Yang Jian Hua Wu Gong", "杨显": "Yang Xian", "杭州蒋相公": "Hang Zhou Jiang Xiang Gong", "林四娘": "Lin Si Niang", "林四娘（宫装艳绝、门外湮然）": "Lin Si Niang (Gong Zhuang Yan Jue , Men Wai Yan Ran)", "枝上小儿": "Zhi Shang Xiao Er", "枭阳国": "Xiao Yang Guo", "枯树怪": "Ku Shu Guai", "某公": "Mou Gong", "某公（披兽皮）": "Mou Gong (Pi Shou Pi)", "柔利国": "Rou Li Guo", "柳树精": "Liu Shu Jing", "树心青牛": "Shu Xin Qing Niu", "树神黄祖": "Shu Shen Huang Zu", "栲栳鸟": "Kao Lao Niao", "格": "Ge", "梓树精青羊": "Zi Shu Jing Qing Yang", "梓潼帝君": "Zi Tong Di Jun", "梓潼帝君（文昌）": "Zi Tong Di Jun (Wen Chang)", "楚雄神石": "Chu Xiong Shen Shi", "横公鱼": "Heng Gong Yu", "横浦龙君": "Heng Pu Long Jun", "橐蜚": "Tuo Fei", "武曲星君": "Wu Qu Xing Jun", "死后现狐": "Si Hou Xian Hu", "殷温娇": "Yin Wen Jiao", "母猪精": "Mu Zhu Jing", "比丘国国王": "Bi Qiu Guo Guo Wang", "毕方": "Bi Fang", "毗沙门天王": "Pi Sha Men Tian Wang", "毗蓝婆菩萨": "Pi Lan Po Pu Sa", "毛人": "Mao Ren", "毛民国": "Mao Min Guo", "毫光与甘露": "Hao Guang Yu Gan Lu", "氐人国": "Di Ren Guo", "水中短人": "Shui Zhong Duan Ren", "水将军": "Shui Jiang Jun", "水德星君": "Shui De Xing Jun", "水莽草": "Shui Mang Cao", "水莽草（捧茶鬼女）": "Shui Mang Cao (Peng Cha Gui Nv)", "水莽草（水莽鬼的规则）": "Shui Mang Cao (Shui Mang Gui De Gui Ze)", "水莽鬼的规则": "Shui Mang Gui De Gui Ze", "水虺化龙": "Shui Hui Hua Long", "水铁小足": "Shui Tie Xiao Zu", "江东灵签·石固": "Jiang Dong Ling Qian · Shi Gu", "江渎·屈原": "Jiang Du · Qu Yuan", "池中小儿": "Chi Zhong Xiao Er", "汾州狐": "Fen Zhou Hu", "汾州狐（狐不过河）": "Fen Zhou Hu (Hu Bu Guo He)", "沙悟净": "Sha Wu Jing", "河渎·陈平": "He Du · Chen Ping", "泉先": "Quan Xian", "泉先（鲛人）": "Quan Xian (Jiao Ren)", "泗州大圣": "Si Zhou Da Sheng", "波儿象": "Bo Er Xiang", "泰逢": "Tai Feng", "泽中怪物": "Ze Zhong Guai Wu", "泾河龙王": "Jing He Long Wang", "洞庭君": "Dong Ting Jun", "活木偶": "Huo Mu Ou", "济渎·伍子胥": "Ji Du · Wu Zi Xu", "海中毛人": "Hai Zhong Mao Ren", "海公子": "Hai Gong Zi", "海公子（巨筒大蛇）": "Hai Gong Zi (Ju Tong Da She)", "海大鱼": "Hai Da Yu", "海大鱼（以山为鱼）": "Hai Da Yu (Yi Shan Wei Yu)", "海神": "Hai Shen", "润泽侯": "Run Ze Hou", "淡金面、四指如钩": "Dan Jin Mian , Si Zhi Ru Gou", "淮渎·裴说": "Huai Du · Pei Shuo", "混世魔王": "Hun Shi Mo Wang", "混炁庞元帅": "Hun Qi Pang Yuan Shuai", "清源妙道真君": "Qing Yuan Miao Dao Zhen Jun", "清风": "Qing Feng", "湘君": "Xiang Jun", "溺鬼自陈": "Ni Gui Zi Chen", "潍水狐": "Wei Shui Hu", "潍水狐（异类羞与驴为伍）": "Wei Shui Hu (Yi Lei Xiu Yu Lv Wei Wu)", "火人": "Huo Ren", "火德星君": "Huo De Xing Jun", "火精": "Huo Jing", "火铜人": "Huo Tong Ren", "灵义侯": "Ling Yi Hou", "灵吉菩萨": "Ling Ji Pu Sa", "灵官": "Ling Guan", "灵官马元帅": "Ling Guan Ma Yuan Shuai", "灵官马元帅（华光）": "Ling Guan Ma Yuan Shuai (Hua Guang)", "灵官（一鞭之威）": "Ling Guan (Yi Bian Zhi Wei)", "灵感大王": "Ling Gan Da Wang", "灵感大王（金鱼精）": "Ling Gan Da Wang (Jin Yu Jing)", "灵派侯": "Ling Pai Hou", "灵派侯（李琚）": "Ling Pai Hou (Li Ju)", "灵牙仙": "Ling Ya Xian", "灵羊": "Ling Yang", "点面鬼": "Dian Mian Gui", "烛阴": "Zhu Yin", "烟雾鬼": "Yan Wu Gui", "焦暝": "Jiao Ming", "焦暝（巨狐伏坛、余族化白块）": "Jiao Ming (Ju Hu Fu Tan , Yu Zu Hua Bai Kuai)", "焦螟": "Jiao Ming", "煞神": "Sha Shen", "爪发老狐": "Zhao Fa Lao Hu", "牛头大王": "Niu Tou Da Wang", "牛头马面": "Niu Tou Ma Mian", "牛头鬼": "Niu Tou Gui", "牛魔王": "Niu Mo Wang", "牛魔王（本相·大白牛）": "Niu Mo Wang (Ben Xiang · Da Bai Niu)", "牛鱼": "Niu Yu", "犀牛精": "Xi Niu Jing", "犭颉": "Quan Jie", "狌狌": "Sheng Sheng", "狐不过河": "Hu Bu Guo He", "狐嫁女": "Hu Jia Nv", "狐嫁女的容华": "Hu Jia Nv De Rong Hua", "狐嫁女（狐嫁女的容华）": "Hu Jia Nv (Hu Jia Nv De Rong Hua)", "狐尸": "Hu Shi", "狐生人女": "Hu Sheng Ren Nv", "狐阿七大王": "Hu A Qi Da Wang", "狞鬼绘皮": "Ning Gui Hui Pi", "独角兕大王": "Du Jiao Si Da Wang", "独角兕大王（本相·青牛）": "Du Jiao Si Da Wang (Ben Xiang · Qing Niu)", "独角鬼王": "Du Jiao Gui Wang", "狭面神": "Xia Mian Shen", "狮猁王": "Shi Li Wang", "狮猁王（青毛狮子）": "Shi Li Wang (Qing Mao Shi Zi)", "狮驼岭妖将": "Shi Tuo Ling Yao Jiang", "狮驼岭妖将（持钢刀者）": "Shi Tuo Ling Yao Jiang (Chi Gang Dao Zhe)", "狰": "Zheng", "狸尾婢": "Li Wei Bi", "猪刚鬣": "Zhu Gang Lie", "猪婆龙": "Zhu Po Long", "猪婆龙（形似龙而短）": "Zhu Po Long (Xing Si Long Er Duan)", "猪悟能": "Zhu Wu Neng", "猪悟能（八戒）": "Zhu Wu Neng (Ba Jie)", "猪悟能（猪刚鬣）": "Zhu Wu Neng (Zhu Gang Lie)", "猰㺄": "Ya 㺄", "猳国马化": "Jia Guo Ma Hua", "猼訑": "Bo Yi", "猾褢": "Hua Huai", "猿化老人": "Yuan Hua Lao Ren", "獍": "Jing", "獙獙": "Bi Bi", "獬豸": "Xie Zhi", "玃如": "Jue Ru", "玄天上帝": "Xuan Tian Shang Di", "玄鹿": "Xuan Lu", "玉兔精": "Yu Tu Jing", "玉兔精（本相）": "Yu Tu Jing (Ben Xiang)", "玉华王": "Yu Hua Wang", "玉帝": "Yu Di", "玉皇上帝": "Yu Huang Shang Di", "玉面公主": "Yu Mian Gong Zhu", "玉面狐狸": "Yu Mian Hu Li", "王侍宸": "Wang Shi Chen", "王六郎": "Wang Liu Lang", "王六郎（溺鬼自陈）": "Wang Liu Lang (Ni Gui Zi Chen)", "王字盟器": "Wang Zi Meng Qi", "王母": "Wang Mu", "王灵官": "Wang Ling Guan", "王高二元帅": "Wang Gao Er Yuan Shuai", "珠儿": "Zhu Er", "珠儿（鬼童如烟雾）": "Zhu Er (Gui Tong Ru Yan Wu)", "甘大夫": "Gan Da Fu", "田华毕元帅": "Tian Hua Bi Yuan Shuai", "田吕元帅": "Tian Lv Yuan Shuai", "电神": "Dian Shen", "画皮": "Hua Pi", "画皮（人皮脱、身化烟）": "Hua Pi (Ren Pi Tuo , Shen Hua Yan)", "画皮（狞鬼绘皮）": "Hua Pi (Ning Gui Hui Pi)", "疥狐": "Jie Hu", "瘟鬼": "Wen Gui", "瘿鸟": "Ying Niao", "白发佝偻妇": "Bai Fa Gou Lou Fu", "白发如帚、鹤步喷水": "Bai Fa Ru Zhou , He Bu Pen Shui", "白发黑媪": "Bai Fa Hei Ao", "白头公": "Bai Tou Gong", "白水素女": "Bai Shui Su Nv", "白物": "Bai Wu", "白狐精": "Bai Hu Jing", "白蚕": "Bai Can", "白蝙蝠": "Bai Bian Fu", "白衣人": "Bai Yi Ren", "白雄尊者": "Bai Xiong Zun Zhe", "白面狐狸": "Bai Mian Hu Li", "白面狐狸（本相）": "Bai Mian Hu Li (Ben Xiang)", "白须矮人": "Bai Xu Ai Ren", "白须老狐": "Bai Xu Lao Hu", "白骨精": "Bai Gu Jing", "白骨精（一变·少女）": "Bai Gu Jing (Yi Bian · Shao Nv)", "白骨精（一变·月貌花容）": "Bai Gu Jing (Yi Bian · Yue Mao Hua Rong)", "白骨精（二变·老妇）": "Bai Gu Jing (Er Bian · Lao Fu)", "白骨精（本相·骷髅）": "Bai Gu Jing (Ben Xiang · Ku Lou)", "白鲎": "Bai Hou", "白鹿精": "Bai Lu Jing", "白鼠老人": "Bai Shu Lao Ren", "百花羞公主": "Bai Hua Xiu Gong Zhu", "皓首书生": "Hao Shou Shu Sheng", "皮脸怪": "Pi Lian Guai", "皮袋": "Pi Dai", "盘古氏": "Pan Gu Shi", "盘瓠": "Pan Hu", "盟器婢": "Meng Qi Bi", "相柳": "Xiang Liu", "着红鞋之狐": "Zhe Hong Xie Zhi Hu", "睁眼已在槽下": "Zheng Yan Yi Zai Cao Xia", "短足犬": "Duan Zu Quan", "矮鬼与纱帽神": "Ai Gui Yu Sha Mao Shen", "石壁中人": "Shi Bi Zhong Ren", "石矶娘娘": "Shi Ji Niang Niang", "石神": "Shi Shen", "石龟": "Shi Gui", "碧鸡": "Bi Ji", "磨嵯神": "Mo Cuo Shen", "磷飞鬼哭": "Lin Fei Gui Ku", "社公": "She Gong", "祖将军": "Zu Jiang Jun", "祖将军（花卿）": "Zu Jiang Jun (Hua Qing)", "神荼郁垒": "Shen Tu Yu Lei", "神荼郁垒（门神）": "Shen Tu Yu Lei (Men Shen)", "神莺降狐": "Shen Ying Jiang Hu", "祠山张大帝": "Ci Shan Zhang Da Di", "祭赛国二妖贼": "Ji Sai Guo Er Yao Zei", "祭赛国二妖贼（鲇鱼怪、黑鱼精）": "Ji Sai Guo Er Yao Zei (Nian Yu Guai , Hei Yu Jing)", "禁水鬼": "Jin Shui Gui", "禄星": "Lu Xing", "福星": "Fu Xing", "福神": "Fu Shen", "秃尾龙": "Tu Wei Long", "秦叔宝": "Qin Shu Bao", "秦广王": "Qin Guang Wang", "童子雉": "Tong Zi Zhi", "竹中长人": "Zhu Zhong Chang Ren", "竹王": "Zhu Wang", "簸箕龟": "Bo Ji Gui", "精卫": "Jing Wei", "精细鬼": "Jing Xi Gui", "紫玉": "Zi Yu", "綵人": "Cai Ren", "红孩儿": "Hong Hai Er", "红孩儿（变顽童）": "Hong Hai Er (Bian Wan Tong)", "红玉": "Hong Yu", "红玉（似欲随风、手腻如脂）": "Hong Yu (Shi Yu Sui Feng , Shou Ni Ru Zhi)", "红衣垂足女子": "Hong Yi Chui Zu Nv Zi", "红衣树神": "Hong Yi Shu Shen", "红衫女鬼": "Hong Shan Nv Gui", "红鳞大蟒": "Hong Lin Da Mang", "红鳞大蟒（本相）": "Hong Lin Da Mang (Ben Xiang)", "纸人土偶木偶": "Zhi Ren Tu Ou Mu Ou", "绣衣树神": "Xiu Yi Shu Shen", "绿毛巨人": "Lv Mao Ju Ren", "绿毛怪": "Lv Mao Guai", "绿眼猫怪": "Lv Yan Mao Guai", "编荆方相": "Bian Jing Fang Xiang", "缢鬼": "Yi Gui", "缢鬼僧": "Yi Gui Seng", "罂中人首": "Ying Zhong Ren Shou", "罗刹": "Luo Cha", "罗刹女": "Luo Cha Nv", "罗刹女（铁扇公主）": "Luo Cha Nv (Tie Shan Gong Zhu)", "罗刹鬼骨": "Luo Cha Gui Gu", "罗宣": "Luo Xuan", "羊": "Yang", "羊力大仙": "Yang Li Da Xian", "羊妖": "Yang Yao", "羊精": "Yang Jing", "美人相": "Mei Ren Xiang", "美妇": "Mei Fu", "群狐据楼为家": "Qun Hu Ju Lou Wei Jia", "羬羊": "Qian Yang", "羽民国": "Yu Min Guo", "羽翼仙": "Yu Yi Xian", "老狐": "Lao Hu", "老狐精": "Lao Hu Jing", "老狸": "Lao Li", "老野狐": "Lao Ye Hu", "老鼋": "Lao Yuan", "老鼠精": "Lao Shu Jing", "老鼠精（美人相）": "Lao Shu Jing (Mei Ren Xiang)", "考城隍": "Kao Cheng Huang", "考城隍（如王者都）": "Kao Cheng Huang (Ru Wang Zhe Dou)", "耳拖地之鬼": "Er Tuo Di Zhi Gui", "耿七公": "Geng Qi Gong", "耿十八": "Geng Shi Ba", "耿十八（冥车与望乡台）": "Geng Shi Ba (Ming Che Yu Wang Xiang Tai)", "聂家香火": "Nie Jia Xiang Huo", "聂小倩": "Nie Xiao Qian", "聂小倩（仿佛艳绝）": "Nie Xiao Qian (Fang Fu Yan Jue)", "聂小倩（夜叉的目与舌）": "Nie Xiao Qian (Ye Cha De Mu Yu She)", "聂小倩（罗刹鬼骨）": "Nie Xiao Qian (Luo Cha Gui Gu)", "聂耳国": "Nie Er Guo", "肉色春凳自行": "Rou Se Chun Deng Zi Xing", "肥虫遗": "Fei Chong Yi", "肥遗": "Fei Yi", "肩吾": "Jian Wu", "肩承梁柱之奇鬼": "Jian Cheng Liang Zhu Zhi Qi Gui", "胡四姐": "Hu Si Jie", "胡四姐（花露写肌肤）": "Hu Si Jie (Hua Lu Xie Ji Fu)", "胡四姐（黑雾入瓶、白气凌霄）": "Hu Si Jie (Hei Wu Ru Ping , Bai Qi Ling Xiao)", "胡髯燕": "Hu Ran Yan", "腹可缩可鼓": "Fu Ke Suo Ke Gu", "臂、碗、林木中分": "Bi , Wan , Lin Mu Zhong Fen", "艳女": "Yan Nv", "花卿": "Hua Qing", "花架巨蝎": "Hua Jia Ju Xie", "花狐貂": "Hua Hu Diao", "花露写肌肤": "Hua Lu Xie Ji Fu", "苍头": "Cang Tou", "苏岭山神": "Su Ling Shan Shen", "苟奴": "Gou Nu", "英招": "Ying Zhao", "荆棘岭四老": "Jing Ji Ling Si Lao", "荆棘岭四老（十八公、孤直公、凌空子、拂云叟）": "Jing Ji Ling Si Lao (Shi Ba Gong , Gu Zhi Gong , Ling Kong Zi , Fu Yun Sou)", "荧惑星": "Ying Huo Xing", "荧惑星童子": "Ying Huo Xing Tong Zi", "莲面怪": "Lian Mian Guai", "莲香": "Lian Xiang", "莲香（善终亦归狐形）": "Lian Xiang (Shan Zhong Yi Gui Hu Xing)", "莲香（轻如刍灵）": "Lian Xiang (Qing Ru Chu Ling)", "萧公": "Xiao Gong", "萨真人": "Sa Zhen Ren", "落头民": "Luo Tou Min", "董生": "Dong Sheng", "董生（人形藏尾）": "Dong Sheng (Ren Xing Cang Wei)", "董生（死后现狐）": "Dong Sheng (Si Hou Xian Hu)", "葱聋": "Cong Long", "蒋子文": "Jiang Zi Wen", "蒋庄武帝": "Jiang Zhuang Wu Di", "蒋庄武帝（蒋子文）": "Jiang Zhuang Wu Di (Jiang Zi Wen)", "蒿里相公": "Hao Li Xiang Gong", "蓐收": "Ru Shou", "蓑衣黑物": "Suo Yi Hei Wu", "蓬头鬼": "Peng Tou Gui", "藻兼": "Zao Jian", "虎先锋": "Hu Xian Feng", "虎力大仙": "Hu Li Da Xian", "虎精": "Hu Jing", "虎面老翁": "Hu Mian Lao Weng", "虢国公": "Guo Guo Gong", "虬首仙": "Qiu Shou Xian", "蚊虫": "Wen Chong", "蚩尤": "Chi You", "蚩尤神": "Chi You Shen", "蚺蛇": "Ran She", "蛇人": "She Ren", "蛇人（臂、碗、林木中分）": "She Ren (Bi , Wan , Lin Mu Zhong Fen)", "蛇尾之妇": "She Wei Zhi Fu", "蛇翁": "She Weng", "蛊雕": "Gu Diao", "蛙马指人": "Wa Ma Zhi Ren", "蛟妾": "Jiao Qie", "蛟羊": "Jiao Yang", "蛮蛮": "Man Man", "蜈蚣精": "Wu Gong Jing", "蜘蛛精": "Zhi Zhu Jing", "蜘蛛精（七女）": "Zhi Zhu Jing (Qi Nv)", "蜚": "Fei", "蝉蜕狐": "Chan Tui Hu", "蝉蜕盟器": "Chan Tui Meng Qi", "蝎子精": "Xie Zi Jing", "蝹": "Yun", "蟾蜍精": "Chan Chu Jing", "蠃鱼": "Luo Yu", "蠪侄": "Long Zhi", "血綵人": "Xue Cai Ren", "袁千里": "Yuan Qian Li", "袁洪·梅山第一": "Yuan Hong · Mei Shan Di Yi", "袁洪·现原身": "Yuan Hong · Xian Yuan Shen", "裸狐": "Luo Hu", "西岳真人": "Xi Yue Zhen Ren", "西岳金天王": "Xi Yue Jin Tian Wang", "西楚霸王": "Xi Chu Ba Wang", "西海龙王": "Xi Hai Long Wang", "西灵王母": "Xi Ling Wang Mu", "观世音菩萨": "Guan Shi Yin Pu Sa", "观音菩萨": "Guan Yin Pu Sa", "角木蛟": "Jiao Mu Jiao", "讙": "Huan", "讙头国": "Huan Tou Guo", "计蒙": "Ji Meng", "许旌阳真人": "Xu Jing Yang Zhen Ren", "许真君": "Xu Zhen Jun", "许真君（许逊）": "Xu Zhen Jun (Xu Xun)", "许逊": "Xu Xun", "诤人": "Zheng Ren", "诸怀": "Zhu Huai", "诸犍": "Zhu Jian", "谛听": "Di Ting", "豪彘": "Hao Zhi", "豲": "Huan", "豹头山小妖": "Bao Tou Shan Xiao Yao", "豹头山小妖（黄狮精部下）": "Bao Tou Shan Xiao Yao (Huang Shi Jing Bu Xia)", "豹子精": "Bao Zi Jing", "豹裈怪": "Bao Kun Guai", "豹裤夜叉": "Bao Ku Ye Cha", "负局先生": "Fu Ju Xian Sheng", "败方相": "Bai Fang Xiang", "贰负之臣": "Er Fu Zhi Chen", "贾儿": "Jia Er", "贾儿（人形多一尾）": "Jia Er (Ren Xing Duo Yi Wei)", "赛太岁": "Sai Tai Sui", "赛太岁（金毛犼）": "Sai Tai Sui (Jin Mao Hou)", "赤卵": "Chi Luan", "赤发夜叉": "Chi Fa Ye Cha", "赤发青面鬼": "Chi Fa Qing Mian Gui", "赤发骷髅": "Chi Fa Ku Lou", "赤尻马猴": "Chi Kao Ma Hou", "赤脚大仙": "Chi Jiao Da Xian", "赤面怪": "Chi Mian Guai", "赤鲤": "Chi Li", "赵元帅": "Zhao Yuan Shuai", "赵元帅（赵公明）": "Zhao Yuan Shuai (Zhao Gong Ming)", "赵公明": "Zhao Gong Ming", "赵寡妇": "Zhao Gua Fu", "足下生烟、逐级腾起": "Zu Xia Sheng Yan , Zhu Ji Teng Qi", "轻如刍灵": "Qing Ru Chu Ling", "辛环": "Xin Huan", "辟寒·辟暑·辟尘": "Pi Han · Pi Shu · Pi Chen", "辟寒·辟暑·辟尘（犀牛精）": "Pi Han · Pi Shu · Pi Chen (Xi Niu Jing)", "辟寒大王": "Pi Han Da Wang", "辟尘大王": "Pi Chen Da Wang", "辟暑大王": "Pi Shu Da Wang", "达磨": "Da Mo", "迦叶": "Jia Ye", "通背猿猴": "Tong Bei Yuan Hou", "道教源流·太上老君": "Dao Jiao Yuan Liu · Tai Shang Lao Jun", "遵化署狐": "Zun Hua Shu Hu", "遵化署狐（一缕白气冲空）": "Zun Hua Shu Hu (Yi Lv Bai Qi Chong Kong)", "遵化署狐（群狐据楼为家）": "Zun Hua Shu Hu (Qun Hu Ju Lou Wei Jia)", "郡侯上官": "Jun Hou Shang Guan", "酒友": "Jiu You", "酒友（醉狐与儒冠俊人）": "Jiu You (Zui Hu Yu Ru Guan Jun Ren)", "醉狐": "Zui Hu", "醉狐与儒冠俊人": "Zui Hu Yu Ru Guan Jun Ren", "释氏源流·释迦牟尼": "Shi Shi Yuan Liu · Shi Jia Mu Ni", "野狗": "Ye Gou", "野狗（断首尸语、野狗吸脑）": "Ye Gou (Duan Shou Shi Yu , Ye Gou Xi Nao)", "金光仙": "Jin Guang Xian", "金刚密迹": "Jin Gang Mi Ji", "金圣娘娘": "Jin Sheng Niang Niang", "金将军": "Jin Jiang Jun", "金毛犼": "Jin Mao Hou", "金池长老": "Jin Chi Zhang Lao", "金目巨虺": "Jin Mu Ju Hui", "金精": "Jin Jing", "金翅黑鸟": "Jin Chi Hei Niao", "金角大王": "Jin Jiao Da Wang", "金车": "Jin Che", "金铜戏局": "Jin Tong Xi Ju", "金顶大仙": "Jin Ding Da Xian", "金马": "Jin Ma", "金鱼神": "Jin Yu Shen", "金鱼精": "Jin Yu Jing", "金鸡": "Jin Ji", "金鼻白毛老鼠精": "Jin Bi Bai Mao Lao Shu Jing", "金鼻白毛老鼠精（原形）": "Jin Bi Bai Mao Lao Shu Jing (Yuan Xing)", "釜中白头公": "Fu Zhong Bai Tou Gong", "钉灵国": "Ding Ling Guo", "钟神": "Zhong Shen", "钟馗": "Zhong Kui", "钱小小": "Qian Xiao Xiao", "铁扇公主": "Tie Shan Gong Zhu", "铁杵": "Tie Chu", "铁背苍狼怪": "Tie Bei Cang Lang Guai", "铁背苍狼怪（本相）": "Tie Bei Cang Lang Guai (Ben Xiang)", "铜人": "Tong Ren", "铜青脸": "Tong Qing Lian", "银角大王": "Yin Jiao Da Wang", "镇元大仙": "Zhen Yuan Da Xian", "长右": "Zhang You", "长股国": "Zhang Gu Guo", "长臂国": "Zhang Bi Guo", "长鬣怪物": "Zhang Lie Guai Wu", "门神": "Men Shen", "阎王": "Yan Wang", "阮瞻": "Ruan Zhan", "防风氏": "Fang Feng Shi", "阿傩": "A Nuo", "阿紫": "A Zi", "阿紫狐妖": "A Zi Hu Yao", "陆判": "Lu Pan", "陆判（木雕之狞与活判之威）": "Lu Pan (Mu Diao Zhi Ning Yu Huo Pan Zhi Wei)", "陆吾": "Lu Wu", "陈光蕊": "Chen Guang Rui", "陈宝": "Chen Bao", "陈果仁": "Chen Guo Ren", "陈澄": "Chen Cheng", "降龙罗汉": "Xiang Long Luo Han", "陛大夫": "Bi Da Fu", "院宇无存，但见高冢": "Yuan Yu Wu Cun ， Dan Jian Gao Zhong", "雌虎": "Ci Hu", "雨师妾": "Yu Shi Qie", "雨鱼": "Yu Yu", "雪狮精": "Xue Shi Jing", "雪眉老人": "Xue Mei Lao Ren", "零陵王": "Ling Ling Wang", "雷兽": "Lei Shou", "雷将": "Lei Jiang", "雷神": "Lei Shen", "雷震子·凶相": "Lei Zhen Zi · Xiong Xiang", "雷震子·赞": "Lei Zhen Zi · Zan", "雹神": "Bao Shen", "雹神（足下生烟、逐级腾起）": "Bao Shen (Zu Xia Sheng Yan , Zhu Ji Teng Qi)", "青凤": "Qing Feng", "青凤（幼狐乞援、黑狐血殷）": "Qing Feng (You Hu Qi Yuan , Hei Hu Xue Yin)", "青毛狮子": "Qing Mao Shi Zi", "青毛狮子怪": "Qing Mao Shi Zi Guai", "青牛": "Qing Niu", "青牛精": "Qing Niu Jing", "青眼牛形": "Qing Yan Niu Xing", "青蛇神": "Qing She Shen", "青衣": "Qing Yi", "青衣童子": "Qing Yi Tong Zi", "青衣鬼": "Qing Yi Gui", "青身夜叉": "Qing Shen Ye Cha", "青钟": "Qing Zhong", "青面獠牙": "Qing Mian Liao Ya", "青面罗刹": "Qing Mian Luo Cha", "青面赤发新妇": "Qing Mian Chi Fa Xin Fu", "青面赤发泥鬼": "Qing Mian Chi Fa Ni Gui", "青鸟童子": "Qing Niao Tong Zi", "青龙": "Qing Long", "面黑如煤、手弓腰矢": "Mian Hei Ru Mei , Shou Gong Yao Shi", "顶上小人": "Ding Shang Xiao Ren", "顺济王": "Shun Ji Wang", "须菩提祖师": "Xu Pu Ti Zu Shi", "风生兽": "Feng Sheng Shou", "飞天夜叉": "Fei Tian Ye Cha", "飞鼠": "Fei Shu", "饕餮": "Tao Tie", "饭臿怪": "Fan Cha Guai", "首大如瓮之鬼": "Shou Da Ru Weng Zhi Gui", "马善": "Ma Shan", "马援": "Ma Yuan", "马皮蚕女": "Ma Pi Can Nv", "马神": "Ma Shen", "马腹": "Ma Fu", "驱石神人": "Qu Shi Shen Ren", "驳": "Bo", "驴形人": "Lv Xing Ren", "驺吾": "Zou Wu", "驾鹤仙者": "Jia He Xian Zhe", "驿丞": "Yi Cheng", "骷髅": "Ku Lou", "髑髅狐": "Du Lou Hu", "高丈余、鸣如雷": "Gao Zhang Yu , Ming Ru Lei", "高元帅": "Gao Yuan Shuai", "高太公": "Gao Tai Gong", "高才": "Gao Cai", "高明": "Gao Ming", "高觉": "Gao Jue", "鬼": "Gui", "鬼之形状": "Gui Zhi Xing Zhuang", "鬼哭": "Gui Ku", "鬼哭（磷飞鬼哭）": "Gui Ku (Lin Fei Gui Ku)", "鬼妻": "Gui Qi", "鬼姑神": "Gui Gu Shen", "鬼母": "Gui Mu", "鬼母（鬼姑神）": "Gui Mu (Gui Gu Shen)", "鬼童如烟雾": "Gui Tong Ru Yan Wu", "鬼（宗定伯）": "Gui (Zong Ding Bo)", "鬼（文颖）": "Gui (Wen Ying)", "鬼（杨度）": "Gui (Yang Du)", "鬼（苟奴）": "Gui (Gou Nu)", "鬼（阮瞻）": "Gui (Ruan Zhan)", "魂见己棺": "Hun Jian Ji Guan", "魏徵": "Wei Zheng", "鲇鱼怪、黑鱼精": "Nian Yu Guai , Hei Yu Jing", "鲛人": "Jiao Ren", "鲲": "Kun", "鳛鳛鱼": "Xi Xi Yu", "鳞角蚕": "Lin Jiao Can", "鴸": "Zhu", "鵸鵌": "Qi Tu", "鸟鼠同穴": "Niao Shu Tong Xue", "鸡脚人": "Ji Jiao Ren", "鸱": "Chi", "鹄国人": "Gu Guo Ren", "鹏": "Peng", "鹰虎神": "Ying Hu Shen", "鹰虎神（铜青脸）": "Ying Hu Shen (Tong Qing Lian)", "鹿力大仙": "Lu Li Da Xian", "鹿娘": "Lu Niang", "鹿精": "Lu Jing", "鹿蜀": "Lu Shu", "麒麟": "Qi Lin", "黄仙师": "Huang Xian Shi", "黄华草妖": "Huang Hua Cao Yao", "黄母化鼋": "Huang Mu Hua Yuan", "黄毛夜叉": "Huang Mao Ye Cha", "黄毛怪": "Huang Mao Guai", "黄父鬼": "Huang Fu Gui", "黄牙老象": "Huang Ya Lao Xiang", "黄狮精": "Huang Shi Jing", "黄狮精部下": "Huang Shi Jing Bu Xia", "黄眉大王": "Huang Mei Da Wang", "黄眉怪": "Huang Mei Guai", "黄石公": "Huang Shi Gong", "黄能": "Huang Neng", "黄衣人": "Huang Yi Ren", "黄袍怪": "Huang Pao Guai", "黄袍怪（变俊男）": "Huang Pao Guai (Bian Jun Nan)", "黄袍怪（奎木狼）": "Huang Pao Guai (Kui Mu Lang)", "黄陵神": "Huang Ling Shen", "黄风怪": "Huang Feng Guai", "黄魔神": "Huang Mo Shen", "黑毛人与绿氆氇女": "Hei Mao Ren Yu Lv Pu Lu Nv", "黑水河神": "Hei Shui He Shen", "黑熊精": "Hei Xiong Jing", "黑熊精（黑风山黑风王）": "Hei Xiong Jing (Hei Feng Shan Hei Feng Wang)", "黑狐腹中小人首": "Hei Hu Fu Zhong Xiao Ren Shou", "黑狗无尾精": "Hei Gou Wu Wei Jing", "黑白无常": "Hei Bai Wu Chang", "黑衣丈人": "Hei Yi Zhang Ren", "黑衣白裕鬼": "Hei Yi Bai Yu Gui", "黑衣短人": "Hei Yi Duan Ren", "黑雾入瓶、白气凌霄": "Hei Wu Ru Ping , Bai Qi Ling Xiao", "黑面丈余": "Hei Mian Zhang Yu", "黑面怪": "Hei Mian Guai", "黑风山黑风王": "Hei Feng Shan Hei Feng Wang", "鼋怪吞舟": "Yuan Guai Tun Zhou", "鼍龙怪": "Tuo Long Guai", "鼠妇": "Shu Fu", "齐天大圣": "Qi Tian Da Sheng", "龙": "Long", "龙伯国大人": "Long Bo Guo Da Ren", "龙女": "Long Nv", "龙爪": "Long Zhao", "龙王夫人": "Long Wang Fu Ren", "龙须虎": "Long Xu Hu", "龙（堕龙的狼狈）": "Long (Duo Long De Lang Bei)", "龙（如蚓、如指、如带）": "Long (Ru Yin , Ru Zhi , Ru Dai)", "龟毛兔角": "Gui Mao Tu Jiao", "龟灵圣母": "Gui Ling Sheng Mu"};
+
+  function swapNode(el, en, attr){
+    if (!el) return;
+    if (attr){
+      if (el.dataset.zhi18n === undefined) el.dataset.zhi18n = el.getAttribute(attr) || '';
+      el.setAttribute(attr, LANG === 'en' ? en : el.dataset.zhi18n);
+    } else {
+      if (el.dataset.zhi18n === undefined) el.dataset.zhi18n = el.textContent;
+      el.textContent = LANG === 'en' ? en : el.dataset.zhi18n;
+    }
+  }
+  function swapSel(sel, en, attr){ swapNode(document.querySelector(sel), en, attr); }
+  function swapFirst(el, en){
+    if (!el) return;
+    if (el.dataset.zhi18n === undefined) el.dataset.zhi18n = el.firstChild.textContent;
+    el.firstChild.textContent = LANG === 'en' ? en : el.dataset.zhi18n;
+  }
+  function swapCount(el){
+    if (!el) return;
+    if (el.dataset.zhi18n === undefined) el.dataset.zhi18n = el.textContent;
+    el.textContent = LANG === 'en' ? el.dataset.zhi18n.replace('幅','plates') : el.dataset.zhi18n;
+  }
+
+  function applyStaticLang(){
+    document.documentElement.lang = LANG === 'en' ? 'en' : 'zh-CN';
+    var lbtn = document.getElementById('lang-toggle');
+    if (lbtn) lbtn.textContent = LANG === 'en' ? '中文' : 'EN';
+
+    var wlist = ['xyj','shj','lz','zby','sjs','lzl','syj','tpg','ssj','yw','fs'];
+    /* 顶栏品牌行 */
+    wlist.forEach(function(w){
+      swapNode(document.querySelector('.brand a[href="#/w/' + w + '"]'), EN_BRAND[w]);
+    });
+    swapSel('.bs a', 'ZHIGUAI');
+    /* 计数动态取自 topmeta 中文（幅/部/类），避免硬编码过期 */
+    var tmEl = document.querySelector('.topmeta');
+    var nums = tmEl ? (tmEl.textContent.match(/\d+/g) || []) : [];
+    var tot = nums[0] || '0';
+    var nwork = nums[1] || '11';
+    swapSel('.topmeta', tot + ' plates · ' + nwork + ' works · ' + (nums[2] || '') + ' categories');
+    /* 角色卡名字：英文模式显示拼音（中文缓存于 data-zhi18n） */
+    document.querySelectorAll('.plate .pname').forEach(function(pn){
+      if (!pn.firstChild) return;
+      if (pn.dataset.zhi18n === undefined) pn.dataset.zhi18n = pn.firstChild.textContent;
+      pn.firstChild.textContent = nameDisp(pn.dataset.zhi18n);
+    });
+    document.querySelectorAll('.plate .psub').forEach(function(ps){
+      if (ps.dataset.zhi18n === undefined) ps.dataset.zhi18n = ps.textContent;
+      ps.textContent = nameDisp(ps.dataset.zhi18n);
+    });
+    swapNode(document.getElementById('heroName'), nameDisp(document.getElementById('heroName') ? document.getElementById('heroName').dataset.zhi18n || document.getElementById('heroName').textContent : ''));
+    /* 卷一 hero */
+    swapSel('.view--works .hero .kicker', 'VOL. I · WORKS');
+    swapFirst(document.querySelector('.hero-copy h1'), 'Records of the Strange');
+    wlist.forEach(function(w){
+      swapNode(document.querySelector('.hero-copy h1 em a[href="#/w/' + w + '"]'), EN_HERO[w]);
+    });
+    swapSel('.hero-copy p.lede', 'A gazetteer of the strange drawn from eleven Chinese classics — from the pilgrimage demons of Journey to the West to the fox spirits of Liaozhai. Each of the ' + tot + ' plates pairs a character design with the original text; browse by work, category and habitat, with the image and the word annotating each other.');
+    swapSel('.hero-stats div:nth-child(1) span', 'Works');
+    swapSel('.hero-stats div:nth-child(2) span', 'Plates');
+    swapSel('.hero-stats div:nth-child(3) span', 'Categories');
+    swapSel('.hero-stats div:nth-child(4) span', 'Habitats');
+    /* 检索区 */
+    swapSel('.searchband .kicker', 'SEARCH BY NAME');
+    swapSel('.searchfield input', 'Search a work, or a name: 白骨精 / 聂小倩 / 哪吒 / 鲛人', 'placeholder');
+    swapSel('.idxhead h2', 'Included Works');
+    swapSel('.idxhead span', nwork + ' works');
+    /* 作品索引卡 */
+    wlist.forEach(function(w){
+      var h3 = document.querySelector('a[href="#/w/' + w + '"] h3');
+      if (h3){
+        swapFirst(h3, EN_WORKS[w]);
+        swapNode(h3.querySelector('small'), EN_AUTHORS[w]);
+      }
+    });
+    /* 卷二 分类视图 */
+    wlist.forEach(function(w){
+      var h1 = document.querySelector('.workview[data-work="' + w + '"] h1');
+      if (h1){
+        swapFirst(h1, EN_WORKS[w]);
+        var em = h1.querySelector('em');
+        swapNode(em, EN_WSUB[w]);
+      }
+      swapSel('.workview[data-work="' + w + '"] .chead .kicker', 'VOL. II · CATEGORIES');
+      swapSel('.workgal[data-work="' + w + '"] .gtitle .kicker, .workgal[data-work="' + w + '"] .kicker', 'VOL. III · HABITATS');
+    });
+    /* 分类卡：类名 + 计数 */
+    document.querySelectorAll('.catrow').forEach(function(row){
+      var wv = row.closest('.workview');
+      if (!wv) return;
+      var w = wv.dataset.work, c = row.dataset.cat;
+      var h2 = row.querySelector('.catmain h2');
+      if (h2 && h2.firstChild){
+        if (h2.dataset.zhi18n === undefined) h2.dataset.zhi18n = h2.firstChild.textContent;
+        h2.firstChild.textContent = catName(w, c);
+      }
+      swapCount(row.querySelector('.catmain h2 b'));
+    });
+    /* 生境行（作品分类卡内）：中文名 → 英文反查 */
+    document.querySelectorAll('.workview .habrow em').forEach(function(em){
+      if (em.dataset.zhi18n === undefined) em.dataset.zhi18n = em.textContent;
+      em.textContent = LANG === 'en' ? (ZH_HAB2EN[em.dataset.zhi18n] || em.dataset.zhi18n) : em.dataset.zhi18n;
+    });
+    /* 生境图录静态区 */
+    document.querySelectorAll('.workgal .gsec').forEach(function(sec){
+      var wv = sec.closest('.workgal');
+      if (!wv) return;
+      var w = wv.dataset.work, h = sec.dataset.hab;
+      var nameEl = sec.querySelector('.gsecname');
+      if (nameEl){
+        if (nameEl.dataset.zhi18n === undefined) nameEl.dataset.zhi18n = nameEl.textContent;
+        nameEl.textContent = LANG === 'en' ? (EN_HABS[h] || nameEl.dataset.zhi18n) : nameEl.dataset.zhi18n;
+      }
+      swapCount(sec.querySelector('.gseccount'));
+    });
+    /* 进入分类 / 浏览全部 */
+    document.querySelectorAll('.wcta').forEach(function(el){ swapFirst(el, 'ENTER CATEGORIES'); });
+    document.querySelectorAll('.wquick a').forEach(function(a){
+      if (a.dataset.zhi18n === undefined) a.dataset.zhi18n = a.textContent;
+      a.textContent = LANG === 'en'
+        ? a.dataset.zhi18n.replace(/浏览全部 (\d+) 幅，按生境排列/, 'Browse all $1 plates by habitat')
+        : a.dataset.zhi18n;
+    });
+    /* 视频面板静态文案 */
+    swapSel('.vg .kicker', 'IMAGE-TO-VIDEO');
+    swapSel('#vg-useimg-txt', 'Auto-use the current image as reference');
+    swapSel('#vg-key', 'Paste your own API KEY (right-click paste / Ctrl+V)', 'placeholder');
+    swapSel('#vg-keylink', 'Get a KEY ↗');
+    var keyhint = document.querySelector('.vg-keyhint');
+    if (keyhint) swapNode(keyhint, 'Video generation must use your own KEY (this site embeds none and pays nothing) — apply at platform.agnes-ai.com. The KEY is stored only in your browser.');
+    var vgh3 = document.querySelector('.vg-left .vg-sec h3');
+    if (vgh3) swapNode(vgh3, 'Excerpt (auto-loaded from the current plate)');
+    var ph3 = document.getElementById('vg-deepen') ? document.getElementById('vg-deepen').parentNode : null;
+    if (ph3) swapFirst(ph3, 'Video prompt ');
+    swapNode(document.getElementById('vg-deepen'), 'Deepen with AI · agnes-2.5-flash');
+    var labels = document.querySelectorAll('.vg-params label');
+    if (labels[0]) swapNode(labels[0], 'Aspect ratio');
+    if (labels[1]) swapNode(labels[1], 'Resolution');
+    if (labels[2]) swapNode(labels[2], 'Duration (4 – 12 s)');
+    swapNode(document.getElementById('vg-gen'), T('生 成 视 频','G E N E R A T E'));
+    swapNode(document.getElementById('vg-dl'), 'Download video');
+    var opt1 = document.querySelector('#vg-ar option[value="16:9"]');
+    var opt2 = document.querySelector('#vg-ar option[value="9:16"]');
+    var opt3 = document.querySelector('#vg-ar option[value="1:1"]');
+    if (opt1) swapNode(opt1, '16:9 Landscape');
+    if (opt2) swapNode(opt2, '9:16 Portrait');
+    if (opt3) swapNode(opt3, '1:1 Square');
+    /* 页脚 */
+    swapSel('footer .wrap div:first-child', 'Xiyou · Shanhai · Liaozhai · Zibuyu · Sanjiao · Liezi · Shuyi · Taiping · Soushen · Yuewei · Fengshen — Records of the Strange · Excerpts from standard editions; categories and habitats by the editor · ' + tot + ' plates in all');
+  }
+  var ZH_HAB2EN = {};
+  (function(){
+    Object.keys(WORKMETA).forEach(function(w){
+      Object.keys(WORKMETA[w].habs).forEach(function(k){
+        ZH_HAB2EN[WORKMETA[w].habs[k].name] = EN_HABS[k];
+      });
+    });
+  })();
+
+  document.getElementById('lang-toggle').addEventListener('click', function(){
+    LANG = LANG === 'en' ? 'zh' : 'en';
+    try { localStorage.setItem('zg-lang', LANG); } catch(err){}
+    applyStaticLang();
+    route();
+    if (!lb.hidden) drawLB();
+    if (document.getElementById('vg').classList.contains('is-open') && vgData){
+      vgEl('vg-title').textContent = vgData.name + ' · ' + T('做视频','Make Video');
+    }
+  });
+
+  applyStaticLang();
 })();
 </script>
 </body>
