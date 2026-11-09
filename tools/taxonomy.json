@@ -1,65 +1,1050 @@
 {
-  "note": "编者所立的二级分类与生境归属，依据《西游记》原文对本相、称号与居所的描述判定，非原著官方分类。cat: yao妖 / jing精 / gui鬼 / guai怪。hab: hai海 / lu陆 / kong空 / di地穴。",
-  "items": {
-    "01": { "cat": "yao", "hab": "di", "basis": "水脏洞洞主，人形魔头" },
-    "02": { "cat": "yao", "hab": "kong", "basis": "受封齐天大圣，腾云上天" },
-    "03": { "cat": "jing", "hab": "di", "basis": "猪相本形，占福陵山云栈洞" },
-    "04": { "cat": "jing", "hab": "di", "basis": "猪相本形，披挂出洞" },
-    "05": { "cat": "jing", "hab": "lu", "basis": "虎精，双叉岭山君" },
-    "06": { "cat": "jing", "hab": "di", "basis": "黑熊成精，黑风洞称王" },
-    "07": { "cat": "jing", "hab": "lu", "basis": "虎先锋，黄风岭岭口" },
-    "08": { "cat": "guai", "hab": "di", "basis": "黄风洞主，书中始终称怪" },
-    "09": { "cat": "yao", "hab": "hai", "basis": "流沙河妖，水底安身" },
-    "10": { "cat": "jing", "hab": "lu", "basis": "白骨成精，白虎岭化女" },
-    "11": { "cat": "jing", "hab": "lu", "basis": "白骨成精，化少女" },
-    "12": { "cat": "jing", "hab": "lu", "basis": "白骨成精，化少女" },
-    "13": { "cat": "jing", "hab": "lu", "basis": "白骨成精，化老妇" },
-    "14": { "cat": "gui", "hab": "lu", "basis": "僵尸本相，一堆粉骷髅" },
-    "15": { "cat": "yao", "hab": "di", "basis": "碗子山波月洞，妖身" },
-    "16": { "cat": "yao", "hab": "di", "basis": "波月洞主，披挂出阵" },
-    "17": { "cat": "yao", "hab": "lu", "basis": "入宝象国化俊男" },
-    "18": { "cat": "jing", "hab": "di", "basis": "九尾狐狸，压龙洞老母" },
-    "19": { "cat": "yao", "hab": "di", "basis": "平顶山莲花洞二魔" },
-    "20": { "cat": "yao", "hab": "di", "basis": "平顶山莲花洞二魔" },
-    "21": { "cat": "jing", "hab": "di", "basis": "狐族大王，平顶山" },
-    "22": { "cat": "jing", "hab": "lu", "basis": "青毛狮本相，篡乌鸡国" },
-    "23": { "cat": "yao", "hab": "di", "basis": "火云洞圣婴，化顽童" },
-    "24": { "cat": "yao", "hab": "di", "basis": "火云洞圣婴，本装" },
-    "25": { "cat": "yao", "hab": "hai", "basis": "通天河水府，灵感大王" },
-    "26": { "cat": "jing", "hab": "hai", "basis": "金鱼成精，莲花池走脱" },
-    "27": { "cat": "yao", "hab": "di", "basis": "金兜洞独角兕大王" },
-    "28": { "cat": "jing", "hab": "di", "basis": "本相青牛，老君坐骑" },
-    "29": { "cat": "yao", "hab": "di", "basis": "翠云山芭蕉洞罗刹女" },
-    "30": { "cat": "jing", "hab": "di", "basis": "玉面狐狸，积雷山摩云洞" },
-    "31": { "cat": "yao", "hab": "di", "basis": "积雷山大力牛魔王" },
-    "32": { "cat": "jing", "hab": "lu", "basis": "本相大白牛，半山赌斗" },
-    "33": { "cat": "jing", "hab": "lu", "basis": "本相大白牛，再战群山" },
-    "34": { "cat": "jing", "hab": "hai", "basis": "鲇鱼、黑鱼成精，碧波潭" },
-    "35": { "cat": "guai", "hab": "hai", "basis": "九头鸟形，碧波潭驸马" },
-    "36": { "cat": "guai", "hab": "hai", "basis": "九头攒环，本相毕露" },
-    "37": { "cat": "jing", "hab": "lu", "basis": "松柏桧竹成精，木仙庵" },
-    "38": { "cat": "jing", "hab": "lu", "basis": "杏树成精，木仙庵" },
-    "39": { "cat": "yao", "hab": "lu", "basis": "小雷音假佛，黄眉大王" },
-    "40": { "cat": "jing", "hab": "di", "basis": "红鳞大蟒，七绝山稀柿衕" },
-    "41": { "cat": "yao", "hab": "di", "basis": "麒麟山獬豸洞赛太岁" },
-    "42": { "cat": "yao", "hab": "di", "basis": "獬豸洞主，披挂持杵" },
-    "43": { "cat": "jing", "hab": "di", "basis": "蜘蛛成精，盘丝洞" },
-    "44": { "cat": "jing", "hab": "di", "basis": "七女同堂，盘丝洞" },
-    "45": { "cat": "jing", "hab": "di", "basis": "青毛狮本相，狮驼岭" },
-    "46": { "cat": "jing", "hab": "di", "basis": "白象本相，狮驼岭" },
-    "47": { "cat": "jing", "hab": "kong", "basis": "金翅大鹏，云程九万" },
-    "48": { "cat": "yao", "hab": "di", "basis": "狮驼岭巡山妖将" },
-    "49": { "cat": "jing", "hab": "di", "basis": "白面狐狸本相，清华洞" },
-    "50": { "cat": "jing", "hab": "di", "basis": "金鼻白毛鼠精，无底洞" },
-    "51": { "cat": "jing", "hab": "di", "basis": "鼠精美人相，无底洞" },
-    "52": { "cat": "jing", "hab": "di", "basis": "鼠精美人相，无底洞" },
-    "53": { "cat": "yao", "hab": "kong", "basis": "猴王本装，腾云上天" },
-    "54": { "cat": "jing", "hab": "di", "basis": "豹子成精，隐雾山连环洞" },
-    "55": { "cat": "jing", "hab": "lu", "basis": "猪相本装，隐雾山出力" },
-    "56": { "cat": "jing", "hab": "di", "basis": "苍狼本相，隐雾山先锋" },
-    "57": { "cat": "yao", "hab": "di", "basis": "豹头山虎口洞小妖" },
-    "58": { "cat": "yao", "hab": "di", "basis": "九灵元圣，竹节山九曲洞" },
-    "59": { "cat": "jing", "hab": "di", "basis": "犀牛成精，青龙山玄英洞" },
-    "60": { "cat": "jing", "hab": "kong", "basis": "玉兔本相，月宫捣药" }
+ "note": "编者所立的二级分类与生境归属，依据《西游记》原文对本相、称号与居所的描述判定，非原著官方分类。cat: yao妖 / jing精 / gui鬼 / guai怪。hab: hai海 / lu陆 / kong空 / di地穴。",
+ "items": {
+  "01": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "水脏洞洞主，人形魔头"
+  },
+  "02": {
+   "cat": "yao",
+   "hab": "kong",
+   "basis": "受封齐天大圣，腾云上天"
+  },
+  "03": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "猪相本形，占福陵山云栈洞"
+  },
+  "04": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "猪相本形，披挂出洞"
+  },
+  "05": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "虎精，双叉岭山君"
+  },
+  "06": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "黑熊成精，黑风洞称王"
+  },
+  "07": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "虎先锋，黄风岭岭口"
+  },
+  "08": {
+   "cat": "guai",
+   "hab": "di",
+   "basis": "黄风洞主，书中始终称怪"
+  },
+  "09": {
+   "cat": "yao",
+   "hab": "hai",
+   "basis": "流沙河妖，水底安身"
+  },
+  "10": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "白骨成精，白虎岭化女"
+  },
+  "11": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "白骨成精，化少女"
+  },
+  "12": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "白骨成精，化少女"
+  },
+  "13": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "白骨成精，化老妇"
+  },
+  "14": {
+   "cat": "gui",
+   "hab": "lu",
+   "basis": "僵尸本相，一堆粉骷髅"
+  },
+  "15": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "碗子山波月洞，妖身"
+  },
+  "16": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "波月洞主，披挂出阵"
+  },
+  "17": {
+   "cat": "yao",
+   "hab": "lu",
+   "basis": "入宝象国化俊男"
+  },
+  "18": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "九尾狐狸，压龙洞老母"
+  },
+  "19": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "平顶山莲花洞二魔"
+  },
+  "20": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "平顶山莲花洞二魔"
+  },
+  "21": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "狐族大王，平顶山"
+  },
+  "22": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "青毛狮本相，篡乌鸡国"
+  },
+  "23": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "火云洞圣婴，化顽童"
+  },
+  "24": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "火云洞圣婴，本装"
+  },
+  "25": {
+   "cat": "yao",
+   "hab": "hai",
+   "basis": "通天河水府，灵感大王"
+  },
+  "26": {
+   "cat": "jing",
+   "hab": "hai",
+   "basis": "金鱼成精，莲花池走脱"
+  },
+  "27": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "金兜洞独角兕大王"
+  },
+  "28": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "本相青牛，老君坐骑"
+  },
+  "29": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "翠云山芭蕉洞罗刹女"
+  },
+  "30": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "玉面狐狸，积雷山摩云洞"
+  },
+  "31": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "积雷山大力牛魔王"
+  },
+  "32": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "本相大白牛，半山赌斗"
+  },
+  "33": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "本相大白牛，再战群山"
+  },
+  "34": {
+   "cat": "jing",
+   "hab": "hai",
+   "basis": "鲇鱼、黑鱼成精，碧波潭"
+  },
+  "35": {
+   "cat": "guai",
+   "hab": "hai",
+   "basis": "九头鸟形，碧波潭驸马"
+  },
+  "36": {
+   "cat": "guai",
+   "hab": "hai",
+   "basis": "九头攒环，本相毕露"
+  },
+  "37": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "松柏桧竹成精，木仙庵"
+  },
+  "38": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "杏树成精，木仙庵"
+  },
+  "39": {
+   "cat": "yao",
+   "hab": "lu",
+   "basis": "小雷音假佛，黄眉大王"
+  },
+  "40": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "红鳞大蟒，七绝山稀柿衕"
+  },
+  "41": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "麒麟山獬豸洞赛太岁"
+  },
+  "42": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "獬豸洞主，披挂持杵"
+  },
+  "43": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "蜘蛛成精，盘丝洞"
+  },
+  "44": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "七女同堂，盘丝洞"
+  },
+  "45": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "青毛狮本相，狮驼岭"
+  },
+  "46": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "白象本相，狮驼岭"
+  },
+  "47": {
+   "cat": "jing",
+   "hab": "kong",
+   "basis": "金翅大鹏，云程九万"
+  },
+  "48": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "狮驼岭巡山妖将"
+  },
+  "49": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "白面狐狸本相，清华洞"
+  },
+  "50": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "金鼻白毛鼠精，无底洞"
+  },
+  "51": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "鼠精美人相，无底洞"
+  },
+  "52": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "鼠精美人相，无底洞"
+  },
+  "53": {
+   "cat": "yao",
+   "hab": "kong",
+   "basis": "猴王本装，腾云上天"
+  },
+  "54": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "豹子成精，隐雾山连环洞"
+  },
+  "55": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "猪相本装，隐雾山出力"
+  },
+  "56": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "苍狼本相，隐雾山先锋"
+  },
+  "57": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "豹头山虎口洞小妖"
+  },
+  "58": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "九灵元圣，竹节山九曲洞"
+  },
+  "59": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "犀牛成精，青龙山玄英洞"
+  },
+  "60": {
+   "cat": "jing",
+   "hab": "kong",
+   "basis": "玉兔本相，月宫捣药"
+  },
+  "061": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "如来弟子，随佛传经"
+  },
+  "062": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "灵山护法，执幢幡接经"
+  },
+  "063": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "白虎岭尸魔，三变惑僧"
+  },
+  "064": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "寿星坐骑，化国丈惑比丘"
+  },
+  "065": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "燃灯座下尊者，夺经示警"
+  },
+  "066": {
+   "cat": "ren",
+   "hab": "di",
+   "basis": "宝象国公主，被摄波月洞"
+  },
+  "067": {
+   "cat": "jing",
+   "hab": "hai",
+   "basis": "通天河水族，献策冻河"
+  },
+  "068": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "宝象国主，失女十三年"
+  },
+  "069": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "隐雾山南山大王，豹相"
+  },
+  "070": {
+   "cat": "shen",
+   "hab": "hai",
+   "basis": "四海龙王之一，献藕丝履"
+  },
+  "071": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "比丘国主，惑于国丈"
+  },
+  "072": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "寇员外家老仆，报客"
+  },
+  "073": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "陈家庄长者，献女祭赛"
+  },
+  "074": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "新科状元，赴江州遇害"
+  },
+  "075": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "瑶池赴会仙真"
+  },
+  "076": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "花果山四老猴之一"
+  },
+  "077": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "獬豸洞侍婢"
+  },
+  "078": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "铜台府刺史，勘寇家案"
+  },
+  "079": {
+   "cat": "gui",
+   "hab": "di",
+   "basis": "酆都判官，掌生死簿"
+  },
+  "080": {
+   "cat": "gui",
+   "hab": "kong",
+   "basis": "玉帝差遣传旨之鬼王"
+  },
+  "081": {
+   "cat": "fo",
+   "hab": "di",
+   "basis": "幽冥教主，案下有谛听"
+  },
+  "082": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "地藏案下伏兽，能辨真假"
+  },
+  "083": {
+   "cat": "shen",
+   "hab": "hai",
+   "basis": "敖广，献定海神针"
+  },
+  "084": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "二十八宿之一，四木禽星"
+  },
+  "085": {
+   "cat": "gui",
+   "hab": "di",
+   "basis": "投花果山，献赭黄袍"
+  },
+  "086": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "木仙庵竹精，吟诗谈禅"
+  },
+  "087": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "三星之一，赴五庄观"
+  },
+  "088": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "高太公家人，往寻法师"
+  },
+  "089": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "高老庄庄主，招婿得妖"
+  },
+  "090": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "木仙庵柏精，号孤直公"
+  },
+  "091": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "南海观音，奉旨寻取经人"
+  },
+  "092": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "观音禅院僧，献策烧僧"
+  },
+  "093": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "四大天王之一，守南天门"
+  },
+  "094": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "观音禅院僧，首倡谋僧"
+  },
+  "095": {
+   "cat": "gui",
+   "hab": "di",
+   "basis": "阴司勾魂二使"
+  },
+  "096": {
+   "cat": "shen",
+   "hab": "hai",
+   "basis": "黑水河神，为鼍龙所夺"
+  },
+  "097": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "黑风山黑风洞，盗袈裟"
+  },
+  "098": {
+   "cat": "yao",
+   "hab": "lu",
+   "basis": "车迟国三仙之首，虎力"
+  },
+  "099": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "黄风洞先锋，虎相"
+  },
+  "100": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "天门守将，护国天王"
+  },
+  "101": {
+   "cat": "guai",
+   "hab": "di",
+   "basis": "黄风洞主，三昧神风"
+  },
+  "102": {
+   "cat": "yao",
+   "hab": "lu",
+   "basis": "小雷音假佛，黄眉大王"
+  },
+  "103": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "豹头山虎口洞，盗兵器"
+  },
+  "104": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "水脏洞洞主，人形魔头"
+  },
+  "105": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "火部星君，助降兕怪"
+  },
+  "106": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "如来弟子，同传经卷"
+  },
+  "107": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "灵山罗汉"
+  },
+  "108": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "二十八宿之一，四木禽星"
+  },
+  "109": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "五方揭谛，随行护法"
+  },
+  "110": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "观音禅院老僧，贪袈裟"
+  },
+  "111": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "灵山脚下接引大仙"
+  },
+  "112": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "平顶山莲花洞二魔"
+  },
+  "113": {
+   "cat": "ren",
+   "hab": "di",
+   "basis": "朱紫国皇后，被摄獬豸洞"
+  },
+  "114": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "木仙庵松精，号十八公"
+  },
+  "115": {
+   "cat": "shen",
+   "hab": "hai",
+   "basis": "泾河龙王，犯天条问斩"
+  },
+  "116": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "莲花洞小妖，巡山"
+  },
+  "117": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "二十八宿之一，四木禽星"
+  },
+  "118": {
+   "cat": "guai",
+   "hab": "hai",
+   "basis": "碧波潭驸马，九头鸟形"
+  },
+  "119": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "九曜星君，随李天王征讨"
+  },
+  "120": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "天门巨灵神，为先锋"
+  },
+  "121": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "凤仙郡郡侯，冒犯天威"
+  },
+  "122": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "二十八宿之一，救大圣出钹"
+  },
+  "123": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "寇员外长子，诬僧"
+  },
+  "124": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "铜台府富户，斋僧遇害"
+  },
+  "125": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "二十八宿之奎木狼，下界为黄袍怪"
+  },
+  "126": {
+   "cat": "jing",
+   "hab": "hai",
+   "basis": "通天河老鼋，驮僧过河"
+  },
+  "127": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "雷部将吏，随驾降妖"
+  },
+  "128": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "洪江梢子，同谋害主"
+  },
+  "129": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "长安樵子，与张稍对答"
+  },
+  "130": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "托塔李天王，统天兵"
+  },
+  "131": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "莲花洞小妖，持葫芦"
+  },
+  "132": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "小须弥山灵吉，定风丹"
+  },
+  "133": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "木仙庵桧精"
+  },
+  "134": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "黑风山妖道，献丹"
+  },
+  "135": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "双叉岭猎户，护僧过岭"
+  },
+  "136": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "洪江水贼，害光蕊冒官"
+  },
+  "137": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "均州人，舍身进瓜"
+  },
+  "138": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "观音捧瓶龙女"
+  },
+  "139": {
+   "cat": "shen",
+   "hab": "hai",
+   "basis": "碧波潭万圣龙王之妻"
+  },
+  "140": {
+   "cat": "yao",
+   "hab": "lu",
+   "basis": "车迟国三仙之一，鹿力"
+  },
+  "141": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "三星之一，赴五庄观"
+  },
+  "142": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "昴宿星官，降蝎子精"
+  },
+  "143": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "五庄观道童"
+  },
+  "144": {
+   "cat": "shen",
+   "hab": "hai",
+   "basis": "西海龙王太子，擒鼍龙"
+  },
+  "145": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "惠岸行者，观音弟子"
+  },
+  "146": {
+   "cat": "gui",
+   "hab": "di",
+   "basis": "幽冥狱卒"
+  },
+  "147": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "西梁女国国王"
+  },
+  "148": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "紫云山千花洞，昴日之母"
+  },
+  "149": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "青龙山玄英洞三犀之一"
+  },
+  "150": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "青龙山玄英洞三犀之一"
+  },
+  "151": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "青龙山玄英洞三犀之一"
+  },
+  "152": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "峨眉普贤，收白象"
+  },
+  "153": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "竹节山七狮，随九灵元圣"
+  },
+  "154": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "南天门神将，观听金光"
+  },
+  "155": {
+   "cat": "gui",
+   "hab": "di",
+   "basis": "十殿阎王之一"
+  },
+  "156": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "唐将，守宫门"
+  },
+  "157": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "老君坐骑青牛，金兜洞"
+  },
+  "158": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "五庄观道童"
+  },
+  "159": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "灵霄殿前真人，奏事"
+  },
+  "160": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "西天如来，压猴五行山"
+  },
+  "161": {
+   "cat": "yao",
+   "hab": "lu",
+   "basis": "解阳山聚仙庵，掌落胎泉"
+  },
+  "162": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "麒麟山獬豸洞，金毛犼"
+  },
+  "163": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "玉华州三王子，拜师习武"
+  },
+  "164": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "三星之一，南极寿星"
+  },
+  "165": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "水部星君，助降兕怪"
+  },
+  "166": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "灵霄殿四天师"
+  },
+  "167": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "天门四天王"
+  },
+  "168": {
+   "cat": "shen",
+   "hab": "hai",
+   "basis": "四海龙王，共主水府"
+  },
+  "169": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "花果山四老猴，通背赤尻"
+  },
+  "170": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "西方太白金星，两次招安"
+  },
+  "171": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "兜率宫道祖，金刚琢"
+  },
+  "172": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "西梁女国太师，为媒"
+  },
+  "173": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "月宫太阴星君"
+  },
+  "174": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "乌鸡国太子，出城狩猎"
+  },
+  "175": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "大唐天子，开水陆大会"
+  },
+  "176": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "天竺国主，招亲"
+  },
+  "177": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "花果山四老猴之一"
+  },
+  "178": {
+   "cat": "guai",
+   "hab": "hai",
+   "basis": "黑水河妖，泾河龙王外甥"
+  },
+  "179": {
+   "cat": "shen",
+   "hab": "hai",
+   "basis": "碧波潭龙王，盗佛宝"
+  },
+  "180": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "佑圣真君部将，挡大圣"
+  },
+  "181": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "瑶池金母，开蟠桃会"
+  },
+  "182": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "唐将，守宫门"
+  },
+  "183": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "唐丞相，梦斩泾河龙"
+  },
+  "184": {
+   "cat": "fo",
+   "hab": "kong",
+   "basis": "五台文殊，收青狮"
+  },
+  "185": {
+   "cat": "fo",
+   "hab": "lu",
+   "basis": "浮屠山禅师，授心经"
+  },
+  "186": {
+   "cat": "ren",
+   "hab": "di",
+   "basis": "乌鸡国主，冤死井中"
+  },
+  "187": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "黄花观百眼魔君"
+  },
+  "188": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "灵霄殿星君，奏弼马温事"
+  },
+  "189": {
+   "cat": "shen",
+   "hab": "hai",
+   "basis": "敖闰，赠锁子黄金甲"
+  },
+  "190": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "狮驼岭巡山小妖"
+  },
+  "191": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "琵琶洞蝎子精，毒敌山"
+  },
+  "192": {
+   "cat": "jing",
+   "hab": "lu",
+   "basis": "木仙庵杏精"
+  },
+  "193": {
+   "cat": "shen",
+   "hab": "di",
+   "basis": "灵台方寸山祖师，授悟空"
+  },
+  "194": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "唐臣，陪太宗对弈"
+  },
+  "195": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "天师，随驾议事"
+  },
+  "196": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "竹节山七狮之一"
+  },
+  "197": {
+   "cat": "gui",
+   "hab": "di",
+   "basis": "十殿阎罗，掌幽冥"
+  },
+  "198": {
+   "cat": "yao",
+   "hab": "lu",
+   "basis": "车迟国三仙之一，羊力"
+  },
+  "199": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "西梁女国驿丞"
+  },
+  "200": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "光蕊之妻，丞相之女"
+  },
+  "201": {
+   "cat": "yao",
+   "hab": "di",
+   "basis": "平顶山莲花洞二魔"
+  },
+  "202": {
+   "cat": "shen",
+   "hab": "kong",
+   "basis": "灵霄殿玉皇大帝"
+  },
+  "203": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "玉华州国王，三子拜师"
+  },
+  "204": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "积雷山摩云洞，玉面狐狸"
+  },
+  "205": {
+   "cat": "jing",
+   "hab": "kong",
+   "basis": "月宫玉兔，下界为妖"
+  },
+  "206": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "长安渔翁，泾河岸边"
+  },
+  "207": {
+   "cat": "ren",
+   "hab": "lu",
+   "basis": "赵寡妇店，剃头待客"
+  },
+  "208": {
+   "cat": "shen",
+   "hab": "lu",
+   "basis": "五庄观地仙之祖"
+  },
+  "209": {
+   "cat": "jing",
+   "hab": "di",
+   "basis": "盘丝洞七女"
   }
+ }
 }

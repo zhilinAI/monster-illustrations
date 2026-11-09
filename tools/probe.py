@@ -93,6 +93,18 @@ PROBES = {
     "_probe_fs_search.html": ('var el=document.getElementById("q");'
                               'el.value="龙须虎";'
                               'el.dispatchEvent(new Event("input"));'),
+    "_probe_xyj_cats.html": 'location.hash="#/w/xyj";',
+    "_probe_xyj_shen.html": 'location.hash="#/w/xyj/x/shen";',
+    "_probe_xyj_jing.html": 'location.hash="#/w/xyj/x/jing";',
+    "_probe_xyj_tall_lb.html": ('location.hash="#/w/xyj/x/fo/061";'
+                                'document.querySelector("main").style.display="none";'
+                                'document.querySelector("footer").style.display="none";'),
+    "_probe_xyj_legacy_lb.html": ('location.hash="#/w/xyj/x/yao/02";'
+                                  'document.querySelector("main").style.display="none";'
+                                  'document.querySelector("footer").style.display="none";'),
+    "_probe_xyj_search.html": ('var el=document.getElementById("q");'
+                               'el.value="龙王夫人";'
+                               'el.dispatchEvent(new Event("input"));'),
 }
 
 html = open(SRC, encoding="utf-8").read()

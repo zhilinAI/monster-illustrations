@@ -84,6 +84,7 @@ body[data-view="gallery"] .view--gallery{display:block}
 .hero-plate figure{margin:0;position:relative;overflow:hidden}
 .hero-plate img{aspect-ratio:16/9;height:auto;object-fit:contain;width:100%;background:var(--ink2);transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 .hero-plate:hover img{transform:scale(1.02)}
+.hero-plate figure.is-tall img{aspect-ratio:2/3}
 .hero-plate .cap{display:flex;justify-content:space-between;gap:12px;padding:11px 4px 2px;font-size:11.5px;color:var(--dim);letter-spacing:.06em}
 .hero-plate .cap b{color:var(--rice);font-weight:400;font-family:var(--serif);font-size:13px;letter-spacing:.1em}
 
@@ -233,7 +234,7 @@ body[data-view="gallery"] .view--gallery{display:block}
 .gseccount{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--dim);letter-spacing:.1em}
 .gsecdesc{flex-basis:100%;color:var(--dim);font-size:12px;letter-spacing:.06em;margin:-4px 0 0 58px}
 
-.grid{display:grid;grid-template-columns:1fr;gap:18px}
+.grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
 @media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1120px){.grid{grid-template-columns:repeat(3,1fr)}}
 /* 竖图作品条目偏少（14 / 57 / 74 / 83），列数加到五列，最后一行不留单卡 */
@@ -252,6 +253,8 @@ body[data-view="gallery"] .view--gallery{display:block}
 /* 列子、述异记、太平广记为 3:4 竖图，搜神记为 2:3 竖图（衬边统一版式），其余五部为 16:9 四视图横版；图卡按原比例排版，避免裁头 */
 .plate[data-work="lzl"] .plate-fig,.plate[data-work="syj"] .plate-fig,.plate[data-work="tpg"] .plate-fig{aspect-ratio:3/4}
 .plate[data-work="ssj"] .plate-fig{aspect-ratio:2/3}
+/* 西游记前六十幅为 16:9 四视图，后一百四十九幅为国漫风 2:3 竖立绘，同一部内两种图幅并存 */
+.plate[data-shape="tall"] .plate-fig{aspect-ratio:2/3}
 .plate:hover .plate-fig img{transform:scale(1.035)}
 .plate-fig:focus-visible{outline:2px solid var(--cat);outline-offset:-2px}
 figcaption{padding:14px 16px 15px}
@@ -277,6 +280,8 @@ figcaption{padding:14px 16px 15px}
   .plate[data-work="lzl"].is-wide .plate-fig,.plate[data-work="syj"].is-wide .plate-fig,.plate[data-work="tpg"].is-wide .plate-fig{aspect-ratio:3/4;height:auto;min-height:0}
   .plate[data-work="ssj"].is-wide{grid-template-columns:260px 1fr;align-items:center}
   .plate[data-work="ssj"].is-wide .plate-fig{aspect-ratio:2/3;height:auto;min-height:0}
+  .plate[data-shape="tall"].is-wide{grid-template-columns:260px 1fr;align-items:center}
+  .plate[data-shape="tall"].is-wide .plate-fig{aspect-ratio:2/3;height:auto;min-height:0}
 }
 .gempty{color:var(--dim2);font-size:12px;letter-spacing:.1em;padding:10px 0 0}
 
@@ -337,7 +342,7 @@ footer a:hover{color:var(--dim)}
         <div class="hero-copy">
           <p class="kicker">卷一　作品</p>
           <h1>志怪图志<em><span>西 游 · 山 海 · 聊 斋 · 子 不 语 · 三 教 搜 神</span><span>列 子 · 述 异 记 · 太 平 广 记 · 搜 神 记 · 阅 微 草 堂 笔 记</span></em></h1>
-          <p class="lede">十部典籍的志怪谱录。西游取经道上的妖魔精怪，按妖、精、鬼、怪四类归纳；山海荒服之内的神民兽禽，按兽、禽、神、民四类归纳；聊斋灯窗之下的狐鬼妖神，按狐、鬼、妖、神四类归纳；子不语随笔记闻的精妖鬼怪，按鬼、兽、神、怪四类归纳；三教搜神所祀的神仙佛圣，按天界、释门、山川、人神、物怪、护法六类归纳；列子寓言中的神人巨兽，按神异、巨兽、大小人、微巧四类归纳；述异记上下二卷的精妖鬼怪，按神祇、精魅、化形、物怪四类归纳；太平广记类书所辑的精妖鬼怪，按妖、精、夜叉、狐、鬼五类归纳；搜神记所记的精妖鬼怪，按狐、鬼、兽、鳞、精魅、化形六类归纳；阅微草堂笔记所记的鬼狐物怪，按鬼、狐、物怪、精魅、龙蛇、神六类归纳；封神演义所记的精妖鬼怪，按妖、精怪、神、异人四类归纳。各自再以居所安置，逐幅附原文或描述，图与文互为注脚。</p>
+          <p class="lede">十一部典籍的志怪谱录。西游取经道上的妖魔精怪与神佛人主，按妖、精、鬼、怪、神、佛、人七类归纳；山海荒服之内的神民兽禽，按兽、禽、神、民四类归纳；聊斋灯窗之下的狐鬼妖神，按狐、鬼、妖、神四类归纳；子不语随笔记闻的精妖鬼怪，按鬼、兽、神、怪四类归纳；三教搜神所祀的神仙佛圣，按天界、释门、山川、人神、物怪、护法六类归纳；列子寓言中的神人巨兽，按神异、巨兽、大小人、微巧四类归纳；述异记上下二卷的精妖鬼怪，按神祇、精魅、化形、物怪四类归纳；太平广记类书所辑的精妖鬼怪，按妖、精、夜叉、狐、鬼五类归纳；搜神记所记的精妖鬼怪，按狐、鬼、兽、鳞、精魅、化形六类归纳；阅微草堂笔记所记的鬼狐物怪，按鬼、狐、物怪、精魅、龙蛇、神六类归纳；封神演义所记的精妖鬼怪，按妖、精怪、神、异人四类归纳。各自再以居所安置，逐幅附原文或描述，图与文互为注脚。</p>
           <div class="hero-stats">
             <div><b>{{N_WORKS}}</b><span>作品</span></div>
             <div><b>{{N_ITEMS}}</b><span>设定图</span></div>
@@ -434,6 +439,7 @@ footer a:hover{color:var(--dim)}
       if(HERO_ITEMS.length>1 && n===i){ n=(n+1)%HERO_ITEMS.length; }
       i=n; var it=HERO_ITEMS[n];
       img.src=it.img; img.alt=it.name+' 设定图';
+      if(img.parentNode){ img.parentNode.classList.toggle('is-tall', it.shape==='tall'); }
       if(nm) nm.textContent=it.name;
       if(sub) sub.textContent=it.sub;
     }, 3000);

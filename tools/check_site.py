@@ -51,6 +51,33 @@ for path in DATASETS:
         if empty:
             problems.append("%s 描述过短：%s" % (work, ",".join(empty)))
 
+    # 西游记：旧六十幅四视图 + 新一百四十九幅国漫立绘，七类四境分布固定
+    if work == "xyj":
+        bad = [it["id"] for it in items
+               if not re.match(r"第[一二三四五六七八九十百]+回", it["chapterShort"] or "")
+               or len(it["desc"] or "") < 2
+               or len(it["quote"] or "") < 2]
+        if bad:
+            problems.append("西游记回次/描写/原文异常：%s" % ",".join(bad))
+        if len(items) != 209:
+            problems.append("西游记条目 %d 条，应为 209" % len(items))
+        for cat, n in (("yao", 35), ("jing", 63), ("gui", 8), ("guai", 6),
+                       ("shen", 44), ("fo", 14), ("ren", 39)):
+            c = sum(1 for it in items if it["category"] == cat)
+            if c != n:
+                problems.append("西游记%s 共 %d 条，应为 %d" % (cat, c, n))
+        for hab, n in (("hai", 19), ("lu", 65), ("kong", 51), ("di", 74)):
+            c = sum(1 for it in items if it["habitat"] == hab)
+            if c != n:
+                problems.append("西游记生境%s 共 %d 条，应为 %d" % (hab, c, n))
+        # 新补条目编号须从 061 起连续到 209
+        new_ids = [it["id"] for it in items if len(it["id"]) == 3]
+        if new_ids != ["%03d" % n for n in range(61, 210)]:
+            problems.append("西游记补录编号不连续：%d 条" % len(new_ids))
+        shapes = len(re.findall(r'data-shape="tall" data-id="\d{2,3}"', page))
+        if shapes != 149:
+            problems.append("西游记竖图卡 %d 张，应为 149" % shapes)
+
     # 子不语：卷次篇名须由摘抄标题解析出来，按语不可为空
     if work == "zby":
         bad = [it["id"] for it in items
@@ -235,7 +262,8 @@ for path in DATASETS:
             problems.append("页面缺少图片引用：%s" % it["image"])
 
     card_attrs = re.findall(
-        r'<figure class="plate" data-work="%s" data-cat="(\w+)" data-hab="(\w+)" data-id="(\d{2,3})"' % work, page)
+        r'<figure class="plate" data-work="%s" data-cat="(\w+)" data-hab="(\w+)"'
+        r' data-shape="\w+" data-id="(\d{2,3})"' % work, page)
     if len(card_attrs) != len(items):
         problems.append("%s 图卡 %d 张，应为 %d" % (work, len(card_attrs), len(items)))
     for cat, hab, cid in card_attrs:

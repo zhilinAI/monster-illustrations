@@ -19,7 +19,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 PROJECT = os.path.dirname(HERE)
 
 WORKS = {
-    "xyj": {"src": PROJECT, "ext": ".webp", "out": os.path.join(PROJECT, "assets", "characters")},
+    "xyj": {"src": os.path.join(PROJECT, "xiyouji"), "ext": ".webp",
+            "out": os.path.join(PROJECT, "assets", "characters")},
+    "xyj2": {"src": os.path.join(PROJECT, "xiyouji", "西游_国漫风"), "ext": ".png",
+             "out": os.path.join(PROJECT, "assets", "characters"),
+             "roster": os.path.join(PROJECT, "data", "xyj_roster150.json")},
     "shj": {"src": os.path.join(PROJECT, "shj", "shjcp"), "ext": ".png",
             "out": os.path.join(PROJECT, "assets", "shanhaijing")},
     "lz": {"src": os.path.join(PROJECT, "liaozai", "聊斋图志"), "ext": ".jpg",

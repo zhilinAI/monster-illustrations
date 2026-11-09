@@ -27,25 +27,30 @@ WORKS = [
         "color": "zhu",
         "alias": "西游 西游释厄传 西游证道书",
         "src": os.path.join(PROJECT, "data", "原文摘录.txt"),
+        "roster": os.path.join(PROJECT, "data", "xyj_roster150.json"),
         "tax": os.path.join(HERE, "taxonomy.json"),
         "img": ("assets/characters", "webp"),
         "json": os.path.join(PROJECT, "data", "characters.json"),
         "cats": [("yao", "妖", "zhu"), ("jing", "精", "cui"),
-                 ("gui", "鬼", "hun"), ("guai", "怪", "liu")],
+                 ("gui", "鬼", "hun"), ("guai", "怪", "liu"),
+                 ("shen", "神", "qing"), ("fo", "佛", "jin"), ("ren", "人", "dai")],
         "blurb": {
             "yao": "占山踞洞、统率妖众的魔头，多以人形示人。",
             "jing": "兽、禽、鱼虫、草木成精，本相可指认者。",
-            "gui": "尸骸、骷髅、僵尸一类，原著中仅此一例可归。",
+            "gui": "尸骸、骷髅、僵尸与幽冥鬼卒一类。",
             "guai": "本相难归一类、书中始终以「怪」称之者。",
+            "shen": "天界神真、星宿雷将、四海龙王与天门守将。",
+            "fo": "如来、菩萨、尊者、罗汉与灵山隨行圣众。",
+            "ren": "帝王将相、僧道吏民、后妃宫人与取经沿途凡人。",
         },
         "habs": [("hai", "海", "江河水府", "龙宫、潭渊与河底水宅"),
                  ("lu", "陆", "山岭城郭", "山道、城郭与荒野"),
                  ("kong", "空", "云端天际", "天界、飞行与腾云之属"),
                  ("di", "地（穴）", "洞府幽穴", "洞府、穴居与地宫")],
-        "intro": "取经路上所遇妖魔精怪的形象谱录，按妖、精、鬼、怪分类，以海、陆、空、地（穴）安置，逐条附回目与原文。",
+        "intro": "取经路上所遇妖魔精怪、神佛人主的形象谱录：前六十幅为妖精灵怪摘抄四视图，后一百四十九幅为配角神人立绘，合按妖、精、鬼、怪、神、佛、人七类划分，以海、陆、空、地（穴）安置，逐条附回目与原文。",
         "unit": "段原文",
-        "note": "「妖 · 精 · 鬼 · 怪」与「海 · 陆 · 空 · 地（穴）」两层分类由编者依原文所载判定，用于检索与编排，并非原著官方分类。原著中可明确归入「鬼」的形象极少，本图志仅收白骨夫人本相一例；「怪」类亦只三例。条目若与本相、居所记载有出入，以原文为准，可在 <span style=\"font-family:var(--mono);font-size:11.5px\">tools/taxonomy.json</span> 中改写后重新生成。",
-        "catintro": "四类之分，取原文对本相、称号与居所的写法：",
+        "note": "「妖 · 精 · 鬼 · 怪 · 神 · 佛 · 人」与「海 · 陆 · 空 · 地（穴）」两层分类由编者依原文所载判定，用于检索与编排，并非原著官方分类。前六十条取自精怪摘抄（16:9 四视图），后一百四十九条取自国漫风人物立绘（2:3 竖图），两套图幅并存，按各自原比例排版。原著不载「黑白无常」「降龙罗汉」「龙王夫人」之名，此三条据民间俗称与相邻情节列目，按语已注明；「裴虚己」今本无此人，未收。条目若与本相、居所记载有出入，以原文为准，可在 <span style=\"font-family:var(--mono);font-size:11.5px\">tools/taxonomy.json</span> 中改写后重新生成。",
+        "catintro": "七类之分，取原文对本相、身份、职司与居所的写法：",
     },
     {
         "id": "shj",
@@ -402,6 +407,21 @@ def parse_xyj(path):
     return entries
 
 
+def parse_xyj_roster(path):
+    """data/xyj_roster150.json → 补录条目（编号 061 起，2:3 竖图立绘）。"""
+    data = json.load(open(path, encoding="utf-8"))
+    entries = []
+    for e in data:
+        entries.append({
+            "id": e["id"], "num": int(e["num"]), "name": e["name"],
+            "chapter": e["chapter"], "chapterShort": e["chapterShort"],
+            "desc": e.get("desc", ""), "para": None, "quote": e["quote"],
+            "pinyin": "", "shape": e.get("shape", "tall"),
+            "imgw": e.get("imgw", 1600), "imgh": e.get("imgh", 2400),
+        })
+    return entries
+
+
 def parse_shj(path):
     """01. 蠃鱼（luǒ yú） + 描述行 → 记录"""
     text = open(path, encoding="utf-8").read()
@@ -625,7 +645,7 @@ def esc(s):
 
 def load_work(w):
     if w["id"] == "xyj":
-        entries = parse_xyj(w["src"])
+        entries = parse_xyj(w["src"]) + parse_xyj_roster(w["roster"])
     elif w["id"] == "shj":
         entries = parse_shj(w["src"])
     elif w["id"] == "lz":
@@ -693,7 +713,8 @@ def build():
             sub_html = '<span class="psub">%s</span>' % esc(sub) if sub else ""
             return (
                 '<figure class="plate" data-work="{work}" data-cat="{cat}" data-hab="{hab}"'
-                ' data-id="{id}" data-name="{name}" data-chapter="{chap}" style="--cat:var(--{color})">\n'
+                ' data-shape="{shape}" data-id="{id}" data-name="{name}" data-chapter="{chap}"'
+                ' style="--cat:var(--{color})">\n'
                 '  <a class="plate-fig" href="#/w/{work}/x/{cat}/{id}" aria-label="打开 {name} 的设定与原文">'
                 '<img src="{img}" alt="{name} 设定图" width="{iw}" height="{ih}" loading="lazy" decoding="async">'
                 '</a>\n'
@@ -714,11 +735,12 @@ def build():
                 '</figure>'
             ).format(
                 work=w["id"], cat=e["cat"], hab=e["hab"], id=e["id"], name=esc(e["name"]),
+                shape=e.get("shape", "wide"),
                 chap=esc(e["chapterShort"]), color=cat_color[e["cat"]], num="%02d" % e["num"],
                 main=esc(main), subhtml=sub_html, catlabel=cat_name[e["cat"]],
                 hablabel=hab_label[e["hab"]], basis=esc(e["basis"]), chapter=esc(e["chapter"]),
                 desc=esc(e["desc"]), quote=esc(e["quote"]), img=e["img"],
-                iw=w.get("imgw", 1600), ih=w.get("imgh", 903),
+                iw=e.get("imgw", w.get("imgw", 1600)), ih=e.get("imgh", w.get("imgh", 903)),
             )
 
         # ---------- 卷三 生境分栏 ----------
@@ -822,6 +844,7 @@ def build():
         for r in rows:
             hero_items.append({
                 "img": r["img"], "name": r["name"],
+                "shape": r.get("shape", "wide"),
                 "sub": "%s · %s" % (w["title"], r["chapterShort"] or r["chapter"]),
             })
 

@@ -21,3 +21,7 @@ liaozai/
 node_modules/
 package.json
 package-lock.json
+
+# 大体积素材包不上传
+西游_国漫风.zip
+*.zip
